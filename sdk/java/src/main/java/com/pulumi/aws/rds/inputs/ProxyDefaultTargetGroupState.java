@@ -32,14 +32,14 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
     }
 
     /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
+     * Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
      * 
      */
     @Import(name="connectionPoolConfig")
     private @Nullable Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs> connectionPoolConfig;
 
     /**
-     * @return The settings that determine the size and behavior of the connection pool for the target group.
+     * @return Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
      * 
      */
     public Optional<Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs>> connectionPoolConfig() {
@@ -62,14 +62,14 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the default target group.
+     * Name of the default target group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the default target group.
+     * @return Name of the default target group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -141,7 +141,7 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param connectionPoolConfig The settings that determine the size and behavior of the connection pool for the target group.
+         * @param connectionPoolConfig Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param connectionPoolConfig The settings that determine the size and behavior of the connection pool for the target group.
+         * @param connectionPoolConfig Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the default target group.
+         * @param name Name of the default target group.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ProxyDefaultTargetGroupState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the default target group.
+         * @param name Name of the default target group.
          * 
          * @return builder
          * 

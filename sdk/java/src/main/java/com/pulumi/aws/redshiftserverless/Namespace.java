@@ -96,16 +96,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.adminPasswordSecretKmsKeyId;
     }
     /**
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      * 
      */
     @Export(name="adminUserPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminUserPassword;
 
     /**
-     * @return The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+     * @return The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      * 
      */
     public Output<Optional<String>> adminUserPassword() {
@@ -113,8 +111,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
      * 
      */
     @Export(name="adminUserPasswordWo", refs={String.class}, tree="[0]")
@@ -122,22 +119,21 @@ public class Namespace extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> adminUserPasswordWo() {
         return Codegen.optional(this.adminUserPasswordWo);
     }
     /**
-     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
      * 
      */
     @Export(name="adminUserPasswordWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> adminUserPasswordWoVersion;
 
     /**
-     * @return Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * @return Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
      * 
      */
     public Output<Optional<Integer>> adminUserPasswordWoVersion() {
@@ -242,16 +238,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logExports);
     }
     /**
-     * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+     * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      * 
      */
     @Export(name="manageAdminPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manageAdminPassword;
 
     /**
-     * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+     * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      * 
      */
     public Output<Optional<Boolean>> manageAdminPassword() {

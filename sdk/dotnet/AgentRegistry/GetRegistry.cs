@@ -210,6 +210,10 @@ namespace Pulumi.Aws.AgentRegistry
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRegistryDiscoveryConfigurationResult> DiscoveryConfigurations;
         /// <summary>
+        /// Server-side encryption configuration for the registry. See below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRegistryEncryptionConfigurationResult> EncryptionConfigurations;
+        /// <summary>
         /// Name of the registry.
         /// </summary>
         public readonly string Name;
@@ -224,7 +228,7 @@ namespace Pulumi.Aws.AgentRegistry
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Map of tags assigned to the registry.
+        /// Tags applied to the service-managed VPC resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
@@ -241,6 +245,8 @@ namespace Pulumi.Aws.AgentRegistry
             string description,
 
             ImmutableArray<Outputs.GetRegistryDiscoveryConfigurationResult> discoveryConfigurations,
+
+            ImmutableArray<Outputs.GetRegistryEncryptionConfigurationResult> encryptionConfigurations,
 
             string name,
 
@@ -260,6 +266,7 @@ namespace Pulumi.Aws.AgentRegistry
             CreatedAt = createdAt;
             Description = description;
             DiscoveryConfigurations = discoveryConfigurations;
+            EncryptionConfigurations = encryptionConfigurations;
             Name = name;
             Region = region;
             RegistryArn = registryArn;

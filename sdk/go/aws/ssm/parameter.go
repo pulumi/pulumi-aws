@@ -148,9 +148,9 @@ type Parameter struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringOutput `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
 	ValueWo pulumi.StringPtrOutput `pulumi:"valueWo"`
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion pulumi.IntPtrOutput `pulumi:"valueWoVersion"`
@@ -235,9 +235,9 @@ type parameterState struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
 	ValueWo *string `pulumi:"valueWo"`
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion *int `pulumi:"valueWoVersion"`
@@ -279,9 +279,9 @@ type ParameterState struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
 	ValueWo pulumi.StringPtrInput
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion pulumi.IntPtrInput
@@ -323,9 +323,9 @@ type parameterArgs struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
 	ValueWo *string `pulumi:"valueWo"`
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion *int `pulumi:"valueWoVersion"`
@@ -362,9 +362,9 @@ type ParameterArgs struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
 	ValueWo pulumi.StringPtrInput
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion pulumi.IntPtrInput
@@ -535,12 +535,12 @@ func (o ParameterOutput) Value() pulumi.StringOutput {
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
 func (o ParameterOutput) ValueWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.ValueWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 //
 // > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 func (o ParameterOutput) ValueWoVersion() pulumi.IntPtrOutput {

@@ -190,10 +190,14 @@ type Registry struct {
 
 	// Approval configuration for registry records. See below.
 	ApprovalConfiguration RegistryApprovalConfigurationPtrOutput `pulumi:"approvalConfiguration"`
+	// Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+	AutoDetectionConfiguration RegistryAutoDetectionConfigurationPtrOutput `pulumi:"autoDetectionConfiguration"`
 	// Description of the registry. Maximum length of 4096 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Discovery configuration for the registry. See below.
 	DiscoveryConfiguration RegistryDiscoveryConfigurationOutput `pulumi:"discoveryConfiguration"`
+	// Server-side encryption configuration for the registry. See below.
+	EncryptionConfiguration RegistryEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
 	//
 	// The following arguments are optional:
@@ -246,10 +250,14 @@ func GetRegistry(ctx *pulumi.Context,
 type registryState struct {
 	// Approval configuration for registry records. See below.
 	ApprovalConfiguration *RegistryApprovalConfiguration `pulumi:"approvalConfiguration"`
+	// Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+	AutoDetectionConfiguration *RegistryAutoDetectionConfiguration `pulumi:"autoDetectionConfiguration"`
 	// Description of the registry. Maximum length of 4096 characters.
 	Description *string `pulumi:"description"`
 	// Discovery configuration for the registry. See below.
 	DiscoveryConfiguration *RegistryDiscoveryConfiguration `pulumi:"discoveryConfiguration"`
+	// Server-side encryption configuration for the registry. See below.
+	EncryptionConfiguration *RegistryEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
 	//
 	// The following arguments are optional:
@@ -270,10 +278,14 @@ type registryState struct {
 type RegistryState struct {
 	// Approval configuration for registry records. See below.
 	ApprovalConfiguration RegistryApprovalConfigurationPtrInput
+	// Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+	AutoDetectionConfiguration RegistryAutoDetectionConfigurationPtrInput
 	// Description of the registry. Maximum length of 4096 characters.
 	Description pulumi.StringPtrInput
 	// Discovery configuration for the registry. See below.
 	DiscoveryConfiguration RegistryDiscoveryConfigurationPtrInput
+	// Server-side encryption configuration for the registry. See below.
+	EncryptionConfiguration RegistryEncryptionConfigurationPtrInput
 	// Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
 	//
 	// The following arguments are optional:
@@ -298,10 +310,14 @@ func (RegistryState) ElementType() reflect.Type {
 type registryArgs struct {
 	// Approval configuration for registry records. See below.
 	ApprovalConfiguration *RegistryApprovalConfiguration `pulumi:"approvalConfiguration"`
+	// Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+	AutoDetectionConfiguration *RegistryAutoDetectionConfiguration `pulumi:"autoDetectionConfiguration"`
 	// Description of the registry. Maximum length of 4096 characters.
 	Description *string `pulumi:"description"`
 	// Discovery configuration for the registry. See below.
 	DiscoveryConfiguration RegistryDiscoveryConfiguration `pulumi:"discoveryConfiguration"`
+	// Server-side encryption configuration for the registry. See below.
+	EncryptionConfiguration *RegistryEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
 	//
 	// The following arguments are optional:
@@ -317,10 +333,14 @@ type registryArgs struct {
 type RegistryArgs struct {
 	// Approval configuration for registry records. See below.
 	ApprovalConfiguration RegistryApprovalConfigurationPtrInput
+	// Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+	AutoDetectionConfiguration RegistryAutoDetectionConfigurationPtrInput
 	// Description of the registry. Maximum length of 4096 characters.
 	Description pulumi.StringPtrInput
 	// Discovery configuration for the registry. See below.
 	DiscoveryConfiguration RegistryDiscoveryConfigurationInput
+	// Server-side encryption configuration for the registry. See below.
+	EncryptionConfiguration RegistryEncryptionConfigurationPtrInput
 	// Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
 	//
 	// The following arguments are optional:
@@ -424,6 +444,11 @@ func (o RegistryOutput) ApprovalConfiguration() RegistryApprovalConfigurationPtr
 	return o.ApplyT(func(v *Registry) RegistryApprovalConfigurationPtrOutput { return v.ApprovalConfiguration }).(RegistryApprovalConfigurationPtrOutput)
 }
 
+// Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+func (o RegistryOutput) AutoDetectionConfiguration() RegistryAutoDetectionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Registry) RegistryAutoDetectionConfigurationPtrOutput { return v.AutoDetectionConfiguration }).(RegistryAutoDetectionConfigurationPtrOutput)
+}
+
 // Description of the registry. Maximum length of 4096 characters.
 func (o RegistryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -432,6 +457,11 @@ func (o RegistryOutput) Description() pulumi.StringPtrOutput {
 // Discovery configuration for the registry. See below.
 func (o RegistryOutput) DiscoveryConfiguration() RegistryDiscoveryConfigurationOutput {
 	return o.ApplyT(func(v *Registry) RegistryDiscoveryConfigurationOutput { return v.DiscoveryConfiguration }).(RegistryDiscoveryConfigurationOutput)
+}
+
+// Server-side encryption configuration for the registry. See below.
+func (o RegistryOutput) EncryptionConfiguration() RegistryEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Registry) RegistryEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(RegistryEncryptionConfigurationPtrOutput)
 }
 
 // Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.

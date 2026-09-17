@@ -24,14 +24,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     public static final ClusterInstanceArgs Empty = new ClusterInstanceArgs();
 
     /**
-     * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
     @Import(name="applyImmediately")
     private @Nullable Output<Boolean> applyImmediately;
 
     /**
-     * @return Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+     * @return Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> applyImmediately() {
@@ -39,14 +39,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     * Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      * 
      */
     @Import(name="autoMinorVersionUpgrade")
     private @Nullable Output<Boolean> autoMinorVersionUpgrade;
 
     /**
-     * @return Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     * @return Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      * 
      */
     public Optional<Output<Boolean>> autoMinorVersionUpgrade() {
@@ -99,14 +99,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     * Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      * 
      */
     @Import(name="copyTagsToSnapshot")
     private @Nullable Output<Boolean> copyTagsToSnapshot;
 
     /**
-     * @return Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     * @return Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      * 
      */
     public Optional<Output<Boolean>> copyTagsToSnapshot() {
@@ -144,14 +144,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
+     * DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      * 
      */
     @Import(name="dbSubnetGroupName")
     private @Nullable Output<String> dbSubnetGroupName;
 
     /**
-     * @return Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
+     * @return DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      * 
      */
     public Optional<Output<String>> dbSubnetGroupName() {
@@ -159,16 +159,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     @Import(name="engine", required=true)
     private Output<EngineType> engine;
 
     /**
-     * @return Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * @return Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     public Output<EngineType> engine() {
@@ -281,14 +279,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
+     * Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
      * 
      */
     @Import(name="performanceInsightsEnabled")
     private @Nullable Output<Boolean> performanceInsightsEnabled;
 
     /**
-     * @return Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
+     * @return Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
      * 
      */
     public Optional<Output<Boolean>> performanceInsightsEnabled() {
@@ -418,18 +416,12 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
      * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-     * 
      */
     @Import(name="warningEventCategories")
     private @Nullable Output<List<String>> warningEventCategories;
 
     /**
      * @return Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      * 
      */
     public Optional<Output<List<String>>> warningEventCategories() {
@@ -487,7 +479,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param applyImmediately Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+         * @param applyImmediately Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
          * 
          * @return builder
          * 
@@ -498,7 +490,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param applyImmediately Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+         * @param applyImmediately Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
          * 
          * @return builder
          * 
@@ -508,7 +500,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param autoMinorVersionUpgrade Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+         * @param autoMinorVersionUpgrade Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
          * 
          * @return builder
          * 
@@ -519,7 +511,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param autoMinorVersionUpgrade Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+         * @param autoMinorVersionUpgrade Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
          * 
          * @return builder
          * 
@@ -592,7 +584,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param copyTagsToSnapshot Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+         * @param copyTagsToSnapshot Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
          * 
          * @return builder
          * 
@@ -603,7 +595,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param copyTagsToSnapshot Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+         * @param copyTagsToSnapshot Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
          * 
          * @return builder
          * 
@@ -655,7 +647,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dbSubnetGroupName Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
+         * @param dbSubnetGroupName DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
          * 
          * @return builder
          * 
@@ -666,7 +658,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param dbSubnetGroupName Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
+         * @param dbSubnetGroupName DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
          * 
          * @return builder
          * 
@@ -676,8 +668,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine Name of the database engine to be used for the RDS cluster instance.
-         * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+         * @param engine Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
          * 
          * @return builder
          * 
@@ -688,8 +679,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine Name of the database engine to be used for the RDS cluster instance.
-         * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+         * @param engine Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
          * 
          * @return builder
          * 
@@ -866,7 +856,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param performanceInsightsEnabled Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
+         * @param performanceInsightsEnabled Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
          * 
          * @return builder
          * 
@@ -877,7 +867,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param performanceInsightsEnabled Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
+         * @param performanceInsightsEnabled Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
          * 
          * @return builder
          * 
@@ -1057,9 +1047,6 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param warningEventCategories Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
          * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-         * 
          * @return builder
          * 
          */
@@ -1071,9 +1058,6 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param warningEventCategories Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
          * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-         * 
          * @return builder
          * 
          */
@@ -1083,9 +1067,6 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param warningEventCategories Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
-         * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
          * 
          * @return builder
          * 

@@ -4,11 +4,14 @@
 package com.pulumi.aws.agentregistry.outputs;
 
 import com.pulumi.aws.agentregistry.outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim;
+import com.pulumi.aws.agentregistry.outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint;
+import com.pulumi.aws.agentregistry.outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -38,6 +41,16 @@ public final class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJw
      * 
      */
     private String discoveryUrl;
+    /**
+     * @return Private endpoint used to reach the identity provider&#39;s discovery URL over a private network path. See below.
+     * 
+     */
+    private @Nullable RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint privateEndpoint;
+    /**
+     * @return Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+     * 
+     */
+    private @Nullable List<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides;
 
     private RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer() {}
     /**
@@ -75,6 +88,20 @@ public final class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJw
     public String discoveryUrl() {
         return this.discoveryUrl;
     }
+    /**
+     * @return Private endpoint used to reach the identity provider&#39;s discovery URL over a private network path. See below.
+     * 
+     */
+    public Optional<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint> privateEndpoint() {
+        return Optional.ofNullable(this.privateEndpoint);
+    }
+    /**
+     * @return Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+     * 
+     */
+    public List<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides() {
+        return this.privateEndpointOverrides == null ? List.of() : this.privateEndpointOverrides;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -90,6 +117,8 @@ public final class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJw
         private @Nullable List<String> allowedScopes;
         private @Nullable List<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
         private String discoveryUrl;
+        private @Nullable RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint privateEndpoint;
+        private @Nullable List<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides;
         public Builder() {}
         public Builder(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer defaults) {
     	      Objects.requireNonNull(defaults);
@@ -98,6 +127,8 @@ public final class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJw
     	      this.allowedScopes = defaults.allowedScopes;
     	      this.customClaims = defaults.customClaims;
     	      this.discoveryUrl = defaults.discoveryUrl;
+    	      this.privateEndpoint = defaults.privateEndpoint;
+    	      this.privateEndpointOverrides = defaults.privateEndpointOverrides;
         }
 
         @CustomType.Setter
@@ -144,6 +175,21 @@ public final class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJw
             this.discoveryUrl = discoveryUrl;
             return this;
         }
+        @CustomType.Setter
+        public Builder privateEndpoint(@Nullable RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint privateEndpoint) {
+
+            this.privateEndpoint = privateEndpoint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privateEndpointOverrides(@Nullable List<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides) {
+
+            this.privateEndpointOverrides = privateEndpointOverrides;
+            return this;
+        }
+        public Builder privateEndpointOverrides(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride... privateEndpointOverrides) {
+            return privateEndpointOverrides(List.of(privateEndpointOverrides));
+        }
         public RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer build() {
             final var _resultValue = new RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer();
             _resultValue.allowedAudiences = allowedAudiences;
@@ -151,6 +197,8 @@ public final class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJw
             _resultValue.allowedScopes = allowedScopes;
             _resultValue.customClaims = customClaims;
             _resultValue.discoveryUrl = discoveryUrl;
+            _resultValue.privateEndpoint = privateEndpoint;
+            _resultValue.privateEndpointOverrides = privateEndpointOverrides;
             return _resultValue;
         }
     }

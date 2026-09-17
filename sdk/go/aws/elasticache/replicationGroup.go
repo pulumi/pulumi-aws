@@ -384,9 +384,9 @@ type ReplicationGroup struct {
 	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy pulumi.StringPtrOutput `pulumi:"authTokenUpdateStrategy"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
 	AuthTokenWo pulumi.StringPtrOutput `pulumi:"authTokenWo"`
-	// Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
 	AuthTokenWoVersion pulumi.IntPtrOutput `pulumi:"authTokenWoVersion"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
@@ -568,9 +568,9 @@ type replicationGroupState struct {
 	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy *string `pulumi:"authTokenUpdateStrategy"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
 	AuthTokenWo *string `pulumi:"authTokenWo"`
-	// Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
 	AuthTokenWoVersion *int `pulumi:"authTokenWoVersion"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
@@ -709,9 +709,9 @@ type ReplicationGroupState struct {
 	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
 	AuthTokenWo pulumi.StringPtrInput
-	// Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
 	AuthTokenWoVersion pulumi.IntPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
@@ -852,9 +852,9 @@ type replicationGroupArgs struct {
 	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy *string `pulumi:"authTokenUpdateStrategy"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
 	AuthTokenWo *string `pulumi:"authTokenWo"`
-	// Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
 	AuthTokenWoVersion *int `pulumi:"authTokenWoVersion"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
@@ -978,9 +978,9 @@ type ReplicationGroupArgs struct {
 	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
 	AuthTokenWo pulumi.StringPtrInput
-	// Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
 	AuthTokenWoVersion pulumi.IntPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
@@ -1206,12 +1206,12 @@ func (o ReplicationGroupOutput) AuthTokenUpdateStrategy() pulumi.StringPtrOutput
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
 func (o ReplicationGroupOutput) AuthTokenWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.AuthTokenWo }).(pulumi.StringPtrOutput)
 }
 
-// Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
 func (o ReplicationGroupOutput) AuthTokenWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.AuthTokenWoVersion }).(pulumi.IntPtrOutput)
 }

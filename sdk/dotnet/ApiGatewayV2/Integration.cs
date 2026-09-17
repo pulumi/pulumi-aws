@@ -150,13 +150,25 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ApiId` (String) API identifier.
+    /// * `Id` (String) Integration identifier.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import `aws.apigatewayv2.Integration` using the API identifier and integration identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
     /// ```
     /// 
-    /// &gt; **Note:** The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+    /// &gt; **Note:** The API Gateway managed integration created as part of [*quick_create*](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/integration:Integration")]
     public partial class Integration : global::Pulumi.CustomResource

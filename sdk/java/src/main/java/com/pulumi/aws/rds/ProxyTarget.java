@@ -44,16 +44,12 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
     /**
      * DB cluster identifier.
      * 
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
-     * 
      */
     @Export(name="dbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dbClusterIdentifier;
 
     /**
      * @return DB cluster identifier.
-     * 
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      * 
      */
     public Output<Optional<String>> dbClusterIdentifier() {
@@ -74,14 +70,14 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dbInstanceIdentifier);
     }
     /**
-     * The name of the DB proxy.
+     * Name of the DB proxy.
      * 
      */
     @Export(name="dbProxyName", refs={String.class}, tree="[0]")
     private Output<String> dbProxyName;
 
     /**
-     * @return The name of the DB proxy.
+     * @return Name of the DB proxy.
      * 
      */
     public Output<String> dbProxyName() {
@@ -158,14 +154,14 @@ public class ProxyTarget extends com.pulumi.resources.CustomResource {
         return this.targetArn;
     }
     /**
-     * The name of the target group.
+     * Name of the target group.
      * 
      */
     @Export(name="targetGroupName", refs={String.class}, tree="[0]")
     private Output<String> targetGroupName;
 
     /**
-     * @return The name of the target group.
+     * @return Name of the target group.
      * 
      */
     public Output<String> targetGroupName() {

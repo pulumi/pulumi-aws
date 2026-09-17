@@ -168,12 +168,16 @@ public class TrafficPolicy extends com.pulumi.resources.CustomResource {
     /**
      * Name of the traffic policy.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the traffic policy.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -182,16 +186,12 @@ public class TrafficPolicy extends com.pulumi.resources.CustomResource {
     /**
      * Traffic policy statements. See `policyStatement` Block below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="policyStatements", refs={List.class,TrafficPolicyPolicyStatement.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TrafficPolicyPolicyStatement>> policyStatements;
 
     /**
      * @return Traffic policy statements. See `policyStatement` Block below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Optional<List<TrafficPolicyPolicyStatement>>> policyStatements() {

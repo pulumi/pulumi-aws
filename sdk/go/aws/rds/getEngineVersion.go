@@ -98,7 +98,7 @@ type GetEngineVersionArgs struct {
 	//
 	// The following arguments are optional:
 	Engine string `pulumi:"engine"`
-	// One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+	// Configuration block for filtering versions. See `filter` Block below.
 	Filters []GetEngineVersionFilter `pulumi:"filters"`
 	// Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
 	HasMajorTarget *bool `pulumi:"hasMajorTarget"`
@@ -196,7 +196,7 @@ type GetEngineVersionOutputArgs struct {
 	//
 	// The following arguments are optional:
 	Engine pulumi.StringInput `pulumi:"engine"`
-	// One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+	// Configuration block for filtering versions. See `filter` Block below.
 	Filters GetEngineVersionFilterArrayInput `pulumi:"filters"`
 	// Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
 	HasMajorTarget pulumi.BoolPtrInput `pulumi:"hasMajorTarget"`

@@ -243,9 +243,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> MaintenanceTrackName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `MasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
+        /// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `MasterPassword` and `MasterPasswordWo`. One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// </summary>
         [Output("manageMasterPassword")]
         public Output<bool?> ManageMasterPassword { get; private set; } = null!;
@@ -257,11 +255,7 @@ namespace Pulumi.Aws.RedShift
         public Output<int?> ManualSnapshotRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs, and it will be stored in the state file.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPasswordWo`. One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
@@ -280,17 +274,13 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPassword`.
-        /// One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPassword`. One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         [Output("masterPasswordWo")]
         public Output<string?> MasterPasswordWo { get; private set; } = null!;
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Output("masterPasswordWoVersion")]
         public Output<int?> MasterPasswordWoVersion { get; private set; } = null!;
@@ -581,9 +571,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? MaintenanceTrackName { get; set; }
 
         /// <summary>
-        /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `MasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
+        /// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `MasterPassword` and `MasterPasswordWo`. One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
         public Input<bool>? ManageMasterPassword { get; set; }
@@ -598,11 +586,7 @@ namespace Pulumi.Aws.RedShift
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs, and it will be stored in the state file.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPasswordWo`. One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -625,11 +609,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPassword`.
-        /// One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPassword`. One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? MasterPasswordWo
         {
@@ -642,7 +622,7 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Input("masterPasswordWoVersion")]
         public Input<int>? MasterPasswordWoVersion { get; set; }
@@ -944,9 +924,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? MaintenanceTrackName { get; set; }
 
         /// <summary>
-        /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `MasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
+        /// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `MasterPassword` and `MasterPasswordWo`. One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
         public Input<bool>? ManageMasterPassword { get; set; }
@@ -961,11 +939,7 @@ namespace Pulumi.Aws.RedShift
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs, and it will be stored in the state file.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPasswordWo`. One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -994,11 +968,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPassword`.
-        /// One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPassword`. One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? MasterPasswordWo
         {
@@ -1011,7 +981,7 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Input("masterPasswordWoVersion")]
         public Input<int>? MasterPasswordWoVersion { get; set; }

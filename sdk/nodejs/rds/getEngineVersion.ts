@@ -78,7 +78,7 @@ export interface GetEngineVersionArgs {
      */
     engine: string;
     /**
-     * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * Configuration block for filtering versions. See `filter` Block below.
      */
     filters?: inputs.rds.GetEngineVersionFilter[];
     /**
@@ -300,7 +300,7 @@ export interface GetEngineVersionOutputArgs {
      */
     engine: pulumi.Input<string>;
     /**
-     * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * Configuration block for filtering versions. See `filter` Block below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetEngineVersionFilterArgs>[] | undefined>;
     /**

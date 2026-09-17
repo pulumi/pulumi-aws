@@ -138,11 +138,11 @@ export class User extends pulumi.CustomResource {
     declare public readonly passwords: pulumi.Output<string[] | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
      */
     declare public readonly passwordsWo: pulumi.Output<string | undefined>;
     /**
-     * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     * Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
      */
     declare public readonly passwordsWoVersion: pulumi.Output<number | undefined>;
     /**
@@ -256,11 +256,11 @@ export interface UserState {
     passwords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
      */
     passwordsWo?: pulumi.Input<string | undefined>;
     /**
-     * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     * Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
      */
     passwordsWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -310,11 +310,11 @@ export interface UserArgs {
     passwords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
      */
     passwordsWo?: pulumi.Input<string | undefined>;
     /**
-     * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     * Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
      */
     passwordsWoVersion?: pulumi.Input<number | undefined>;
     /**

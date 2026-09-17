@@ -12,8 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceMasterUserSecret {
     /**
-     * @return The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
+     * @return ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -23,15 +22,14 @@ public final class InstanceMasterUserSecret {
      */
     private @Nullable String secretArn;
     /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     private @Nullable String secretStatus;
 
     private InstanceMasterUserSecret() {}
     /**
-     * @return The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
+     * @return ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
      * 
      */
     public Optional<String> kmsKeyId() {
@@ -45,7 +43,7 @@ public final class InstanceMasterUserSecret {
         return Optional.ofNullable(this.secretArn);
     }
     /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     public Optional<String> secretStatus() {

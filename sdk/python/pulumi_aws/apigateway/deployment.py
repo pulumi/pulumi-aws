@@ -231,7 +231,10 @@ class Deployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        ## Import
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `apigateway.Deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
 
@@ -268,7 +271,10 @@ class Deployment(pulumi.CustomResource):
 
         ## Example Usage
 
-        ## Import
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `apigateway.Deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
 

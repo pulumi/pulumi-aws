@@ -70,6 +70,8 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
  * ```
  * 
+ * &gt; **Note:** When a virtual interface uses an ASN in the `bgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgpAsn` rather than `bgpAsnLong`. If the virtual interface was originally created with `bgpAsnLong` set to a value in that range, update your configuration to use `bgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgpAsnLong` as expected.
+ * 
  */
 @ResourceType(type="aws:directconnect/publicVirtualInterface:PublicVirtualInterface")
 public class PublicVirtualInterface extends com.pulumi.resources.CustomResource {
@@ -136,14 +138,14 @@ public class PublicVirtualInterface extends com.pulumi.resources.CustomResource 
         return this.awsDevice;
     }
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     @Export(name="bgpAsn", refs={Integer.class}, tree="[0]")
     private Output<Integer> bgpAsn;
 
     /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     public Output<Integer> bgpAsn() {

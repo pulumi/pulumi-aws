@@ -17,14 +17,14 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
     public static final InstanceS3ImportArgs Empty = new InstanceS3ImportArgs();
 
     /**
-     * The bucket name where your backup is stored
+     * Bucket name where your backup is stored.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The bucket name where your backup is stored
+     * @return Bucket name where your backup is stored.
      * 
      */
     public Output<String> bucketName() {
@@ -32,14 +32,14 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Can be blank, but is the path to your backup
+     * Can be blank, but is the path to your backup.
      * 
      */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
     /**
-     * @return Can be blank, but is the path to your backup
+     * @return Can be blank, but is the path to your backup.
      * 
      */
     public Optional<Output<String>> bucketPrefix() {
@@ -62,14 +62,14 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Source engine for the backup
+     * Source engine for the backup.
      * 
      */
     @Import(name="sourceEngine", required=true)
     private Output<String> sourceEngine;
 
     /**
-     * @return Source engine for the backup
+     * @return Source engine for the backup.
      * 
      */
     public Output<String> sourceEngine() {
@@ -77,18 +77,14 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Version of the source engine used to make the backup
-     * 
-     * This will not recreate the resource if the S3 object changes in some way.  It&#39;s only used to initialize the database.
+     * Version of the source engine used to make the backup.
      * 
      */
     @Import(name="sourceEngineVersion", required=true)
     private Output<String> sourceEngineVersion;
 
     /**
-     * @return Version of the source engine used to make the backup
-     * 
-     * This will not recreate the resource if the S3 object changes in some way.  It&#39;s only used to initialize the database.
+     * @return Version of the source engine used to make the backup.
      * 
      */
     public Output<String> sourceEngineVersion() {
@@ -124,7 +120,7 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucketName The bucket name where your backup is stored
+         * @param bucketName Bucket name where your backup is stored.
          * 
          * @return builder
          * 
@@ -135,7 +131,7 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucketName The bucket name where your backup is stored
+         * @param bucketName Bucket name where your backup is stored.
          * 
          * @return builder
          * 
@@ -145,7 +141,7 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucketPrefix Can be blank, but is the path to your backup
+         * @param bucketPrefix Can be blank, but is the path to your backup.
          * 
          * @return builder
          * 
@@ -156,7 +152,7 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param bucketPrefix Can be blank, but is the path to your backup
+         * @param bucketPrefix Can be blank, but is the path to your backup.
          * 
          * @return builder
          * 
@@ -187,7 +183,7 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceEngine Source engine for the backup
+         * @param sourceEngine Source engine for the backup.
          * 
          * @return builder
          * 
@@ -198,7 +194,7 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceEngine Source engine for the backup
+         * @param sourceEngine Source engine for the backup.
          * 
          * @return builder
          * 
@@ -208,9 +204,7 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceEngineVersion Version of the source engine used to make the backup
-         * 
-         * This will not recreate the resource if the S3 object changes in some way.  It&#39;s only used to initialize the database.
+         * @param sourceEngineVersion Version of the source engine used to make the backup.
          * 
          * @return builder
          * 
@@ -221,9 +215,7 @@ public final class InstanceS3ImportArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sourceEngineVersion Version of the source engine used to make the backup
-         * 
-         * This will not recreate the resource if the S3 object changes in some way.  It&#39;s only used to initialize the database.
+         * @param sourceEngineVersion Version of the source engine used to make the backup.
          * 
          * @return builder
          * 

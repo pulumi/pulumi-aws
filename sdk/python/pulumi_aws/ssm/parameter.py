@@ -54,8 +54,8 @@ class ParameterArgs:
         :param pulumi.Input[_builtins.str] tier: Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
-        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `value_wo_version`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+        :param pulumi.Input[_builtins.int] value_wo_version: Required when `value_wo` is set. Changing this value triggers an update to `value_wo`.
                
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
@@ -252,7 +252,7 @@ class ParameterArgs:
     def value_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `value_wo_version`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
         """
         return pulumi.get(self, "value_wo")
 
@@ -264,7 +264,7 @@ class ParameterArgs:
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+        Required when `value_wo` is set. Changing this value triggers an update to `value_wo`.
 
         > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
@@ -317,8 +317,8 @@ class _ParameterState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
-        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `value_wo_version`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+        :param pulumi.Input[_builtins.int] value_wo_version: Required when `value_wo` is set. Changing this value triggers an update to `value_wo`.
                
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[_builtins.int] version: Version of the parameter.
@@ -547,7 +547,7 @@ class _ParameterState:
     def value_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `value_wo_version`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
         """
         return pulumi.get(self, "value_wo")
 
@@ -559,7 +559,7 @@ class _ParameterState:
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+        Required when `value_wo` is set. Changing this value triggers an update to `value_wo`.
 
         > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
@@ -688,8 +688,8 @@ class Parameter(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
-        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `value_wo_version`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+        :param pulumi.Input[_builtins.int] value_wo_version: Required when `value_wo` is set. Changing this value triggers an update to `value_wo`.
                
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """
@@ -879,8 +879,8 @@ class Parameter(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] value: Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
         :param pulumi.Input[_builtins.str] value_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
-        :param pulumi.Input[_builtins.int] value_wo_version: Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+               Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `value_wo_version`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+        :param pulumi.Input[_builtins.int] value_wo_version: Required when `value_wo` is set. Changing this value triggers an update to `value_wo`.
                
                > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         :param pulumi.Input[_builtins.int] version: Version of the parameter.
@@ -1036,7 +1036,7 @@ class Parameter(pulumi.CustomResource):
     def value_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `value_wo_version` can be used to trigger an update and is required with this argument.
+        Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `value_wo_version`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
         """
         return pulumi.get(self, "value_wo")
 
@@ -1044,7 +1044,7 @@ class Parameter(pulumi.CustomResource):
     @pulumi.getter(name="valueWoVersion")
     def value_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Used together with `value_wo` to trigger an update. Increment this value when an update to the `value_wo` is required.
+        Required when `value_wo` is set. Changing this value triggers an update to `value_wo`.
 
         > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         """

@@ -32,14 +32,14 @@ class ParameterGroupArgs:
         """
         The set of arguments for constructing a ParameterGroup resource.
 
-        :param pulumi.Input[_builtins.str] family: The family of the DB parameter group.
-        :param pulumi.Input[_builtins.str] description: The description of the DB parameter group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] name: The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] family: Family of the DB parameter group.
+        :param pulumi.Input[_builtins.str] description: Description of the DB parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] name: Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "family", family)
         if description is None:
@@ -63,7 +63,7 @@ class ParameterGroupArgs:
     @pulumi.getter
     def family(self) -> pulumi.Input[_builtins.str]:
         """
-        The family of the DB parameter group.
+        Family of the DB parameter group.
         """
         return pulumi.get(self, "family")
 
@@ -75,7 +75,7 @@ class ParameterGroupArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the DB parameter group. Defaults to "Managed by Pulumi".
+        Description of the DB parameter group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -87,7 +87,7 @@ class ParameterGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
+        Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -111,7 +111,7 @@ class ParameterGroupArgs:
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
         """
-        The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         """
         return pulumi.get(self, "parameters")
 
@@ -147,7 +147,7 @@ class ParameterGroupArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -172,16 +172,16 @@ class _ParameterGroupState:
         """
         Input properties used for looking up and filtering ParameterGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the db parameter group.
-        :param pulumi.Input[_builtins.str] description: The description of the DB parameter group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] family: The family of the DB parameter group.
-        :param pulumi.Input[_builtins.str] name: The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] arn: ARN of the db parameter group.
+        :param pulumi.Input[_builtins.str] description: Description of the DB parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] family: Family of the DB parameter group.
+        :param pulumi.Input[_builtins.str] name: Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -210,7 +210,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the db parameter group.
+        ARN of the db parameter group.
         """
         return pulumi.get(self, "arn")
 
@@ -222,7 +222,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the DB parameter group. Defaults to "Managed by Pulumi".
+        Description of the DB parameter group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -234,7 +234,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The family of the DB parameter group.
+        Family of the DB parameter group.
         """
         return pulumi.get(self, "family")
 
@@ -246,7 +246,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
+        Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -270,7 +270,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
         """
-        The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         """
         return pulumi.get(self, "parameters")
 
@@ -306,7 +306,7 @@ class _ParameterGroupState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -318,7 +318,7 @@ class _ParameterGroupState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -470,14 +470,14 @@ class ParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the DB parameter group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] family: The family of the DB parameter group.
-        :param pulumi.Input[_builtins.str] name: The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] description: Description of the DB parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] family: Family of the DB parameter group.
+        :param pulumi.Input[_builtins.str] name: Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -684,16 +684,16 @@ class ParameterGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the db parameter group.
-        :param pulumi.Input[_builtins.str] description: The description of the DB parameter group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] family: The family of the DB parameter group.
-        :param pulumi.Input[_builtins.str] name: The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] arn: ARN of the db parameter group.
+        :param pulumi.Input[_builtins.str] description: Description of the DB parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] family: Family of the DB parameter group.
+        :param pulumi.Input[_builtins.str] name: Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -715,7 +715,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the db parameter group.
+        ARN of the db parameter group.
         """
         return pulumi.get(self, "arn")
 
@@ -723,7 +723,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
         """
-        The description of the DB parameter group. Defaults to "Managed by Pulumi".
+        Description of the DB parameter group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -731,7 +731,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def family(self) -> pulumi.Output[_builtins.str]:
         """
-        The family of the DB parameter group.
+        Family of the DB parameter group.
         """
         return pulumi.get(self, "family")
 
@@ -739,7 +739,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
+        Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -755,7 +755,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ParameterGroupParameter']]]:
         """
-        The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+        DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
         """
         return pulumi.get(self, "parameters")
 
@@ -779,7 +779,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -787,7 +787,7 @@ class ParameterGroup(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

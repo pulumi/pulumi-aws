@@ -172,6 +172,12 @@ namespace Pulumi.Aws.MailManager
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+        /// </summary>
+        [Output("statusToUpdate")]
+        public Output<string?> StatusToUpdate { get; private set; } = null!;
+
+        /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -282,6 +288,12 @@ namespace Pulumi.Aws.MailManager
         [Input("ruleSetId", required: true)]
         public Input<string> RuleSetId { get; set; } = null!;
 
+        /// <summary>
+        /// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+        /// </summary>
+        [Input("statusToUpdate")]
+        public Input<string>? StatusToUpdate { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -384,6 +396,12 @@ namespace Pulumi.Aws.MailManager
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+        /// </summary>
+        [Input("statusToUpdate")]
+        public Input<string>? StatusToUpdate { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

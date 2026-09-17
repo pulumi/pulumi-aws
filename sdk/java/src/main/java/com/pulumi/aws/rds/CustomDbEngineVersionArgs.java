@@ -18,14 +18,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     public static final CustomDbEngineVersionArgs Empty = new CustomDbEngineVersionArgs();
 
     /**
-     * The name of the Amazon S3 bucket that contains the database installation files.
+     * Name of the Amazon S3 bucket that contains the database installation files.
      * 
      */
     @Import(name="databaseInstallationFilesS3BucketName")
     private @Nullable Output<String> databaseInstallationFilesS3BucketName;
 
     /**
-     * @return The name of the Amazon S3 bucket that contains the database installation files.
+     * @return Name of the Amazon S3 bucket that contains the database installation files.
      * 
      */
     public Optional<Output<String>> databaseInstallationFilesS3BucketName() {
@@ -33,14 +33,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The prefix for the Amazon S3 bucket that contains the database installation files.
+     * Prefix for the Amazon S3 bucket that contains the database installation files.
      * 
      */
     @Import(name="databaseInstallationFilesS3Prefix")
     private @Nullable Output<String> databaseInstallationFilesS3Prefix;
 
     /**
-     * @return The prefix for the Amazon S3 bucket that contains the database installation files.
+     * @return Prefix for the Amazon S3 bucket that contains the database installation files.
      * 
      */
     public Optional<Output<String>> databaseInstallationFilesS3Prefix() {
@@ -48,14 +48,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The description of the CEV.
+     * Description of the CEV.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the CEV.
+     * @return Description of the CEV.
      * 
      */
     public Optional<Output<String>> description() {
@@ -63,14 +63,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+     * Name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
      * 
      */
     @Import(name="engine", required=true)
     private Output<String> engine;
 
     /**
-     * @return The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+     * @return Name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
      * 
      */
     public Output<String> engine() {
@@ -78,14 +78,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The version of the database engine.
+     * Version of the database engine.
      * 
      */
     @Import(name="engineVersion", required=true)
     private Output<String> engineVersion;
 
     /**
-     * @return The version of the database engine.
+     * @return Version of the database engine.
      * 
      */
     public Output<String> engineVersion() {
@@ -93,14 +93,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+     * Name of the manifest file within the local filesystem. Conflicts with `manifest`.
      * 
      */
     @Import(name="filename")
     private @Nullable Output<String> filename;
 
     /**
-     * @return The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+     * @return Name of the manifest file within the local filesystem. Conflicts with `manifest`.
      * 
      */
     public Optional<Output<String>> filename() {
@@ -108,14 +108,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+     * ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+     * @return ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -123,14 +123,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+     * Manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
      * 
      */
     @Import(name="manifest")
     private @Nullable Output<String> manifest;
 
     /**
-     * @return The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+     * @return Manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
      * 
      */
     public Optional<Output<String>> manifest() {
@@ -138,14 +138,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
+     * Triggers updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
      * 
      */
     @Import(name="manifestHash")
     private @Nullable Output<String> manifestHash;
 
     /**
-     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
+     * @return Triggers updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
      * 
      */
     public Optional<Output<String>> manifestHash() {
@@ -168,14 +168,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+     * ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      * 
      */
     @Import(name="sourceImageId")
     private @Nullable Output<String> sourceImageId;
 
     /**
-     * @return The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+     * @return ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      * 
      */
     public Optional<Output<String>> sourceImageId() {
@@ -183,14 +183,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+     * Status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+     * @return Status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -198,14 +198,14 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -249,7 +249,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param databaseInstallationFilesS3BucketName The name of the Amazon S3 bucket that contains the database installation files.
+         * @param databaseInstallationFilesS3BucketName Name of the Amazon S3 bucket that contains the database installation files.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param databaseInstallationFilesS3BucketName The name of the Amazon S3 bucket that contains the database installation files.
+         * @param databaseInstallationFilesS3BucketName Name of the Amazon S3 bucket that contains the database installation files.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param databaseInstallationFilesS3Prefix The prefix for the Amazon S3 bucket that contains the database installation files.
+         * @param databaseInstallationFilesS3Prefix Prefix for the Amazon S3 bucket that contains the database installation files.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param databaseInstallationFilesS3Prefix The prefix for the Amazon S3 bucket that contains the database installation files.
+         * @param databaseInstallationFilesS3Prefix Prefix for the Amazon S3 bucket that contains the database installation files.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the CEV.
+         * @param description Description of the CEV.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the CEV.
+         * @param description Description of the CEV.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param engine The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+         * @param engine Name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param engine The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+         * @param engine Name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param engineVersion The version of the database engine.
+         * @param engineVersion Version of the database engine.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param engineVersion The version of the database engine.
+         * @param engineVersion Version of the database engine.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param filename The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+         * @param filename Name of the manifest file within the local filesystem. Conflicts with `manifest`.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param filename The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+         * @param filename Name of the manifest file within the local filesystem. Conflicts with `manifest`.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyId The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+         * @param kmsKeyId ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyId The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+         * @param kmsKeyId ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param manifest The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+         * @param manifest Manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
          * 
          * @return builder
          * 
@@ -407,7 +407,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param manifest The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+         * @param manifest Manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param manifestHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
+         * @param manifestHash Triggers updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param manifestHash Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
+         * @param manifestHash Triggers updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sourceImageId The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+         * @param sourceImageId ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sourceImageId The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+         * @param sourceImageId ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param status The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+         * @param status Status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param status The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+         * @param status Status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class CustomDbEngineVersionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

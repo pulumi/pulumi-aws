@@ -234,6 +234,19 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `catalogId` - (String) ID of the Glue Catalog.
+// * `databaseName` - (String) Name of the Glue Catalog Database.
+// * `name` - (String) Name of the Glue Catalog Table.
+//
+// #### Optional
+//
+// * `accountId` - (String) AWS Account where this resource is managed.
+// * `region` - (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 //
 // ```sh
@@ -275,7 +288,7 @@ type CatalogTable struct {
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable CatalogTableTargetTablePtrOutput `pulumi:"targetTable"`
 	// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
-	ViewDefinition CatalogTableViewDefinitionPtrOutput `pulumi:"viewDefinition"`
+	ViewDefinition CatalogTableViewDefinitionOutput `pulumi:"viewDefinition"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrOutput `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
@@ -644,8 +657,8 @@ func (o CatalogTableOutput) TargetTable() CatalogTableTargetTablePtrOutput {
 }
 
 // Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
-func (o CatalogTableOutput) ViewDefinition() CatalogTableViewDefinitionPtrOutput {
-	return o.ApplyT(func(v *CatalogTable) CatalogTableViewDefinitionPtrOutput { return v.ViewDefinition }).(CatalogTableViewDefinitionPtrOutput)
+func (o CatalogTableOutput) ViewDefinition() CatalogTableViewDefinitionOutput {
+	return o.ApplyT(func(v *CatalogTable) CatalogTableViewDefinitionOutput { return v.ViewDefinition }).(CatalogTableViewDefinitionOutput)
 }
 
 // If the table is a view, the expanded text of the view; otherwise null.

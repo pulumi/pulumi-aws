@@ -18,18 +18,14 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
     public static final ParameterGroupParameterArgs Empty = new ParameterGroupParameterArgs();
 
     /**
-     * &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some
-     * engines can&#39;t apply some parameters without a reboot, and you will need to
-     * specify &#34;pending-reboot&#34; here.
+     * &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some engines can&#39;t apply some parameters without a reboot, and you will need to specify &#34;pending-reboot&#34; here.
      * 
      */
     @Import(name="applyMethod")
     private @Nullable Output<String> applyMethod;
 
     /**
-     * @return &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some
-     * engines can&#39;t apply some parameters without a reboot, and you will need to
-     * specify &#34;pending-reboot&#34; here.
+     * @return &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some engines can&#39;t apply some parameters without a reboot, and you will need to specify &#34;pending-reboot&#34; here.
      * 
      */
     public Optional<Output<String>> applyMethod() {
@@ -37,14 +33,14 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the DB parameter.
+     * Name of the DB parameter.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the DB parameter.
+     * @return Name of the DB parameter.
      * 
      */
     public Output<String> name() {
@@ -52,14 +48,14 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The value of the DB parameter.
+     * Value of the DB parameter.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the DB parameter.
+     * @return Value of the DB parameter.
      * 
      */
     public Output<String> value() {
@@ -93,9 +89,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param applyMethod &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some
-         * engines can&#39;t apply some parameters without a reboot, and you will need to
-         * specify &#34;pending-reboot&#34; here.
+         * @param applyMethod &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some engines can&#39;t apply some parameters without a reboot, and you will need to specify &#34;pending-reboot&#34; here.
          * 
          * @return builder
          * 
@@ -106,9 +100,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param applyMethod &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some
-         * engines can&#39;t apply some parameters without a reboot, and you will need to
-         * specify &#34;pending-reboot&#34; here.
+         * @param applyMethod &#34;immediate&#34; (default), or &#34;pending-reboot&#34;. Some engines can&#39;t apply some parameters without a reboot, and you will need to specify &#34;pending-reboot&#34; here.
          * 
          * @return builder
          * 
@@ -118,7 +110,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the DB parameter.
+         * @param name Name of the DB parameter.
          * 
          * @return builder
          * 
@@ -129,7 +121,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The name of the DB parameter.
+         * @param name Name of the DB parameter.
          * 
          * @return builder
          * 
@@ -139,7 +131,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param value The value of the DB parameter.
+         * @param value Value of the DB parameter.
          * 
          * @return builder
          * 
@@ -150,7 +142,7 @@ public final class ParameterGroupParameterArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param value The value of the DB parameter.
+         * @param value Value of the DB parameter.
          * 
          * @return builder
          * 

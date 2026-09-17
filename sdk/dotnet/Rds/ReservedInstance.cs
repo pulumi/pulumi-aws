@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> ProductDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Recurring price charged to run this reserved DB instance.
+        /// Recurring price charged to run this reserved DB instance. See `RecurringCharges` below.
         /// </summary>
         [Output("recurringCharges")]
         public Output<ImmutableArray<Outputs.ReservedInstanceRecurringCharge>> RecurringCharges { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.ReservedInstanceRecurringChargeGetArgs>? _recurringCharges;
 
         /// <summary>
-        /// Recurring price charged to run this reserved DB instance.
+        /// Recurring price charged to run this reserved DB instance. See `RecurringCharges` below.
         /// </summary>
         public InputList<Inputs.ReservedInstanceRecurringChargeGetArgs> RecurringCharges
         {

@@ -29,16 +29,13 @@ class ClusterEndpointArgs:
         """
         The set of arguments for constructing a ClusterEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
-        :param pulumi.Input[_builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
+        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        :param pulumi.Input[_builtins.str] cluster_identifier: Cluster identifier.
+        :param pulumi.Input[_builtins.str] custom_endpoint_type: Type of the endpoint. One of: READER , ANY .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
         """
         pulumi.set(__self__, "cluster_endpoint_identifier", cluster_endpoint_identifier)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -56,7 +53,7 @@ class ClusterEndpointArgs:
     @pulumi.getter(name="clusterEndpointIdentifier")
     def cluster_endpoint_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         """
         return pulumi.get(self, "cluster_endpoint_identifier")
 
@@ -68,7 +65,7 @@ class ClusterEndpointArgs:
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The cluster identifier.
+        Cluster identifier.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -80,7 +77,7 @@ class ClusterEndpointArgs:
     @pulumi.getter(name="customEndpointType")
     def custom_endpoint_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the endpoint. One of: READER , ANY .
+        Type of the endpoint. One of: READER , ANY .
         """
         return pulumi.get(self, "custom_endpoint_type")
 
@@ -129,9 +126,6 @@ class ClusterEndpointArgs:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
         """
         return pulumi.get(self, "tags")
 
@@ -157,18 +151,15 @@ class _ClusterEndpointState:
         Input properties used for looking up and filtering ClusterEndpoint resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of cluster
-        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
-        :param pulumi.Input[_builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
-        :param pulumi.Input[_builtins.str] endpoint: A custom endpoint for the Aurora cluster
+        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        :param pulumi.Input[_builtins.str] cluster_identifier: Cluster identifier.
+        :param pulumi.Input[_builtins.str] custom_endpoint_type: Type of the endpoint. One of: READER , ANY .
+        :param pulumi.Input[_builtins.str] endpoint: Custom endpoint for the Aurora cluster
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -207,7 +198,7 @@ class _ClusterEndpointState:
     @pulumi.getter(name="clusterEndpointIdentifier")
     def cluster_endpoint_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         """
         return pulumi.get(self, "cluster_endpoint_identifier")
 
@@ -219,7 +210,7 @@ class _ClusterEndpointState:
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The cluster identifier.
+        Cluster identifier.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -231,7 +222,7 @@ class _ClusterEndpointState:
     @pulumi.getter(name="customEndpointType")
     def custom_endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of the endpoint. One of: READER , ANY .
+        Type of the endpoint. One of: READER , ANY .
         """
         return pulumi.get(self, "custom_endpoint_type")
 
@@ -243,7 +234,7 @@ class _ClusterEndpointState:
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A custom endpoint for the Aurora cluster
+        Custom endpoint for the Aurora cluster
         """
         return pulumi.get(self, "endpoint")
 
@@ -292,9 +283,6 @@ class _ClusterEndpointState:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
         """
         return pulumi.get(self, "tags")
 
@@ -306,7 +294,7 @@ class _ClusterEndpointState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -401,16 +389,13 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
-        :param pulumi.Input[_builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
+        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        :param pulumi.Input[_builtins.str] cluster_identifier: Cluster identifier.
+        :param pulumi.Input[_builtins.str] custom_endpoint_type: Type of the endpoint. One of: READER , ANY .
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
         """
         ...
     @overload
@@ -563,18 +548,15 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of cluster
-        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
-        :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier.
-        :param pulumi.Input[_builtins.str] custom_endpoint_type: The type of the endpoint. One of: READER , ANY .
-        :param pulumi.Input[_builtins.str] endpoint: A custom endpoint for the Aurora cluster
+        :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        :param pulumi.Input[_builtins.str] cluster_identifier: Cluster identifier.
+        :param pulumi.Input[_builtins.str] custom_endpoint_type: Type of the endpoint. One of: READER , ANY .
+        :param pulumi.Input[_builtins.str] endpoint: Custom endpoint for the Aurora cluster
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `static_members`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] static_members: List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excluded_members`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -604,7 +586,7 @@ class ClusterEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="clusterEndpointIdentifier")
     def cluster_endpoint_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         """
         return pulumi.get(self, "cluster_endpoint_identifier")
 
@@ -612,7 +594,7 @@ class ClusterEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The cluster identifier.
+        Cluster identifier.
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -620,7 +602,7 @@ class ClusterEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="customEndpointType")
     def custom_endpoint_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the endpoint. One of: READER , ANY .
+        Type of the endpoint. One of: READER , ANY .
         """
         return pulumi.get(self, "custom_endpoint_type")
 
@@ -628,7 +610,7 @@ class ClusterEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[_builtins.str]:
         """
-        A custom endpoint for the Aurora cluster
+        Custom endpoint for the Aurora cluster
         """
         return pulumi.get(self, "endpoint")
 
@@ -661,9 +643,6 @@ class ClusterEndpoint(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
         """
         return pulumi.get(self, "tags")
 
@@ -671,7 +650,7 @@ class ClusterEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

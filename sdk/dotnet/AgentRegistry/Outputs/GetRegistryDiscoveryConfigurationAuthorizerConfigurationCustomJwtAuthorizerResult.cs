@@ -33,6 +33,14 @@ namespace Pulumi.Aws.AgentRegistry.Outputs
         /// OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
         /// </summary>
         public readonly string DiscoveryUrl;
+        /// <summary>
+        /// Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideResult> PrivateEndpointOverrides;
+        /// <summary>
+        /// Private endpoint used to reach the specified domain. See above.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointResult> PrivateEndpoints;
 
         [OutputConstructor]
         private GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerResult(
@@ -44,13 +52,19 @@ namespace Pulumi.Aws.AgentRegistry.Outputs
 
             ImmutableArray<Outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimResult> customClaims,
 
-            string discoveryUrl)
+            string discoveryUrl,
+
+            ImmutableArray<Outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideResult> privateEndpointOverrides,
+
+            ImmutableArray<Outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointResult> privateEndpoints)
         {
             AllowedAudiences = allowedAudiences;
             AllowedClients = allowedClients;
             AllowedScopes = allowedScopes;
             CustomClaims = customClaims;
             DiscoveryUrl = discoveryUrl;
+            PrivateEndpointOverrides = privateEndpointOverrides;
+            PrivateEndpoints = privateEndpoints;
         }
     }
 }

@@ -306,6 +306,20 @@ public class IngressPoint extends com.pulumi.resources.CustomResource {
         return this.status;
     }
     /**
+     * Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     * 
+     */
+    @Export(name="statusToUpdate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> statusToUpdate;
+
+    /**
+     * @return Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     * 
+     */
+    public Output<Optional<String>> statusToUpdate() {
+        return Codegen.optional(this.statusToUpdate);
+    }
+    /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

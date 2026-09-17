@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -100,18 +101,32 @@ public class BgpPeer extends com.pulumi.resources.CustomResource {
         return this.awsDevice;
     }
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     @Export(name="bgpAsn", refs={Integer.class}, tree="[0]")
-    private Output<Integer> bgpAsn;
+    private Output</* @Nullable */ Integer> bgpAsn;
 
     /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
-    public Output<Integer> bgpAsn() {
-        return this.bgpAsn;
+    public Output<Optional<Integer>> bgpAsn() {
+        return Codegen.optional(this.bgpAsn);
+    }
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    @Export(name="bgpAsnLong", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> bgpAsnLong;
+
+    /**
+     * @return BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    public Output<Optional<String>> bgpAsnLong() {
+        return Codegen.optional(this.bgpAsnLong);
     }
     /**
      * The authentication key for BGP configuration.

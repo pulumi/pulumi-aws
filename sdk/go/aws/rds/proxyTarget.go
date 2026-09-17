@@ -37,12 +37,10 @@ type ProxyTarget struct {
 	pulumi.CustomResourceState
 
 	// DB cluster identifier.
-	//
-	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier pulumi.StringPtrOutput `pulumi:"dbClusterIdentifier"`
 	// DB instance identifier.
 	DbInstanceIdentifier pulumi.StringPtrOutput `pulumi:"dbInstanceIdentifier"`
-	// The name of the DB proxy.
+	// Name of the DB proxy.
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
@@ -54,7 +52,7 @@ type ProxyTarget struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
-	// The name of the target group.
+	// Name of the target group.
 	TargetGroupName pulumi.StringOutput `pulumi:"targetGroupName"`
 	// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
 	TrackedClusterId pulumi.StringOutput `pulumi:"trackedClusterId"`
@@ -99,12 +97,10 @@ func GetProxyTarget(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ProxyTarget resources.
 type proxyTargetState struct {
 	// DB cluster identifier.
-	//
-	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// DB instance identifier.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
-	// The name of the DB proxy.
+	// Name of the DB proxy.
 	DbProxyName *string `pulumi:"dbProxyName"`
 	// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
 	Endpoint *string `pulumi:"endpoint"`
@@ -116,7 +112,7 @@ type proxyTargetState struct {
 	Region *string `pulumi:"region"`
 	// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
 	TargetArn *string `pulumi:"targetArn"`
-	// The name of the target group.
+	// Name of the target group.
 	TargetGroupName *string `pulumi:"targetGroupName"`
 	// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
 	TrackedClusterId *string `pulumi:"trackedClusterId"`
@@ -126,12 +122,10 @@ type proxyTargetState struct {
 
 type ProxyTargetState struct {
 	// DB cluster identifier.
-	//
-	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier pulumi.StringPtrInput
 	// DB instance identifier.
 	DbInstanceIdentifier pulumi.StringPtrInput
-	// The name of the DB proxy.
+	// Name of the DB proxy.
 	DbProxyName pulumi.StringPtrInput
 	// Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
 	Endpoint pulumi.StringPtrInput
@@ -143,7 +137,7 @@ type ProxyTargetState struct {
 	Region pulumi.StringPtrInput
 	// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
 	TargetArn pulumi.StringPtrInput
-	// The name of the target group.
+	// Name of the target group.
 	TargetGroupName pulumi.StringPtrInput
 	// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
 	TrackedClusterId pulumi.StringPtrInput
@@ -157,32 +151,28 @@ func (ProxyTargetState) ElementType() reflect.Type {
 
 type proxyTargetArgs struct {
 	// DB cluster identifier.
-	//
-	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
 	// DB instance identifier.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
-	// The name of the DB proxy.
+	// Name of the DB proxy.
 	DbProxyName string `pulumi:"dbProxyName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the target group.
+	// Name of the target group.
 	TargetGroupName string `pulumi:"targetGroupName"`
 }
 
 // The set of arguments for constructing a ProxyTarget resource.
 type ProxyTargetArgs struct {
 	// DB cluster identifier.
-	//
-	// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 	DbClusterIdentifier pulumi.StringPtrInput
 	// DB instance identifier.
 	DbInstanceIdentifier pulumi.StringPtrInput
-	// The name of the DB proxy.
+	// Name of the DB proxy.
 	DbProxyName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The name of the target group.
+	// Name of the target group.
 	TargetGroupName pulumi.StringInput
 }
 
@@ -274,8 +264,6 @@ func (o ProxyTargetOutput) ToProxyTargetOutputWithContext(ctx context.Context) P
 }
 
 // DB cluster identifier.
-//
-// **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
 func (o ProxyTargetOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringPtrOutput { return v.DbClusterIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -285,7 +273,7 @@ func (o ProxyTargetOutput) DbInstanceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringPtrOutput { return v.DbInstanceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The name of the DB proxy.
+// Name of the DB proxy.
 func (o ProxyTargetOutput) DbProxyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.DbProxyName }).(pulumi.StringOutput)
 }
@@ -315,7 +303,7 @@ func (o ProxyTargetOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }
 
-// The name of the target group.
+// Name of the target group.
 func (o ProxyTargetOutput) TargetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyTarget) pulumi.StringOutput { return v.TargetGroupName }).(pulumi.StringOutput)
 }

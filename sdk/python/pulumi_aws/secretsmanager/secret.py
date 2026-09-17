@@ -727,7 +727,7 @@ class Secret(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def replicas(self) -> pulumi.Output[Sequence['outputs.SecretReplica']]:
+    def replicas(self) -> pulumi.Output[Optional[Sequence['outputs.SecretReplica']]]:
         """
         Configuration block to support secret replication. See details below.
         """

@@ -4,7 +4,9 @@
 package com.pulumi.aws.agentregistry.inputs;
 
 import com.pulumi.aws.agentregistry.inputs.RegistryApprovalConfigurationArgs;
+import com.pulumi.aws.agentregistry.inputs.RegistryAutoDetectionConfigurationArgs;
 import com.pulumi.aws.agentregistry.inputs.RegistryDiscoveryConfigurationArgs;
+import com.pulumi.aws.agentregistry.inputs.RegistryEncryptionConfigurationArgs;
 import com.pulumi.aws.agentregistry.inputs.RegistryTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -35,6 +37,21 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+     * 
+     */
+    @Import(name="autoDetectionConfiguration")
+    private @Nullable Output<RegistryAutoDetectionConfigurationArgs> autoDetectionConfiguration;
+
+    /**
+     * @return Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+     * 
+     */
+    public Optional<Output<RegistryAutoDetectionConfigurationArgs>> autoDetectionConfiguration() {
+        return Optional.ofNullable(this.autoDetectionConfiguration);
+    }
+
+    /**
      * Description of the registry. Maximum length of 4096 characters.
      * 
      */
@@ -62,6 +79,21 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<RegistryDiscoveryConfigurationArgs>> discoveryConfiguration() {
         return Optional.ofNullable(this.discoveryConfiguration);
+    }
+
+    /**
+     * Server-side encryption configuration for the registry. See below.
+     * 
+     */
+    @Import(name="encryptionConfiguration")
+    private @Nullable Output<RegistryEncryptionConfigurationArgs> encryptionConfiguration;
+
+    /**
+     * @return Server-side encryption configuration for the registry. See below.
+     * 
+     */
+    public Optional<Output<RegistryEncryptionConfigurationArgs>> encryptionConfiguration() {
+        return Optional.ofNullable(this.encryptionConfiguration);
     }
 
     /**
@@ -169,8 +201,10 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
 
     private RegistryState(RegistryState $) {
         this.approvalConfiguration = $.approvalConfiguration;
+        this.autoDetectionConfiguration = $.autoDetectionConfiguration;
         this.description = $.description;
         this.discoveryConfiguration = $.discoveryConfiguration;
+        this.encryptionConfiguration = $.encryptionConfiguration;
         this.name = $.name;
         this.region = $.region;
         this.registryArn = $.registryArn;
@@ -220,6 +254,27 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param autoDetectionConfiguration Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoDetectionConfiguration(@Nullable Output<RegistryAutoDetectionConfigurationArgs> autoDetectionConfiguration) {
+            $.autoDetectionConfiguration = autoDetectionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param autoDetectionConfiguration Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoDetectionConfiguration(RegistryAutoDetectionConfigurationArgs autoDetectionConfiguration) {
+            return autoDetectionConfiguration(Output.of(autoDetectionConfiguration));
+        }
+
+        /**
          * @param description Description of the registry. Maximum length of 4096 characters.
          * 
          * @return builder
@@ -259,6 +314,27 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder discoveryConfiguration(RegistryDiscoveryConfigurationArgs discoveryConfiguration) {
             return discoveryConfiguration(Output.of(discoveryConfiguration));
+        }
+
+        /**
+         * @param encryptionConfiguration Server-side encryption configuration for the registry. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(@Nullable Output<RegistryEncryptionConfigurationArgs> encryptionConfiguration) {
+            $.encryptionConfiguration = encryptionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param encryptionConfiguration Server-side encryption configuration for the registry. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptionConfiguration(RegistryEncryptionConfigurationArgs encryptionConfiguration) {
+            return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
         /**

@@ -86,14 +86,14 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     @Import(name="bgpAsn")
     private @Nullable Output<Integer> bgpAsn;
 
     /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     public Optional<Output<Integer>> bgpAsn() {
@@ -383,7 +383,7 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 

@@ -57,6 +57,8 @@ import (
 // ```sh
 // $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
 // ```
+//
+// > **Note:** When a virtual interface uses an ASN in the `bgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgpAsn` rather than `bgpAsnLong`. If the virtual interface was originally created with `bgpAsnLong` set to a value in that range, update your configuration to use `bgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgpAsnLong` as expected.
 type PublicVirtualInterface struct {
 	pulumi.CustomResourceState
 
@@ -69,7 +71,7 @@ type PublicVirtualInterface struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
 	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
@@ -147,7 +149,7 @@ type publicVirtualInterfaceState struct {
 	Arn *string `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
 	AwsDevice *string `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn *int `pulumi:"bgpAsn"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey *string `pulumi:"bgpAuthKey"`
@@ -181,7 +183,7 @@ type PublicVirtualInterfaceState struct {
 	Arn pulumi.StringPtrInput
 	// The Direct Connect endpoint on which the virtual interface terminates.
 	AwsDevice pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn pulumi.IntPtrInput
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringPtrInput
@@ -214,7 +216,7 @@ type publicVirtualInterfaceArgs struct {
 	AddressFamily string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress *string `pulumi:"amazonAddress"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn int `pulumi:"bgpAsn"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey *string `pulumi:"bgpAuthKey"`
@@ -242,7 +244,7 @@ type PublicVirtualInterfaceArgs struct {
 	AddressFamily pulumi.StringInput
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn pulumi.IntInput
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringPtrInput
@@ -375,7 +377,7 @@ func (o PublicVirtualInterfaceOutput) AwsDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublicVirtualInterface) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
 }
 
-// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 func (o PublicVirtualInterfaceOutput) BgpAsn() pulumi.IntOutput {
 	return o.ApplyT(func(v *PublicVirtualInterface) pulumi.IntOutput { return v.BgpAsn }).(pulumi.IntOutput)
 }

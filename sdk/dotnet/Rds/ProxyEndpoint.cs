@@ -51,25 +51,25 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+        /// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
         [Output("dbProxyEndpointName")]
         public Output<string> DbProxyEndpointName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DB proxy associated with the DB proxy endpoint that you create.
+        /// Name of the DB proxy associated with the DB proxy endpoint that you create.
         /// </summary>
         [Output("dbProxyName")]
         public Output<string> DbProxyName { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+        /// Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+        /// Whether this endpoint is the default endpoint for the associated DB proxy.
         /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -90,13 +90,13 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+        /// Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         /// </summary>
         [Output("targetRole")]
         public Output<string?> TargetRole { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC ID of the DB proxy endpoint.
+        /// VPC ID of the DB proxy endpoint.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -160,13 +160,13 @@ namespace Pulumi.Aws.Rds
     public sealed class ProxyEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+        /// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
         [Input("dbProxyEndpointName", required: true)]
         public Input<string> DbProxyEndpointName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the DB proxy associated with the DB proxy endpoint that you create.
+        /// Name of the DB proxy associated with the DB proxy endpoint that you create.
         /// </summary>
         [Input("dbProxyName", required: true)]
         public Input<string> DbProxyName { get; set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+        /// Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         /// </summary>
         [Input("targetRole")]
         public Input<string>? TargetRole { get; set; }
@@ -234,25 +234,25 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+        /// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         /// </summary>
         [Input("dbProxyEndpointName")]
         public Input<string>? DbProxyEndpointName { get; set; }
 
         /// <summary>
-        /// The name of the DB proxy associated with the DB proxy endpoint that you create.
+        /// Name of the DB proxy associated with the DB proxy endpoint that you create.
         /// </summary>
         [Input("dbProxyName")]
         public Input<string>? DbProxyName { get; set; }
 
         /// <summary>
-        /// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+        /// Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+        /// Whether this endpoint is the default endpoint for the associated DB proxy.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// Map of tags to assign to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -284,13 +284,13 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+        /// Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         /// </summary>
         [Input("targetRole")]
         public Input<string>? TargetRole { get; set; }
 
         /// <summary>
-        /// The VPC ID of the DB proxy endpoint.
+        /// VPC ID of the DB proxy endpoint.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

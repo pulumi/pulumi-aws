@@ -27,7 +27,7 @@ class GetRegistryResult:
     """
     A collection of values returned by getRegistry.
     """
-    def __init__(__self__, approval_configurations=None, created_at=None, description=None, discovery_configurations=None, name=None, region=None, registry_arn=None, registry_id=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, approval_configurations=None, created_at=None, description=None, discovery_configurations=None, encryption_configurations=None, name=None, region=None, registry_arn=None, registry_id=None, status=None, tags=None, updated_at=None):
         if approval_configurations and not isinstance(approval_configurations, list):
             raise TypeError("Expected argument 'approval_configurations' to be a list")
         pulumi.set(__self__, "approval_configurations", approval_configurations)
@@ -40,6 +40,9 @@ class GetRegistryResult:
         if discovery_configurations and not isinstance(discovery_configurations, list):
             raise TypeError("Expected argument 'discovery_configurations' to be a list")
         pulumi.set(__self__, "discovery_configurations", discovery_configurations)
+        if encryption_configurations and not isinstance(encryption_configurations, list):
+            raise TypeError("Expected argument 'encryption_configurations' to be a list")
+        pulumi.set(__self__, "encryption_configurations", encryption_configurations)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -95,6 +98,14 @@ class GetRegistryResult:
         return pulumi.get(self, "discovery_configurations")
 
     @_builtins.property
+    @pulumi.getter(name="encryptionConfigurations")
+    def encryption_configurations(self) -> Sequence['outputs.GetRegistryEncryptionConfigurationResult']:
+        """
+        Server-side encryption configuration for the registry. See below.
+        """
+        return pulumi.get(self, "encryption_configurations")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
@@ -132,7 +143,7 @@ class GetRegistryResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        Map of tags assigned to the registry.
+        Tags applied to the service-managed VPC resource.
         """
         return pulumi.get(self, "tags")
 
@@ -155,6 +166,7 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             created_at=self.created_at,
             description=self.description,
             discovery_configurations=self.discovery_configurations,
+            encryption_configurations=self.encryption_configurations,
             name=self.name,
             region=self.region,
             registry_arn=self.registry_arn,
@@ -207,6 +219,7 @@ def get_registry(region: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         discovery_configurations=pulumi.get(__ret__, 'discovery_configurations'),
+        encryption_configurations=pulumi.get(__ret__, 'encryption_configurations'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         registry_arn=pulumi.get(__ret__, 'registry_arn'),
@@ -256,6 +269,7 @@ def get_registry_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] 
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
         discovery_configurations=pulumi.get(__response__, 'discovery_configurations'),
+        encryption_configurations=pulumi.get(__response__, 'encryption_configurations'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),
         registry_arn=pulumi.get(__response__, 'registry_arn'),

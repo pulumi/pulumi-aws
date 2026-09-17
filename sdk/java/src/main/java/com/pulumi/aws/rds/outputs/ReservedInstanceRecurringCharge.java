@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReservedInstanceRecurringCharge {
+    /**
+     * @return Amount of the recurring charge.
+     * 
+     */
     private @Nullable Integer recurringChargeAmount;
+    /**
+     * @return Frequency of the recurring charge.
+     * 
+     */
     private @Nullable String recurringChargeFrequency;
 
     private ReservedInstanceRecurringCharge() {}
+    /**
+     * @return Amount of the recurring charge.
+     * 
+     */
     public Optional<Integer> recurringChargeAmount() {
         return Optional.ofNullable(this.recurringChargeAmount);
     }
+    /**
+     * @return Frequency of the recurring charge.
+     * 
+     */
     public Optional<String> recurringChargeFrequency() {
         return Optional.ofNullable(this.recurringChargeFrequency);
     }

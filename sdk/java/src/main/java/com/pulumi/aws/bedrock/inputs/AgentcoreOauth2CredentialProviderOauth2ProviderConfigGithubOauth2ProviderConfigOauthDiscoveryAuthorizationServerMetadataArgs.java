@@ -75,6 +75,21 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
         return this.tokenEndpoint;
     }
 
+    /**
+     * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * 
+     */
+    @Import(name="tokenEndpointAuthMethods", required=true)
+    private Output<List<String>> tokenEndpointAuthMethods;
+
+    /**
+     * @return List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * 
+     */
+    public Output<List<String>> tokenEndpointAuthMethods() {
+        return this.tokenEndpointAuthMethods;
+    }
+
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs() {}
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs $) {
@@ -82,6 +97,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
         this.issuer = $.issuer;
         this.responseTypes = $.responseTypes;
         this.tokenEndpoint = $.tokenEndpoint;
+        this.tokenEndpointAuthMethods = $.tokenEndpointAuthMethods;
     }
 
     public static Builder builder() {
@@ -196,6 +212,37 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
             return tokenEndpoint(Output.of(tokenEndpoint));
         }
 
+        /**
+         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenEndpointAuthMethods(Output<List<String>> tokenEndpointAuthMethods) {
+            $.tokenEndpointAuthMethods = tokenEndpointAuthMethods;
+            return this;
+        }
+
+        /**
+         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenEndpointAuthMethods(List<String> tokenEndpointAuthMethods) {
+            return tokenEndpointAuthMethods(Output.of(tokenEndpointAuthMethods));
+        }
+
+        /**
+         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenEndpointAuthMethods(String... tokenEndpointAuthMethods) {
+            return tokenEndpointAuthMethods(List.of(tokenEndpointAuthMethods));
+        }
+
         public AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs build() {
             if ($.authorizationEndpoint == null) {
                 throw new MissingRequiredPropertyException("AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs", "authorizationEndpoint");
@@ -208,6 +255,9 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
             }
             if ($.tokenEndpoint == null) {
                 throw new MissingRequiredPropertyException("AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs", "tokenEndpoint");
+            }
+            if ($.tokenEndpointAuthMethods == null) {
+                throw new MissingRequiredPropertyException("AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs", "tokenEndpointAuthMethods");
             }
             return $;
         }

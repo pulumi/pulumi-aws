@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Rds
     public partial class ClusterSnapshotCopy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
+        /// Allocated storage size in gigabytes (GB).
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
@@ -77,19 +77,19 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Destination region to place snapshot copy.
+        /// Destination region to place the snapshot copy.
         /// </summary>
         [Output("destinationRegion")]
         public Output<string?> DestinationRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the database engine.
+        /// Name of the database engine.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the database engine.
+        /// Version of the database engine.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -124,6 +124,9 @@ namespace Pulumi.Aws.Rds
         [Output("sharedAccounts")]
         public Output<ImmutableArray<string>> SharedAccounts { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the DB cluster snapshot.
+        /// </summary>
         [Output("snapshotType")]
         public Output<string> SnapshotType { get; private set; } = null!;
 
@@ -134,13 +137,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> SourceDbClusterSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster snapshot is encrypted.
+        /// Whether the DB cluster snapshot is encrypted.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage type associated with DB cluster snapshot.
+        /// Storage type associated with DB cluster snapshot.
         /// </summary>
         [Output("storageType")]
         public Output<string> StorageType { get; private set; } = null!;
@@ -152,7 +155,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -227,7 +230,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTags { get; set; }
 
         /// <summary>
-        /// The Destination region to place snapshot copy.
+        /// Destination region to place the snapshot copy.
         /// </summary>
         [Input("destinationRegion")]
         public Input<string>? DestinationRegion { get; set; }
@@ -300,7 +303,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterSnapshotCopyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
+        /// Allocated storage size in gigabytes (GB).
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -318,19 +321,19 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbClusterSnapshotArn { get; set; }
 
         /// <summary>
-        /// The Destination region to place snapshot copy.
+        /// Destination region to place the snapshot copy.
         /// </summary>
         [Input("destinationRegion")]
         public Input<string>? DestinationRegion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the database engine.
+        /// Name of the database engine.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// Specifies the version of the database engine.
+        /// Version of the database engine.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -371,6 +374,9 @@ namespace Pulumi.Aws.Rds
             set => _sharedAccounts = value;
         }
 
+        /// <summary>
+        /// Type of the DB cluster snapshot.
+        /// </summary>
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }
 
@@ -381,13 +387,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceDbClusterSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster snapshot is encrypted.
+        /// Whether the DB cluster snapshot is encrypted.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// Specifies the storage type associated with DB cluster snapshot.
+        /// Storage type associated with DB cluster snapshot.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -408,7 +414,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

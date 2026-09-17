@@ -114,25 +114,25 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        /// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         /// </summary>
         [Output("clusterEndpointIdentifier")]
         public Output<string> ClusterEndpointIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster identifier.
+        /// Cluster identifier.
         /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the endpoint. One of: READER , ANY .
+        /// Type of the endpoint. One of: READER , ANY .
         /// </summary>
         [Output("customEndpointType")]
         public Output<string> CustomEndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// A custom endpoint for the Aurora cluster
+        /// Custom endpoint for the Aurora cluster
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
@@ -157,15 +157,12 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to
-        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -217,19 +214,19 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        /// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         /// </summary>
         [Input("clusterEndpointIdentifier", required: true)]
         public Input<string> ClusterEndpointIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The cluster identifier.
+        /// Cluster identifier.
         /// </summary>
         [Input("clusterIdentifier", required: true)]
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The type of the endpoint. One of: READER , ANY .
+        /// Type of the endpoint. One of: READER , ANY .
         /// </summary>
         [Input("customEndpointType", required: true)]
         public Input<string> CustomEndpointType { get; set; } = null!;
@@ -269,9 +266,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to
-        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
         /// </summary>
         public InputMap<string> Tags
         {
@@ -294,25 +288,25 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+        /// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
         /// </summary>
         [Input("clusterEndpointIdentifier")]
         public Input<string>? ClusterEndpointIdentifier { get; set; }
 
         /// <summary>
-        /// The cluster identifier.
+        /// Cluster identifier.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The type of the endpoint. One of: READER , ANY .
+        /// Type of the endpoint. One of: READER , ANY .
         /// </summary>
         [Input("customEndpointType")]
         public Input<string>? CustomEndpointType { get; set; }
 
         /// <summary>
-        /// A custom endpoint for the Aurora cluster
+        /// Custom endpoint for the Aurora cluster
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
@@ -352,9 +346,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to
-        /// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
         /// </summary>
         public InputMap<string> Tags
         {
@@ -366,7 +357,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

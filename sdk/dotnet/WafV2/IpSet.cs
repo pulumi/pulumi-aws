@@ -45,6 +45,19 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) Unique identifier for the IP set.
+    /// * `Name` (String) Name of the IP set.
+    /// * `Scope` (String) Whether this is for a global (`CLOUDFRONT`) or regional (`REGIONAL`) application.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
     /// 
     /// ```sh

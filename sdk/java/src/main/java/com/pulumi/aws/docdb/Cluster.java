@@ -318,18 +318,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.engineVersion;
     }
     /**
-     * The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
     @Export(name="finalSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> finalSnapshotIdentifier;
 
     /**
-     * @return The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * @return The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
     public Output<Optional<String>> finalSnapshotIdentifier() {
@@ -392,16 +388,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.manageMasterUserPassword);
     }
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> masterPassword;
 
     /**
-     * @return Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      * 
      */
     public Output<Optional<String>> masterPassword() {
@@ -409,8 +403,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may
-     * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     @Export(name="masterPasswordWo", refs={String.class}, tree="[0]")
@@ -418,22 +411,21 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may
-     * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> masterPasswordWo() {
         return Codegen.optional(this.masterPasswordWo);
     }
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     @Export(name="masterPasswordWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> masterPasswordWoVersion;
 
     /**
-     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * @return Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     public Output<Optional<Integer>> masterPasswordWoVersion() {

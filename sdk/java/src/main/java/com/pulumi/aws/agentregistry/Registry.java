@@ -7,7 +7,9 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.agentregistry.RegistryArgs;
 import com.pulumi.aws.agentregistry.inputs.RegistryState;
 import com.pulumi.aws.agentregistry.outputs.RegistryApprovalConfiguration;
+import com.pulumi.aws.agentregistry.outputs.RegistryAutoDetectionConfiguration;
 import com.pulumi.aws.agentregistry.outputs.RegistryDiscoveryConfiguration;
+import com.pulumi.aws.agentregistry.outputs.RegistryEncryptionConfiguration;
 import com.pulumi.aws.agentregistry.outputs.RegistryTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -240,6 +242,20 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.approvalConfiguration);
     }
     /**
+     * Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+     * 
+     */
+    @Export(name="autoDetectionConfiguration", refs={RegistryAutoDetectionConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ RegistryAutoDetectionConfiguration> autoDetectionConfiguration;
+
+    /**
+     * @return Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+     * 
+     */
+    public Output<Optional<RegistryAutoDetectionConfiguration>> autoDetectionConfiguration() {
+        return Codegen.optional(this.autoDetectionConfiguration);
+    }
+    /**
      * Description of the registry. Maximum length of 4096 characters.
      * 
      */
@@ -266,6 +282,20 @@ public class Registry extends com.pulumi.resources.CustomResource {
      */
     public Output<RegistryDiscoveryConfiguration> discoveryConfiguration() {
         return this.discoveryConfiguration;
+    }
+    /**
+     * Server-side encryption configuration for the registry. See below.
+     * 
+     */
+    @Export(name="encryptionConfiguration", refs={RegistryEncryptionConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ RegistryEncryptionConfiguration> encryptionConfiguration;
+
+    /**
+     * @return Server-side encryption configuration for the registry. See below.
+     * 
+     */
+    public Output<Optional<RegistryEncryptionConfiguration>> encryptionConfiguration() {
+        return Codegen.optional(this.encryptionConfiguration);
     }
     /**
      * Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.

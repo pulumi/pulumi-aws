@@ -22,27 +22,26 @@ __all__ = ['AgentcoreOauth2CredentialProviderArgs', 'AgentcoreOauth2CredentialPr
 class AgentcoreOauth2CredentialProviderArgs:
     def __init__(__self__, *,
                  credential_provider_vendor: pulumi.Input[_builtins.str],
+                 oauth2_provider_config: pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs'],
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 oauth2_provider_config: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreOauth2CredentialProvider resource.
 
-        :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
-        :param pulumi.Input[_builtins.str] name: Name of the OAuth2 credential provider.
+        :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `included_oauth2_provider_config`. Refer to the AWS API for the full, current list. See the note under `included_oauth2_provider_config` for vendors that are not yet supported.
         :param pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs'] oauth2_provider_config: OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] name: Name of the OAuth2 credential provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "credential_provider_vendor", credential_provider_vendor)
+        pulumi.set(__self__, "oauth2_provider_config", oauth2_provider_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if oauth2_provider_config is not None:
-            pulumi.set(__self__, "oauth2_provider_config", oauth2_provider_config)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -54,13 +53,27 @@ class AgentcoreOauth2CredentialProviderArgs:
     @pulumi.getter(name="credentialProviderVendor")
     def credential_provider_vendor(self) -> pulumi.Input[_builtins.str]:
         """
-        Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+        Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `included_oauth2_provider_config`. Refer to the AWS API for the full, current list. See the note under `included_oauth2_provider_config` for vendors that are not yet supported.
         """
         return pulumi.get(self, "credential_provider_vendor")
 
     @credential_provider_vendor.setter
     def credential_provider_vendor(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "credential_provider_vendor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oauth2ProviderConfig")
+    def oauth2_provider_config(self) -> pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']:
+        """
+        OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "oauth2_provider_config")
+
+    @oauth2_provider_config.setter
+    def oauth2_provider_config(self, value: pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']):
+        pulumi.set(self, "oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -73,20 +86,6 @@ class AgentcoreOauth2CredentialProviderArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="oauth2ProviderConfig")
-    def oauth2_provider_config(self) -> pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]:
-        """
-        OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "oauth2_provider_config")
-
-    @oauth2_provider_config.setter
-    def oauth2_provider_config(self, value: pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs']]):
-        pulumi.set(self, "oauth2_provider_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -125,6 +124,7 @@ class AgentcoreOauth2CredentialProviderArgs:
 @pulumi.input_type
 class _AgentcoreOauth2CredentialProviderState:
     def __init__(__self__, *,
+                 callback_url: pulumi.Input[Optional[_builtins.str]] = None,
                  client_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderClientSecretArnArgs']]]] = None,
                  credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  credential_provider_vendor: pulumi.Input[Optional[_builtins.str]] = None,
@@ -137,9 +137,10 @@ class _AgentcoreOauth2CredentialProviderState:
         """
         Input properties used for looking up and filtering AgentcoreOauth2CredentialProvider resources.
 
+        :param pulumi.Input[_builtins.str] callback_url: Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderClientSecretArnArgs']]] client_secret_arns: ARN of the AWS Secrets Manager secret containing the client secret.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the OAuth2 credential provider.
-        :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+        :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `included_oauth2_provider_config`. Refer to the AWS API for the full, current list. See the note under `included_oauth2_provider_config` for vendors that are not yet supported.
         :param pulumi.Input[_builtins.str] name: Name of the OAuth2 credential provider.
         :param pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs'] oauth2_provider_config: OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
                
@@ -148,6 +149,8 @@ class _AgentcoreOauth2CredentialProviderState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        if callback_url is not None:
+            pulumi.set(__self__, "callback_url", callback_url)
         if client_secret_arns is not None:
             pulumi.set(__self__, "client_secret_arns", client_secret_arns)
         if credential_provider_arn is not None:
@@ -166,6 +169,18 @@ class _AgentcoreOauth2CredentialProviderState:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="callbackUrl")
+    def callback_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+        """
+        return pulumi.get(self, "callback_url")
+
+    @callback_url.setter
+    def callback_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "callback_url", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecretArns")
@@ -195,7 +210,7 @@ class _AgentcoreOauth2CredentialProviderState:
     @pulumi.getter(name="credentialProviderVendor")
     def credential_provider_vendor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+        Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `included_oauth2_provider_config`. Refer to the AWS API for the full, current list. See the note under `included_oauth2_provider_config` for vendors that are not yet supported.
         """
         return pulumi.get(self, "credential_provider_vendor")
 
@@ -351,6 +366,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
                                 "code",
                                 "id_token",
                             ],
+                            "token_endpoint_auth_methods": ["client_secret_basic"],
                         },
                     },
                     "client_id_wo": "keycloak-client-id",
@@ -363,6 +379,8 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         ```
 
         ## Import
+
+        > **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `client_id`, `client_secret`, `client_secret_source`, `client_secret_config`, and the write-only `client_id_wo`/`client_secret_wo`/`client_credentials_wo_version` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
 
         ### Identity Schema
 
@@ -384,7 +402,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+        :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `included_oauth2_provider_config`. Refer to the AWS API for the full, current list. See the note under `included_oauth2_provider_config` for vendors that are not yet supported.
         :param pulumi.Input[_builtins.str] name: Name of the OAuth2 credential provider.
         :param pulumi.Input[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']] oauth2_provider_config: OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
                
@@ -461,6 +479,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
                                 "code",
                                 "id_token",
                             ],
+                            "token_endpoint_auth_methods": ["client_secret_basic"],
                         },
                     },
                     "client_id_wo": "keycloak-client-id",
@@ -473,6 +492,8 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         ```
 
         ## Import
+
+        > **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `client_id`, `client_secret`, `client_secret_source`, `client_secret_config`, and the write-only `client_id_wo`/`client_secret_wo`/`client_credentials_wo_version` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
 
         ### Identity Schema
 
@@ -526,10 +547,13 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
                 raise TypeError("Missing required property 'credential_provider_vendor'")
             __props__.__dict__["credential_provider_vendor"] = credential_provider_vendor
             __props__.__dict__["name"] = name
+            if oauth2_provider_config is None and not opts.urn:
+                raise TypeError("Missing required property 'oauth2_provider_config'")
             __props__.__dict__["oauth2_provider_config"] = oauth2_provider_config
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
+            __props__.__dict__["callback_url"] = None
             __props__.__dict__["client_secret_arns"] = None
             __props__.__dict__["credential_provider_arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -543,6 +567,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            callback_url: pulumi.Input[Optional[_builtins.str]] = None,
             client_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreOauth2CredentialProviderClientSecretArnArgs', 'AgentcoreOauth2CredentialProviderClientSecretArnArgsDict']]]]] = None,
             credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
             credential_provider_vendor: pulumi.Input[Optional[_builtins.str]] = None,
@@ -559,9 +584,10 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] callback_url: Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreOauth2CredentialProviderClientSecretArnArgs', 'AgentcoreOauth2CredentialProviderClientSecretArnArgsDict']]]] client_secret_arns: ARN of the AWS Secrets Manager secret containing the client secret.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the OAuth2 credential provider.
-        :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+        :param pulumi.Input[_builtins.str] credential_provider_vendor: Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `included_oauth2_provider_config`. Refer to the AWS API for the full, current list. See the note under `included_oauth2_provider_config` for vendors that are not yet supported.
         :param pulumi.Input[_builtins.str] name: Name of the OAuth2 credential provider.
         :param pulumi.Input[Union['AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs', 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict']] oauth2_provider_config: OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
                
@@ -574,6 +600,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
         __props__ = _AgentcoreOauth2CredentialProviderState.__new__(_AgentcoreOauth2CredentialProviderState)
 
+        __props__.__dict__["callback_url"] = callback_url
         __props__.__dict__["client_secret_arns"] = client_secret_arns
         __props__.__dict__["credential_provider_arn"] = credential_provider_arn
         __props__.__dict__["credential_provider_vendor"] = credential_provider_vendor
@@ -584,6 +611,14 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
         return AgentcoreOauth2CredentialProvider(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="callbackUrl")
+    def callback_url(self) -> pulumi.Output[_builtins.str]:
+        """
+        Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+        """
+        return pulumi.get(self, "callback_url")
 
     @_builtins.property
     @pulumi.getter(name="clientSecretArns")
@@ -605,7 +640,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
     @pulumi.getter(name="credentialProviderVendor")
     def credential_provider_vendor(self) -> pulumi.Output[_builtins.str]:
         """
-        Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+        Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `included_oauth2_provider_config`. Refer to the AWS API for the full, current list. See the note under `included_oauth2_provider_config` for vendors that are not yet supported.
         """
         return pulumi.get(self, "credential_provider_vendor")
 
@@ -619,7 +654,7 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="oauth2ProviderConfig")
-    def oauth2_provider_config(self) -> pulumi.Output[Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfig']]:
+    def oauth2_provider_config(self) -> pulumi.Output['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfig']:
         """
         OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2_provider_config` below.
 

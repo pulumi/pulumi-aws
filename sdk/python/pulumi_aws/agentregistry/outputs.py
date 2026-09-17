@@ -17,12 +17,21 @@ from . import outputs
 
 __all__ = [
     'RegistryApprovalConfiguration',
+    'RegistryAutoDetectionConfiguration',
     'RegistryDiscoveryConfiguration',
     'RegistryDiscoveryConfigurationAuthorizerConfiguration',
     'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer',
     'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim',
     'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue',
     'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue',
+    'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint',
+    'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource',
+    'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride',
+    'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint',
+    'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource',
+    'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource',
+    'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource',
+    'RegistryEncryptionConfiguration',
     'RegistryTimeouts',
     'GetRegistryApprovalConfigurationResult',
     'GetRegistryDiscoveryConfigurationResult',
@@ -31,6 +40,14 @@ __all__ = [
     'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimResult',
     'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueResult',
     'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueResult',
+    'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointResult',
+    'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceResult',
+    'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideResult',
+    'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointResult',
+    'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceResult',
+    'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceResult',
+    'GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceResult',
+    'GetRegistryEncryptionConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -67,6 +84,35 @@ class RegistryApprovalConfiguration(dict):
         Set of rules that determine which registry records are automatically approved on submission. Valid values: `APPROVE_ALL`. When omitted or empty, submitted records require manual review.
         """
         return pulumi.get(self, "auto_approval_rules")
+
+
+@pulumi.output_type
+class RegistryAutoDetectionConfiguration(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 scope: _builtins.str):
+        """
+        :param _builtins.bool enabled: Whether auto-detection is requested for the registry.
+        :param _builtins.str scope: Source from which resources are detected. Valid values: `ORGANIZATION`.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "scope", scope)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether auto-detection is requested for the registry.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> _builtins.str:
+        """
+        Source from which resources are detected. Valid values: `ORGANIZATION`.
+        """
+        return pulumi.get(self, "scope")
 
 
 @pulumi.output_type
@@ -169,6 +215,10 @@ class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer(d
             suggest = "allowed_scopes"
         elif key == "customClaims":
             suggest = "custom_claims"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateEndpointOverrides":
+            suggest = "private_endpoint_overrides"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer. Access the value via the '{suggest}' property getter instead.")
@@ -186,13 +236,17 @@ class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer(d
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None,
                  allowed_scopes: Optional[Sequence[_builtins.str]] = None,
-                 custom_claims: Optional[Sequence['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None):
+                 custom_claims: Optional[Sequence['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None,
+                 private_endpoint: Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint'] = None,
+                 private_endpoint_overrides: Optional[Sequence['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']] = None):
         """
         :param _builtins.str discovery_url: OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
         :param Sequence[_builtins.str] allowed_audiences: Audience values accepted during JWT validation. A token is rejected if none of its audience claims match.
         :param Sequence[_builtins.str] allowed_clients: Client identifiers accepted during JWT validation. A token is rejected if it was not issued to one of these clients.
         :param Sequence[_builtins.str] allowed_scopes: Scopes accepted during JWT validation. A token is rejected if it does not carry one of these scopes.
         :param Sequence['RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs'] custom_claims: Custom claims for additional JWT validation beyond standard OIDC claims. See below.
+        :param 'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs' private_endpoint: Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+        :param Sequence['RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs'] private_endpoint_overrides: Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
@@ -203,6 +257,10 @@ class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer(d
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -243,6 +301,22 @@ class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer(d
         Custom claims for additional JWT validation beyond standard OIDC claims. See below.
         """
         return pulumi.get(self, "custom_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint']:
+        """
+        Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[Sequence['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']]:
+        """
+        Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+        """
+        return pulumi.get(self, "private_endpoint_overrides")
 
 
 @pulumi.output_type
@@ -405,6 +479,461 @@ class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCu
 
 
 @pulumi.output_type
+class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Private endpoint backed by a service-managed VPC resource. See below.
+        :param 'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource']:
+        """
+        Private endpoint backed by a service-managed VPC resource. See below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource']:
+        """
+        Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets in which the private endpoint network interfaces are placed.
+        :param _builtins.str vpc_identifier: ID of the VPC in which the private endpoint is provisioned.
+        :param _builtins.str routing_domain: Routing domain used to resolve traffic through the private endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups associated with the private endpoint network interfaces.
+        :param Mapping[str, _builtins.str] tags: Tags applied to the service-managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets in which the private endpoint network interfaces are placed.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        ID of the VPC in which the private endpoint is provisioned.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain used to resolve traffic through the private endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the security groups associated with the private endpoint network interfaces.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags applied to the service-managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 private_endpoint: 'outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint'):
+        """
+        :param _builtins.str domain: Domain name to which this private endpoint override applies.
+        :param 'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs' private_endpoint: Private endpoint used to reach the specified domain. See above.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Domain name to which this private endpoint override applies.
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint':
+        """
+        Private endpoint used to reach the specified domain. See above.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Private endpoint backed by a service-managed VPC resource. See below.
+        :param 'RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource']:
+        """
+        Private endpoint backed by a service-managed VPC resource. See below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource']:
+        """
+        Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets in which the private endpoint network interfaces are placed.
+        :param _builtins.str vpc_identifier: ID of the VPC in which the private endpoint is provisioned.
+        :param _builtins.str routing_domain: Routing domain used to resolve traffic through the private endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups associated with the private endpoint network interfaces.
+        :param Mapping[str, _builtins.str] tags: Tags applied to the service-managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets in which the private endpoint network interfaces are placed.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        ID of the VPC in which the private endpoint is provisioned.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain used to resolve traffic through the private endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the security groups associated with the private endpoint network interfaces.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags applied to the service-managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+        """
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
+        """
+        Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+        """
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
+        """
+        Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class RegistryEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: _builtins.str):
+        """
+        :param _builtins.str kms_key_arn: ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> _builtins.str:
+        """
+        ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
 class RegistryTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[_builtins.str] = None,
@@ -519,19 +1048,25 @@ class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorize
                  allowed_clients: Sequence[_builtins.str],
                  allowed_scopes: Sequence[_builtins.str],
                  custom_claims: Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimResult'],
-                 discovery_url: _builtins.str):
+                 discovery_url: _builtins.str,
+                 private_endpoint_overrides: Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideResult'],
+                 private_endpoints: Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointResult']):
         """
         :param Sequence[_builtins.str] allowed_audiences: Audience values accepted during JWT validation.
         :param Sequence[_builtins.str] allowed_clients: Client identifiers accepted during JWT validation.
         :param Sequence[_builtins.str] allowed_scopes: Scopes accepted during JWT validation.
         :param Sequence['GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs'] custom_claims: Custom claims for additional JWT validation beyond standard OIDC claims. See below.
         :param _builtins.str discovery_url: OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+        :param Sequence['GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs'] private_endpoint_overrides: Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+        :param Sequence['GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs'] private_endpoints: Private endpoint used to reach the specified domain. See above.
         """
         pulumi.set(__self__, "allowed_audiences", allowed_audiences)
         pulumi.set(__self__, "allowed_clients", allowed_clients)
         pulumi.set(__self__, "allowed_scopes", allowed_scopes)
         pulumi.set(__self__, "custom_claims", custom_claims)
         pulumi.set(__self__, "discovery_url", discovery_url)
+        pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
+        pulumi.set(__self__, "private_endpoints", private_endpoints)
 
     @_builtins.property
     @pulumi.getter(name="allowedAudiences")
@@ -572,6 +1107,22 @@ class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorize
         OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
         """
         return pulumi.get(self, "discovery_url")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideResult']:
+        """
+        Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+        """
+        return pulumi.get(self, "private_endpoint_overrides")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoints")
+    def private_endpoints(self) -> Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointResult']:
+        """
+        Private endpoint used to reach the specified domain. See above.
+        """
+        return pulumi.get(self, "private_endpoints")
 
 
 @pulumi.output_type
@@ -670,5 +1221,292 @@ class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorize
         Set of string values to match.
         """
         return pulumi.get(self, "match_value_string_lists")
+
+
+@pulumi.output_type
+class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointResult(dict):
+    def __init__(__self__, *,
+                 managed_vpc_resources: Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceResult'],
+                 self_managed_lattice_resources: Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceResult']):
+        """
+        :param Sequence['GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs'] managed_vpc_resources: Private endpoint backed by a service-managed VPC resource. See below.
+        :param Sequence['GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs'] self_managed_lattice_resources: Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+        """
+        pulumi.set(__self__, "managed_vpc_resources", managed_vpc_resources)
+        pulumi.set(__self__, "self_managed_lattice_resources", self_managed_lattice_resources)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResources")
+    def managed_vpc_resources(self) -> Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceResult']:
+        """
+        Private endpoint backed by a service-managed VPC resource. See below.
+        """
+        return pulumi.get(self, "managed_vpc_resources")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResources")
+    def self_managed_lattice_resources(self) -> Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceResult']:
+        """
+        Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resources")
+
+
+@pulumi.output_type
+class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceResult(dict):
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 routing_domain: _builtins.str,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnet_ids: Sequence[_builtins.str],
+                 tags: Mapping[str, _builtins.str],
+                 vpc_identifier: _builtins.str):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+        :param _builtins.str routing_domain: Routing domain used to resolve traffic through the private endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups associated with the private endpoint network interfaces.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets in which the private endpoint network interfaces are placed.
+        :param Mapping[str, _builtins.str] tags: Tags applied to the service-managed VPC resource.
+        :param _builtins.str vpc_identifier: ID of the VPC in which the private endpoint is provisioned.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "routing_domain", routing_domain)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> _builtins.str:
+        """
+        Routing domain used to resolve traffic through the private endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the security groups associated with the private endpoint network interfaces.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets in which the private endpoint network interfaces are placed.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Tags applied to the service-managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        ID of the VPC in which the private endpoint is provisioned.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+
+@pulumi.output_type
+class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideResult(dict):
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 private_endpoints: Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointResult']):
+        """
+        :param _builtins.str domain: Domain name to which this private endpoint override applies.
+        :param Sequence['GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs'] private_endpoints: Private endpoint used to reach the specified domain. See above.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoints", private_endpoints)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Domain name to which this private endpoint override applies.
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoints")
+    def private_endpoints(self) -> Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointResult']:
+        """
+        Private endpoint used to reach the specified domain. See above.
+        """
+        return pulumi.get(self, "private_endpoints")
+
+
+@pulumi.output_type
+class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointResult(dict):
+    def __init__(__self__, *,
+                 managed_vpc_resources: Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceResult'],
+                 self_managed_lattice_resources: Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceResult']):
+        """
+        :param Sequence['GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs'] managed_vpc_resources: Private endpoint backed by a service-managed VPC resource. See below.
+        :param Sequence['GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs'] self_managed_lattice_resources: Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+        """
+        pulumi.set(__self__, "managed_vpc_resources", managed_vpc_resources)
+        pulumi.set(__self__, "self_managed_lattice_resources", self_managed_lattice_resources)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResources")
+    def managed_vpc_resources(self) -> Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceResult']:
+        """
+        Private endpoint backed by a service-managed VPC resource. See below.
+        """
+        return pulumi.get(self, "managed_vpc_resources")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResources")
+    def self_managed_lattice_resources(self) -> Sequence['outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceResult']:
+        """
+        Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resources")
+
+
+@pulumi.output_type
+class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceResult(dict):
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 routing_domain: _builtins.str,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnet_ids: Sequence[_builtins.str],
+                 tags: Mapping[str, _builtins.str],
+                 vpc_identifier: _builtins.str):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+        :param _builtins.str routing_domain: Routing domain used to resolve traffic through the private endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups associated with the private endpoint network interfaces.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets in which the private endpoint network interfaces are placed.
+        :param Mapping[str, _builtins.str] tags: Tags applied to the service-managed VPC resource.
+        :param _builtins.str vpc_identifier: ID of the VPC in which the private endpoint is provisioned.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "routing_domain", routing_domain)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> _builtins.str:
+        """
+        Routing domain used to resolve traffic through the private endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the security groups associated with the private endpoint network interfaces.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets in which the private endpoint network interfaces are placed.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Tags applied to the service-managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        ID of the VPC in which the private endpoint is provisioned.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+
+@pulumi.output_type
+class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceResult(dict):
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceResult(dict):
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class GetRegistryEncryptionConfigurationResult(dict):
+    def __init__(__self__, *,
+                 kms_key_arn: _builtins.str):
+        """
+        :param _builtins.str kms_key_arn: ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> _builtins.str:
+        """
+        ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 

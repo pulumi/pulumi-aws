@@ -147,6 +147,7 @@ import javax.annotation.Nullable;
  *                             .responseTypes(                            
  *                                 "code",
  *                                 "id_token")
+ *                             .tokenEndpointAuthMethods("client_secret_basic")
  *                             .build())
  *                         .build())
  *                     .clientIdWo("keycloak-client-id")
@@ -164,6 +165,8 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ## Import
+ * 
+ * &gt; **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `clientId`, `clientSecret`, `clientSecretSource`, `clientSecretConfig`, and the write-only `clientIdWo`/`clientSecretWo`/`clientCredentialsWoVersion` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
  * 
  * ### Identity Schema
  * 
@@ -185,6 +188,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider")
 public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.CustomResource {
+    /**
+     * Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+     * 
+     */
+    @Export(name="callbackUrl", refs={String.class}, tree="[0]")
+    private Output<String> callbackUrl;
+
+    /**
+     * @return Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+     * 
+     */
+    public Output<String> callbackUrl() {
+        return this.callbackUrl;
+    }
     /**
      * ARN of the AWS Secrets Manager secret containing the client secret.
      * 
@@ -214,14 +231,14 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
         return this.credentialProviderArn;
     }
     /**
-     * Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      * 
      */
     @Export(name="credentialProviderVendor", refs={String.class}, tree="[0]")
     private Output<String> credentialProviderVendor;
 
     /**
-     * @return Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * @return Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      * 
      */
     public Output<String> credentialProviderVendor() {
@@ -248,7 +265,7 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
      * 
      */
     @Export(name="oauth2ProviderConfig", refs={AgentcoreOauth2CredentialProviderOauth2ProviderConfig.class}, tree="[0]")
-    private Output</* @Nullable */ AgentcoreOauth2CredentialProviderOauth2ProviderConfig> oauth2ProviderConfig;
+    private Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfig> oauth2ProviderConfig;
 
     /**
      * @return OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
@@ -256,8 +273,8 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfig>> oauth2ProviderConfig() {
-        return Codegen.optional(this.oauth2ProviderConfig);
+    public Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfig> oauth2ProviderConfig() {
+        return this.oauth2ProviderConfig;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

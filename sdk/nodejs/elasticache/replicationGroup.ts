@@ -292,11 +292,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
     declare public readonly authTokenUpdateStrategy: pulumi.Output<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
      */
     declare public readonly authTokenWo: pulumi.Output<string | undefined>;
     /**
-     * Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     * Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
      */
     declare public readonly authTokenWoVersion: pulumi.Output<number | undefined>;
     /**
@@ -669,11 +669,11 @@ export interface ReplicationGroupState {
     authTokenUpdateStrategy?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
      */
     authTokenWo?: pulumi.Input<string | undefined>;
     /**
-     * Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     * Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
      */
     authTokenWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -913,11 +913,11 @@ export interface ReplicationGroupArgs {
     authTokenUpdateStrategy?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
      */
     authTokenWo?: pulumi.Input<string | undefined>;
     /**
-     * Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     * Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
      */
     authTokenWoVersion?: pulumi.Input<number | undefined>;
     /**

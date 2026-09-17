@@ -18,8 +18,7 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string? RestoreToTime;
         /// <summary>
-        /// Type of restore to be performed.
-        /// Valid options are `full-copy` (default) and `copy-on-write`.
+        /// Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
         /// </summary>
         public readonly string? RestoreType;
         /// <summary>

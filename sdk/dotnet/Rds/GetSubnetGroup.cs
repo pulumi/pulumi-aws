@@ -148,11 +148,11 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Contains a list of subnet identifiers.
+        /// List of subnet identifiers.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// The network type of the DB subnet group.
+        /// Network type of the DB subnet group.
         /// </summary>
         public readonly ImmutableArray<string> SupportedNetworkTypes;
         /// <summary>

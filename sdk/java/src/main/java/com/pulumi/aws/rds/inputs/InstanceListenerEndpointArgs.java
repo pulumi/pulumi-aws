@@ -17,14 +17,14 @@ public final class InstanceListenerEndpointArgs extends com.pulumi.resources.Res
     public static final InstanceListenerEndpointArgs Empty = new InstanceListenerEndpointArgs();
 
     /**
-     * Specifies the DNS address of the DB instance.
+     * DNS address of the DB instance.
      * 
      */
     @Import(name="address")
     private @Nullable Output<String> address;
 
     /**
-     * @return Specifies the DNS address of the DB instance.
+     * @return DNS address of the DB instance.
      * 
      */
     public Optional<Output<String>> address() {
@@ -32,14 +32,14 @@ public final class InstanceListenerEndpointArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+     * ID that Amazon Route 53 assigns when you create a hosted zone.
      * 
      */
     @Import(name="hostedZoneId")
     private @Nullable Output<String> hostedZoneId;
 
     /**
-     * @return Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+     * @return ID that Amazon Route 53 assigns when you create a hosted zone.
      * 
      */
     public Optional<Output<String>> hostedZoneId() {
@@ -47,14 +47,14 @@ public final class InstanceListenerEndpointArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The port on which the DB accepts connections.
+     * Port on which the DB accepts connections.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port on which the DB accepts connections.
+     * @return Port on which the DB accepts connections.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -88,7 +88,7 @@ public final class InstanceListenerEndpointArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param address Specifies the DNS address of the DB instance.
+         * @param address DNS address of the DB instance.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class InstanceListenerEndpointArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param address Specifies the DNS address of the DB instance.
+         * @param address DNS address of the DB instance.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class InstanceListenerEndpointArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hostedZoneId Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+         * @param hostedZoneId ID that Amazon Route 53 assigns when you create a hosted zone.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class InstanceListenerEndpointArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hostedZoneId Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+         * @param hostedZoneId ID that Amazon Route 53 assigns when you create a hosted zone.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class InstanceListenerEndpointArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port The port on which the DB accepts connections.
+         * @param port Port on which the DB accepts connections.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class InstanceListenerEndpointArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port The port on which the DB accepts connections.
+         * @param port Port on which the DB accepts connections.
          * 
          * @return builder
          * 

@@ -241,14 +241,14 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="replicas", refs={List.class,SecretReplica.class}, tree="[0,1]")
-    private Output<List<SecretReplica>> replicas;
+    private Output</* @Nullable */ List<SecretReplica>> replicas;
 
     /**
      * @return Configuration block to support secret replication. See details below.
      * 
      */
-    public Output<List<SecretReplica>> replicas() {
-        return this.replicas;
+    public Output<Optional<List<SecretReplica>>> replicas() {
+        return Codegen.optional(this.replicas);
     }
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

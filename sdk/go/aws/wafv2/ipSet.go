@@ -53,6 +53,19 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) Unique identifier for the IP set.
+// * `name` (String) Name of the IP set.
+// * `scope` (String) Whether this is for a global (`CLOUDFRONT`) or regional (`REGIONAL`) application.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
 //
 // ```sh

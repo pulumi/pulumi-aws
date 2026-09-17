@@ -117,7 +117,7 @@ export class ReservedInstance extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly productDescription: pulumi.Output<string>;
     /**
-     * Recurring price charged to run this reserved DB instance.
+     * Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
      */
     declare public /*out*/ readonly recurringCharges: pulumi.Output<outputs.rds.ReservedInstanceRecurringCharge[]>;
     /**
@@ -262,7 +262,7 @@ export interface ReservedInstanceState {
      */
     productDescription?: pulumi.Input<string | undefined>;
     /**
-     * Recurring price charged to run this reserved DB instance.
+     * Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
      */
     recurringCharges?: pulumi.Input<pulumi.Input<inputs.rds.ReservedInstanceRecurringCharge>[] | undefined>;
     /**

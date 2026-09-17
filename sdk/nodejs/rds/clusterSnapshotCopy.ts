@@ -71,7 +71,7 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      */
     declare public /*out*/ readonly allocatedStorage: pulumi.Output<number>;
     /**
@@ -83,15 +83,15 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dbClusterSnapshotArn: pulumi.Output<string>;
     /**
-     * The Destination region to place snapshot copy.
+     * Destination region to place the snapshot copy.
      */
     declare public readonly destinationRegion: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      */
     declare public /*out*/ readonly engine: pulumi.Output<string>;
     /**
-     * Specifies the version of the database engine.
+     * Version of the database engine.
      */
     declare public /*out*/ readonly engineVersion: pulumi.Output<string>;
     /**
@@ -114,17 +114,20 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     declare public readonly sharedAccounts: pulumi.Output<string[] | undefined>;
+    /**
+     * Type of the DB cluster snapshot.
+     */
     declare public /*out*/ readonly snapshotType: pulumi.Output<string>;
     /**
      * Identifier of the source snapshot.
      */
     declare public readonly sourceDbClusterSnapshotIdentifier: pulumi.Output<string>;
     /**
-     * Specifies whether the DB cluster snapshot is encrypted.
+     * Whether the DB cluster snapshot is encrypted.
      */
     declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
     /**
-     * Specifies the storage type associated with DB cluster snapshot.
+     * Storage type associated with DB cluster snapshot.
      */
     declare public /*out*/ readonly storageType: pulumi.Output<string>;
     /**
@@ -132,7 +135,7 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -219,7 +222,7 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
  */
 export interface ClusterSnapshotCopyState {
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      */
     allocatedStorage?: pulumi.Input<number | undefined>;
     /**
@@ -231,15 +234,15 @@ export interface ClusterSnapshotCopyState {
      */
     dbClusterSnapshotArn?: pulumi.Input<string | undefined>;
     /**
-     * The Destination region to place snapshot copy.
+     * Destination region to place the snapshot copy.
      */
     destinationRegion?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      */
     engine?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the version of the database engine.
+     * Version of the database engine.
      */
     engineVersion?: pulumi.Input<string | undefined>;
     /**
@@ -262,17 +265,20 @@ export interface ClusterSnapshotCopyState {
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Type of the DB cluster snapshot.
+     */
     snapshotType?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the source snapshot.
      */
     sourceDbClusterSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the DB cluster snapshot is encrypted.
+     * Whether the DB cluster snapshot is encrypted.
      */
     storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the storage type associated with DB cluster snapshot.
+     * Storage type associated with DB cluster snapshot.
      */
     storageType?: pulumi.Input<string | undefined>;
     /**
@@ -280,7 +286,7 @@ export interface ClusterSnapshotCopyState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -305,7 +311,7 @@ export interface ClusterSnapshotCopyArgs {
      */
     copyTags?: pulumi.Input<boolean | undefined>;
     /**
-     * The Destination region to place snapshot copy.
+     * Destination region to place the snapshot copy.
      */
     destinationRegion?: pulumi.Input<string | undefined>;
     /**

@@ -80,56 +80,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/clusterParameterGroup:ClusterParameterGroup")
 public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the db cluster parameter group.
+     * ARN of the DB cluster parameter group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the db cluster parameter group.
+     * @return ARN of the DB cluster parameter group.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * Description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return Description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * The family of the DB cluster parameter group.
+     * Family of the DB cluster parameter group.
      * 
      */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
     /**
-     * @return The family of the DB cluster parameter group.
+     * @return Family of the DB cluster parameter group.
      * 
      */
     public Output<String> family() {
         return this.family;
     }
     /**
-     * The name of the DB parameter.
+     * Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DB parameter.
+     * @return Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -150,14 +150,14 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+     * Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
      * 
      */
     @Export(name="parameters", refs={List.class,ClusterParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterParameterGroupParameter>> parameters;
 
     /**
-     * @return A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+     * @return Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
      * 
      */
     public Output<Optional<List<ClusterParameterGroupParameter>>> parameters() {
@@ -178,28 +178,28 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

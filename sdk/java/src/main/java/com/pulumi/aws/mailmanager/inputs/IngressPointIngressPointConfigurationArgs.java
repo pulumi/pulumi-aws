@@ -34,7 +34,7 @@ public final class IngressPointIngressPointConfigurationArgs extends com.pulumi.
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+     * SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
      * 
      */
     @Import(name="smtpPasswordWo")
@@ -42,7 +42,7 @@ public final class IngressPointIngressPointConfigurationArgs extends com.pulumi.
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+     * SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> smtpPasswordWo() {
@@ -50,14 +50,14 @@ public final class IngressPointIngressPointConfigurationArgs extends com.pulumi.
     }
 
     /**
-     * Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+     * Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
      * 
      */
     @Import(name="smtpPasswordWoVersion")
     private @Nullable Output<Integer> smtpPasswordWoVersion;
 
     /**
-     * @return Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+     * @return Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
      * 
      */
     public Optional<Output<Integer>> smtpPasswordWoVersion() {
@@ -129,7 +129,7 @@ public final class IngressPointIngressPointConfigurationArgs extends com.pulumi.
 
         /**
          * @param smtpPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class IngressPointIngressPointConfigurationArgs extends com.pulumi.
 
         /**
          * @param smtpPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class IngressPointIngressPointConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param smtpPasswordWoVersion Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+         * @param smtpPasswordWoVersion Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class IngressPointIngressPointConfigurationArgs extends com.pulumi.
         }
 
         /**
-         * @param smtpPasswordWoVersion Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+         * @param smtpPasswordWoVersion Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
          * 
          * @return builder
          * 

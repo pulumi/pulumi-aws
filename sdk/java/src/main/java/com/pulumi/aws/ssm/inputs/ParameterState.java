@@ -251,7 +251,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
      * 
      */
     @Import(name="valueWo")
@@ -259,7 +259,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
      * 
      */
     public Optional<Output<String>> valueWo() {
@@ -267,7 +267,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     * Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
      * 
      * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
      * 
@@ -276,7 +276,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> valueWoVersion;
 
     /**
-     * @return Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     * @return Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
      * 
      * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
      * 
@@ -686,7 +686,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+         * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
          * 
          * @return builder
          * 
@@ -698,7 +698,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param valueWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+         * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
          * 
          * @return builder
          * 
@@ -708,7 +708,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueWoVersion Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+         * @param valueWoVersion Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
          * 
          * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
          * 
@@ -721,7 +721,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param valueWoVersion Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+         * @param valueWoVersion Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
          * 
          * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
          * 

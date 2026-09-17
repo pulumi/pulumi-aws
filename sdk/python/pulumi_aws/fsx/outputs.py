@@ -2577,8 +2577,8 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
         :param _builtins.str organizational_unit_distinguished_name: Fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         :param _builtins.str password: Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret` and `password_wo`.
         :param _builtins.str password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domain_join_service_account_secret` and `password`. Required with `password_wo_version`.
-        :param _builtins.int password_wo_version: Version of the password. Required with `password_wo`. Update this argument when the value of `password_wo` has changed to trigger an update to the remote password.
+               Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domain_join_service_account_secret` and `password`. If set, requires `password_wo_version` to be set.
+        :param _builtins.int password_wo_version: Required when `password_wo` is set. Changing this value triggers an update to `password_wo`.
         :param _builtins.str username: User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret`.
         """
         pulumi.set(__self__, "dns_ips", dns_ips)
@@ -2651,7 +2651,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     def password_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domain_join_service_account_secret` and `password`. Required with `password_wo_version`.
+        Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domain_join_service_account_secret` and `password`. If set, requires `password_wo_version` to be set.
         """
         return pulumi.get(self, "password_wo")
 
@@ -2659,7 +2659,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @pulumi.getter(name="passwordWoVersion")
     def password_wo_version(self) -> Optional[_builtins.int]:
         """
-        Version of the password. Required with `password_wo`. Update this argument when the value of `password_wo` has changed to trigger an update to the remote password.
+        Required when `password_wo` is set. Changing this value triggers an update to `password_wo`.
         """
         return pulumi.get(self, "password_wo_version")
 

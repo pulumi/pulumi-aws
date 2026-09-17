@@ -102,7 +102,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
      * 
      */
     @Import(name="authTokenWo")
@@ -110,7 +110,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> authTokenWo() {
@@ -118,14 +118,14 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     * Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
      * 
      */
     @Import(name="authTokenWoVersion")
     private @Nullable Output<Integer> authTokenWoVersion;
 
     /**
-     * @return Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     * @return Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
      * 
      */
     public Optional<Output<Integer>> authTokenWoVersion() {
@@ -1055,7 +1055,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param authTokenWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+         * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -1067,7 +1067,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param authTokenWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+         * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -1077,7 +1077,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authTokenWoVersion Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+         * @param authTokenWoVersion Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
          * 
          * @return builder
          * 
@@ -1088,7 +1088,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authTokenWoVersion Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+         * @param authTokenWoVersion Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
          * 
          * @return builder
          * 

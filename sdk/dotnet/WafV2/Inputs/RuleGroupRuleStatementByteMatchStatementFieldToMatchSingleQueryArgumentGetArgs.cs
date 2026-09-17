@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the query header to inspect. This setting must be provided as lower case characters.
+        /// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

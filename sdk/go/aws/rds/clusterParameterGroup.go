@@ -65,23 +65,23 @@ import (
 type ClusterParameterGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the db cluster parameter group.
+	// ARN of the DB cluster parameter group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+	// Description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The family of the DB cluster parameter group.
+	// Family of the DB cluster parameter group.
 	Family pulumi.StringOutput `pulumi:"family"`
-	// The name of the DB parameter.
+	// Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
-	// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+	// Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
 	Parameters ClusterParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -121,44 +121,44 @@ func GetClusterParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterParameterGroup resources.
 type clusterParameterGroupState struct {
-	// The ARN of the db cluster parameter group.
+	// ARN of the DB cluster parameter group.
 	Arn *string `pulumi:"arn"`
-	// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+	// Description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
-	// The family of the DB cluster parameter group.
+	// Family of the DB cluster parameter group.
 	Family *string `pulumi:"family"`
-	// The name of the DB parameter.
+	// Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+	// Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ClusterParameterGroupState struct {
-	// The ARN of the db cluster parameter group.
+	// ARN of the DB cluster parameter group.
 	Arn pulumi.StringPtrInput
-	// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+	// Description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// The family of the DB cluster parameter group.
+	// Family of the DB cluster parameter group.
 	Family pulumi.StringPtrInput
-	// The name of the DB parameter.
+	// Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+	// Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
 	Parameters ClusterParameterGroupParameterArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -167,37 +167,37 @@ func (ClusterParameterGroupState) ElementType() reflect.Type {
 }
 
 type clusterParameterGroupArgs struct {
-	// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+	// Description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
-	// The family of the DB cluster parameter group.
+	// Family of the DB cluster parameter group.
 	Family string `pulumi:"family"`
-	// The name of the DB parameter.
+	// Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
-	// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+	// Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
 	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterParameterGroup resource.
 type ClusterParameterGroupArgs struct {
-	// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+	// Description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
-	// The family of the DB cluster parameter group.
+	// Family of the DB cluster parameter group.
 	Family pulumi.StringInput
-	// The name of the DB parameter.
+	// Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
-	// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+	// Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
 	Parameters ClusterParameterGroupParameterArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -288,22 +288,22 @@ func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutputWithContext(ct
 	return o
 }
 
-// The ARN of the db cluster parameter group.
+// ARN of the DB cluster parameter group.
 func (o ClusterParameterGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+// Description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
 func (o ClusterParameterGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The family of the DB cluster parameter group.
+// Family of the DB cluster parameter group.
 func (o ClusterParameterGroupOutput) Family() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Family }).(pulumi.StringOutput)
 }
 
-// The name of the DB parameter.
+// Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
 func (o ClusterParameterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -313,7 +313,7 @@ func (o ClusterParameterGroupOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
-// A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+// Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
 func (o ClusterParameterGroupOutput) Parameters() ClusterParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) ClusterParameterGroupParameterArrayOutput { return v.Parameters }).(ClusterParameterGroupParameterArrayOutput)
 }
@@ -323,12 +323,12 @@ func (o ClusterParameterGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClusterParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterParameterGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterParameterGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

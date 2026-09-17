@@ -56,22 +56,20 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> AdminPasswordSecretKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `ManageAdminPassword` and `AdminUserPasswordWo`.
+        /// The password of the administrator for the first database created in the namespace. Conflicts with `ManageAdminPassword` and `AdminUserPasswordWo`.
         /// </summary>
         [Output("adminUserPassword")]
         public Output<string?> AdminUserPassword { get; private set; } = null!;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `ManageAdminPassword` and `AdminUserPassword`.
+        /// The password of the administrator for the first database created in the namespace. Conflicts with `ManageAdminPassword` and `AdminUserPassword`. If set, requires `AdminUserPasswordWoVersion` to be set.
         /// </summary>
         [Output("adminUserPasswordWo")]
         public Output<string?> AdminUserPasswordWo { get; private set; } = null!;
 
         /// <summary>
-        /// Used together with `AdminUserPasswordWo` to trigger an update. Increment this value when an update to the `AdminUserPasswordWo` is required
+        /// Required when `AdminUserPasswordWo` is set. Changing this value triggers an update to `AdminUserPasswordWo`.
         /// </summary>
         [Output("adminUserPasswordWoVersion")]
         public Output<int?> AdminUserPasswordWoVersion { get; private set; } = null!;
@@ -119,8 +117,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<ImmutableArray<string>> LogExports { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to use AWS SecretManager to manage namespace's admin credentials.
-        /// Conflicts with `AdminUserPassword` and `AdminUserPasswordWo`.
+        /// Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `AdminUserPassword` and `AdminUserPasswordWo`.
         /// </summary>
         [Output("manageAdminPassword")]
         public Output<bool?> ManageAdminPassword { get; private set; } = null!;
@@ -217,8 +214,7 @@ namespace Pulumi.Aws.RedshiftServerless
         private Input<string>? _adminUserPassword;
 
         /// <summary>
-        /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `ManageAdminPassword` and `AdminUserPasswordWo`.
+        /// The password of the administrator for the first database created in the namespace. Conflicts with `ManageAdminPassword` and `AdminUserPasswordWo`.
         /// </summary>
         public Input<string>? AdminUserPassword
         {
@@ -235,8 +231,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `ManageAdminPassword` and `AdminUserPassword`.
+        /// The password of the administrator for the first database created in the namespace. Conflicts with `ManageAdminPassword` and `AdminUserPassword`. If set, requires `AdminUserPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? AdminUserPasswordWo
         {
@@ -249,7 +244,7 @@ namespace Pulumi.Aws.RedshiftServerless
         }
 
         /// <summary>
-        /// Used together with `AdminUserPasswordWo` to trigger an update. Increment this value when an update to the `AdminUserPasswordWo` is required
+        /// Required when `AdminUserPasswordWo` is set. Changing this value triggers an update to `AdminUserPasswordWo`.
         /// </summary>
         [Input("adminUserPasswordWoVersion")]
         public Input<int>? AdminUserPasswordWoVersion { get; set; }
@@ -313,8 +308,7 @@ namespace Pulumi.Aws.RedshiftServerless
         }
 
         /// <summary>
-        /// Whether to use AWS SecretManager to manage namespace's admin credentials.
-        /// Conflicts with `AdminUserPassword` and `AdminUserPasswordWo`.
+        /// Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `AdminUserPassword` and `AdminUserPasswordWo`.
         /// </summary>
         [Input("manageAdminPassword")]
         public Input<bool>? ManageAdminPassword { get; set; }
@@ -367,8 +361,7 @@ namespace Pulumi.Aws.RedshiftServerless
         private Input<string>? _adminUserPassword;
 
         /// <summary>
-        /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `ManageAdminPassword` and `AdminUserPasswordWo`.
+        /// The password of the administrator for the first database created in the namespace. Conflicts with `ManageAdminPassword` and `AdminUserPasswordWo`.
         /// </summary>
         public Input<string>? AdminUserPassword
         {
@@ -385,8 +378,7 @@ namespace Pulumi.Aws.RedshiftServerless
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// The password of the administrator for the first database created in the namespace.
-        /// Conflicts with `ManageAdminPassword` and `AdminUserPassword`.
+        /// The password of the administrator for the first database created in the namespace. Conflicts with `ManageAdminPassword` and `AdminUserPassword`. If set, requires `AdminUserPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? AdminUserPasswordWo
         {
@@ -399,7 +391,7 @@ namespace Pulumi.Aws.RedshiftServerless
         }
 
         /// <summary>
-        /// Used together with `AdminUserPasswordWo` to trigger an update. Increment this value when an update to the `AdminUserPasswordWo` is required
+        /// Required when `AdminUserPasswordWo` is set. Changing this value triggers an update to `AdminUserPasswordWo`.
         /// </summary>
         [Input("adminUserPasswordWoVersion")]
         public Input<int>? AdminUserPasswordWoVersion { get; set; }
@@ -469,8 +461,7 @@ namespace Pulumi.Aws.RedshiftServerless
         }
 
         /// <summary>
-        /// Whether to use AWS SecretManager to manage namespace's admin credentials.
-        /// Conflicts with `AdminUserPassword` and `AdminUserPasswordWo`.
+        /// Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `AdminUserPassword` and `AdminUserPasswordWo`.
         /// </summary>
         [Input("manageAdminPassword")]
         public Input<bool>? ManageAdminPassword { get; set; }

@@ -76,8 +76,8 @@ class ReplicationGroupArgs:
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
         :param pulumi.Input[_builtins.str] auth_token_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
-        :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. If set, requires `auth_token_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] auth_token_wo_version: Required when `auth_token_wo` is set. Changing this value triggers an update to `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
@@ -302,7 +302,7 @@ class ReplicationGroupArgs:
     def auth_token_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. If set, requires `auth_token_wo_version` to be set.
         """
         return pulumi.get(self, "auth_token_wo")
 
@@ -314,7 +314,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="authTokenWoVersion")
     def auth_token_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+        Required when `auth_token_wo` is set. Changing this value triggers an update to `auth_token_wo`.
         """
         return pulumi.get(self, "auth_token_wo_version")
 
@@ -864,8 +864,8 @@ class _ReplicationGroupState:
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
         :param pulumi.Input[_builtins.str] auth_token_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
-        :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. If set, requires `auth_token_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] auth_token_wo_version: Required when `auth_token_wo` is set. Changing this value triggers an update to `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
@@ -1115,7 +1115,7 @@ class _ReplicationGroupState:
     def auth_token_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. If set, requires `auth_token_wo_version` to be set.
         """
         return pulumi.get(self, "auth_token_wo")
 
@@ -1127,7 +1127,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="authTokenWoVersion")
     def auth_token_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+        Required when `auth_token_wo` is set. Changing this value triggers an update to `auth_token_wo`.
         """
         return pulumi.get(self, "auth_token_wo_version")
 
@@ -1990,8 +1990,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
         :param pulumi.Input[_builtins.str] auth_token_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
-        :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. If set, requires `auth_token_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] auth_token_wo_version: Required when `auth_token_wo` is set. Changing this value triggers an update to `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
@@ -2492,8 +2492,8 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` or `auth_token_wo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` and `auth_token_wo` must be omitted.
         :param pulumi.Input[_builtins.str] auth_token_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
-        :param pulumi.Input[_builtins.int] auth_token_wo_version: Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+               Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. If set, requires `auth_token_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] auth_token_wo_version: Required when `auth_token_wo` is set. Changing this value triggers an update to `auth_token_wo`.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
@@ -2676,7 +2676,7 @@ class ReplicationGroup(pulumi.CustomResource):
     def auth_token_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. Requires `auth_token_wo_version`.
+        Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transit_encryption_enabled = true`. Conflicts with `auth_token`. If set, requires `auth_token_wo_version` to be set.
         """
         return pulumi.get(self, "auth_token_wo")
 
@@ -2684,7 +2684,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="authTokenWoVersion")
     def auth_token_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Integer that, when changed, triggers a re-send of `auth_token_wo` to the replication group. Requires `auth_token_wo`.
+        Required when `auth_token_wo` is set. Changing this value triggers an update to `auth_token_wo`.
         """
         return pulumi.get(self, "auth_token_wo_version")
 

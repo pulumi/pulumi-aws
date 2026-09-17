@@ -96,7 +96,7 @@ class GetGlobalClusterResult:
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
         """
-        The endpoint for the Global Cluster.
+        Endpoint for the Global Cluster.
         """
         return pulumi.get(self, "endpoint")
 
@@ -112,7 +112,7 @@ class GetGlobalClusterResult:
     @pulumi.getter(name="engineLifecycleSupport")
     def engine_lifecycle_support(self) -> _builtins.str:
         """
-        The current lifecycle support status of the database engine for this Global Cluster.
+        Current lifecycle support status of the database engine for this Global Cluster.
         """
         return pulumi.get(self, "engine_lifecycle_support")
 
@@ -162,7 +162,7 @@ class GetGlobalClusterResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        A map of tags to assigned to the Global Cluster.
+        Map of tags assigned to the Global Cluster.
         """
         return pulumi.get(self, "tags")
 
@@ -206,7 +206,7 @@ def get_global_cluster(identifier: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str identifier: The global cluster identifier of the RDS global cluster.
+    :param _builtins.str identifier: Global cluster identifier of the RDS global cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -249,7 +249,7 @@ def get_global_cluster_output(identifier: pulumi.Input[Optional[_builtins.str]] 
     ```
 
 
-    :param _builtins.str identifier: The global cluster identifier of the RDS global cluster.
+    :param _builtins.str identifier: Global cluster identifier of the RDS global cluster.
            
            The following arguments are optional:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

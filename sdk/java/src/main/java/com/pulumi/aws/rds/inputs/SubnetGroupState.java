@@ -19,14 +19,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     public static final SubnetGroupState Empty = new SubnetGroupState();
 
     /**
-     * The ARN of the db subnet group.
+     * ARN of the db subnet group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the db subnet group.
+     * @return ARN of the db subnet group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * Description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return Description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Optional<Output<String>> description() {
@@ -49,14 +49,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+     * Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+     * @return Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Optional<Output<String>> name() {
@@ -94,14 +94,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of VPC subnet IDs.
+     * List of VPC subnet IDs.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return A list of VPC subnet IDs.
+     * @return List of VPC subnet IDs.
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -109,14 +109,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The network type of the db subnet group.
+     * Network type of the db subnet group.
      * 
      */
     @Import(name="supportedNetworkTypes")
     private @Nullable Output<List<String>> supportedNetworkTypes;
 
     /**
-     * @return The network type of the db subnet group.
+     * @return Network type of the db subnet group.
      * 
      */
     public Optional<Output<List<String>>> supportedNetworkTypes() {
@@ -124,14 +124,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -139,14 +139,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -202,7 +202,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the db subnet group.
+         * @param arn ARN of the db subnet group.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the db subnet group.
+         * @param arn ARN of the db subnet group.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description Description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description Description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+         * @param name Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+         * @param name Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of VPC subnet IDs.
+         * @param subnetIds List of VPC subnet IDs.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of VPC subnet IDs.
+         * @param subnetIds List of VPC subnet IDs.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds A list of VPC subnet IDs.
+         * @param subnetIds List of VPC subnet IDs.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportedNetworkTypes The network type of the db subnet group.
+         * @param supportedNetworkTypes Network type of the db subnet group.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportedNetworkTypes The network type of the db subnet group.
+         * @param supportedNetworkTypes Network type of the db subnet group.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param supportedNetworkTypes The network type of the db subnet group.
+         * @param supportedNetworkTypes Network type of the db subnet group.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

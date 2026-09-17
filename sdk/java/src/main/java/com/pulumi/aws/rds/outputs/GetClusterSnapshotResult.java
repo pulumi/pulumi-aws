@@ -27,12 +27,12 @@ public final class GetClusterSnapshotResult {
      */
     private List<String> availabilityZones;
     /**
-     * @return Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+     * @return DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
      * 
      */
     private @Nullable String dbClusterIdentifier;
     /**
-     * @return The ARN for the DB Cluster Snapshot.
+     * @return ARN for the DB Cluster Snapshot.
      * 
      */
     private String dbClusterSnapshotArn;
@@ -77,6 +77,10 @@ public final class GetClusterSnapshotResult {
      */
     private String snapshotCreateTime;
     private @Nullable String snapshotType;
+    /**
+     * @return DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     * 
+     */
     private String sourceDbClusterSnapshotArn;
     /**
      * @return Status of this DB Cluster Snapshot.
@@ -115,14 +119,14 @@ public final class GetClusterSnapshotResult {
         return this.availabilityZones;
     }
     /**
-     * @return Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+     * @return DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
      * 
      */
     public Optional<String> dbClusterIdentifier() {
         return Optional.ofNullable(this.dbClusterIdentifier);
     }
     /**
-     * @return The ARN for the DB Cluster Snapshot.
+     * @return ARN for the DB Cluster Snapshot.
      * 
      */
     public String dbClusterSnapshotArn() {
@@ -195,6 +199,10 @@ public final class GetClusterSnapshotResult {
     public Optional<String> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
     }
+    /**
+     * @return DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     * 
+     */
     public String sourceDbClusterSnapshotArn() {
         return this.sourceDbClusterSnapshotArn;
     }

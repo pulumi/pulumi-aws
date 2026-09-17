@@ -5,6 +5,7 @@ package com.pulumi.aws.agentregistry.outputs;
 
 import com.pulumi.aws.agentregistry.outputs.GetRegistryApprovalConfiguration;
 import com.pulumi.aws.agentregistry.outputs.GetRegistryDiscoveryConfiguration;
+import com.pulumi.aws.agentregistry.outputs.GetRegistryEncryptionConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -35,6 +36,11 @@ public final class GetRegistryResult {
      */
     private List<GetRegistryDiscoveryConfiguration> discoveryConfigurations;
     /**
+     * @return Server-side encryption configuration for the registry. See below.
+     * 
+     */
+    private List<GetRegistryEncryptionConfiguration> encryptionConfigurations;
+    /**
      * @return Name of the registry.
      * 
      */
@@ -52,7 +58,7 @@ public final class GetRegistryResult {
      */
     private String status;
     /**
-     * @return Map of tags assigned to the registry.
+     * @return Tags applied to the service-managed VPC resource.
      * 
      */
     private Map<String,String> tags;
@@ -92,6 +98,13 @@ public final class GetRegistryResult {
         return this.discoveryConfigurations;
     }
     /**
+     * @return Server-side encryption configuration for the registry. See below.
+     * 
+     */
+    public List<GetRegistryEncryptionConfiguration> encryptionConfigurations() {
+        return this.encryptionConfigurations;
+    }
+    /**
      * @return Name of the registry.
      * 
      */
@@ -119,7 +132,7 @@ public final class GetRegistryResult {
         return this.status;
     }
     /**
-     * @return Map of tags assigned to the registry.
+     * @return Tags applied to the service-managed VPC resource.
      * 
      */
     public Map<String,String> tags() {
@@ -146,6 +159,7 @@ public final class GetRegistryResult {
         private String createdAt;
         private String description;
         private List<GetRegistryDiscoveryConfiguration> discoveryConfigurations;
+        private List<GetRegistryEncryptionConfiguration> encryptionConfigurations;
         private String name;
         private String region;
         private String registryArn;
@@ -160,6 +174,7 @@ public final class GetRegistryResult {
     	      this.createdAt = defaults.createdAt;
     	      this.description = defaults.description;
     	      this.discoveryConfigurations = defaults.discoveryConfigurations;
+    	      this.encryptionConfigurations = defaults.encryptionConfigurations;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
     	      this.registryArn = defaults.registryArn;
@@ -206,6 +221,17 @@ public final class GetRegistryResult {
         }
         public Builder discoveryConfigurations(GetRegistryDiscoveryConfiguration... discoveryConfigurations) {
             return discoveryConfigurations(List.of(discoveryConfigurations));
+        }
+        @CustomType.Setter
+        public Builder encryptionConfigurations(List<GetRegistryEncryptionConfiguration> encryptionConfigurations) {
+            if (encryptionConfigurations == null) {
+              throw new MissingRequiredPropertyException("GetRegistryResult", "encryptionConfigurations");
+            }
+            this.encryptionConfigurations = encryptionConfigurations;
+            return this;
+        }
+        public Builder encryptionConfigurations(GetRegistryEncryptionConfiguration... encryptionConfigurations) {
+            return encryptionConfigurations(List.of(encryptionConfigurations));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -269,6 +295,7 @@ public final class GetRegistryResult {
             _resultValue.createdAt = createdAt;
             _resultValue.description = description;
             _resultValue.discoveryConfigurations = discoveryConfigurations;
+            _resultValue.encryptionConfigurations = encryptionConfigurations;
             _resultValue.name = name;
             _resultValue.region = region;
             _resultValue.registryArn = registryArn;

@@ -34,16 +34,16 @@ class SnapshotCopyArgs:
         The set of arguments for constructing a SnapshotCopy resource.
 
         :param pulumi.Input[_builtins.str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
-        :param pulumi.Input[_builtins.str] target_db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[_builtins.str] target_db_snapshot_identifier: Identifier for the snapshot.
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
+        :param pulumi.Input[_builtins.str] destination_region: Destination Region to place snapshot copy.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID.
-        :param pulumi.Input[_builtins.str] option_group_name: The name of an option group to associate with the copy of the snapshot.
-        :param pulumi.Input[_builtins.str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[_builtins.str] option_group_name: Name of an option group to associate with the copy of the snapshot.
+        :param pulumi.Input[_builtins.str] presigned_url: URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] target_custom_availability_zone: The external custom Availability Zone.
+        :param pulumi.Input[_builtins.str] target_custom_availability_zone: External custom Availability Zone.
         """
         pulumi.set(__self__, "source_db_snapshot_identifier", source_db_snapshot_identifier)
         pulumi.set(__self__, "target_db_snapshot_identifier", target_db_snapshot_identifier)
@@ -82,7 +82,7 @@ class SnapshotCopyArgs:
     @pulumi.getter(name="targetDbSnapshotIdentifier")
     def target_db_snapshot_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The Identifier for the snapshot.
+        Identifier for the snapshot.
         """
         return pulumi.get(self, "target_db_snapshot_identifier")
 
@@ -106,7 +106,7 @@ class SnapshotCopyArgs:
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Destination region to place snapshot copy.
+        Destination Region to place snapshot copy.
         """
         return pulumi.get(self, "destination_region")
 
@@ -130,7 +130,7 @@ class SnapshotCopyArgs:
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of an option group to associate with the copy of the snapshot.
+        Name of an option group to associate with the copy of the snapshot.
         """
         return pulumi.get(self, "option_group_name")
 
@@ -142,7 +142,7 @@ class SnapshotCopyArgs:
     @pulumi.getter(name="presignedUrl")
     def presigned_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        he URL that contains a Signature Version 4 signed request.
+        URL that contains a Signature Version 4 signed request.
         """
         return pulumi.get(self, "presigned_url")
 
@@ -190,7 +190,7 @@ class SnapshotCopyArgs:
     @pulumi.getter(name="targetCustomAvailabilityZone")
     def target_custom_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The external custom Availability Zone.
+        External custom Availability Zone.
         """
         return pulumi.get(self, "target_custom_availability_zone")
 
@@ -230,28 +230,30 @@ class _SnapshotCopyState:
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
 
-        :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
-        :param pulumi.Input[_builtins.str] availability_zone: Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        :param pulumi.Input[_builtins.int] allocated_storage: Allocated storage size in gigabytes (GB).
+        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
         :param pulumi.Input[_builtins.str] db_snapshot_arn: ARN for the DB snapshot.
-        :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
-        :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the DB snapshot is encrypted.
-        :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
-        :param pulumi.Input[_builtins.str] engine_version: Specifies the version of the database engine.
-        :param pulumi.Input[_builtins.int] iops: Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        :param pulumi.Input[_builtins.str] destination_region: Destination Region to place snapshot copy.
+        :param pulumi.Input[_builtins.bool] encrypted: Whether the DB snapshot is encrypted.
+        :param pulumi.Input[_builtins.str] engine: Name of the database engine.
+        :param pulumi.Input[_builtins.str] engine_version: Version of the database engine.
+        :param pulumi.Input[_builtins.int] iops: Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID.
         :param pulumi.Input[_builtins.str] license_model: License model information for the restored DB instance.
-        :param pulumi.Input[_builtins.str] option_group_name: The name of an option group to associate with the copy of the snapshot.
-        :param pulumi.Input[_builtins.str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[_builtins.str] option_group_name: Name of an option group to associate with the copy of the snapshot.
+        :param pulumi.Input[_builtins.int] port: Port that the database engine is listening on.
+        :param pulumi.Input[_builtins.str] presigned_url: URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
+        :param pulumi.Input[_builtins.str] snapshot_type: Type of the DB snapshot.
         :param pulumi.Input[_builtins.str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
-        :param pulumi.Input[_builtins.str] source_region: The region that the DB snapshot was created in or copied from.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type associated with DB snapshot.
+        :param pulumi.Input[_builtins.str] source_region: Region that the DB snapshot was created in or copied from.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type associated with DB snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_custom_availability_zone: The external custom Availability Zone.
-        :param pulumi.Input[_builtins.str] target_db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] target_custom_availability_zone: External custom Availability Zone.
+        :param pulumi.Input[_builtins.str] target_db_snapshot_identifier: Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] vpc_id: Provides the VPC ID associated with the DB snapshot.
         """
         if allocated_storage is not None:
@@ -309,7 +311,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -321,7 +323,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -357,7 +359,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Destination region to place snapshot copy.
+        Destination Region to place snapshot copy.
         """
         return pulumi.get(self, "destination_region")
 
@@ -369,7 +371,7 @@ class _SnapshotCopyState:
     @pulumi.getter
     def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the DB snapshot is encrypted.
+        Whether the DB snapshot is encrypted.
         """
         return pulumi.get(self, "encrypted")
 
@@ -381,7 +383,7 @@ class _SnapshotCopyState:
     @pulumi.getter
     def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -393,7 +395,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the version of the database engine.
+        Version of the database engine.
         """
         return pulumi.get(self, "engine_version")
 
@@ -405,7 +407,7 @@ class _SnapshotCopyState:
     @pulumi.getter
     def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
         return pulumi.get(self, "iops")
 
@@ -441,7 +443,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of an option group to associate with the copy of the snapshot.
+        Name of an option group to associate with the copy of the snapshot.
         """
         return pulumi.get(self, "option_group_name")
 
@@ -452,6 +454,9 @@ class _SnapshotCopyState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port that the database engine is listening on.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -462,7 +467,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="presignedUrl")
     def presigned_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        he URL that contains a Signature Version 4 signed request.
+        URL that contains a Signature Version 4 signed request.
         """
         return pulumi.get(self, "presigned_url")
 
@@ -497,6 +502,9 @@ class _SnapshotCopyState:
     @_builtins.property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of the DB snapshot.
+        """
         return pulumi.get(self, "snapshot_type")
 
     @snapshot_type.setter
@@ -519,7 +527,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The region that the DB snapshot was created in or copied from.
+        Region that the DB snapshot was created in or copied from.
         """
         return pulumi.get(self, "source_region")
 
@@ -531,7 +539,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the storage type associated with DB snapshot.
+        Storage type associated with DB snapshot.
         """
         return pulumi.get(self, "storage_type")
 
@@ -555,7 +563,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -567,7 +575,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="targetCustomAvailabilityZone")
     def target_custom_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The external custom Availability Zone.
+        External custom Availability Zone.
         """
         return pulumi.get(self, "target_custom_availability_zone")
 
@@ -579,7 +587,7 @@ class _SnapshotCopyState:
     @pulumi.getter(name="targetDbSnapshotIdentifier")
     def target_db_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Identifier for the snapshot.
+        Identifier for the snapshot.
         """
         return pulumi.get(self, "target_db_snapshot_identifier")
 
@@ -658,16 +666,16 @@ class SnapshotCopy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
+        :param pulumi.Input[_builtins.str] destination_region: Destination Region to place snapshot copy.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID.
-        :param pulumi.Input[_builtins.str] option_group_name: The name of an option group to associate with the copy of the snapshot.
-        :param pulumi.Input[_builtins.str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[_builtins.str] option_group_name: Name of an option group to associate with the copy of the snapshot.
+        :param pulumi.Input[_builtins.str] presigned_url: URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[_builtins.str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] target_custom_availability_zone: The external custom Availability Zone.
-        :param pulumi.Input[_builtins.str] target_db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[_builtins.str] target_custom_availability_zone: External custom Availability Zone.
+        :param pulumi.Input[_builtins.str] target_db_snapshot_identifier: Identifier for the snapshot.
         """
         ...
     @overload
@@ -818,28 +826,30 @@ class SnapshotCopy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
-        :param pulumi.Input[_builtins.str] availability_zone: Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        :param pulumi.Input[_builtins.int] allocated_storage: Allocated storage size in gigabytes (GB).
+        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
         :param pulumi.Input[_builtins.str] db_snapshot_arn: ARN for the DB snapshot.
-        :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
-        :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the DB snapshot is encrypted.
-        :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
-        :param pulumi.Input[_builtins.str] engine_version: Specifies the version of the database engine.
-        :param pulumi.Input[_builtins.int] iops: Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        :param pulumi.Input[_builtins.str] destination_region: Destination Region to place snapshot copy.
+        :param pulumi.Input[_builtins.bool] encrypted: Whether the DB snapshot is encrypted.
+        :param pulumi.Input[_builtins.str] engine: Name of the database engine.
+        :param pulumi.Input[_builtins.str] engine_version: Version of the database engine.
+        :param pulumi.Input[_builtins.int] iops: Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID.
         :param pulumi.Input[_builtins.str] license_model: License model information for the restored DB instance.
-        :param pulumi.Input[_builtins.str] option_group_name: The name of an option group to associate with the copy of the snapshot.
-        :param pulumi.Input[_builtins.str] presigned_url: he URL that contains a Signature Version 4 signed request.
+        :param pulumi.Input[_builtins.str] option_group_name: Name of an option group to associate with the copy of the snapshot.
+        :param pulumi.Input[_builtins.int] port: Port that the database engine is listening on.
+        :param pulumi.Input[_builtins.str] presigned_url: URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
+        :param pulumi.Input[_builtins.str] snapshot_type: Type of the DB snapshot.
         :param pulumi.Input[_builtins.str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
-        :param pulumi.Input[_builtins.str] source_region: The region that the DB snapshot was created in or copied from.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type associated with DB snapshot.
+        :param pulumi.Input[_builtins.str] source_region: Region that the DB snapshot was created in or copied from.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type associated with DB snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_custom_availability_zone: The external custom Availability Zone.
-        :param pulumi.Input[_builtins.str] target_db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] target_custom_availability_zone: External custom Availability Zone.
+        :param pulumi.Input[_builtins.str] target_db_snapshot_identifier: Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] vpc_id: Provides the VPC ID associated with the DB snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -877,7 +887,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[_builtins.int]:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -885,7 +895,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -909,7 +919,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Destination region to place snapshot copy.
+        Destination Region to place snapshot copy.
         """
         return pulumi.get(self, "destination_region")
 
@@ -917,7 +927,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether the DB snapshot is encrypted.
+        Whether the DB snapshot is encrypted.
         """
         return pulumi.get(self, "encrypted")
 
@@ -925,7 +935,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -933,7 +943,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the version of the database engine.
+        Version of the database engine.
         """
         return pulumi.get(self, "engine_version")
 
@@ -941,7 +951,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter
     def iops(self) -> pulumi.Output[_builtins.int]:
         """
-        Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
         return pulumi.get(self, "iops")
 
@@ -965,20 +975,23 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of an option group to associate with the copy of the snapshot.
+        Name of an option group to associate with the copy of the snapshot.
         """
         return pulumi.get(self, "option_group_name")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[_builtins.int]:
+        """
+        Port that the database engine is listening on.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="presignedUrl")
     def presigned_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        he URL that contains a Signature Version 4 signed request.
+        URL that contains a Signature Version 4 signed request.
         """
         return pulumi.get(self, "presigned_url")
 
@@ -1001,6 +1014,9 @@ class SnapshotCopy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Type of the DB snapshot.
+        """
         return pulumi.get(self, "snapshot_type")
 
     @_builtins.property
@@ -1015,7 +1031,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> pulumi.Output[_builtins.str]:
         """
-        The region that the DB snapshot was created in or copied from.
+        Region that the DB snapshot was created in or copied from.
         """
         return pulumi.get(self, "source_region")
 
@@ -1023,7 +1039,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the storage type associated with DB snapshot.
+        Storage type associated with DB snapshot.
         """
         return pulumi.get(self, "storage_type")
 
@@ -1039,7 +1055,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1047,7 +1063,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="targetCustomAvailabilityZone")
     def target_custom_availability_zone(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The external custom Availability Zone.
+        External custom Availability Zone.
         """
         return pulumi.get(self, "target_custom_availability_zone")
 
@@ -1055,7 +1071,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="targetDbSnapshotIdentifier")
     def target_db_snapshot_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The Identifier for the snapshot.
+        Identifier for the snapshot.
         """
         return pulumi.get(self, "target_db_snapshot_identifier")
 

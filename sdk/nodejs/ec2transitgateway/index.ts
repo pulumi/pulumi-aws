@@ -165,6 +165,11 @@ export type PolicyTableAssociation = import("./policyTableAssociation").PolicyTa
 export const PolicyTableAssociation: typeof import("./policyTableAssociation").PolicyTableAssociation = null as any;
 utilities.lazyLoad(exports, ["PolicyTableAssociation"], () => require("./policyTableAssociation"));
 
+export { PolicyTableEntryArgs, PolicyTableEntryState } from "./policyTableEntry";
+export type PolicyTableEntry = import("./policyTableEntry").PolicyTableEntry;
+export const PolicyTableEntry: typeof import("./policyTableEntry").PolicyTableEntry = null as any;
+utilities.lazyLoad(exports, ["PolicyTableEntry"], () => require("./policyTableEntry"));
+
 export { PrefixListReferenceArgs, PrefixListReferenceState } from "./prefixListReference";
 export type PrefixListReference = import("./prefixListReference").PrefixListReference;
 export const PrefixListReference: typeof import("./prefixListReference").PrefixListReference = null as any;
@@ -242,6 +247,8 @@ const _module = {
                 return new PolicyTable(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation":
                 return new PolicyTableAssociation(name, <any>undefined, { urn })
+            case "aws:ec2transitgateway/policyTableEntry:PolicyTableEntry":
+                return new PolicyTableEntry(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/prefixListReference:PrefixListReference":
                 return new PrefixListReference(name, <any>undefined, { urn })
             case "aws:ec2transitgateway/route:Route":
@@ -279,6 +286,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/peeringAttachmen
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/peeringAttachmentAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/policyTable", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/policyTableAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/policyTableEntry", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/prefixListReference", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/route", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2transitgateway/routeTable", _module)

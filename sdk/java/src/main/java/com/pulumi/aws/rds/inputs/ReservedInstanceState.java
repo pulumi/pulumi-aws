@@ -191,14 +191,14 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Recurring price charged to run this reserved DB instance.
+     * Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
      * 
      */
     @Import(name="recurringCharges")
     private @Nullable Output<List<ReservedInstanceRecurringChargeArgs>> recurringCharges;
 
     /**
-     * @return Recurring price charged to run this reserved DB instance.
+     * @return Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
      * 
      */
     public Optional<Output<List<ReservedInstanceRecurringChargeArgs>>> recurringCharges() {
@@ -588,7 +588,7 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param recurringCharges Recurring price charged to run this reserved DB instance.
+         * @param recurringCharges Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param recurringCharges Recurring price charged to run this reserved DB instance.
+         * @param recurringCharges Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class ReservedInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param recurringCharges Recurring price charged to run this reserved DB instance.
+         * @param recurringCharges Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
          * 
          * @return builder
          * 

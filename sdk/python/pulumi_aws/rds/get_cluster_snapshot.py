@@ -114,7 +114,7 @@ class GetClusterSnapshotResult:
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> Optional[_builtins.str]:
         """
-        Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+        DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
         """
         return pulumi.get(self, "db_cluster_identifier")
 
@@ -122,7 +122,7 @@ class GetClusterSnapshotResult:
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> _builtins.str:
         """
-        The ARN for the DB Cluster Snapshot.
+        ARN for the DB Cluster Snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
@@ -215,6 +215,9 @@ class GetClusterSnapshotResult:
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterSnapshotArn")
     def source_db_cluster_snapshot_arn(self) -> _builtins.str:
+        """
+        DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        """
         return pulumi.get(self, "source_db_cluster_snapshot_arn")
 
     @_builtins.property
@@ -319,18 +322,12 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[_builtins.str] = None,
 
     :param _builtins.str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
     :param _builtins.str db_cluster_snapshot_identifier: Returns information on a specific snapshot_id.
-    :param _builtins.bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be
-           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-    :param _builtins.bool include_shared: Set this value to true to include shared manual DB Cluster Snapshots from other
-           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-           The default is `false`.
+    :param _builtins.bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param _builtins.bool include_shared: Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent Snapshot.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
-           value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-           included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired DB cluster snapshot.
+    :param _builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
     """
     __args__ = dict()
     __args__['dbClusterIdentifier'] = db_cluster_identifier
@@ -406,18 +403,12 @@ def get_cluster_snapshot_output(db_cluster_identifier: pulumi.Input[Optional[Opt
 
     :param _builtins.str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
     :param _builtins.str db_cluster_snapshot_identifier: Returns information on a specific snapshot_id.
-    :param _builtins.bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be
-           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-    :param _builtins.bool include_shared: Set this value to true to include shared manual DB Cluster Snapshots from other
-           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-           The default is `false`.
+    :param _builtins.bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param _builtins.bool include_shared: Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent Snapshot.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
-           value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-           included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired DB cluster snapshot.
+    :param _builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
     """
     __args__ = dict()
     __args__['dbClusterIdentifier'] = db_cluster_identifier

@@ -6430,6 +6430,559 @@ func (o EndpointRedshiftSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+type MigrationProjectSchemaConversionApplicationAttributes struct {
+	// S3 bucket path that the application uses for exporting assessment reports.
+	S3BucketPath *string `pulumi:"s3BucketPath"`
+	// ARN of the IAM role the application uses to access its S3 bucket.
+	S3BucketRoleArn *string `pulumi:"s3BucketRoleArn"`
+}
+
+// MigrationProjectSchemaConversionApplicationAttributesInput is an input type that accepts MigrationProjectSchemaConversionApplicationAttributesArgs and MigrationProjectSchemaConversionApplicationAttributesOutput values.
+// You can construct a concrete instance of `MigrationProjectSchemaConversionApplicationAttributesInput` via:
+//
+//	MigrationProjectSchemaConversionApplicationAttributesArgs{...}
+type MigrationProjectSchemaConversionApplicationAttributesInput interface {
+	pulumi.Input
+
+	ToMigrationProjectSchemaConversionApplicationAttributesOutput() MigrationProjectSchemaConversionApplicationAttributesOutput
+	ToMigrationProjectSchemaConversionApplicationAttributesOutputWithContext(context.Context) MigrationProjectSchemaConversionApplicationAttributesOutput
+}
+
+type MigrationProjectSchemaConversionApplicationAttributesArgs struct {
+	// S3 bucket path that the application uses for exporting assessment reports.
+	S3BucketPath pulumi.StringPtrInput `pulumi:"s3BucketPath"`
+	// ARN of the IAM role the application uses to access its S3 bucket.
+	S3BucketRoleArn pulumi.StringPtrInput `pulumi:"s3BucketRoleArn"`
+}
+
+func (MigrationProjectSchemaConversionApplicationAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectSchemaConversionApplicationAttributes)(nil)).Elem()
+}
+
+func (i MigrationProjectSchemaConversionApplicationAttributesArgs) ToMigrationProjectSchemaConversionApplicationAttributesOutput() MigrationProjectSchemaConversionApplicationAttributesOutput {
+	return i.ToMigrationProjectSchemaConversionApplicationAttributesOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectSchemaConversionApplicationAttributesArgs) ToMigrationProjectSchemaConversionApplicationAttributesOutputWithContext(ctx context.Context) MigrationProjectSchemaConversionApplicationAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectSchemaConversionApplicationAttributesOutput)
+}
+
+func (i MigrationProjectSchemaConversionApplicationAttributesArgs) ToMigrationProjectSchemaConversionApplicationAttributesPtrOutput() MigrationProjectSchemaConversionApplicationAttributesPtrOutput {
+	return i.ToMigrationProjectSchemaConversionApplicationAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectSchemaConversionApplicationAttributesArgs) ToMigrationProjectSchemaConversionApplicationAttributesPtrOutputWithContext(ctx context.Context) MigrationProjectSchemaConversionApplicationAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectSchemaConversionApplicationAttributesOutput).ToMigrationProjectSchemaConversionApplicationAttributesPtrOutputWithContext(ctx)
+}
+
+// MigrationProjectSchemaConversionApplicationAttributesPtrInput is an input type that accepts MigrationProjectSchemaConversionApplicationAttributesArgs, MigrationProjectSchemaConversionApplicationAttributesPtr and MigrationProjectSchemaConversionApplicationAttributesPtrOutput values.
+// You can construct a concrete instance of `MigrationProjectSchemaConversionApplicationAttributesPtrInput` via:
+//
+//	        MigrationProjectSchemaConversionApplicationAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MigrationProjectSchemaConversionApplicationAttributesPtrInput interface {
+	pulumi.Input
+
+	ToMigrationProjectSchemaConversionApplicationAttributesPtrOutput() MigrationProjectSchemaConversionApplicationAttributesPtrOutput
+	ToMigrationProjectSchemaConversionApplicationAttributesPtrOutputWithContext(context.Context) MigrationProjectSchemaConversionApplicationAttributesPtrOutput
+}
+
+type migrationProjectSchemaConversionApplicationAttributesPtrType MigrationProjectSchemaConversionApplicationAttributesArgs
+
+func MigrationProjectSchemaConversionApplicationAttributesPtr(v *MigrationProjectSchemaConversionApplicationAttributesArgs) MigrationProjectSchemaConversionApplicationAttributesPtrInput {
+	return (*migrationProjectSchemaConversionApplicationAttributesPtrType)(v)
+}
+
+func (*migrationProjectSchemaConversionApplicationAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MigrationProjectSchemaConversionApplicationAttributes)(nil)).Elem()
+}
+
+func (i *migrationProjectSchemaConversionApplicationAttributesPtrType) ToMigrationProjectSchemaConversionApplicationAttributesPtrOutput() MigrationProjectSchemaConversionApplicationAttributesPtrOutput {
+	return i.ToMigrationProjectSchemaConversionApplicationAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *migrationProjectSchemaConversionApplicationAttributesPtrType) ToMigrationProjectSchemaConversionApplicationAttributesPtrOutputWithContext(ctx context.Context) MigrationProjectSchemaConversionApplicationAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectSchemaConversionApplicationAttributesPtrOutput)
+}
+
+type MigrationProjectSchemaConversionApplicationAttributesOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectSchemaConversionApplicationAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectSchemaConversionApplicationAttributes)(nil)).Elem()
+}
+
+func (o MigrationProjectSchemaConversionApplicationAttributesOutput) ToMigrationProjectSchemaConversionApplicationAttributesOutput() MigrationProjectSchemaConversionApplicationAttributesOutput {
+	return o
+}
+
+func (o MigrationProjectSchemaConversionApplicationAttributesOutput) ToMigrationProjectSchemaConversionApplicationAttributesOutputWithContext(ctx context.Context) MigrationProjectSchemaConversionApplicationAttributesOutput {
+	return o
+}
+
+func (o MigrationProjectSchemaConversionApplicationAttributesOutput) ToMigrationProjectSchemaConversionApplicationAttributesPtrOutput() MigrationProjectSchemaConversionApplicationAttributesPtrOutput {
+	return o.ToMigrationProjectSchemaConversionApplicationAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o MigrationProjectSchemaConversionApplicationAttributesOutput) ToMigrationProjectSchemaConversionApplicationAttributesPtrOutputWithContext(ctx context.Context) MigrationProjectSchemaConversionApplicationAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationProjectSchemaConversionApplicationAttributes) *MigrationProjectSchemaConversionApplicationAttributes {
+		return &v
+	}).(MigrationProjectSchemaConversionApplicationAttributesPtrOutput)
+}
+
+// S3 bucket path that the application uses for exporting assessment reports.
+func (o MigrationProjectSchemaConversionApplicationAttributesOutput) S3BucketPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectSchemaConversionApplicationAttributes) *string { return v.S3BucketPath }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role the application uses to access its S3 bucket.
+func (o MigrationProjectSchemaConversionApplicationAttributesOutput) S3BucketRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectSchemaConversionApplicationAttributes) *string { return v.S3BucketRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type MigrationProjectSchemaConversionApplicationAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectSchemaConversionApplicationAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MigrationProjectSchemaConversionApplicationAttributes)(nil)).Elem()
+}
+
+func (o MigrationProjectSchemaConversionApplicationAttributesPtrOutput) ToMigrationProjectSchemaConversionApplicationAttributesPtrOutput() MigrationProjectSchemaConversionApplicationAttributesPtrOutput {
+	return o
+}
+
+func (o MigrationProjectSchemaConversionApplicationAttributesPtrOutput) ToMigrationProjectSchemaConversionApplicationAttributesPtrOutputWithContext(ctx context.Context) MigrationProjectSchemaConversionApplicationAttributesPtrOutput {
+	return o
+}
+
+func (o MigrationProjectSchemaConversionApplicationAttributesPtrOutput) Elem() MigrationProjectSchemaConversionApplicationAttributesOutput {
+	return o.ApplyT(func(v *MigrationProjectSchemaConversionApplicationAttributes) MigrationProjectSchemaConversionApplicationAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret MigrationProjectSchemaConversionApplicationAttributes
+		return ret
+	}).(MigrationProjectSchemaConversionApplicationAttributesOutput)
+}
+
+// S3 bucket path that the application uses for exporting assessment reports.
+func (o MigrationProjectSchemaConversionApplicationAttributesPtrOutput) S3BucketPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrationProjectSchemaConversionApplicationAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role the application uses to access its S3 bucket.
+func (o MigrationProjectSchemaConversionApplicationAttributesPtrOutput) S3BucketRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrationProjectSchemaConversionApplicationAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type MigrationProjectSourceDataProviderDescriptor struct {
+	// ARN of the data provider.
+	//
+	// The following arguments are optional:
+	DataProviderArn string `pulumi:"dataProviderArn"`
+	// Name of the source data provider.
+	DataProviderName *string `pulumi:"dataProviderName"`
+	// ARN of the IAM role used to access AWS Secrets Manager.
+	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
+	// Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+	SecretsManagerSecretId *string `pulumi:"secretsManagerSecretId"`
+}
+
+// MigrationProjectSourceDataProviderDescriptorInput is an input type that accepts MigrationProjectSourceDataProviderDescriptorArgs and MigrationProjectSourceDataProviderDescriptorOutput values.
+// You can construct a concrete instance of `MigrationProjectSourceDataProviderDescriptorInput` via:
+//
+//	MigrationProjectSourceDataProviderDescriptorArgs{...}
+type MigrationProjectSourceDataProviderDescriptorInput interface {
+	pulumi.Input
+
+	ToMigrationProjectSourceDataProviderDescriptorOutput() MigrationProjectSourceDataProviderDescriptorOutput
+	ToMigrationProjectSourceDataProviderDescriptorOutputWithContext(context.Context) MigrationProjectSourceDataProviderDescriptorOutput
+}
+
+type MigrationProjectSourceDataProviderDescriptorArgs struct {
+	// ARN of the data provider.
+	//
+	// The following arguments are optional:
+	DataProviderArn pulumi.StringInput `pulumi:"dataProviderArn"`
+	// Name of the source data provider.
+	DataProviderName pulumi.StringPtrInput `pulumi:"dataProviderName"`
+	// ARN of the IAM role used to access AWS Secrets Manager.
+	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
+	// Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+	SecretsManagerSecretId pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+}
+
+func (MigrationProjectSourceDataProviderDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectSourceDataProviderDescriptor)(nil)).Elem()
+}
+
+func (i MigrationProjectSourceDataProviderDescriptorArgs) ToMigrationProjectSourceDataProviderDescriptorOutput() MigrationProjectSourceDataProviderDescriptorOutput {
+	return i.ToMigrationProjectSourceDataProviderDescriptorOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectSourceDataProviderDescriptorArgs) ToMigrationProjectSourceDataProviderDescriptorOutputWithContext(ctx context.Context) MigrationProjectSourceDataProviderDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectSourceDataProviderDescriptorOutput)
+}
+
+// MigrationProjectSourceDataProviderDescriptorArrayInput is an input type that accepts MigrationProjectSourceDataProviderDescriptorArray and MigrationProjectSourceDataProviderDescriptorArrayOutput values.
+// You can construct a concrete instance of `MigrationProjectSourceDataProviderDescriptorArrayInput` via:
+//
+//	MigrationProjectSourceDataProviderDescriptorArray{ MigrationProjectSourceDataProviderDescriptorArgs{...} }
+type MigrationProjectSourceDataProviderDescriptorArrayInput interface {
+	pulumi.Input
+
+	ToMigrationProjectSourceDataProviderDescriptorArrayOutput() MigrationProjectSourceDataProviderDescriptorArrayOutput
+	ToMigrationProjectSourceDataProviderDescriptorArrayOutputWithContext(context.Context) MigrationProjectSourceDataProviderDescriptorArrayOutput
+}
+
+type MigrationProjectSourceDataProviderDescriptorArray []MigrationProjectSourceDataProviderDescriptorInput
+
+func (MigrationProjectSourceDataProviderDescriptorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigrationProjectSourceDataProviderDescriptor)(nil)).Elem()
+}
+
+func (i MigrationProjectSourceDataProviderDescriptorArray) ToMigrationProjectSourceDataProviderDescriptorArrayOutput() MigrationProjectSourceDataProviderDescriptorArrayOutput {
+	return i.ToMigrationProjectSourceDataProviderDescriptorArrayOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectSourceDataProviderDescriptorArray) ToMigrationProjectSourceDataProviderDescriptorArrayOutputWithContext(ctx context.Context) MigrationProjectSourceDataProviderDescriptorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectSourceDataProviderDescriptorArrayOutput)
+}
+
+type MigrationProjectSourceDataProviderDescriptorOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectSourceDataProviderDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectSourceDataProviderDescriptor)(nil)).Elem()
+}
+
+func (o MigrationProjectSourceDataProviderDescriptorOutput) ToMigrationProjectSourceDataProviderDescriptorOutput() MigrationProjectSourceDataProviderDescriptorOutput {
+	return o
+}
+
+func (o MigrationProjectSourceDataProviderDescriptorOutput) ToMigrationProjectSourceDataProviderDescriptorOutputWithContext(ctx context.Context) MigrationProjectSourceDataProviderDescriptorOutput {
+	return o
+}
+
+// ARN of the data provider.
+//
+// The following arguments are optional:
+func (o MigrationProjectSourceDataProviderDescriptorOutput) DataProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationProjectSourceDataProviderDescriptor) string { return v.DataProviderArn }).(pulumi.StringOutput)
+}
+
+// Name of the source data provider.
+func (o MigrationProjectSourceDataProviderDescriptorOutput) DataProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectSourceDataProviderDescriptor) *string { return v.DataProviderName }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to access AWS Secrets Manager.
+func (o MigrationProjectSourceDataProviderDescriptorOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectSourceDataProviderDescriptor) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+func (o MigrationProjectSourceDataProviderDescriptorOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectSourceDataProviderDescriptor) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+type MigrationProjectSourceDataProviderDescriptorArrayOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectSourceDataProviderDescriptorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigrationProjectSourceDataProviderDescriptor)(nil)).Elem()
+}
+
+func (o MigrationProjectSourceDataProviderDescriptorArrayOutput) ToMigrationProjectSourceDataProviderDescriptorArrayOutput() MigrationProjectSourceDataProviderDescriptorArrayOutput {
+	return o
+}
+
+func (o MigrationProjectSourceDataProviderDescriptorArrayOutput) ToMigrationProjectSourceDataProviderDescriptorArrayOutputWithContext(ctx context.Context) MigrationProjectSourceDataProviderDescriptorArrayOutput {
+	return o
+}
+
+func (o MigrationProjectSourceDataProviderDescriptorArrayOutput) Index(i pulumi.IntInput) MigrationProjectSourceDataProviderDescriptorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigrationProjectSourceDataProviderDescriptor {
+		return vs[0].([]MigrationProjectSourceDataProviderDescriptor)[vs[1].(int)]
+	}).(MigrationProjectSourceDataProviderDescriptorOutput)
+}
+
+type MigrationProjectTargetDataProviderDescriptor struct {
+	// ARN of the data provider.
+	//
+	// The following arguments are optional:
+	DataProviderArn string `pulumi:"dataProviderArn"`
+	// Name of the target data provider.
+	DataProviderName *string `pulumi:"dataProviderName"`
+	// ARN of the IAM role used to access AWS Secrets Manager.
+	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
+	// Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+	SecretsManagerSecretId *string `pulumi:"secretsManagerSecretId"`
+}
+
+// MigrationProjectTargetDataProviderDescriptorInput is an input type that accepts MigrationProjectTargetDataProviderDescriptorArgs and MigrationProjectTargetDataProviderDescriptorOutput values.
+// You can construct a concrete instance of `MigrationProjectTargetDataProviderDescriptorInput` via:
+//
+//	MigrationProjectTargetDataProviderDescriptorArgs{...}
+type MigrationProjectTargetDataProviderDescriptorInput interface {
+	pulumi.Input
+
+	ToMigrationProjectTargetDataProviderDescriptorOutput() MigrationProjectTargetDataProviderDescriptorOutput
+	ToMigrationProjectTargetDataProviderDescriptorOutputWithContext(context.Context) MigrationProjectTargetDataProviderDescriptorOutput
+}
+
+type MigrationProjectTargetDataProviderDescriptorArgs struct {
+	// ARN of the data provider.
+	//
+	// The following arguments are optional:
+	DataProviderArn pulumi.StringInput `pulumi:"dataProviderArn"`
+	// Name of the target data provider.
+	DataProviderName pulumi.StringPtrInput `pulumi:"dataProviderName"`
+	// ARN of the IAM role used to access AWS Secrets Manager.
+	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
+	// Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+	SecretsManagerSecretId pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+}
+
+func (MigrationProjectTargetDataProviderDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectTargetDataProviderDescriptor)(nil)).Elem()
+}
+
+func (i MigrationProjectTargetDataProviderDescriptorArgs) ToMigrationProjectTargetDataProviderDescriptorOutput() MigrationProjectTargetDataProviderDescriptorOutput {
+	return i.ToMigrationProjectTargetDataProviderDescriptorOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectTargetDataProviderDescriptorArgs) ToMigrationProjectTargetDataProviderDescriptorOutputWithContext(ctx context.Context) MigrationProjectTargetDataProviderDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectTargetDataProviderDescriptorOutput)
+}
+
+// MigrationProjectTargetDataProviderDescriptorArrayInput is an input type that accepts MigrationProjectTargetDataProviderDescriptorArray and MigrationProjectTargetDataProviderDescriptorArrayOutput values.
+// You can construct a concrete instance of `MigrationProjectTargetDataProviderDescriptorArrayInput` via:
+//
+//	MigrationProjectTargetDataProviderDescriptorArray{ MigrationProjectTargetDataProviderDescriptorArgs{...} }
+type MigrationProjectTargetDataProviderDescriptorArrayInput interface {
+	pulumi.Input
+
+	ToMigrationProjectTargetDataProviderDescriptorArrayOutput() MigrationProjectTargetDataProviderDescriptorArrayOutput
+	ToMigrationProjectTargetDataProviderDescriptorArrayOutputWithContext(context.Context) MigrationProjectTargetDataProviderDescriptorArrayOutput
+}
+
+type MigrationProjectTargetDataProviderDescriptorArray []MigrationProjectTargetDataProviderDescriptorInput
+
+func (MigrationProjectTargetDataProviderDescriptorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigrationProjectTargetDataProviderDescriptor)(nil)).Elem()
+}
+
+func (i MigrationProjectTargetDataProviderDescriptorArray) ToMigrationProjectTargetDataProviderDescriptorArrayOutput() MigrationProjectTargetDataProviderDescriptorArrayOutput {
+	return i.ToMigrationProjectTargetDataProviderDescriptorArrayOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectTargetDataProviderDescriptorArray) ToMigrationProjectTargetDataProviderDescriptorArrayOutputWithContext(ctx context.Context) MigrationProjectTargetDataProviderDescriptorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectTargetDataProviderDescriptorArrayOutput)
+}
+
+type MigrationProjectTargetDataProviderDescriptorOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectTargetDataProviderDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectTargetDataProviderDescriptor)(nil)).Elem()
+}
+
+func (o MigrationProjectTargetDataProviderDescriptorOutput) ToMigrationProjectTargetDataProviderDescriptorOutput() MigrationProjectTargetDataProviderDescriptorOutput {
+	return o
+}
+
+func (o MigrationProjectTargetDataProviderDescriptorOutput) ToMigrationProjectTargetDataProviderDescriptorOutputWithContext(ctx context.Context) MigrationProjectTargetDataProviderDescriptorOutput {
+	return o
+}
+
+// ARN of the data provider.
+//
+// The following arguments are optional:
+func (o MigrationProjectTargetDataProviderDescriptorOutput) DataProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationProjectTargetDataProviderDescriptor) string { return v.DataProviderArn }).(pulumi.StringOutput)
+}
+
+// Name of the target data provider.
+func (o MigrationProjectTargetDataProviderDescriptorOutput) DataProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectTargetDataProviderDescriptor) *string { return v.DataProviderName }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role used to access AWS Secrets Manager.
+func (o MigrationProjectTargetDataProviderDescriptorOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectTargetDataProviderDescriptor) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+func (o MigrationProjectTargetDataProviderDescriptorOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectTargetDataProviderDescriptor) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+type MigrationProjectTargetDataProviderDescriptorArrayOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectTargetDataProviderDescriptorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigrationProjectTargetDataProviderDescriptor)(nil)).Elem()
+}
+
+func (o MigrationProjectTargetDataProviderDescriptorArrayOutput) ToMigrationProjectTargetDataProviderDescriptorArrayOutput() MigrationProjectTargetDataProviderDescriptorArrayOutput {
+	return o
+}
+
+func (o MigrationProjectTargetDataProviderDescriptorArrayOutput) ToMigrationProjectTargetDataProviderDescriptorArrayOutputWithContext(ctx context.Context) MigrationProjectTargetDataProviderDescriptorArrayOutput {
+	return o
+}
+
+func (o MigrationProjectTargetDataProviderDescriptorArrayOutput) Index(i pulumi.IntInput) MigrationProjectTargetDataProviderDescriptorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigrationProjectTargetDataProviderDescriptor {
+		return vs[0].([]MigrationProjectTargetDataProviderDescriptor)[vs[1].(int)]
+	}).(MigrationProjectTargetDataProviderDescriptorOutput)
+}
+
+type MigrationProjectTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// MigrationProjectTimeoutsInput is an input type that accepts MigrationProjectTimeoutsArgs and MigrationProjectTimeoutsOutput values.
+// You can construct a concrete instance of `MigrationProjectTimeoutsInput` via:
+//
+//	MigrationProjectTimeoutsArgs{...}
+type MigrationProjectTimeoutsInput interface {
+	pulumi.Input
+
+	ToMigrationProjectTimeoutsOutput() MigrationProjectTimeoutsOutput
+	ToMigrationProjectTimeoutsOutputWithContext(context.Context) MigrationProjectTimeoutsOutput
+}
+
+type MigrationProjectTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (MigrationProjectTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectTimeouts)(nil)).Elem()
+}
+
+func (i MigrationProjectTimeoutsArgs) ToMigrationProjectTimeoutsOutput() MigrationProjectTimeoutsOutput {
+	return i.ToMigrationProjectTimeoutsOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectTimeoutsArgs) ToMigrationProjectTimeoutsOutputWithContext(ctx context.Context) MigrationProjectTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectTimeoutsOutput)
+}
+
+func (i MigrationProjectTimeoutsArgs) ToMigrationProjectTimeoutsPtrOutput() MigrationProjectTimeoutsPtrOutput {
+	return i.ToMigrationProjectTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectTimeoutsArgs) ToMigrationProjectTimeoutsPtrOutputWithContext(ctx context.Context) MigrationProjectTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectTimeoutsOutput).ToMigrationProjectTimeoutsPtrOutputWithContext(ctx)
+}
+
+// MigrationProjectTimeoutsPtrInput is an input type that accepts MigrationProjectTimeoutsArgs, MigrationProjectTimeoutsPtr and MigrationProjectTimeoutsPtrOutput values.
+// You can construct a concrete instance of `MigrationProjectTimeoutsPtrInput` via:
+//
+//	        MigrationProjectTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MigrationProjectTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToMigrationProjectTimeoutsPtrOutput() MigrationProjectTimeoutsPtrOutput
+	ToMigrationProjectTimeoutsPtrOutputWithContext(context.Context) MigrationProjectTimeoutsPtrOutput
+}
+
+type migrationProjectTimeoutsPtrType MigrationProjectTimeoutsArgs
+
+func MigrationProjectTimeoutsPtr(v *MigrationProjectTimeoutsArgs) MigrationProjectTimeoutsPtrInput {
+	return (*migrationProjectTimeoutsPtrType)(v)
+}
+
+func (*migrationProjectTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MigrationProjectTimeouts)(nil)).Elem()
+}
+
+func (i *migrationProjectTimeoutsPtrType) ToMigrationProjectTimeoutsPtrOutput() MigrationProjectTimeoutsPtrOutput {
+	return i.ToMigrationProjectTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *migrationProjectTimeoutsPtrType) ToMigrationProjectTimeoutsPtrOutputWithContext(ctx context.Context) MigrationProjectTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectTimeoutsPtrOutput)
+}
+
+type MigrationProjectTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectTimeouts)(nil)).Elem()
+}
+
+func (o MigrationProjectTimeoutsOutput) ToMigrationProjectTimeoutsOutput() MigrationProjectTimeoutsOutput {
+	return o
+}
+
+func (o MigrationProjectTimeoutsOutput) ToMigrationProjectTimeoutsOutputWithContext(ctx context.Context) MigrationProjectTimeoutsOutput {
+	return o
+}
+
+func (o MigrationProjectTimeoutsOutput) ToMigrationProjectTimeoutsPtrOutput() MigrationProjectTimeoutsPtrOutput {
+	return o.ToMigrationProjectTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o MigrationProjectTimeoutsOutput) ToMigrationProjectTimeoutsPtrOutputWithContext(ctx context.Context) MigrationProjectTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MigrationProjectTimeouts) *MigrationProjectTimeouts {
+		return &v
+	}).(MigrationProjectTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MigrationProjectTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type MigrationProjectTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MigrationProjectTimeouts)(nil)).Elem()
+}
+
+func (o MigrationProjectTimeoutsPtrOutput) ToMigrationProjectTimeoutsPtrOutput() MigrationProjectTimeoutsPtrOutput {
+	return o
+}
+
+func (o MigrationProjectTimeoutsPtrOutput) ToMigrationProjectTimeoutsPtrOutputWithContext(ctx context.Context) MigrationProjectTimeoutsPtrOutput {
+	return o
+}
+
+func (o MigrationProjectTimeoutsPtrOutput) Elem() MigrationProjectTimeoutsOutput {
+	return o.ApplyT(func(v *MigrationProjectTimeouts) MigrationProjectTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret MigrationProjectTimeouts
+		return ret
+	}).(MigrationProjectTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o MigrationProjectTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrationProjectTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type ReplicationConfigComputeConfig struct {
 	// The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -8463,6 +9016,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedisSettingsPtrInput)(nil)).Elem(), EndpointRedisSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsPtrInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectSchemaConversionApplicationAttributesInput)(nil)).Elem(), MigrationProjectSchemaConversionApplicationAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectSchemaConversionApplicationAttributesPtrInput)(nil)).Elem(), MigrationProjectSchemaConversionApplicationAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectSourceDataProviderDescriptorInput)(nil)).Elem(), MigrationProjectSourceDataProviderDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectSourceDataProviderDescriptorArrayInput)(nil)).Elem(), MigrationProjectSourceDataProviderDescriptorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectTargetDataProviderDescriptorInput)(nil)).Elem(), MigrationProjectTargetDataProviderDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectTargetDataProviderDescriptorArrayInput)(nil)).Elem(), MigrationProjectTargetDataProviderDescriptorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectTimeoutsInput)(nil)).Elem(), MigrationProjectTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectTimeoutsPtrInput)(nil)).Elem(), MigrationProjectTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigPtrInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceKerberosAuthenticationSettingsInput)(nil)).Elem(), ReplicationInstanceKerberosAuthenticationSettingsArgs{})
@@ -8527,6 +9088,14 @@ func init() {
 	pulumi.RegisterOutputType(EndpointRedisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointRedshiftSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MigrationProjectSchemaConversionApplicationAttributesOutput{})
+	pulumi.RegisterOutputType(MigrationProjectSchemaConversionApplicationAttributesPtrOutput{})
+	pulumi.RegisterOutputType(MigrationProjectSourceDataProviderDescriptorOutput{})
+	pulumi.RegisterOutputType(MigrationProjectSourceDataProviderDescriptorArrayOutput{})
+	pulumi.RegisterOutputType(MigrationProjectTargetDataProviderDescriptorOutput{})
+	pulumi.RegisterOutputType(MigrationProjectTargetDataProviderDescriptorArrayOutput{})
+	pulumi.RegisterOutputType(MigrationProjectTimeoutsOutput{})
+	pulumi.RegisterOutputType(MigrationProjectTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigComputeConfigOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigComputeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationInstanceKerberosAuthenticationSettingsOutput{})

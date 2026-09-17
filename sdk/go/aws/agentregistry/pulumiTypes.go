@@ -150,6 +150,162 @@ func (o RegistryApprovalConfigurationPtrOutput) AutoApprovalRules() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
+type RegistryAutoDetectionConfiguration struct {
+	// Whether auto-detection is requested for the registry.
+	Enabled bool `pulumi:"enabled"`
+	// Source from which resources are detected. Valid values: `ORGANIZATION`.
+	Scope string `pulumi:"scope"`
+}
+
+// RegistryAutoDetectionConfigurationInput is an input type that accepts RegistryAutoDetectionConfigurationArgs and RegistryAutoDetectionConfigurationOutput values.
+// You can construct a concrete instance of `RegistryAutoDetectionConfigurationInput` via:
+//
+//	RegistryAutoDetectionConfigurationArgs{...}
+type RegistryAutoDetectionConfigurationInput interface {
+	pulumi.Input
+
+	ToRegistryAutoDetectionConfigurationOutput() RegistryAutoDetectionConfigurationOutput
+	ToRegistryAutoDetectionConfigurationOutputWithContext(context.Context) RegistryAutoDetectionConfigurationOutput
+}
+
+type RegistryAutoDetectionConfigurationArgs struct {
+	// Whether auto-detection is requested for the registry.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Source from which resources are detected. Valid values: `ORGANIZATION`.
+	Scope pulumi.StringInput `pulumi:"scope"`
+}
+
+func (RegistryAutoDetectionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryAutoDetectionConfiguration)(nil)).Elem()
+}
+
+func (i RegistryAutoDetectionConfigurationArgs) ToRegistryAutoDetectionConfigurationOutput() RegistryAutoDetectionConfigurationOutput {
+	return i.ToRegistryAutoDetectionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RegistryAutoDetectionConfigurationArgs) ToRegistryAutoDetectionConfigurationOutputWithContext(ctx context.Context) RegistryAutoDetectionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryAutoDetectionConfigurationOutput)
+}
+
+func (i RegistryAutoDetectionConfigurationArgs) ToRegistryAutoDetectionConfigurationPtrOutput() RegistryAutoDetectionConfigurationPtrOutput {
+	return i.ToRegistryAutoDetectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryAutoDetectionConfigurationArgs) ToRegistryAutoDetectionConfigurationPtrOutputWithContext(ctx context.Context) RegistryAutoDetectionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryAutoDetectionConfigurationOutput).ToRegistryAutoDetectionConfigurationPtrOutputWithContext(ctx)
+}
+
+// RegistryAutoDetectionConfigurationPtrInput is an input type that accepts RegistryAutoDetectionConfigurationArgs, RegistryAutoDetectionConfigurationPtr and RegistryAutoDetectionConfigurationPtrOutput values.
+// You can construct a concrete instance of `RegistryAutoDetectionConfigurationPtrInput` via:
+//
+//	        RegistryAutoDetectionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryAutoDetectionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRegistryAutoDetectionConfigurationPtrOutput() RegistryAutoDetectionConfigurationPtrOutput
+	ToRegistryAutoDetectionConfigurationPtrOutputWithContext(context.Context) RegistryAutoDetectionConfigurationPtrOutput
+}
+
+type registryAutoDetectionConfigurationPtrType RegistryAutoDetectionConfigurationArgs
+
+func RegistryAutoDetectionConfigurationPtr(v *RegistryAutoDetectionConfigurationArgs) RegistryAutoDetectionConfigurationPtrInput {
+	return (*registryAutoDetectionConfigurationPtrType)(v)
+}
+
+func (*registryAutoDetectionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryAutoDetectionConfiguration)(nil)).Elem()
+}
+
+func (i *registryAutoDetectionConfigurationPtrType) ToRegistryAutoDetectionConfigurationPtrOutput() RegistryAutoDetectionConfigurationPtrOutput {
+	return i.ToRegistryAutoDetectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *registryAutoDetectionConfigurationPtrType) ToRegistryAutoDetectionConfigurationPtrOutputWithContext(ctx context.Context) RegistryAutoDetectionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryAutoDetectionConfigurationPtrOutput)
+}
+
+type RegistryAutoDetectionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RegistryAutoDetectionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryAutoDetectionConfiguration)(nil)).Elem()
+}
+
+func (o RegistryAutoDetectionConfigurationOutput) ToRegistryAutoDetectionConfigurationOutput() RegistryAutoDetectionConfigurationOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionConfigurationOutput) ToRegistryAutoDetectionConfigurationOutputWithContext(ctx context.Context) RegistryAutoDetectionConfigurationOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionConfigurationOutput) ToRegistryAutoDetectionConfigurationPtrOutput() RegistryAutoDetectionConfigurationPtrOutput {
+	return o.ToRegistryAutoDetectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryAutoDetectionConfigurationOutput) ToRegistryAutoDetectionConfigurationPtrOutputWithContext(ctx context.Context) RegistryAutoDetectionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryAutoDetectionConfiguration) *RegistryAutoDetectionConfiguration {
+		return &v
+	}).(RegistryAutoDetectionConfigurationPtrOutput)
+}
+
+// Whether auto-detection is requested for the registry.
+func (o RegistryAutoDetectionConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v RegistryAutoDetectionConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Source from which resources are detected. Valid values: `ORGANIZATION`.
+func (o RegistryAutoDetectionConfigurationOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryAutoDetectionConfiguration) string { return v.Scope }).(pulumi.StringOutput)
+}
+
+type RegistryAutoDetectionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryAutoDetectionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryAutoDetectionConfiguration)(nil)).Elem()
+}
+
+func (o RegistryAutoDetectionConfigurationPtrOutput) ToRegistryAutoDetectionConfigurationPtrOutput() RegistryAutoDetectionConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionConfigurationPtrOutput) ToRegistryAutoDetectionConfigurationPtrOutputWithContext(ctx context.Context) RegistryAutoDetectionConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryAutoDetectionConfigurationPtrOutput) Elem() RegistryAutoDetectionConfigurationOutput {
+	return o.ApplyT(func(v *RegistryAutoDetectionConfiguration) RegistryAutoDetectionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryAutoDetectionConfiguration
+		return ret
+	}).(RegistryAutoDetectionConfigurationOutput)
+}
+
+// Whether auto-detection is requested for the registry.
+func (o RegistryAutoDetectionConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RegistryAutoDetectionConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Source from which resources are detected. Valid values: `ORGANIZATION`.
+func (o RegistryAutoDetectionConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryAutoDetectionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
 type RegistryDiscoveryConfiguration struct {
 	// Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
 	AuthorizerConfiguration *RegistryDiscoveryConfigurationAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
@@ -458,6 +614,10 @@ type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer st
 	CustomClaims []RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim `pulumi:"customClaims"`
 	// OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
+	// Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+	PrivateEndpoint *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint `pulumi:"privateEndpoint"`
+	// Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+	PrivateEndpointOverrides []RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride `pulumi:"privateEndpointOverrides"`
 }
 
 // RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerOutput values.
@@ -482,6 +642,10 @@ type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArg
 	CustomClaims RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput `pulumi:"customClaims"`
 	// OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+	// Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+	PrivateEndpoint RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput `pulumi:"privateEndpoint"`
+	// Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+	PrivateEndpointOverrides RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput `pulumi:"privateEndpointOverrides"`
 }
 
 func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs) ElementType() reflect.Type {
@@ -596,6 +760,20 @@ func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer
 	}).(pulumi.StringOutput)
 }
 
+// Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerOutput) PrivateEndpoint() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		return v.PrivateEndpoint
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
+}
+
+// Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerOutput) PrivateEndpointOverrides() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer) []RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+		return v.PrivateEndpointOverrides
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput)
+}
+
 type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPtrOutput struct{ *pulumi.OutputState }
 
 func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) ElementType() reflect.Type {
@@ -668,6 +846,26 @@ func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer
 		}
 		return &v.DiscoveryUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+// Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) PrivateEndpoint() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
+}
+
+// Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPtrOutput) PrivateEndpointOverrides() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer) []RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointOverrides
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput)
 }
 
 type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim struct {
@@ -919,6 +1117,1244 @@ func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer
 	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue) []string {
 		return v.MatchValueStringLists
 	}).(pulumi.StringArrayOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint struct {
+	// Private endpoint backed by a service-managed VPC resource. See below.
+	ManagedVpcResource *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource `pulumi:"managedVpcResource"`
+	// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+	SelfManagedLatticeResource *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput` via:
+//
+//	RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{...}
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs struct {
+	// Private endpoint backed by a service-managed VPC resource. See below.
+	ManagedVpcResource RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput `pulumi:"managedVpcResource"`
+	// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+	SelfManagedLatticeResource RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
+}
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput)
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput).ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx)
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs, RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtr and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput` via:
+//
+//	        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput
+}
+
+type registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs
+
+func RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtr(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput {
+	return (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType)(v)
+}
+
+func (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		return &v
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput)
+}
+
+// Private endpoint backed by a service-managed VPC resource. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ManagedVpcResource() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		return v.ManagedVpcResource
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) SelfManagedLatticeResource() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+		return v.SelfManagedLatticeResource
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) Elem() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint
+		return ret
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput)
+}
+
+// Private endpoint backed by a service-managed VPC resource. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) ManagedVpcResource() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedVpcResource
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput) SelfManagedLatticeResource() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedLatticeResource
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource struct {
+	// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+	EndpointIpAddressType string `pulumi:"endpointIpAddressType"`
+	// Routing domain used to resolve traffic through the private endpoint.
+	RoutingDomain *string `pulumi:"routingDomain"`
+	// IDs of the security groups associated with the private endpoint network interfaces.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// IDs of the subnets in which the private endpoint network interfaces are placed.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Tags applied to the service-managed VPC resource.
+	Tags map[string]string `pulumi:"tags"`
+	// ID of the VPC in which the private endpoint is provisioned.
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput` via:
+//
+//	RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{...}
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs struct {
+	// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+	EndpointIpAddressType pulumi.StringInput `pulumi:"endpointIpAddressType"`
+	// Routing domain used to resolve traffic through the private endpoint.
+	RoutingDomain pulumi.StringPtrInput `pulumi:"routingDomain"`
+	// IDs of the security groups associated with the private endpoint network interfaces.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// IDs of the subnets in which the private endpoint network interfaces are placed.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Tags applied to the service-managed VPC resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// ID of the VPC in which the private endpoint is provisioned.
+	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
+}
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput)
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput).ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx)
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs, RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtr and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput` via:
+//
+//	        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput
+}
+
+type registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs
+
+func RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtr(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput {
+	return (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType)(v)
+}
+
+func (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		return &v
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) string {
+		return v.EndpointIpAddressType
+	}).(pulumi.StringOutput)
+}
+
+// Routing domain used to resolve traffic through the private endpoint.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// IDs of the security groups associated with the private endpoint network interfaces.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in which the private endpoint network interfaces are placed.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Tags applied to the service-managed VPC resource.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) map[string]string {
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// ID of the VPC in which the private endpoint is provisioned.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) string {
+		return v.VpcIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) Elem() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource
+		return ret
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput)
+}
+
+// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) EndpointIpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointIpAddressType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Routing domain used to resolve traffic through the private endpoint.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// IDs of the security groups associated with the private endpoint network interfaces.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in which the private endpoint network interfaces are placed.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Tags applied to the service-managed VPC resource.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// ID of the VPC in which the private endpoint is provisioned.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride struct {
+	// Domain name to which this private endpoint override applies.
+	Domain string `pulumi:"domain"`
+	// Private endpoint used to reach the specified domain. See above.
+	PrivateEndpoint RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint `pulumi:"privateEndpoint"`
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput` via:
+//
+//	RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{...}
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs struct {
+	// Domain name to which this private endpoint override applies.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Private endpoint used to reach the specified domain. See above.
+	PrivateEndpoint RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput `pulumi:"privateEndpoint"`
+}
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput)
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput` via:
+//
+//	RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray{ RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{...} }
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray []RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return o
+}
+
+// Domain name to which this private endpoint override applies.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride) string {
+		return v.Domain
+	}).(pulumi.StringOutput)
+}
+
+// Private endpoint used to reach the specified domain. See above.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) PrivateEndpoint() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+		return v.PrivateEndpoint
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) Index(i pulumi.IntInput) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+		return vs[0].([]RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)[vs[1].(int)]
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint struct {
+	// Private endpoint backed by a service-managed VPC resource. See below.
+	ManagedVpcResource *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource `pulumi:"managedVpcResource"`
+	// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+	SelfManagedLatticeResource *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResource"`
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput` via:
+//
+//	RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs{...}
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs struct {
+	// Private endpoint backed by a service-managed VPC resource. See below.
+	ManagedVpcResource RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput `pulumi:"managedVpcResource"`
+	// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+	SelfManagedLatticeResource RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput `pulumi:"selfManagedLatticeResource"`
+}
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return o
+}
+
+// Private endpoint backed by a service-managed VPC resource. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ManagedVpcResource() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+		return v.ManagedVpcResource
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) SelfManagedLatticeResource() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+		return v.SelfManagedLatticeResource
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource struct {
+	// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+	EndpointIpAddressType string `pulumi:"endpointIpAddressType"`
+	// Routing domain used to resolve traffic through the private endpoint.
+	RoutingDomain *string `pulumi:"routingDomain"`
+	// IDs of the security groups associated with the private endpoint network interfaces.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// IDs of the subnets in which the private endpoint network interfaces are placed.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Tags applied to the service-managed VPC resource.
+	Tags map[string]string `pulumi:"tags"`
+	// ID of the VPC in which the private endpoint is provisioned.
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput` via:
+//
+//	RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{...}
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs struct {
+	// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+	EndpointIpAddressType pulumi.StringInput `pulumi:"endpointIpAddressType"`
+	// Routing domain used to resolve traffic through the private endpoint.
+	RoutingDomain pulumi.StringPtrInput `pulumi:"routingDomain"`
+	// IDs of the security groups associated with the private endpoint network interfaces.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// IDs of the subnets in which the private endpoint network interfaces are placed.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Tags applied to the service-managed VPC resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// ID of the VPC in which the private endpoint is provisioned.
+	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
+}
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput)
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput).ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx)
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs, RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtr and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput` via:
+//
+//	        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput
+}
+
+type registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs
+
+func RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtr(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput {
+	return (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType)(v)
+}
+
+func (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+		return &v
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput)
+}
+
+// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
+		return v.EndpointIpAddressType
+	}).(pulumi.StringOutput)
+}
+
+// Routing domain used to resolve traffic through the private endpoint.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// IDs of the security groups associated with the private endpoint network interfaces.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in which the private endpoint network interfaces are placed.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Tags applied to the service-managed VPC resource.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) map[string]string {
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// ID of the VPC in which the private endpoint is provisioned.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
+		return v.VpcIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) Elem() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource
+		return ret
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput)
+}
+
+// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) EndpointIpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointIpAddressType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Routing domain used to resolve traffic through the private endpoint.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) RoutingDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// IDs of the security groups associated with the private endpoint network interfaces.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in which the private endpoint network interfaces are placed.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Tags applied to the service-managed VPC resource.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// ID of the VPC in which the private endpoint is provisioned.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput) VpcIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource struct {
+	// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput` via:
+//
+//	RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{...}
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs struct {
+	// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+	ResourceConfigurationIdentifier pulumi.StringPtrInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput).ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx)
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs, RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtr and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput` via:
+//
+//	        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput
+}
+
+type registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs
+
+func RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtr(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput {
+	return (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType)(v)
+}
+
+func (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+		return &v
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *string {
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) Elem() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource
+		return ret
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource struct {
+	// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput` via:
+//
+//	RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{...}
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs struct {
+	// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+	ResourceConfigurationIdentifier pulumi.StringPtrInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput).ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx)
+}
+
+// RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput is an input type that accepts RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs, RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtr and RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput values.
+// You can construct a concrete instance of `RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput` via:
+//
+//	        RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput interface {
+	pulumi.Input
+
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput
+	ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput
+}
+
+type registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs
+
+func RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtr(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput {
+	return (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType)(v)
+}
+
+func (*registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return i.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *registryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrType) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+		return &v
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput)
+}
+
+// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) *string {
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) ToRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutputWithContext(ctx context.Context) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput {
+	return o
+}
+
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) Elem() RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource
+		return ret
+	}).(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+func (o RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput) ResourceConfigurationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type RegistryEncryptionConfiguration struct {
+	// ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+}
+
+// RegistryEncryptionConfigurationInput is an input type that accepts RegistryEncryptionConfigurationArgs and RegistryEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `RegistryEncryptionConfigurationInput` via:
+//
+//	RegistryEncryptionConfigurationArgs{...}
+type RegistryEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRegistryEncryptionConfigurationOutput() RegistryEncryptionConfigurationOutput
+	ToRegistryEncryptionConfigurationOutputWithContext(context.Context) RegistryEncryptionConfigurationOutput
+}
+
+type RegistryEncryptionConfigurationArgs struct {
+	// ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (RegistryEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i RegistryEncryptionConfigurationArgs) ToRegistryEncryptionConfigurationOutput() RegistryEncryptionConfigurationOutput {
+	return i.ToRegistryEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RegistryEncryptionConfigurationArgs) ToRegistryEncryptionConfigurationOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionConfigurationOutput)
+}
+
+func (i RegistryEncryptionConfigurationArgs) ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput {
+	return i.ToRegistryEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryEncryptionConfigurationArgs) ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionConfigurationOutput).ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// RegistryEncryptionConfigurationPtrInput is an input type that accepts RegistryEncryptionConfigurationArgs, RegistryEncryptionConfigurationPtr and RegistryEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `RegistryEncryptionConfigurationPtrInput` via:
+//
+//	        RegistryEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput
+	ToRegistryEncryptionConfigurationPtrOutputWithContext(context.Context) RegistryEncryptionConfigurationPtrOutput
+}
+
+type registryEncryptionConfigurationPtrType RegistryEncryptionConfigurationArgs
+
+func RegistryEncryptionConfigurationPtr(v *RegistryEncryptionConfigurationArgs) RegistryEncryptionConfigurationPtrInput {
+	return (*registryEncryptionConfigurationPtrType)(v)
+}
+
+func (*registryEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *registryEncryptionConfigurationPtrType) ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput {
+	return i.ToRegistryEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *registryEncryptionConfigurationPtrType) ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryEncryptionConfigurationPtrOutput)
+}
+
+type RegistryEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RegistryEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RegistryEncryptionConfigurationOutput) ToRegistryEncryptionConfigurationOutput() RegistryEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RegistryEncryptionConfigurationOutput) ToRegistryEncryptionConfigurationOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationOutput {
+	return o
+}
+
+func (o RegistryEncryptionConfigurationOutput) ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput {
+	return o.ToRegistryEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryEncryptionConfigurationOutput) ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryEncryptionConfiguration) *RegistryEncryptionConfiguration {
+		return &v
+	}).(RegistryEncryptionConfigurationPtrOutput)
+}
+
+// ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+func (o RegistryEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+type RegistryEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o RegistryEncryptionConfigurationPtrOutput) ToRegistryEncryptionConfigurationPtrOutput() RegistryEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryEncryptionConfigurationPtrOutput) ToRegistryEncryptionConfigurationPtrOutputWithContext(ctx context.Context) RegistryEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RegistryEncryptionConfigurationPtrOutput) Elem() RegistryEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *RegistryEncryptionConfiguration) RegistryEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryEncryptionConfiguration
+		return ret
+	}).(RegistryEncryptionConfigurationOutput)
+}
+
+// ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+func (o RegistryEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type RegistryTimeouts struct {
@@ -1411,6 +2847,10 @@ type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer
 	CustomClaims []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim `pulumi:"customClaims"`
 	// OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
 	DiscoveryUrl string `pulumi:"discoveryUrl"`
+	// Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+	PrivateEndpointOverrides []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride `pulumi:"privateEndpointOverrides"`
+	// Private endpoint used to reach the specified domain. See above.
+	PrivateEndpoints []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint `pulumi:"privateEndpoints"`
 }
 
 // GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerOutput values.
@@ -1435,6 +2875,10 @@ type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer
 	CustomClaims GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput `pulumi:"customClaims"`
 	// OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
 	DiscoveryUrl pulumi.StringInput `pulumi:"discoveryUrl"`
+	// Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+	PrivateEndpointOverrides GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput `pulumi:"privateEndpointOverrides"`
+	// Private endpoint used to reach the specified domain. See above.
+	PrivateEndpoints GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayInput `pulumi:"privateEndpoints"`
 }
 
 func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs) ElementType() reflect.Type {
@@ -1521,6 +2965,20 @@ func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthori
 	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer) string {
 		return v.DiscoveryUrl
 	}).(pulumi.StringOutput)
+}
+
+// Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerOutput) PrivateEndpointOverrides() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer) []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+		return v.PrivateEndpointOverrides
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput)
+}
+
+// Private endpoint used to reach the specified domain. See above.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerOutput) PrivateEndpoints() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer) []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		return v.PrivateEndpoints
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput)
 }
 
 type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArrayOutput struct{ *pulumi.OutputState }
@@ -1884,9 +3342,944 @@ func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthori
 	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput)
 }
 
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint struct {
+	// Private endpoint backed by a service-managed VPC resource. See below.
+	ManagedVpcResources []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource `pulumi:"managedVpcResources"`
+	// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+	SelfManagedLatticeResources []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResources"`
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{...}
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs struct {
+	// Private endpoint backed by a service-managed VPC resource. See below.
+	ManagedVpcResources GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayInput `pulumi:"managedVpcResources"`
+	// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+	SelfManagedLatticeResources GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayInput `pulumi:"selfManagedLatticeResources"`
+}
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput)
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArray and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArray{ GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{...} }
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArray []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return o
+}
+
+// Private endpoint backed by a service-managed VPC resource. See below.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) ManagedVpcResources() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		return v.ManagedVpcResources
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput)
+}
+
+// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput) SelfManagedLatticeResources() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint) []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+		return v.SelfManagedLatticeResources
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput) Index(i pulumi.IntInput) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+		return vs[0].([]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint)[vs[1].(int)]
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource struct {
+	// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+	EndpointIpAddressType string `pulumi:"endpointIpAddressType"`
+	// Routing domain used to resolve traffic through the private endpoint.
+	RoutingDomain string `pulumi:"routingDomain"`
+	// IDs of the security groups associated with the private endpoint network interfaces.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// IDs of the subnets in which the private endpoint network interfaces are placed.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Tags applied to the service-managed VPC resource.
+	Tags map[string]string `pulumi:"tags"`
+	// ID of the VPC in which the private endpoint is provisioned.
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{...}
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs struct {
+	// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+	EndpointIpAddressType pulumi.StringInput `pulumi:"endpointIpAddressType"`
+	// Routing domain used to resolve traffic through the private endpoint.
+	RoutingDomain pulumi.StringInput `pulumi:"routingDomain"`
+	// IDs of the security groups associated with the private endpoint network interfaces.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// IDs of the subnets in which the private endpoint network interfaces are placed.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Tags applied to the service-managed VPC resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// ID of the VPC in which the private endpoint is provisioned.
+	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
+}
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput)
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArray and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArray{ GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{...} }
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArray []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) string {
+		return v.EndpointIpAddressType
+	}).(pulumi.StringOutput)
+}
+
+// Routing domain used to resolve traffic through the private endpoint.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) string {
+		return v.RoutingDomain
+	}).(pulumi.StringOutput)
+}
+
+// IDs of the security groups associated with the private endpoint network interfaces.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in which the private endpoint network interfaces are placed.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Tags applied to the service-managed VPC resource.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) map[string]string {
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// ID of the VPC in which the private endpoint is provisioned.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource) string {
+		return v.VpcIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput) Index(i pulumi.IntInput) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+		return vs[0].([]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource)[vs[1].(int)]
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride struct {
+	// Domain name to which this private endpoint override applies.
+	Domain string `pulumi:"domain"`
+	// Private endpoint used to reach the specified domain. See above.
+	PrivateEndpoints []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint `pulumi:"privateEndpoints"`
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{...}
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs struct {
+	// Domain name to which this private endpoint override applies.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// Private endpoint used to reach the specified domain. See above.
+	PrivateEndpoints GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayInput `pulumi:"privateEndpoints"`
+}
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput)
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray{ GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{...} }
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return o
+}
+
+// Domain name to which this private endpoint override applies.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride) string {
+		return v.Domain
+	}).(pulumi.StringOutput)
+}
+
+// Private endpoint used to reach the specified domain. See above.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput) PrivateEndpoints() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride) []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+		return v.PrivateEndpoints
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput) Index(i pulumi.IntInput) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+		return vs[0].([]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride)[vs[1].(int)]
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint struct {
+	// Private endpoint backed by a service-managed VPC resource. See below.
+	ManagedVpcResources []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource `pulumi:"managedVpcResources"`
+	// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+	SelfManagedLatticeResources []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource `pulumi:"selfManagedLatticeResources"`
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs{...}
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs struct {
+	// Private endpoint backed by a service-managed VPC resource. See below.
+	ManagedVpcResources GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayInput `pulumi:"managedVpcResources"`
+	// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+	SelfManagedLatticeResources GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayInput `pulumi:"selfManagedLatticeResources"`
+}
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput)
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArray and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArray{ GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs{...} }
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArray []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return o
+}
+
+// Private endpoint backed by a service-managed VPC resource. See below.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) ManagedVpcResources() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint) []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+		return v.ManagedVpcResources
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput)
+}
+
+// Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput) SelfManagedLatticeResources() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint) []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+		return v.SelfManagedLatticeResources
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput) Index(i pulumi.IntInput) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+		return vs[0].([]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint)[vs[1].(int)]
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource struct {
+	// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+	EndpointIpAddressType string `pulumi:"endpointIpAddressType"`
+	// Routing domain used to resolve traffic through the private endpoint.
+	RoutingDomain string `pulumi:"routingDomain"`
+	// IDs of the security groups associated with the private endpoint network interfaces.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// IDs of the subnets in which the private endpoint network interfaces are placed.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Tags applied to the service-managed VPC resource.
+	Tags map[string]string `pulumi:"tags"`
+	// ID of the VPC in which the private endpoint is provisioned.
+	VpcIdentifier string `pulumi:"vpcIdentifier"`
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{...}
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs struct {
+	// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+	EndpointIpAddressType pulumi.StringInput `pulumi:"endpointIpAddressType"`
+	// Routing domain used to resolve traffic through the private endpoint.
+	RoutingDomain pulumi.StringInput `pulumi:"routingDomain"`
+	// IDs of the security groups associated with the private endpoint network interfaces.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// IDs of the subnets in which the private endpoint network interfaces are placed.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Tags applied to the service-managed VPC resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// ID of the VPC in which the private endpoint is provisioned.
+	VpcIdentifier pulumi.StringInput `pulumi:"vpcIdentifier"`
+}
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput)
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArray and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArray{ GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{...} }
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArray []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return o
+}
+
+// IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) EndpointIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
+		return v.EndpointIpAddressType
+	}).(pulumi.StringOutput)
+}
+
+// Routing domain used to resolve traffic through the private endpoint.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) RoutingDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
+		return v.RoutingDomain
+	}).(pulumi.StringOutput)
+}
+
+// IDs of the security groups associated with the private endpoint network interfaces.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in which the private endpoint network interfaces are placed.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) []string {
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Tags applied to the service-managed VPC resource.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) map[string]string {
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+// ID of the VPC in which the private endpoint is provisioned.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput) VpcIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource) string {
+		return v.VpcIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput) Index(i pulumi.IntInput) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+		return vs[0].([]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource)[vs[1].(int)]
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource struct {
+	// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{...}
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs struct {
+	// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArray and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArray{ GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{...} }
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArray []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource) string {
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput) Index(i pulumi.IntInput) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+		return vs[0].([]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource)[vs[1].(int)]
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource struct {
+	// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{...}
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs struct {
+	// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+	ResourceConfigurationIdentifier pulumi.StringInput `pulumi:"resourceConfigurationIdentifier"`
+}
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+// GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayInput is an input type that accepts GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArray and GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput values.
+// You can construct a concrete instance of `GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayInput` via:
+//
+//	GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArray{ GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{...} }
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput
+	ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutputWithContext(context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArray []GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return i.ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArray) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return o
+}
+
+// Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource) string {
+		return v.ResourceConfigurationIdentifier
+	}).(pulumi.StringOutput)
+}
+
+type GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)(nil)).Elem()
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput() GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput) ToGetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutputWithContext(ctx context.Context) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput {
+	return o
+}
+
+func (o GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput) Index(i pulumi.IntInput) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+		return vs[0].([]GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource)[vs[1].(int)]
+	}).(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput)
+}
+
+type GetRegistryEncryptionConfiguration struct {
+	// ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+}
+
+// GetRegistryEncryptionConfigurationInput is an input type that accepts GetRegistryEncryptionConfigurationArgs and GetRegistryEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `GetRegistryEncryptionConfigurationInput` via:
+//
+//	GetRegistryEncryptionConfigurationArgs{...}
+type GetRegistryEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToGetRegistryEncryptionConfigurationOutput() GetRegistryEncryptionConfigurationOutput
+	ToGetRegistryEncryptionConfigurationOutputWithContext(context.Context) GetRegistryEncryptionConfigurationOutput
+}
+
+type GetRegistryEncryptionConfigurationArgs struct {
+	// ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (GetRegistryEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetRegistryEncryptionConfigurationArgs) ToGetRegistryEncryptionConfigurationOutput() GetRegistryEncryptionConfigurationOutput {
+	return i.ToGetRegistryEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetRegistryEncryptionConfigurationArgs) ToGetRegistryEncryptionConfigurationOutputWithContext(ctx context.Context) GetRegistryEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryEncryptionConfigurationOutput)
+}
+
+// GetRegistryEncryptionConfigurationArrayInput is an input type that accepts GetRegistryEncryptionConfigurationArray and GetRegistryEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetRegistryEncryptionConfigurationArrayInput` via:
+//
+//	GetRegistryEncryptionConfigurationArray{ GetRegistryEncryptionConfigurationArgs{...} }
+type GetRegistryEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetRegistryEncryptionConfigurationArrayOutput() GetRegistryEncryptionConfigurationArrayOutput
+	ToGetRegistryEncryptionConfigurationArrayOutputWithContext(context.Context) GetRegistryEncryptionConfigurationArrayOutput
+}
+
+type GetRegistryEncryptionConfigurationArray []GetRegistryEncryptionConfigurationInput
+
+func (GetRegistryEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetRegistryEncryptionConfigurationArray) ToGetRegistryEncryptionConfigurationArrayOutput() GetRegistryEncryptionConfigurationArrayOutput {
+	return i.ToGetRegistryEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRegistryEncryptionConfigurationArray) ToGetRegistryEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetRegistryEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRegistryEncryptionConfigurationArrayOutput)
+}
+
+type GetRegistryEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetRegistryEncryptionConfigurationOutput) ToGetRegistryEncryptionConfigurationOutput() GetRegistryEncryptionConfigurationOutput {
+	return o
+}
+
+func (o GetRegistryEncryptionConfigurationOutput) ToGetRegistryEncryptionConfigurationOutputWithContext(ctx context.Context) GetRegistryEncryptionConfigurationOutput {
+	return o
+}
+
+// ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+func (o GetRegistryEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistryEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+type GetRegistryEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRegistryEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRegistryEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetRegistryEncryptionConfigurationArrayOutput) ToGetRegistryEncryptionConfigurationArrayOutput() GetRegistryEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetRegistryEncryptionConfigurationArrayOutput) ToGetRegistryEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetRegistryEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetRegistryEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) GetRegistryEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRegistryEncryptionConfiguration {
+		return vs[0].([]GetRegistryEncryptionConfiguration)[vs[1].(int)]
+	}).(GetRegistryEncryptionConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryApprovalConfigurationInput)(nil)).Elem(), RegistryApprovalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryApprovalConfigurationPtrInput)(nil)).Elem(), RegistryApprovalConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryAutoDetectionConfigurationInput)(nil)).Elem(), RegistryAutoDetectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryAutoDetectionConfigurationPtrInput)(nil)).Elem(), RegistryAutoDetectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationInput)(nil)).Elem(), RegistryDiscoveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationPtrInput)(nil)).Elem(), RegistryDiscoveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationArgs{})
@@ -1897,6 +4290,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrInput)(nil)).Elem(), RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionConfigurationInput)(nil)).Elem(), RegistryEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionConfigurationPtrInput)(nil)).Elem(), RegistryEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTimeoutsInput)(nil)).Elem(), RegistryTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTimeoutsPtrInput)(nil)).Elem(), RegistryTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryApprovalConfigurationInput)(nil)).Elem(), GetRegistryApprovalConfigurationArgs{})
@@ -1913,8 +4321,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArrayInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArrayInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayInput)(nil)).Elem(), GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryEncryptionConfigurationInput)(nil)).Elem(), GetRegistryEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRegistryEncryptionConfigurationArrayInput)(nil)).Elem(), GetRegistryEncryptionConfigurationArray{})
 	pulumi.RegisterOutputType(RegistryApprovalConfigurationOutput{})
 	pulumi.RegisterOutputType(RegistryApprovalConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RegistryAutoDetectionConfigurationOutput{})
+	pulumi.RegisterOutputType(RegistryAutoDetectionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationOutput{})
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationOutput{})
@@ -1925,6 +4351,21 @@ func init() {
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArrayOutput{})
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueOutput{})
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointPtrOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourcePtrOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourcePtrOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourcePtrOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput{})
+	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourcePtrOutput{})
+	pulumi.RegisterOutputType(RegistryEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RegistryEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryTimeoutsOutput{})
 	pulumi.RegisterOutputType(RegistryTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetRegistryApprovalConfigurationOutput{})
@@ -1941,4 +4382,20 @@ func init() {
 	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArrayOutput{})
 	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueOutput{})
 	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArrayOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceOutput{})
+	pulumi.RegisterOutputType(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetRegistryEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(GetRegistryEncryptionConfigurationArrayOutput{})
 }

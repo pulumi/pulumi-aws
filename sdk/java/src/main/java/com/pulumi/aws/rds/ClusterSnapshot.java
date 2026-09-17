@@ -95,14 +95,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.availabilityZones;
     }
     /**
-     * The DB Cluster Identifier from which to take the snapshot.
+     * DB Cluster Identifier from which to take the snapshot.
      * 
      */
     @Export(name="dbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbClusterIdentifier;
 
     /**
-     * @return The DB Cluster Identifier from which to take the snapshot.
+     * @return DB Cluster Identifier from which to take the snapshot.
      * 
      */
     public Output<String> dbClusterIdentifier() {
@@ -123,14 +123,14 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.dbClusterSnapshotArn;
     }
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      * 
      */
     @Export(name="dbClusterSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbClusterSnapshotIdentifier;
 
     /**
-     * @return The Identifier for the snapshot.
+     * @return Identifier for the snapshot.
      * 
      */
     public Output<String> dbClusterSnapshotIdentifier() {
@@ -234,27 +234,43 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> sharedAccounts() {
         return Codegen.optional(this.sharedAccounts);
     }
+    /**
+     * Type of the DB cluster snapshot.
+     * 
+     */
     @Export(name="snapshotType", refs={String.class}, tree="[0]")
     private Output<String> snapshotType;
 
+    /**
+     * @return Type of the DB cluster snapshot.
+     * 
+     */
     public Output<String> snapshotType() {
         return this.snapshotType;
     }
+    /**
+     * DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     * 
+     */
     @Export(name="sourceDbClusterSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterSnapshotArn;
 
+    /**
+     * @return DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     * 
+     */
     public Output<String> sourceDbClusterSnapshotArn() {
         return this.sourceDbClusterSnapshotArn;
     }
     /**
-     * The status of this DB Cluster Snapshot.
+     * Status of this DB Cluster Snapshot.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of this DB Cluster Snapshot.
+     * @return Status of this DB Cluster Snapshot.
      * 
      */
     public Output<String> status() {
@@ -275,42 +291,42 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
         return this.storageEncrypted;
     }
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The VPC ID associated with the DB cluster snapshot.
+     * VPC ID associated with the DB cluster snapshot.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The VPC ID associated with the DB cluster snapshot.
+     * @return VPC ID associated with the DB cluster snapshot.
      * 
      */
     public Output<String> vpcId() {

@@ -30,11 +30,11 @@ type ProxyDefaultTargetGroup struct {
 
 	// ARN representing the target group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The settings that determine the size and behavior of the connection pool for the target group.
+	// Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
 	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigOutput `pulumi:"connectionPoolConfig"`
 	// Name of the RDS DB Proxy.
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
-	// The name of the default target group.
+	// Name of the default target group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -75,11 +75,11 @@ func GetProxyDefaultTargetGroup(ctx *pulumi.Context,
 type proxyDefaultTargetGroupState struct {
 	// ARN representing the target group.
 	Arn *string `pulumi:"arn"`
-	// The settings that determine the size and behavior of the connection pool for the target group.
+	// Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
 	ConnectionPoolConfig *ProxyDefaultTargetGroupConnectionPoolConfig `pulumi:"connectionPoolConfig"`
 	// Name of the RDS DB Proxy.
 	DbProxyName *string `pulumi:"dbProxyName"`
-	// The name of the default target group.
+	// Name of the default target group.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -88,11 +88,11 @@ type proxyDefaultTargetGroupState struct {
 type ProxyDefaultTargetGroupState struct {
 	// ARN representing the target group.
 	Arn pulumi.StringPtrInput
-	// The settings that determine the size and behavior of the connection pool for the target group.
+	// Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
 	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigPtrInput
 	// Name of the RDS DB Proxy.
 	DbProxyName pulumi.StringPtrInput
-	// The name of the default target group.
+	// Name of the default target group.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -103,7 +103,7 @@ func (ProxyDefaultTargetGroupState) ElementType() reflect.Type {
 }
 
 type proxyDefaultTargetGroupArgs struct {
-	// The settings that determine the size and behavior of the connection pool for the target group.
+	// Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
 	ConnectionPoolConfig *ProxyDefaultTargetGroupConnectionPoolConfig `pulumi:"connectionPoolConfig"`
 	// Name of the RDS DB Proxy.
 	DbProxyName string `pulumi:"dbProxyName"`
@@ -113,7 +113,7 @@ type proxyDefaultTargetGroupArgs struct {
 
 // The set of arguments for constructing a ProxyDefaultTargetGroup resource.
 type ProxyDefaultTargetGroupArgs struct {
-	// The settings that determine the size and behavior of the connection pool for the target group.
+	// Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
 	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigPtrInput
 	// Name of the RDS DB Proxy.
 	DbProxyName pulumi.StringInput
@@ -213,7 +213,7 @@ func (o ProxyDefaultTargetGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The settings that determine the size and behavior of the connection pool for the target group.
+// Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
 func (o ProxyDefaultTargetGroupOutput) ConnectionPoolConfig() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroup) ProxyDefaultTargetGroupConnectionPoolConfigOutput {
 		return v.ConnectionPoolConfig
@@ -225,7 +225,7 @@ func (o ProxyDefaultTargetGroupOutput) DbProxyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringOutput { return v.DbProxyName }).(pulumi.StringOutput)
 }
 
-// The name of the default target group.
+// Name of the default target group.
 func (o ProxyDefaultTargetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

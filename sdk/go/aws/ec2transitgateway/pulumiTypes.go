@@ -987,6 +987,402 @@ func (o PeeringAttachmentOptionsPtrOutput) DynamicRouting() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type PolicyTableEntryPolicyRule struct {
+	// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
+	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
+	// Destination port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+	DestinationPortRange *string `pulumi:"destinationPortRange"`
+	// Metadata key/value tag associated with the policy rule. See below.
+	Metadata *PolicyTableEntryPolicyRuleMetadata `pulumi:"metadata"`
+	// Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
+	Protocol *string `pulumi:"protocol"`
+	// Source CIDR block to match. If not specified, all source CIDR blocks are matched.
+	SourceCidrBlock *string `pulumi:"sourceCidrBlock"`
+	// Source port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+	SourcePortRange *string `pulumi:"sourcePortRange"`
+}
+
+// PolicyTableEntryPolicyRuleInput is an input type that accepts PolicyTableEntryPolicyRuleArgs and PolicyTableEntryPolicyRuleOutput values.
+// You can construct a concrete instance of `PolicyTableEntryPolicyRuleInput` via:
+//
+//	PolicyTableEntryPolicyRuleArgs{...}
+type PolicyTableEntryPolicyRuleInput interface {
+	pulumi.Input
+
+	ToPolicyTableEntryPolicyRuleOutput() PolicyTableEntryPolicyRuleOutput
+	ToPolicyTableEntryPolicyRuleOutputWithContext(context.Context) PolicyTableEntryPolicyRuleOutput
+}
+
+type PolicyTableEntryPolicyRuleArgs struct {
+	// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
+	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
+	// Destination port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+	DestinationPortRange pulumi.StringPtrInput `pulumi:"destinationPortRange"`
+	// Metadata key/value tag associated with the policy rule. See below.
+	Metadata PolicyTableEntryPolicyRuleMetadataPtrInput `pulumi:"metadata"`
+	// Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	// Source CIDR block to match. If not specified, all source CIDR blocks are matched.
+	SourceCidrBlock pulumi.StringPtrInput `pulumi:"sourceCidrBlock"`
+	// Source port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+	SourcePortRange pulumi.StringPtrInput `pulumi:"sourcePortRange"`
+}
+
+func (PolicyTableEntryPolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTableEntryPolicyRule)(nil)).Elem()
+}
+
+func (i PolicyTableEntryPolicyRuleArgs) ToPolicyTableEntryPolicyRuleOutput() PolicyTableEntryPolicyRuleOutput {
+	return i.ToPolicyTableEntryPolicyRuleOutputWithContext(context.Background())
+}
+
+func (i PolicyTableEntryPolicyRuleArgs) ToPolicyTableEntryPolicyRuleOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableEntryPolicyRuleOutput)
+}
+
+func (i PolicyTableEntryPolicyRuleArgs) ToPolicyTableEntryPolicyRulePtrOutput() PolicyTableEntryPolicyRulePtrOutput {
+	return i.ToPolicyTableEntryPolicyRulePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyTableEntryPolicyRuleArgs) ToPolicyTableEntryPolicyRulePtrOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableEntryPolicyRuleOutput).ToPolicyTableEntryPolicyRulePtrOutputWithContext(ctx)
+}
+
+// PolicyTableEntryPolicyRulePtrInput is an input type that accepts PolicyTableEntryPolicyRuleArgs, PolicyTableEntryPolicyRulePtr and PolicyTableEntryPolicyRulePtrOutput values.
+// You can construct a concrete instance of `PolicyTableEntryPolicyRulePtrInput` via:
+//
+//	        PolicyTableEntryPolicyRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyTableEntryPolicyRulePtrInput interface {
+	pulumi.Input
+
+	ToPolicyTableEntryPolicyRulePtrOutput() PolicyTableEntryPolicyRulePtrOutput
+	ToPolicyTableEntryPolicyRulePtrOutputWithContext(context.Context) PolicyTableEntryPolicyRulePtrOutput
+}
+
+type policyTableEntryPolicyRulePtrType PolicyTableEntryPolicyRuleArgs
+
+func PolicyTableEntryPolicyRulePtr(v *PolicyTableEntryPolicyRuleArgs) PolicyTableEntryPolicyRulePtrInput {
+	return (*policyTableEntryPolicyRulePtrType)(v)
+}
+
+func (*policyTableEntryPolicyRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyTableEntryPolicyRule)(nil)).Elem()
+}
+
+func (i *policyTableEntryPolicyRulePtrType) ToPolicyTableEntryPolicyRulePtrOutput() PolicyTableEntryPolicyRulePtrOutput {
+	return i.ToPolicyTableEntryPolicyRulePtrOutputWithContext(context.Background())
+}
+
+func (i *policyTableEntryPolicyRulePtrType) ToPolicyTableEntryPolicyRulePtrOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableEntryPolicyRulePtrOutput)
+}
+
+type PolicyTableEntryPolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (PolicyTableEntryPolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTableEntryPolicyRule)(nil)).Elem()
+}
+
+func (o PolicyTableEntryPolicyRuleOutput) ToPolicyTableEntryPolicyRuleOutput() PolicyTableEntryPolicyRuleOutput {
+	return o
+}
+
+func (o PolicyTableEntryPolicyRuleOutput) ToPolicyTableEntryPolicyRuleOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRuleOutput {
+	return o
+}
+
+func (o PolicyTableEntryPolicyRuleOutput) ToPolicyTableEntryPolicyRulePtrOutput() PolicyTableEntryPolicyRulePtrOutput {
+	return o.ToPolicyTableEntryPolicyRulePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyTableEntryPolicyRuleOutput) ToPolicyTableEntryPolicyRulePtrOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTableEntryPolicyRule) *PolicyTableEntryPolicyRule {
+		return &v
+	}).(PolicyTableEntryPolicyRulePtrOutput)
+}
+
+// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
+func (o PolicyTableEntryPolicyRuleOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyTableEntryPolicyRule) *string { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// Destination port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+func (o PolicyTableEntryPolicyRuleOutput) DestinationPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyTableEntryPolicyRule) *string { return v.DestinationPortRange }).(pulumi.StringPtrOutput)
+}
+
+// Metadata key/value tag associated with the policy rule. See below.
+func (o PolicyTableEntryPolicyRuleOutput) Metadata() PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return o.ApplyT(func(v PolicyTableEntryPolicyRule) *PolicyTableEntryPolicyRuleMetadata { return v.Metadata }).(PolicyTableEntryPolicyRuleMetadataPtrOutput)
+}
+
+// Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
+func (o PolicyTableEntryPolicyRuleOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyTableEntryPolicyRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// Source CIDR block to match. If not specified, all source CIDR blocks are matched.
+func (o PolicyTableEntryPolicyRuleOutput) SourceCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyTableEntryPolicyRule) *string { return v.SourceCidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// Source port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+func (o PolicyTableEntryPolicyRuleOutput) SourcePortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyTableEntryPolicyRule) *string { return v.SourcePortRange }).(pulumi.StringPtrOutput)
+}
+
+type PolicyTableEntryPolicyRulePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyTableEntryPolicyRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyTableEntryPolicyRule)(nil)).Elem()
+}
+
+func (o PolicyTableEntryPolicyRulePtrOutput) ToPolicyTableEntryPolicyRulePtrOutput() PolicyTableEntryPolicyRulePtrOutput {
+	return o
+}
+
+func (o PolicyTableEntryPolicyRulePtrOutput) ToPolicyTableEntryPolicyRulePtrOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRulePtrOutput {
+	return o
+}
+
+func (o PolicyTableEntryPolicyRulePtrOutput) Elem() PolicyTableEntryPolicyRuleOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRule) PolicyTableEntryPolicyRule {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyTableEntryPolicyRule
+		return ret
+	}).(PolicyTableEntryPolicyRuleOutput)
+}
+
+// Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
+func (o PolicyTableEntryPolicyRulePtrOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationCidrBlock
+	}).(pulumi.StringPtrOutput)
+}
+
+// Destination port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+func (o PolicyTableEntryPolicyRulePtrOutput) DestinationPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPortRange
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata key/value tag associated with the policy rule. See below.
+func (o PolicyTableEntryPolicyRulePtrOutput) Metadata() PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRule) *PolicyTableEntryPolicyRuleMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(PolicyTableEntryPolicyRuleMetadataPtrOutput)
+}
+
+// Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
+func (o PolicyTableEntryPolicyRulePtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source CIDR block to match. If not specified, all source CIDR blocks are matched.
+func (o PolicyTableEntryPolicyRulePtrOutput) SourceCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceCidrBlock
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+func (o PolicyTableEntryPolicyRulePtrOutput) SourcePortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePortRange
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyTableEntryPolicyRuleMetadata struct {
+	// Metadata key name for the policy rule.
+	Key *string `pulumi:"key"`
+	// Metadata key value for the policy rule.
+	//
+	// > **Note:** The EC2 API does not return policy rule metadata when describing transit gateway policy table entries, so Terraform cannot detect drift in `metadata` or recover its value when importing this resource. Configure `metadata` explicitly if you need it managed.
+	Value *string `pulumi:"value"`
+}
+
+// PolicyTableEntryPolicyRuleMetadataInput is an input type that accepts PolicyTableEntryPolicyRuleMetadataArgs and PolicyTableEntryPolicyRuleMetadataOutput values.
+// You can construct a concrete instance of `PolicyTableEntryPolicyRuleMetadataInput` via:
+//
+//	PolicyTableEntryPolicyRuleMetadataArgs{...}
+type PolicyTableEntryPolicyRuleMetadataInput interface {
+	pulumi.Input
+
+	ToPolicyTableEntryPolicyRuleMetadataOutput() PolicyTableEntryPolicyRuleMetadataOutput
+	ToPolicyTableEntryPolicyRuleMetadataOutputWithContext(context.Context) PolicyTableEntryPolicyRuleMetadataOutput
+}
+
+type PolicyTableEntryPolicyRuleMetadataArgs struct {
+	// Metadata key name for the policy rule.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Metadata key value for the policy rule.
+	//
+	// > **Note:** The EC2 API does not return policy rule metadata when describing transit gateway policy table entries, so Terraform cannot detect drift in `metadata` or recover its value when importing this resource. Configure `metadata` explicitly if you need it managed.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (PolicyTableEntryPolicyRuleMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTableEntryPolicyRuleMetadata)(nil)).Elem()
+}
+
+func (i PolicyTableEntryPolicyRuleMetadataArgs) ToPolicyTableEntryPolicyRuleMetadataOutput() PolicyTableEntryPolicyRuleMetadataOutput {
+	return i.ToPolicyTableEntryPolicyRuleMetadataOutputWithContext(context.Background())
+}
+
+func (i PolicyTableEntryPolicyRuleMetadataArgs) ToPolicyTableEntryPolicyRuleMetadataOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRuleMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableEntryPolicyRuleMetadataOutput)
+}
+
+func (i PolicyTableEntryPolicyRuleMetadataArgs) ToPolicyTableEntryPolicyRuleMetadataPtrOutput() PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return i.ToPolicyTableEntryPolicyRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyTableEntryPolicyRuleMetadataArgs) ToPolicyTableEntryPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableEntryPolicyRuleMetadataOutput).ToPolicyTableEntryPolicyRuleMetadataPtrOutputWithContext(ctx)
+}
+
+// PolicyTableEntryPolicyRuleMetadataPtrInput is an input type that accepts PolicyTableEntryPolicyRuleMetadataArgs, PolicyTableEntryPolicyRuleMetadataPtr and PolicyTableEntryPolicyRuleMetadataPtrOutput values.
+// You can construct a concrete instance of `PolicyTableEntryPolicyRuleMetadataPtrInput` via:
+//
+//	        PolicyTableEntryPolicyRuleMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyTableEntryPolicyRuleMetadataPtrInput interface {
+	pulumi.Input
+
+	ToPolicyTableEntryPolicyRuleMetadataPtrOutput() PolicyTableEntryPolicyRuleMetadataPtrOutput
+	ToPolicyTableEntryPolicyRuleMetadataPtrOutputWithContext(context.Context) PolicyTableEntryPolicyRuleMetadataPtrOutput
+}
+
+type policyTableEntryPolicyRuleMetadataPtrType PolicyTableEntryPolicyRuleMetadataArgs
+
+func PolicyTableEntryPolicyRuleMetadataPtr(v *PolicyTableEntryPolicyRuleMetadataArgs) PolicyTableEntryPolicyRuleMetadataPtrInput {
+	return (*policyTableEntryPolicyRuleMetadataPtrType)(v)
+}
+
+func (*policyTableEntryPolicyRuleMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyTableEntryPolicyRuleMetadata)(nil)).Elem()
+}
+
+func (i *policyTableEntryPolicyRuleMetadataPtrType) ToPolicyTableEntryPolicyRuleMetadataPtrOutput() PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return i.ToPolicyTableEntryPolicyRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *policyTableEntryPolicyRuleMetadataPtrType) ToPolicyTableEntryPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyTableEntryPolicyRuleMetadataPtrOutput)
+}
+
+type PolicyTableEntryPolicyRuleMetadataOutput struct{ *pulumi.OutputState }
+
+func (PolicyTableEntryPolicyRuleMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyTableEntryPolicyRuleMetadata)(nil)).Elem()
+}
+
+func (o PolicyTableEntryPolicyRuleMetadataOutput) ToPolicyTableEntryPolicyRuleMetadataOutput() PolicyTableEntryPolicyRuleMetadataOutput {
+	return o
+}
+
+func (o PolicyTableEntryPolicyRuleMetadataOutput) ToPolicyTableEntryPolicyRuleMetadataOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRuleMetadataOutput {
+	return o
+}
+
+func (o PolicyTableEntryPolicyRuleMetadataOutput) ToPolicyTableEntryPolicyRuleMetadataPtrOutput() PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return o.ToPolicyTableEntryPolicyRuleMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyTableEntryPolicyRuleMetadataOutput) ToPolicyTableEntryPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTableEntryPolicyRuleMetadata) *PolicyTableEntryPolicyRuleMetadata {
+		return &v
+	}).(PolicyTableEntryPolicyRuleMetadataPtrOutput)
+}
+
+// Metadata key name for the policy rule.
+func (o PolicyTableEntryPolicyRuleMetadataOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyTableEntryPolicyRuleMetadata) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Metadata key value for the policy rule.
+//
+// > **Note:** The EC2 API does not return policy rule metadata when describing transit gateway policy table entries, so Terraform cannot detect drift in `metadata` or recover its value when importing this resource. Configure `metadata` explicitly if you need it managed.
+func (o PolicyTableEntryPolicyRuleMetadataOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyTableEntryPolicyRuleMetadata) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type PolicyTableEntryPolicyRuleMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyTableEntryPolicyRuleMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyTableEntryPolicyRuleMetadata)(nil)).Elem()
+}
+
+func (o PolicyTableEntryPolicyRuleMetadataPtrOutput) ToPolicyTableEntryPolicyRuleMetadataPtrOutput() PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return o
+}
+
+func (o PolicyTableEntryPolicyRuleMetadataPtrOutput) ToPolicyTableEntryPolicyRuleMetadataPtrOutputWithContext(ctx context.Context) PolicyTableEntryPolicyRuleMetadataPtrOutput {
+	return o
+}
+
+func (o PolicyTableEntryPolicyRuleMetadataPtrOutput) Elem() PolicyTableEntryPolicyRuleMetadataOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRuleMetadata) PolicyTableEntryPolicyRuleMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyTableEntryPolicyRuleMetadata
+		return ret
+	}).(PolicyTableEntryPolicyRuleMetadataOutput)
+}
+
+// Metadata key name for the policy rule.
+func (o PolicyTableEntryPolicyRuleMetadataPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata key value for the policy rule.
+//
+// > **Note:** The EC2 API does not return policy rule metadata when describing transit gateway policy table entries, so Terraform cannot detect drift in `metadata` or recover its value when importing this resource. Configure `metadata` explicitly if you need it managed.
+func (o PolicyTableEntryPolicyRuleMetadataPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyTableEntryPolicyRuleMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAttachmentFilter struct {
 	// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
 	Name string `pulumi:"name"`
@@ -3168,6 +3564,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MeteringPolicyTimeoutsPtrInput)(nil)).Elem(), MeteringPolicyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentOptionsInput)(nil)).Elem(), PeeringAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentOptionsPtrInput)(nil)).Elem(), PeeringAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTableEntryPolicyRuleInput)(nil)).Elem(), PolicyTableEntryPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTableEntryPolicyRulePtrInput)(nil)).Elem(), PolicyTableEntryPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTableEntryPolicyRuleMetadataInput)(nil)).Elem(), PolicyTableEntryPolicyRuleMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTableEntryPolicyRuleMetadataPtrInput)(nil)).Elem(), PolicyTableEntryPolicyRuleMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterInput)(nil)).Elem(), GetAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterArrayInput)(nil)).Elem(), GetAttachmentFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentsFilterInput)(nil)).Elem(), GetAttachmentsFilterArgs{})
@@ -3220,6 +3620,10 @@ func init() {
 	pulumi.RegisterOutputType(MeteringPolicyTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PeeringAttachmentOptionsOutput{})
 	pulumi.RegisterOutputType(PeeringAttachmentOptionsPtrOutput{})
+	pulumi.RegisterOutputType(PolicyTableEntryPolicyRuleOutput{})
+	pulumi.RegisterOutputType(PolicyTableEntryPolicyRulePtrOutput{})
+	pulumi.RegisterOutputType(PolicyTableEntryPolicyRuleMetadataOutput{})
+	pulumi.RegisterOutputType(PolicyTableEntryPolicyRuleMetadataPtrOutput{})
 	pulumi.RegisterOutputType(GetAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetAttachmentFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetAttachmentsFilterOutput{})

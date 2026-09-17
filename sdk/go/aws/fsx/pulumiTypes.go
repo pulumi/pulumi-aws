@@ -7236,9 +7236,9 @@ type WindowsFileSystemSelfManagedActiveDirectory struct {
 	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 	Password *string `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
 	PasswordWo *string `pulumi:"passwordWo"`
-	// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+	// Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
 	PasswordWoVersion *int `pulumi:"passwordWoVersion"`
 	// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
 	Username *string `pulumi:"username"`
@@ -7269,9 +7269,9 @@ type WindowsFileSystemSelfManagedActiveDirectoryArgs struct {
 	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret` and `passwordWo`.
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+	// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
 	PasswordWo pulumi.StringPtrInput `pulumi:"passwordWo"`
-	// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+	// Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
 	PasswordWoVersion pulumi.IntPtrInput `pulumi:"passwordWoVersion"`
 	// User name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -7387,12 +7387,12 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) Password() pulumi.Str
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) PasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *string { return v.PasswordWo }).(pulumi.StringPtrOutput)
 }
 
-// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+// Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) PasswordWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *int { return v.PasswordWoVersion }).(pulumi.IntPtrOutput)
 }
@@ -7487,7 +7487,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Password() pulumi.
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) PasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *string {
 		if v == nil {
@@ -7497,7 +7497,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) PasswordWo() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+// Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) PasswordWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) *int {
 		if v == nil {

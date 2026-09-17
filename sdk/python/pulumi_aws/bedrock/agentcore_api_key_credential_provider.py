@@ -30,12 +30,12 @@ class AgentcoreApiKeyCredentialProviderArgs:
         """
         The set of arguments for constructing a AgentcoreApiKeyCredentialProvider resource.
 
-        :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
                
                **Write-Only API Key (choose one approach):**
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
+               Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
                The following arguments are optional:
@@ -61,7 +61,7 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
+        API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
 
         **Write-Only API Key (choose one approach):**
         """
@@ -76,7 +76,7 @@ class AgentcoreApiKeyCredentialProviderArgs:
     def api_key_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
+        Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
         """
         return pulumi.get(self, "api_key_wo")
 
@@ -88,7 +88,7 @@ class AgentcoreApiKeyCredentialProviderArgs:
     @pulumi.getter(name="apiKeyWoVersion")
     def api_key_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
+        Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         """
         return pulumi.get(self, "api_key_wo_version")
 
@@ -152,13 +152,13 @@ class _AgentcoreApiKeyCredentialProviderState:
         """
         Input properties used for looking up and filtering AgentcoreApiKeyCredentialProvider resources.
 
-        :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
                
                **Write-Only API Key (choose one approach):**
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs']]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
+               Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
@@ -192,7 +192,7 @@ class _AgentcoreApiKeyCredentialProviderState:
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
+        API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
 
         **Write-Only API Key (choose one approach):**
         """
@@ -219,7 +219,7 @@ class _AgentcoreApiKeyCredentialProviderState:
     def api_key_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
+        Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
         """
         return pulumi.get(self, "api_key_wo")
 
@@ -231,7 +231,7 @@ class _AgentcoreApiKeyCredentialProviderState:
     @pulumi.getter(name="apiKeyWoVersion")
     def api_key_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
+        Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         """
         return pulumi.get(self, "api_key_wo_version")
 
@@ -358,12 +358,12 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
                
                **Write-Only API Key (choose one approach):**
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
+               Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
                The following arguments are optional:
@@ -484,13 +484,13 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] api_key: API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
+        :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
                
                **Write-Only API Key (choose one approach):**
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict']]]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
-        :param pulumi.Input[_builtins.int] api_key_wo_version: Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
+               Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         :param pulumi.Input[_builtins.str] credential_provider_arn: ARN of the API Key credential provider.
         :param pulumi.Input[_builtins.str] name: Name of the API Key credential provider. Forces replacement when changed.
                
@@ -520,7 +520,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        API key value. Cannot be used with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
+        API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
 
         **Write-Only API Key (choose one approach):**
         """
@@ -539,7 +539,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     def api_key_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only API key value. Cannot be used with `api_key`. Must be used together with `api_key_wo_version`.
+        Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
         """
         return pulumi.get(self, "api_key_wo")
 
@@ -547,7 +547,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
     @pulumi.getter(name="apiKeyWoVersion")
     def api_key_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Used together with `api_key_wo` to trigger an update. Increment this value when an update to `api_key_wo` is required.
+        Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.
         """
         return pulumi.get(self, "api_key_wo_version")
 

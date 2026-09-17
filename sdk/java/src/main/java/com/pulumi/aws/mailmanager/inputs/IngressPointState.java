@@ -170,6 +170,21 @@ public final class IngressPointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     * 
+     */
+    @Import(name="statusToUpdate")
+    private @Nullable Output<String> statusToUpdate;
+
+    /**
+     * @return Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     * 
+     */
+    public Optional<Output<String>> statusToUpdate() {
+        return Optional.ofNullable(this.statusToUpdate);
+    }
+
+    /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -268,6 +283,7 @@ public final class IngressPointState extends com.pulumi.resources.ResourceArgs {
         this.region = $.region;
         this.ruleSetId = $.ruleSetId;
         this.status = $.status;
+        this.statusToUpdate = $.statusToUpdate;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
@@ -502,6 +518,27 @@ public final class IngressPointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder status(String status) {
             return status(Output.of(status));
+        }
+
+        /**
+         * @param statusToUpdate Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusToUpdate(@Nullable Output<String> statusToUpdate) {
+            $.statusToUpdate = statusToUpdate;
+            return this;
+        }
+
+        /**
+         * @param statusToUpdate Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusToUpdate(String statusToUpdate) {
+            return statusToUpdate(Output.of(statusToUpdate));
         }
 
         /**

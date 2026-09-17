@@ -79,6 +79,10 @@ export interface GetRegistryResult {
      */
     readonly discoveryConfigurations: outputs.agentregistry.GetRegistryDiscoveryConfiguration[];
     /**
+     * Server-side encryption configuration for the registry. See below.
+     */
+    readonly encryptionConfigurations: outputs.agentregistry.GetRegistryEncryptionConfiguration[];
+    /**
      * Name of the registry.
      */
     readonly name: string;
@@ -93,7 +97,7 @@ export interface GetRegistryResult {
      */
     readonly status: string;
     /**
-     * Map of tags assigned to the registry.
+     * Tags applied to the service-managed VPC resource.
      */
     readonly tags: {[key: string]: string};
     /**

@@ -3,9 +3,12 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig;
+import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig;
+import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig;
@@ -17,37 +20,61 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
     /**
+     * @return Atlassian OAuth provider configuration. See `predefined providers` below.
+     * 
+     */
+    private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig atlassianOauth2ProviderConfig;
+    /**
      * @return Custom OAuth2 provider configuration. See `custom` below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig customOauth2ProviderConfig;
     /**
-     * @return GitHub OAuth provider configuration. See `github` below.
+     * @return GitHub OAuth provider configuration. See `predefined providers` below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig githubOauth2ProviderConfig;
     /**
-     * @return Google OAuth provider configuration. See `google` below.
+     * @return Google OAuth provider configuration. See `predefined providers` below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig googleOauth2ProviderConfig;
     /**
-     * @return Microsoft OAuth provider configuration. See `microsoft` below.
+     * @return Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
+     * 
+     * &gt; **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+     * 
+     */
+    private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig includedOauth2ProviderConfig;
+    /**
+     * @return LinkedIn OAuth provider configuration. See `predefined providers` below.
+     * 
+     */
+    private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig linkedinOauth2ProviderConfig;
+    /**
+     * @return Microsoft OAuth provider configuration. See `predefined providers` below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig microsoftOauth2ProviderConfig;
     /**
-     * @return Salesforce OAuth provider configuration. See `salesforce` below.
+     * @return Salesforce OAuth provider configuration. See `predefined providers` below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig salesforceOauth2ProviderConfig;
     /**
-     * @return Slack OAuth provider configuration. See `slack` below.
+     * @return Slack OAuth provider configuration. See `predefined providers` below.
      * 
      */
     private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig slackOauth2ProviderConfig;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfig() {}
+    /**
+     * @return Atlassian OAuth provider configuration. See `predefined providers` below.
+     * 
+     */
+    public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig> atlassianOauth2ProviderConfig() {
+        return Optional.ofNullable(this.atlassianOauth2ProviderConfig);
+    }
     /**
      * @return Custom OAuth2 provider configuration. See `custom` below.
      * 
@@ -56,35 +83,51 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
         return Optional.ofNullable(this.customOauth2ProviderConfig);
     }
     /**
-     * @return GitHub OAuth provider configuration. See `github` below.
+     * @return GitHub OAuth provider configuration. See `predefined providers` below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig> githubOauth2ProviderConfig() {
         return Optional.ofNullable(this.githubOauth2ProviderConfig);
     }
     /**
-     * @return Google OAuth provider configuration. See `google` below.
+     * @return Google OAuth provider configuration. See `predefined providers` below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig> googleOauth2ProviderConfig() {
         return Optional.ofNullable(this.googleOauth2ProviderConfig);
     }
     /**
-     * @return Microsoft OAuth provider configuration. See `microsoft` below.
+     * @return Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
+     * 
+     * &gt; **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+     * 
+     */
+    public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig> includedOauth2ProviderConfig() {
+        return Optional.ofNullable(this.includedOauth2ProviderConfig);
+    }
+    /**
+     * @return LinkedIn OAuth provider configuration. See `predefined providers` below.
+     * 
+     */
+    public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig> linkedinOauth2ProviderConfig() {
+        return Optional.ofNullable(this.linkedinOauth2ProviderConfig);
+    }
+    /**
+     * @return Microsoft OAuth provider configuration. See `predefined providers` below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig> microsoftOauth2ProviderConfig() {
         return Optional.ofNullable(this.microsoftOauth2ProviderConfig);
     }
     /**
-     * @return Salesforce OAuth provider configuration. See `salesforce` below.
+     * @return Salesforce OAuth provider configuration. See `predefined providers` below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig> salesforceOauth2ProviderConfig() {
         return Optional.ofNullable(this.salesforceOauth2ProviderConfig);
     }
     /**
-     * @return Slack OAuth provider configuration. See `slack` below.
+     * @return Slack OAuth provider configuration. See `predefined providers` below.
      * 
      */
     public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig> slackOauth2ProviderConfig() {
@@ -100,23 +143,35 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig atlassianOauth2ProviderConfig;
         private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig customOauth2ProviderConfig;
         private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig githubOauth2ProviderConfig;
         private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig googleOauth2ProviderConfig;
+        private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig includedOauth2ProviderConfig;
+        private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig linkedinOauth2ProviderConfig;
         private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig microsoftOauth2ProviderConfig;
         private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig salesforceOauth2ProviderConfig;
         private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig slackOauth2ProviderConfig;
         public Builder() {}
         public Builder(AgentcoreOauth2CredentialProviderOauth2ProviderConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.atlassianOauth2ProviderConfig = defaults.atlassianOauth2ProviderConfig;
     	      this.customOauth2ProviderConfig = defaults.customOauth2ProviderConfig;
     	      this.githubOauth2ProviderConfig = defaults.githubOauth2ProviderConfig;
     	      this.googleOauth2ProviderConfig = defaults.googleOauth2ProviderConfig;
+    	      this.includedOauth2ProviderConfig = defaults.includedOauth2ProviderConfig;
+    	      this.linkedinOauth2ProviderConfig = defaults.linkedinOauth2ProviderConfig;
     	      this.microsoftOauth2ProviderConfig = defaults.microsoftOauth2ProviderConfig;
     	      this.salesforceOauth2ProviderConfig = defaults.salesforceOauth2ProviderConfig;
     	      this.slackOauth2ProviderConfig = defaults.slackOauth2ProviderConfig;
         }
 
+        @CustomType.Setter
+        public Builder atlassianOauth2ProviderConfig(@Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig atlassianOauth2ProviderConfig) {
+
+            this.atlassianOauth2ProviderConfig = atlassianOauth2ProviderConfig;
+            return this;
+        }
         @CustomType.Setter
         public Builder customOauth2ProviderConfig(@Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig customOauth2ProviderConfig) {
 
@@ -133,6 +188,18 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
         public Builder googleOauth2ProviderConfig(@Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig googleOauth2ProviderConfig) {
 
             this.googleOauth2ProviderConfig = googleOauth2ProviderConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder includedOauth2ProviderConfig(@Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig includedOauth2ProviderConfig) {
+
+            this.includedOauth2ProviderConfig = includedOauth2ProviderConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder linkedinOauth2ProviderConfig(@Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig linkedinOauth2ProviderConfig) {
+
+            this.linkedinOauth2ProviderConfig = linkedinOauth2ProviderConfig;
             return this;
         }
         @CustomType.Setter
@@ -155,9 +222,12 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
         }
         public AgentcoreOauth2CredentialProviderOauth2ProviderConfig build() {
             final var _resultValue = new AgentcoreOauth2CredentialProviderOauth2ProviderConfig();
+            _resultValue.atlassianOauth2ProviderConfig = atlassianOauth2ProviderConfig;
             _resultValue.customOauth2ProviderConfig = customOauth2ProviderConfig;
             _resultValue.githubOauth2ProviderConfig = githubOauth2ProviderConfig;
             _resultValue.googleOauth2ProviderConfig = googleOauth2ProviderConfig;
+            _resultValue.includedOauth2ProviderConfig = includedOauth2ProviderConfig;
+            _resultValue.linkedinOauth2ProviderConfig = linkedinOauth2ProviderConfig;
             _resultValue.microsoftOauth2ProviderConfig = microsoftOauth2ProviderConfig;
             _resultValue.salesforceOauth2ProviderConfig = salesforceOauth2ProviderConfig;
             _resultValue.slackOauth2ProviderConfig = slackOauth2ProviderConfig;

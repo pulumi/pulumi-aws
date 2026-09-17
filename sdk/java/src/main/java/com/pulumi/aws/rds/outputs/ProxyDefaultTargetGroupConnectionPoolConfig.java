@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProxyDefaultTargetGroupConnectionPoolConfig {
     /**
-     * @return The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+     * @return Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
      * 
      */
     private @Nullable Integer connectionBorrowTimeout;
@@ -24,7 +24,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfig {
      */
     private @Nullable String initQuery;
     /**
-     * @return The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+     * @return Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
     private @Nullable Integer maxConnectionsPercent;
@@ -41,7 +41,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfig {
 
     private ProxyDefaultTargetGroupConnectionPoolConfig() {}
     /**
-     * @return The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+     * @return Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
      * 
      */
     public Optional<Integer> connectionBorrowTimeout() {
@@ -55,7 +55,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfig {
         return Optional.ofNullable(this.initQuery);
     }
     /**
-     * @return The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+     * @return Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
     public Optional<Integer> maxConnectionsPercent() {

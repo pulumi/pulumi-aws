@@ -782,13 +782,25 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `api_id` (String) API identifier.
+        * `id` (String) Integration identifier.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `apigatewayv2.Integration` using the API identifier and integration identifier. For example:
 
         ```sh
         $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
         ```
 
-        > **Note:** The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+        > **Note:** The API Gateway managed integration created as part of [*quick_create*](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
 
         :param str resource_name: The name of the resource.
@@ -917,13 +929,25 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `api_id` (String) API identifier.
+        * `id` (String) Integration identifier.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `apigatewayv2.Integration` using the API identifier and integration identifier. For example:
 
         ```sh
         $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
         ```
 
-        > **Note:** The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+        > **Note:** The API Gateway managed integration created as part of [*quick_create*](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
 
         :param str resource_name: The name of the resource.

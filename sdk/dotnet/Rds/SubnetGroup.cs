@@ -62,19 +62,19 @@ namespace Pulumi.Aws.Rds
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the db subnet group.
+        /// ARN of the db subnet group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the DB subnet group. Defaults to "Managed by Pulumi".
+        /// Description of the DB subnet group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        /// Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -92,25 +92,25 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A list of VPC subnet IDs.
+        /// List of VPC subnet IDs.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// The network type of the db subnet group.
+        /// Network type of the db subnet group.
         /// </summary>
         [Output("supportedNetworkTypes")]
         public Output<ImmutableArray<string>> SupportedNetworkTypes { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -168,13 +168,13 @@ namespace Pulumi.Aws.Rds
     public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The description of the DB subnet group. Defaults to "Managed by Pulumi".
+        /// Description of the DB subnet group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        /// Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of VPC subnet IDs.
+        /// List of VPC subnet IDs.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -225,19 +225,19 @@ namespace Pulumi.Aws.Rds
     public sealed class SubnetGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the db subnet group.
+        /// ARN of the db subnet group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The description of the DB subnet group. Defaults to "Managed by Pulumi".
+        /// Description of the DB subnet group. Defaults to "Managed by Pulumi".
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        /// Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of VPC subnet IDs.
+        /// List of VPC subnet IDs.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _supportedNetworkTypes;
 
         /// <summary>
-        /// The network type of the db subnet group.
+        /// Network type of the db subnet group.
         /// </summary>
         public InputList<string> SupportedNetworkTypes
         {
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

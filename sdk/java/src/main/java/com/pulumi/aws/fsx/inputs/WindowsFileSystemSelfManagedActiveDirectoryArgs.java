@@ -110,7 +110,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
      * 
      */
     @Import(name="passwordWo")
@@ -118,7 +118,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> passwordWo() {
@@ -126,14 +126,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
-     * Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+     * Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
      * 
      */
     @Import(name="passwordWoVersion")
     private @Nullable Output<Integer> passwordWoVersion;
 
     /**
-     * @return Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+     * @return Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
      * 
      */
     public Optional<Output<Integer>> passwordWoVersion() {
@@ -325,7 +325,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
 
         /**
          * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
 
         /**
          * @param passwordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param passwordWoVersion Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+         * @param passwordWoVersion Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param passwordWoVersion Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+         * @param passwordWoVersion Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
          * 
          * @return builder
          * 

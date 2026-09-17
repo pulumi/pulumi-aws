@@ -116,7 +116,7 @@ export class Secret extends pulumi.CustomResource {
     /**
      * Configuration block to support secret replication. See details below.
      */
-    declare public readonly replicas: pulumi.Output<outputs.secretsmanager.SecretReplica[]>;
+    declare public readonly replicas: pulumi.Output<outputs.secretsmanager.SecretReplica[] | undefined>;
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

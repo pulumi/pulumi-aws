@@ -19,14 +19,14 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
     public static final SnapshotArgs Empty = new SnapshotArgs();
 
     /**
-     * The DB Instance Identifier from which to take the snapshot.
+     * DB instance identifier from which to take the snapshot.
      * 
      */
     @Import(name="dbInstanceIdentifier", required=true)
     private Output<String> dbInstanceIdentifier;
 
     /**
-     * @return The DB Instance Identifier from which to take the snapshot.
+     * @return DB instance identifier from which to take the snapshot.
      * 
      */
     public Output<String> dbInstanceIdentifier() {
@@ -34,14 +34,14 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      * 
      */
     @Import(name="dbSnapshotIdentifier", required=true)
     private Output<String> dbSnapshotIdentifier;
 
     /**
-     * @return The Identifier for the snapshot.
+     * @return Identifier for the snapshot.
      * 
      */
     public Output<String> dbSnapshotIdentifier() {
@@ -122,7 +122,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbInstanceIdentifier The DB Instance Identifier from which to take the snapshot.
+         * @param dbInstanceIdentifier DB instance identifier from which to take the snapshot.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbInstanceIdentifier The DB Instance Identifier from which to take the snapshot.
+         * @param dbInstanceIdentifier DB instance identifier from which to take the snapshot.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbSnapshotIdentifier The Identifier for the snapshot.
+         * @param dbSnapshotIdentifier Identifier for the snapshot.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbSnapshotIdentifier The Identifier for the snapshot.
+         * @param dbSnapshotIdentifier Identifier for the snapshot.
          * 
          * @return builder
          * 

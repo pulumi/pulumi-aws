@@ -118,28 +118,28 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Specifies the name of the engine that this option group should be associated with.
+     * Name of the engine that this option group should be associated with.
      * 
      */
     @Export(name="engineName", refs={String.class}, tree="[0]")
     private Output<String> engineName;
 
     /**
-     * @return Specifies the name of the engine that this option group should be associated with.
+     * @return Name of the engine that this option group should be associated with.
      * 
      */
     public Output<String> engineName() {
         return this.engineName;
     }
     /**
-     * Specifies the major version of the engine that this option group should be associated with.
+     * Major version of the engine that this option group should be associated with.
      * 
      */
     @Export(name="majorEngineVersion", refs={String.class}, tree="[0]")
     private Output<String> majorEngineVersion;
 
     /**
-     * @return Specifies the major version of the engine that this option group should be associated with.
+     * @return Major version of the engine that this option group should be associated with.
      * 
      */
     public Output<String> majorEngineVersion() {
@@ -188,14 +188,14 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
         return this.optionGroupDescription;
     }
     /**
-     * The options to apply. See `option` Block below for more details.
+     * Options to apply. See `option` Block below for more details.
      * 
      */
     @Export(name="options", refs={List.class,OptionGroupOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptionGroupOption>> options;
 
     /**
-     * @return The options to apply. See `option` Block below for more details.
+     * @return Options to apply. See `option` Block below for more details.
      * 
      */
     public Output<Optional<List<OptionGroupOption>>> options() {

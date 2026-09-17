@@ -4,6 +4,8 @@
 package com.pulumi.aws.agentregistry.inputs;
 
 import com.pulumi.aws.agentregistry.inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs;
+import com.pulumi.aws.agentregistry.inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs;
+import com.pulumi.aws.agentregistry.inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -93,6 +95,36 @@ public final class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJw
         return this.discoveryUrl;
     }
 
+    /**
+     * Private endpoint used to reach the identity provider&#39;s discovery URL over a private network path. See below.
+     * 
+     */
+    @Import(name="privateEndpoint")
+    private @Nullable Output<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs> privateEndpoint;
+
+    /**
+     * @return Private endpoint used to reach the identity provider&#39;s discovery URL over a private network path. See below.
+     * 
+     */
+    public Optional<Output<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs>> privateEndpoint() {
+        return Optional.ofNullable(this.privateEndpoint);
+    }
+
+    /**
+     * Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+     * 
+     */
+    @Import(name="privateEndpointOverrides")
+    private @Nullable Output<List<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>> privateEndpointOverrides;
+
+    /**
+     * @return Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+     * 
+     */
+    public Optional<Output<List<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>>> privateEndpointOverrides() {
+        return Optional.ofNullable(this.privateEndpointOverrides);
+    }
+
     private RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs() {}
 
     private RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs $) {
@@ -101,6 +133,8 @@ public final class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJw
         this.allowedScopes = $.allowedScopes;
         this.customClaims = $.customClaims;
         this.discoveryUrl = $.discoveryUrl;
+        this.privateEndpoint = $.privateEndpoint;
+        this.privateEndpointOverrides = $.privateEndpointOverrides;
     }
 
     public static Builder builder() {
@@ -264,6 +298,58 @@ public final class RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJw
          */
         public Builder discoveryUrl(String discoveryUrl) {
             return discoveryUrl(Output.of(discoveryUrl));
+        }
+
+        /**
+         * @param privateEndpoint Private endpoint used to reach the identity provider&#39;s discovery URL over a private network path. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpoint(@Nullable Output<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs> privateEndpoint) {
+            $.privateEndpoint = privateEndpoint;
+            return this;
+        }
+
+        /**
+         * @param privateEndpoint Private endpoint used to reach the identity provider&#39;s discovery URL over a private network path. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpoint(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs privateEndpoint) {
+            return privateEndpoint(Output.of(privateEndpoint));
+        }
+
+        /**
+         * @param privateEndpointOverrides Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointOverrides(@Nullable Output<List<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>> privateEndpointOverrides) {
+            $.privateEndpointOverrides = privateEndpointOverrides;
+            return this;
+        }
+
+        /**
+         * @param privateEndpointOverrides Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointOverrides(List<RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs> privateEndpointOverrides) {
+            return privateEndpointOverrides(Output.of(privateEndpointOverrides));
+        }
+
+        /**
+         * @param privateEndpointOverrides Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointOverrides(RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs... privateEndpointOverrides) {
+            return privateEndpointOverrides(List.of(privateEndpointOverrides));
         }
 
         public RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs build() {

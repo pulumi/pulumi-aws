@@ -72,49 +72,49 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+        /// Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
         /// </summary>
         [Output("computeRedundancy")]
         public Output<int> ComputeRedundancy { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the primary DB cluster for the DB shard group.
+        /// Name of the primary DB cluster for the DB shard group.
         /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DB shard group.
+        /// Name of the DB shard group.
         /// </summary>
         [Output("dbShardGroupIdentifier")]
         public Output<string> DbShardGroupIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Region-unique, immutable identifier for the DB shard group.
+        /// AWS Region-unique, immutable identifier for the DB shard group.
         /// </summary>
         [Output("dbShardGroupResourceId")]
         public Output<string> DbShardGroupResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The connection endpoint for the DB shard group.
+        /// Connection endpoint for the DB shard group.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+        /// Maximum capacity of the DB shard group in Aurora capacity units (ACUs).
         /// </summary>
         [Output("maxAcu")]
         public Output<double> MaxAcu { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+        /// Minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         /// </summary>
         [Output("minAcu")]
         public Output<double> MinAcu { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the DB shard group is publicly accessible.
+        /// Whether the DB shard group is publicly accessible.
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool> PubliclyAccessible { get; private set; } = null!;
@@ -127,14 +127,12 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -189,37 +187,37 @@ namespace Pulumi.Aws.Rds
     public sealed class ShardGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+        /// Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
         /// </summary>
         [Input("computeRedundancy")]
         public Input<int>? ComputeRedundancy { get; set; }
 
         /// <summary>
-        /// The name of the primary DB cluster for the DB shard group.
+        /// Name of the primary DB cluster for the DB shard group.
         /// </summary>
         [Input("dbClusterIdentifier", required: true)]
         public Input<string> DbClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The name of the DB shard group.
+        /// Name of the DB shard group.
         /// </summary>
         [Input("dbShardGroupIdentifier", required: true)]
         public Input<string> DbShardGroupIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+        /// Maximum capacity of the DB shard group in Aurora capacity units (ACUs).
         /// </summary>
         [Input("maxAcu", required: true)]
         public Input<double> MaxAcu { get; set; } = null!;
 
         /// <summary>
-        /// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+        /// Minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         /// </summary>
         [Input("minAcu")]
         public Input<double>? MinAcu { get; set; }
 
         /// <summary>
-        /// Indicates whether the DB shard group is publicly accessible.
+        /// Whether the DB shard group is publicly accessible.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -235,8 +233,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         /// </summary>
         public InputMap<string> Tags
         {
@@ -262,49 +258,49 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+        /// Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
         /// </summary>
         [Input("computeRedundancy")]
         public Input<int>? ComputeRedundancy { get; set; }
 
         /// <summary>
-        /// The name of the primary DB cluster for the DB shard group.
+        /// Name of the primary DB cluster for the DB shard group.
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The name of the DB shard group.
+        /// Name of the DB shard group.
         /// </summary>
         [Input("dbShardGroupIdentifier")]
         public Input<string>? DbShardGroupIdentifier { get; set; }
 
         /// <summary>
-        /// The AWS Region-unique, immutable identifier for the DB shard group.
+        /// AWS Region-unique, immutable identifier for the DB shard group.
         /// </summary>
         [Input("dbShardGroupResourceId")]
         public Input<string>? DbShardGroupResourceId { get; set; }
 
         /// <summary>
-        /// The connection endpoint for the DB shard group.
+        /// Connection endpoint for the DB shard group.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+        /// Maximum capacity of the DB shard group in Aurora capacity units (ACUs).
         /// </summary>
         [Input("maxAcu")]
         public Input<double>? MaxAcu { get; set; }
 
         /// <summary>
-        /// The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+        /// Minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         /// </summary>
         [Input("minAcu")]
         public Input<double>? MinAcu { get; set; }
 
         /// <summary>
-        /// Indicates whether the DB shard group is publicly accessible.
+        /// Whether the DB shard group is publicly accessible.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -320,8 +316,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
         /// </summary>
         public InputMap<string> Tags
         {
@@ -333,7 +327,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

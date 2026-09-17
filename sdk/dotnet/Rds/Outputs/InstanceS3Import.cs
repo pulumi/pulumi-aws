@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class InstanceS3Import
     {
         /// <summary>
-        /// The bucket name where your backup is stored
+        /// Bucket name where your backup is stored.
         /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// Can be blank, but is the path to your backup
+        /// Can be blank, but is the path to your backup.
         /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>
@@ -26,13 +26,11 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string IngestionRole;
         /// <summary>
-        /// Source engine for the backup
+        /// Source engine for the backup.
         /// </summary>
         public readonly string SourceEngine;
         /// <summary>
-        /// Version of the source engine used to make the backup
-        /// 
-        /// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        /// Version of the source engine used to make the backup.
         /// </summary>
         public readonly string SourceEngineVersion;
 

@@ -105,12 +105,12 @@ export class TrafficPolicy extends pulumi.CustomResource {
     declare public readonly maxMessageSizeBytes: pulumi.Output<number | undefined>;
     /**
      * Name of the traffic policy.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
      * Traffic policy statements. See `policyStatement` Block below.
-     *
-     * The following arguments are optional:
      */
     declare public readonly policyStatements: pulumi.Output<outputs.mailmanager.TrafficPolicyPolicyStatement[] | undefined>;
     /**
@@ -196,12 +196,12 @@ export interface TrafficPolicyState {
     maxMessageSizeBytes?: pulumi.Input<number | undefined>;
     /**
      * Name of the traffic policy.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * Traffic policy statements. See `policyStatement` Block below.
-     *
-     * The following arguments are optional:
      */
     policyStatements?: pulumi.Input<pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatement>[] | undefined>;
     /**
@@ -232,12 +232,12 @@ export interface TrafficPolicyArgs {
     maxMessageSizeBytes?: pulumi.Input<number | undefined>;
     /**
      * Name of the traffic policy.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * Traffic policy statements. See `policyStatement` Block below.
-     *
-     * The following arguments are optional:
      */
     policyStatements?: pulumi.Input<pulumi.Input<inputs.mailmanager.TrafficPolicyPolicyStatement>[] | undefined>;
     /**

@@ -4,6 +4,8 @@
 package com.pulumi.aws.agentregistry.outputs;
 
 import com.pulumi.aws.agentregistry.outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim;
+import com.pulumi.aws.agentregistry.outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint;
+import com.pulumi.aws.agentregistry.outputs.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -37,6 +39,16 @@ public final class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCusto
      * 
      */
     private String discoveryUrl;
+    /**
+     * @return Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+     * 
+     */
+    private List<GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides;
+    /**
+     * @return Private endpoint used to reach the specified domain. See above.
+     * 
+     */
+    private List<GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint> privateEndpoints;
 
     private GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer() {}
     /**
@@ -74,6 +86,20 @@ public final class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCusto
     public String discoveryUrl() {
         return this.discoveryUrl;
     }
+    /**
+     * @return Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+     * 
+     */
+    public List<GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides() {
+        return this.privateEndpointOverrides;
+    }
+    /**
+     * @return Private endpoint used to reach the specified domain. See above.
+     * 
+     */
+    public List<GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint> privateEndpoints() {
+        return this.privateEndpoints;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -89,6 +115,8 @@ public final class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCusto
         private List<String> allowedScopes;
         private List<GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
         private String discoveryUrl;
+        private List<GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides;
+        private List<GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint> privateEndpoints;
         public Builder() {}
         public Builder(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,6 +125,8 @@ public final class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCusto
     	      this.allowedScopes = defaults.allowedScopes;
     	      this.customClaims = defaults.customClaims;
     	      this.discoveryUrl = defaults.discoveryUrl;
+    	      this.privateEndpointOverrides = defaults.privateEndpointOverrides;
+    	      this.privateEndpoints = defaults.privateEndpoints;
         }
 
         @CustomType.Setter
@@ -151,6 +181,28 @@ public final class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCusto
             this.discoveryUrl = discoveryUrl;
             return this;
         }
+        @CustomType.Setter
+        public Builder privateEndpointOverrides(List<GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides) {
+            if (privateEndpointOverrides == null) {
+              throw new MissingRequiredPropertyException("GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer", "privateEndpointOverrides");
+            }
+            this.privateEndpointOverrides = privateEndpointOverrides;
+            return this;
+        }
+        public Builder privateEndpointOverrides(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride... privateEndpointOverrides) {
+            return privateEndpointOverrides(List.of(privateEndpointOverrides));
+        }
+        @CustomType.Setter
+        public Builder privateEndpoints(List<GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint> privateEndpoints) {
+            if (privateEndpoints == null) {
+              throw new MissingRequiredPropertyException("GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer", "privateEndpoints");
+            }
+            this.privateEndpoints = privateEndpoints;
+            return this;
+        }
+        public Builder privateEndpoints(GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint... privateEndpoints) {
+            return privateEndpoints(List.of(privateEndpoints));
+        }
         public GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer build() {
             final var _resultValue = new GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer();
             _resultValue.allowedAudiences = allowedAudiences;
@@ -158,6 +210,8 @@ public final class GetRegistryDiscoveryConfigurationAuthorizerConfigurationCusto
             _resultValue.allowedScopes = allowedScopes;
             _resultValue.customClaims = customClaims;
             _resultValue.discoveryUrl = discoveryUrl;
+            _resultValue.privateEndpointOverrides = privateEndpointOverrides;
+            _resultValue.privateEndpoints = privateEndpoints;
             return _resultValue;
         }
     }

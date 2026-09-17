@@ -341,6 +341,109 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// 
+    /// ### Restore From S3
+    /// 
+    /// Full details on the core parameters and impacts are in the API Docs: [RestoreDBClusterFromS3](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterFromS3.html). Requires that the S3 bucket be in the same region as the RDS cluster you're trying to create.
+    /// 
+    /// &gt; **NOTE:** RDS Aurora Serverless does not support loading data from S3, so its not possible to directly use `EngineMode` set to `Serverless` with `S3Import`.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var db = new Aws.Rds.Cluster("db", new()
+    ///     {
+    ///         S3Import = new Aws.Rds.Inputs.ClusterS3ImportArgs
+    ///         {
+    ///             SourceEngine = "mysql",
+    ///             SourceEngineVersion = "5.6",
+    ///             BucketName = "mybucket",
+    ///             BucketPrefix = "backups",
+    ///             IngestionRole = "arn:aws:iam::1234567890:role/role-xtrabackup-rds-restore",
+    ///         },
+    ///         Engine = Aws.Rds.EngineType.Aurora,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Restore To Point In Time
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example_clone = new Aws.Rds.Cluster("example-clone", new()
+    ///     {
+    ///         RestoreToPointInTime = new Aws.Rds.Inputs.ClusterRestoreToPointInTimeArgs
+    ///         {
+    ///             SourceClusterIdentifier = "example",
+    ///             RestoreType = "copy-on-write",
+    ///             UseLatestRestorableTime = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Serverless v1 Scaling Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Rds.Cluster("example", new()
+    ///     {
+    ///         ScalingConfiguration = new Aws.Rds.Inputs.ClusterScalingConfigurationArgs
+    ///         {
+    ///             AutoPause = true,
+    ///             MaxCapacity = 256,
+    ///             MinCapacity = 2,
+    ///             SecondsBeforeTimeout = 360,
+    ///             SecondsUntilAutoPause = 300,
+    ///             TimeoutAction = "ForceApplyCapacityChange",
+    ///         },
+    ///         EngineMode = Aws.Rds.EngineMode.Serverless,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Serverless v2 Scaling Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Rds.Cluster("example", new()
+    ///     {
+    ///         Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
+    ///         {
+    ///             MaxCapacity = 256,
+    ///             MinCapacity = 0,
+    ///             SecondsUntilAutoPause = 3600,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// ### Identity Schema
@@ -364,7 +467,7 @@ namespace Pulumi.Aws.Rds
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        /// Amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
@@ -376,7 +479,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> AllowMajorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Output("applyImmediately")]
         public Output<bool> ApplyImmediately { get; private set; } = null!;
@@ -394,11 +497,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool> AutoMinorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-        /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
-        /// A maximum of 3 AZs can be configured.
-        /// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary. A maximum of 3 AZs can be configured. **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
@@ -416,7 +515,7 @@ namespace Pulumi.Aws.Rds
         public Output<int> BackupRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// CA certificate identifier to use for the DB cluster's server certificate.
         /// </summary>
         [Output("caCertificateIdentifier")]
         public Output<string> CaCertificateIdentifier { get; private set; } = null!;
@@ -428,7 +527,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> CaCertificateValidTill { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        /// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
@@ -452,7 +551,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the scalability mode of the Aurora DB cluster. When set to `Limitless`, the cluster operates as an Aurora Limitless Database. When set to `Standard` (the default), the cluster uses normal DB instance creation. Valid values: `Limitless`, `Standard`.
+        /// Scalability mode of the Aurora DB cluster. When set to `Limitless`, the cluster operates as an Aurora Limitless Database. When set to `Standard` (the default), the cluster uses normal DB instance creation. Valid values: `Limitless`, `Standard`.
         /// </summary>
         [Output("clusterScalabilityType")]
         public Output<string> ClusterScalabilityType { get; private set; } = null!;
@@ -464,7 +563,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// The mode of Database Insights to enable for the DB cluster. Valid values: `Standard`, `Advanced`.
+        /// Mode of Database Insights to enable for the DB cluster. Valid values: `Standard`, `Advanced`.
         /// </summary>
         [Output("databaseInsightsMode")]
         public Output<string> DatabaseInsightsMode { get; private set; } = null!;
@@ -476,13 +575,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        /// Compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         /// </summary>
         [Output("dbClusterInstanceClass")]
         public Output<string?> DbClusterInstanceClass { get; private set; } = null!;
 
         /// <summary>
-        /// A cluster parameter group to associate with the cluster.
+        /// Cluster parameter group to associate with the cluster.
         /// </summary>
         [Output("dbClusterParameterGroupName")]
         public Output<string> DbClusterParameterGroupName { get; private set; } = null!;
@@ -494,8 +593,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> DbInstanceParameterGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// DB subnet group to associate with this DB cluster.
-        /// **NOTE:** This must match the `DbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
+        /// DB subnet group to associate with this DB cluster. **NOTE:** This must match the `DbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Output("dbSubnetGroupName")]
         public Output<string> DbSubnetGroupName { get; private set; } = null!;
@@ -507,27 +605,25 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbSystemId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `True`.
+        /// Whether to remove automated backups immediately after the DB cluster is deleted. Default is `True`.
         /// </summary>
         [Output("deleteAutomatedBackups")]
         public Output<bool?> DeleteAutomatedBackups { get; private set; } = null!;
 
         /// <summary>
-        /// If the DB cluster should have deletion protection enabled.
-        /// The database can't be deleted when this value is set to `True`.
-        /// The default is `False`.
+        /// If the DB cluster should have deletion protection enabled. The database can't be deleted when this value is set to `True`. The default is `False`.
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the cluster in.
+        /// ID of the Directory Service Active Directory domain to create the cluster in.
         /// </summary>
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// Name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
         [Output("domainIamRoleName")]
         public Output<string?> DomainIamRoleName { get; private set; } = null!;
@@ -569,7 +665,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// Life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
         [Output("engineLifecycleSupport")]
         public Output<string> EngineLifecycleSupport { get; private set; } = null!;
@@ -611,7 +707,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        /// Whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         /// </summary>
         [Output("iamDatabaseAuthenticationEnabled")]
         public Output<bool?> IamDatabaseAuthenticationEnabled { get; private set; } = null!;
@@ -648,13 +744,13 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `ManageMasterUserPassword` is set to `True`.
+        /// Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `ManageMasterUserPassword` is set to `True`. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         [Output("masterPasswordWo")]
         public Output<string?> MasterPasswordWo { get; private set; } = null!;
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Output("masterPasswordWoVersion")]
         public Output<int?> MasterPasswordWoVersion { get; private set; } = null!;
@@ -702,13 +798,13 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> PerformanceInsightsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        /// KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         /// </summary>
         [Output("performanceInsightsKmsKeyId")]
         public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        /// Amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         /// </summary>
         [Output("performanceInsightsRetentionPeriod")]
         public Output<int> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
@@ -732,8 +828,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// Read-only endpoint for the Aurora cluster, automatically
-        /// load-balanced across replicas
+        /// Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
         /// </summary>
         [Output("readerEndpoint")]
         public Output<string> ReaderEndpoint { get; private set; } = null!;
@@ -772,25 +867,25 @@ namespace Pulumi.Aws.Rds
         public Output<Outputs.ClusterServerlessv2ScalingConfiguration?> Serverlessv2ScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
+        /// Whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
         /// </summary>
         [Output("skipFinalSnapshot")]
         public Output<bool?> SkipFinalSnapshot { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `GlobalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+        /// Whether to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `GlobalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         /// </summary>
         [Output("snapshotIdentifier")]
         public Output<string?> SnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The source region for an encrypted replica DB cluster.
+        /// Source region for an encrypted replica DB cluster.
         /// </summary>
         [Output("sourceRegion")]
         public Output<string?> SourceRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
@@ -802,7 +897,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -827,12 +922,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
-        /// 
-        /// For more detailed documentation about each argument, refer to
-        /// the AWS official documentation:
-        /// 
-        /// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
-        /// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         /// </summary>
         [Output("warningEventCategories")]
         public Output<ImmutableArray<string>> WarningEventCategories { get; private set; } = null!;
@@ -889,7 +978,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        /// Amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -901,7 +990,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -916,11 +1005,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-        /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
-        /// A maximum of 3 AZs can be configured.
-        /// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary. A maximum of 3 AZs can be configured. **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -941,13 +1026,13 @@ namespace Pulumi.Aws.Rds
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// CA certificate identifier to use for the DB cluster's server certificate.
         /// </summary>
         [Input("caCertificateIdentifier")]
         public Input<string>? CaCertificateIdentifier { get; set; }
 
         /// <summary>
-        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        /// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
@@ -971,7 +1056,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// Specifies the scalability mode of the Aurora DB cluster. When set to `Limitless`, the cluster operates as an Aurora Limitless Database. When set to `Standard` (the default), the cluster uses normal DB instance creation. Valid values: `Limitless`, `Standard`.
+        /// Scalability mode of the Aurora DB cluster. When set to `Limitless`, the cluster operates as an Aurora Limitless Database. When set to `Standard` (the default), the cluster uses normal DB instance creation. Valid values: `Limitless`, `Standard`.
         /// </summary>
         [Input("clusterScalabilityType")]
         public Input<string>? ClusterScalabilityType { get; set; }
@@ -983,7 +1068,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
-        /// The mode of Database Insights to enable for the DB cluster. Valid values: `Standard`, `Advanced`.
+        /// Mode of Database Insights to enable for the DB cluster. Valid values: `Standard`, `Advanced`.
         /// </summary>
         [Input("databaseInsightsMode")]
         public Input<string>? DatabaseInsightsMode { get; set; }
@@ -995,13 +1080,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        /// Compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         /// </summary>
         [Input("dbClusterInstanceClass")]
         public Input<string>? DbClusterInstanceClass { get; set; }
 
         /// <summary>
-        /// A cluster parameter group to associate with the cluster.
+        /// Cluster parameter group to associate with the cluster.
         /// </summary>
         [Input("dbClusterParameterGroupName")]
         public Input<string>? DbClusterParameterGroupName { get; set; }
@@ -1013,8 +1098,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbInstanceParameterGroupName { get; set; }
 
         /// <summary>
-        /// DB subnet group to associate with this DB cluster.
-        /// **NOTE:** This must match the `DbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
+        /// DB subnet group to associate with this DB cluster. **NOTE:** This must match the `DbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
@@ -1026,27 +1110,25 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSystemId { get; set; }
 
         /// <summary>
-        /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `True`.
+        /// Whether to remove automated backups immediately after the DB cluster is deleted. Default is `True`.
         /// </summary>
         [Input("deleteAutomatedBackups")]
         public Input<bool>? DeleteAutomatedBackups { get; set; }
 
         /// <summary>
-        /// If the DB cluster should have deletion protection enabled.
-        /// The database can't be deleted when this value is set to `True`.
-        /// The default is `False`.
+        /// If the DB cluster should have deletion protection enabled. The database can't be deleted when this value is set to `True`. The default is `False`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the cluster in.
+        /// ID of the Directory Service Active Directory domain to create the cluster in.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// Name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
         [Input("domainIamRoleName")]
         public Input<string>? DomainIamRoleName { get; set; }
@@ -1088,7 +1170,7 @@ namespace Pulumi.Aws.Rds
         public InputUnion<string, Pulumi.Aws.Rds.EngineType> Engine { get; set; } = null!;
 
         /// <summary>
-        /// The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// Life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
         [Input("engineLifecycleSupport")]
         public Input<string>? EngineLifecycleSupport { get; set; }
@@ -1118,7 +1200,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        /// Whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
@@ -1174,7 +1256,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `ManageMasterUserPassword` is set to `True`.
+        /// Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `ManageMasterUserPassword` is set to `True`. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? MasterPasswordWo
         {
@@ -1187,7 +1269,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Input("masterPasswordWoVersion")]
         public Input<int>? MasterPasswordWoVersion { get; set; }
@@ -1229,13 +1311,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        /// KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        /// Amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
         public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
@@ -1292,25 +1374,25 @@ namespace Pulumi.Aws.Rds
         public Input<Inputs.ClusterServerlessv2ScalingConfigurationArgs>? Serverlessv2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
+        /// Whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `GlobalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+        /// Whether to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `GlobalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The source region for an encrypted replica DB cluster.
+        /// Source region for an encrypted replica DB cluster.
         /// </summary>
         [Input("sourceRegion")]
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -1325,7 +1407,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1350,12 +1432,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
-        /// 
-        /// For more detailed documentation about each argument, refer to
-        /// the AWS official documentation:
-        /// 
-        /// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
-        /// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         /// </summary>
         public InputList<string> WarningEventCategories
         {
@@ -1372,7 +1448,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+        /// Amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -1384,7 +1460,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? AllowMajorVersionUpgrade { get; set; }
 
         /// <summary>
-        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        /// Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `False`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         /// </summary>
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
@@ -1405,11 +1481,7 @@ namespace Pulumi.Aws.Rds
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-        /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-        /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
-        /// A maximum of 3 AZs can be configured.
-        /// **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
+        /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary. A maximum of 3 AZs can be configured. **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -1430,7 +1502,7 @@ namespace Pulumi.Aws.Rds
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
-        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// CA certificate identifier to use for the DB cluster's server certificate.
         /// </summary>
         [Input("caCertificateIdentifier")]
         public Input<string>? CaCertificateIdentifier { get; set; }
@@ -1442,7 +1514,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? CaCertificateValidTill { get; set; }
 
         /// <summary>
-        /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+        /// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
@@ -1472,7 +1544,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? ClusterResourceId { get; set; }
 
         /// <summary>
-        /// Specifies the scalability mode of the Aurora DB cluster. When set to `Limitless`, the cluster operates as an Aurora Limitless Database. When set to `Standard` (the default), the cluster uses normal DB instance creation. Valid values: `Limitless`, `Standard`.
+        /// Scalability mode of the Aurora DB cluster. When set to `Limitless`, the cluster operates as an Aurora Limitless Database. When set to `Standard` (the default), the cluster uses normal DB instance creation. Valid values: `Limitless`, `Standard`.
         /// </summary>
         [Input("clusterScalabilityType")]
         public Input<string>? ClusterScalabilityType { get; set; }
@@ -1484,7 +1556,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
-        /// The mode of Database Insights to enable for the DB cluster. Valid values: `Standard`, `Advanced`.
+        /// Mode of Database Insights to enable for the DB cluster. Valid values: `Standard`, `Advanced`.
         /// </summary>
         [Input("databaseInsightsMode")]
         public Input<string>? DatabaseInsightsMode { get; set; }
@@ -1496,13 +1568,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+        /// Compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
         /// </summary>
         [Input("dbClusterInstanceClass")]
         public Input<string>? DbClusterInstanceClass { get; set; }
 
         /// <summary>
-        /// A cluster parameter group to associate with the cluster.
+        /// Cluster parameter group to associate with the cluster.
         /// </summary>
         [Input("dbClusterParameterGroupName")]
         public Input<string>? DbClusterParameterGroupName { get; set; }
@@ -1514,8 +1586,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbInstanceParameterGroupName { get; set; }
 
         /// <summary>
-        /// DB subnet group to associate with this DB cluster.
-        /// **NOTE:** This must match the `DbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
+        /// DB subnet group to associate with this DB cluster. **NOTE:** This must match the `DbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
@@ -1527,27 +1598,25 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSystemId { get; set; }
 
         /// <summary>
-        /// Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `True`.
+        /// Whether to remove automated backups immediately after the DB cluster is deleted. Default is `True`.
         /// </summary>
         [Input("deleteAutomatedBackups")]
         public Input<bool>? DeleteAutomatedBackups { get; set; }
 
         /// <summary>
-        /// If the DB cluster should have deletion protection enabled.
-        /// The database can't be deleted when this value is set to `True`.
-        /// The default is `False`.
+        /// If the DB cluster should have deletion protection enabled. The database can't be deleted when this value is set to `True`. The default is `False`.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The ID of the Directory Service Active Directory domain to create the cluster in.
+        /// ID of the Directory Service Active Directory domain to create the cluster in.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The name of the IAM role to be used when making API calls to the Directory Service.
+        /// Name of the IAM role to be used when making API calls to the Directory Service.
         /// </summary>
         [Input("domainIamRoleName")]
         public Input<string>? DomainIamRoleName { get; set; }
@@ -1595,7 +1664,7 @@ namespace Pulumi.Aws.Rds
         public InputUnion<string, Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
-        /// The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// Life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
         [Input("engineLifecycleSupport")]
         public Input<string>? EngineLifecycleSupport { get; set; }
@@ -1637,7 +1706,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+        /// Whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
@@ -1693,7 +1762,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `ManageMasterUserPassword` is set to `True`.
+        /// Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `ManageMasterUserPassword` is set to `True`. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? MasterPasswordWo
         {
@@ -1706,7 +1775,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Input("masterPasswordWoVersion")]
         public Input<int>? MasterPasswordWoVersion { get; set; }
@@ -1760,13 +1829,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+        /// KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+        /// Amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
         /// </summary>
         [Input("performanceInsightsRetentionPeriod")]
         public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
@@ -1790,8 +1859,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Read-only endpoint for the Aurora cluster, automatically
-        /// load-balanced across replicas
+        /// Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
         /// </summary>
         [Input("readerEndpoint")]
         public Input<string>? ReaderEndpoint { get; set; }
@@ -1830,25 +1898,25 @@ namespace Pulumi.Aws.Rds
         public Input<Inputs.ClusterServerlessv2ScalingConfigurationGetArgs>? Serverlessv2ScalingConfiguration { get; set; }
 
         /// <summary>
-        /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
+        /// Whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `FinalSnapshotIdentifier`. Default is `False`.
         /// </summary>
         [Input("skipFinalSnapshot")]
         public Input<bool>? SkipFinalSnapshot { get; set; }
 
         /// <summary>
-        /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `GlobalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+        /// Whether to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `GlobalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         /// </summary>
         [Input("snapshotIdentifier")]
         public Input<string>? SnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The source region for an encrypted replica DB cluster.
+        /// Source region for an encrypted replica DB cluster.
         /// </summary>
         [Input("sourceRegion")]
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -1863,7 +1931,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1906,12 +1974,6 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Set of RDS event categories (for example `Failure`, `Maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
-        /// 
-        /// For more detailed documentation about each argument, refer to
-        /// the AWS official documentation:
-        /// 
-        /// * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
-        /// * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
         /// </summary>
         public InputList<string> WarningEventCategories
         {

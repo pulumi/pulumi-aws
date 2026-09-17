@@ -120,6 +120,9 @@ import (
 //									pulumi.String("code"),
 //									pulumi.String("id_token"),
 //								},
+//								TokenEndpointAuthMethods: pulumi.StringArray{
+//									pulumi.String("client_secret_basic"),
+//								},
 //							},
 //						},
 //						ClientIdWo:                 pulumi.String("keycloak-client-id"),
@@ -141,6 +144,8 @@ import (
 //
 // ## Import
 //
+// > **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `clientId`, `clientSecret`, `clientSecretSource`, `clientSecretConfig`, and the write-only `clientIdWo`/`clientSecretWo`/`clientCredentialsWoVersion` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
+//
 // ### Identity Schema
 //
 // #### Required
@@ -160,18 +165,20 @@ import (
 type AgentcoreOauth2CredentialProvider struct {
 	pulumi.CustomResourceState
 
+	// Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+	CallbackUrl pulumi.StringOutput `pulumi:"callbackUrl"`
 	// ARN of the AWS Secrets Manager secret containing the client secret.
 	ClientSecretArns AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput `pulumi:"clientSecretArns"`
 	// ARN of the OAuth2 credential provider.
 	CredentialProviderArn pulumi.StringOutput `pulumi:"credentialProviderArn"`
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
 	CredentialProviderVendor pulumi.StringOutput `pulumi:"credentialProviderVendor"`
 	// Name of the OAuth2 credential provider.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
 	//
 	// The following arguments are optional:
-	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput `pulumi:"oauth2ProviderConfig"`
+	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput `pulumi:"oauth2ProviderConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -190,6 +197,9 @@ func NewAgentcoreOauth2CredentialProvider(ctx *pulumi.Context,
 
 	if args.CredentialProviderVendor == nil {
 		return nil, errors.New("invalid value for required argument 'CredentialProviderVendor'")
+	}
+	if args.Oauth2ProviderConfig == nil {
+		return nil, errors.New("invalid value for required argument 'Oauth2ProviderConfig'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AgentcoreOauth2CredentialProvider
@@ -214,11 +224,13 @@ func GetAgentcoreOauth2CredentialProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreOauth2CredentialProvider resources.
 type agentcoreOauth2CredentialProviderState struct {
+	// Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+	CallbackUrl *string `pulumi:"callbackUrl"`
 	// ARN of the AWS Secrets Manager secret containing the client secret.
 	ClientSecretArns []AgentcoreOauth2CredentialProviderClientSecretArn `pulumi:"clientSecretArns"`
 	// ARN of the OAuth2 credential provider.
 	CredentialProviderArn *string `pulumi:"credentialProviderArn"`
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
 	CredentialProviderVendor *string `pulumi:"credentialProviderVendor"`
 	// Name of the OAuth2 credential provider.
 	Name *string `pulumi:"name"`
@@ -236,11 +248,13 @@ type agentcoreOauth2CredentialProviderState struct {
 }
 
 type AgentcoreOauth2CredentialProviderState struct {
+	// Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+	CallbackUrl pulumi.StringPtrInput
 	// ARN of the AWS Secrets Manager secret containing the client secret.
 	ClientSecretArns AgentcoreOauth2CredentialProviderClientSecretArnArrayInput
 	// ARN of the OAuth2 credential provider.
 	CredentialProviderArn pulumi.StringPtrInput
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
 	CredentialProviderVendor pulumi.StringPtrInput
 	// Name of the OAuth2 credential provider.
 	Name pulumi.StringPtrInput
@@ -262,14 +276,14 @@ func (AgentcoreOauth2CredentialProviderState) ElementType() reflect.Type {
 }
 
 type agentcoreOauth2CredentialProviderArgs struct {
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
 	CredentialProviderVendor string `pulumi:"credentialProviderVendor"`
 	// Name of the OAuth2 credential provider.
 	Name *string `pulumi:"name"`
 	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
 	//
 	// The following arguments are optional:
-	Oauth2ProviderConfig *AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
+	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfig `pulumi:"oauth2ProviderConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -279,14 +293,14 @@ type agentcoreOauth2CredentialProviderArgs struct {
 
 // The set of arguments for constructing a AgentcoreOauth2CredentialProvider resource.
 type AgentcoreOauth2CredentialProviderArgs struct {
-	// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+	// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
 	CredentialProviderVendor pulumi.StringInput
 	// Name of the OAuth2 credential provider.
 	Name pulumi.StringPtrInput
 	// OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
 	//
 	// The following arguments are optional:
-	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrInput
+	Oauth2ProviderConfig AgentcoreOauth2CredentialProviderOauth2ProviderConfigInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -381,6 +395,11 @@ func (o AgentcoreOauth2CredentialProviderOutput) ToAgentcoreOauth2CredentialProv
 	return o
 }
 
+// Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+func (o AgentcoreOauth2CredentialProviderOutput) CallbackUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.CallbackUrl }).(pulumi.StringOutput)
+}
+
 // ARN of the AWS Secrets Manager secret containing the client secret.
 func (o AgentcoreOauth2CredentialProviderOutput) ClientSecretArns() AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) AgentcoreOauth2CredentialProviderClientSecretArnArrayOutput {
@@ -393,7 +412,7 @@ func (o AgentcoreOauth2CredentialProviderOutput) CredentialProviderArn() pulumi.
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.CredentialProviderArn }).(pulumi.StringOutput)
 }
 
-// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
 func (o AgentcoreOauth2CredentialProviderOutput) CredentialProviderVendor() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) pulumi.StringOutput { return v.CredentialProviderVendor }).(pulumi.StringOutput)
 }
@@ -406,10 +425,10 @@ func (o AgentcoreOauth2CredentialProviderOutput) Name() pulumi.StringOutput {
 // OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
 //
 // The following arguments are optional:
-func (o AgentcoreOauth2CredentialProviderOutput) Oauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
-	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput {
+func (o AgentcoreOauth2CredentialProviderOutput) Oauth2ProviderConfig() AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput {
+	return o.ApplyT(func(v *AgentcoreOauth2CredentialProvider) AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput {
 		return v.Oauth2ProviderConfig
-	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigPtrOutput)
+	}).(AgentcoreOauth2CredentialProviderOauth2ProviderConfigOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

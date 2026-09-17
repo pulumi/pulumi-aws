@@ -648,7 +648,7 @@ class AgentcoreGateway(pulumi.CustomResource):
             protocol_configuration={
                 "mcp": {
                     "instructions": "Gateway for handling MCP requests",
-                    "search_type": "HYBRID",
+                    "search_type": "SEMANTIC",
                     "supported_versions": [
                         "2025-03-26",
                         "2025-06-18",
@@ -793,7 +793,7 @@ class AgentcoreGateway(pulumi.CustomResource):
             protocol_configuration={
                 "mcp": {
                     "instructions": "Gateway for handling MCP requests",
-                    "search_type": "HYBRID",
+                    "search_type": "SEMANTIC",
                     "supported_versions": [
                         "2025-03-26",
                         "2025-06-18",

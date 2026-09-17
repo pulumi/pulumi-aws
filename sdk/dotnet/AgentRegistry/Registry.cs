@@ -177,6 +177,12 @@ namespace Pulumi.Aws.AgentRegistry
         public Output<Outputs.RegistryApprovalConfiguration?> ApprovalConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+        /// </summary>
+        [Output("autoDetectionConfiguration")]
+        public Output<Outputs.RegistryAutoDetectionConfiguration?> AutoDetectionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the registry. Maximum length of 4096 characters.
         /// </summary>
         [Output("description")]
@@ -187,6 +193,12 @@ namespace Pulumi.Aws.AgentRegistry
         /// </summary>
         [Output("discoveryConfiguration")]
         public Output<Outputs.RegistryDiscoveryConfiguration> DiscoveryConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Server-side encryption configuration for the registry. See below.
+        /// </summary>
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.RegistryEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
@@ -282,6 +294,12 @@ namespace Pulumi.Aws.AgentRegistry
         public Input<Inputs.RegistryApprovalConfigurationArgs>? ApprovalConfiguration { get; set; }
 
         /// <summary>
+        /// Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+        /// </summary>
+        [Input("autoDetectionConfiguration")]
+        public Input<Inputs.RegistryAutoDetectionConfigurationArgs>? AutoDetectionConfiguration { get; set; }
+
+        /// <summary>
         /// Description of the registry. Maximum length of 4096 characters.
         /// </summary>
         [Input("description")]
@@ -292,6 +310,12 @@ namespace Pulumi.Aws.AgentRegistry
         /// </summary>
         [Input("discoveryConfiguration", required: true)]
         public Input<Inputs.RegistryDiscoveryConfigurationArgs> DiscoveryConfiguration { get; set; } = null!;
+
+        /// <summary>
+        /// Server-side encryption configuration for the registry. See below.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.RegistryEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
@@ -337,6 +361,12 @@ namespace Pulumi.Aws.AgentRegistry
         public Input<Inputs.RegistryApprovalConfigurationGetArgs>? ApprovalConfiguration { get; set; }
 
         /// <summary>
+        /// Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+        /// </summary>
+        [Input("autoDetectionConfiguration")]
+        public Input<Inputs.RegistryAutoDetectionConfigurationGetArgs>? AutoDetectionConfiguration { get; set; }
+
+        /// <summary>
         /// Description of the registry. Maximum length of 4096 characters.
         /// </summary>
         [Input("description")]
@@ -347,6 +377,12 @@ namespace Pulumi.Aws.AgentRegistry
         /// </summary>
         [Input("discoveryConfiguration")]
         public Input<Inputs.RegistryDiscoveryConfigurationGetArgs>? DiscoveryConfiguration { get; set; }
+
+        /// <summary>
+        /// Server-side encryption configuration for the registry. See below.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.RegistryEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.

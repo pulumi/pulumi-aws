@@ -15,14 +15,14 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHea
     public static final RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs Empty = new RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs();
 
     /**
-     * The name of the query header to inspect. This setting must be provided as lower case characters.
+     * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the query header to inspect. This setting must be provided as lower case characters.
+     * @return The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
      * 
      */
     public Output<String> name() {
@@ -54,7 +54,7 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHea
         }
 
         /**
-         * @param name The name of the query header to inspect. This setting must be provided as lower case characters.
+         * @param name The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHea
         }
 
         /**
-         * @param name The name of the query header to inspect. This setting must be provided as lower case characters.
+         * @param name The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          * 
          * @return builder
          * 

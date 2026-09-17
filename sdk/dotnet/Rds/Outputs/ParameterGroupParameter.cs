@@ -14,17 +14,15 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class ParameterGroupParameter
     {
         /// <summary>
-        /// "immediate" (default), or "pending-reboot". Some
-        /// engines can't apply some parameters without a reboot, and you will need to
-        /// specify "pending-reboot" here.
+        /// "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
         /// </summary>
         public readonly string? ApplyMethod;
         /// <summary>
-        /// The name of the DB parameter.
+        /// Name of the DB parameter.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of the DB parameter.
+        /// Value of the DB parameter.
         /// </summary>
         public readonly string Value;
 
