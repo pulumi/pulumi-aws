@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class GetEngineVersionFilterResult
     {
+        /// <summary>
+        /// Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

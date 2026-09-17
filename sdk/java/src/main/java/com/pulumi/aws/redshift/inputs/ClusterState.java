@@ -444,18 +444,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     @Import(name="manageMasterPassword")
     private @Nullable Output<Boolean> manageMasterPassword;
 
     /**
-     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     public Optional<Output<Boolean>> manageMasterPassword() {
@@ -478,22 +474,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     @Import(name="masterPassword")
     private @Nullable Output<String> masterPassword;
 
     /**
-     * @return Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * @return Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     public Optional<Output<String>> masterPassword() {
@@ -532,11 +520,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     @Import(name="masterPasswordWo")
@@ -544,11 +528,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> masterPasswordWo() {
@@ -556,14 +536,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     @Import(name="masterPasswordWoVersion")
     private @Nullable Output<Integer> masterPasswordWoVersion;
 
     /**
-     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * @return Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     public Optional<Output<Integer>> masterPasswordWoVersion() {
@@ -1503,9 +1483,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials.
-         * Conflicts with `masterPassword` and `masterPasswordWo`.
-         * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
          * 
          * @return builder
          * 
@@ -1516,9 +1494,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials.
-         * Conflicts with `masterPassword` and `masterPasswordWo`.
-         * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
          * 
          * @return builder
          * 
@@ -1549,11 +1525,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user.
-         * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-         * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-         * Note that this may show up in logs, and it will be stored in the state file.
-         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * @param masterPassword Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
          * 
          * @return builder
          * 
@@ -1564,11 +1536,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user.
-         * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-         * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-         * Note that this may show up in logs, and it will be stored in the state file.
-         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * @param masterPassword Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
          * 
          * @return builder
          * 
@@ -1621,11 +1589,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the master DB user.
-         * Conflicts with `manageMasterPassword` and `masterPassword`.
-         * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-         * Note that this may show up in logs.
-         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -1637,11 +1601,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the master DB user.
-         * Conflicts with `manageMasterPassword` and `masterPassword`.
-         * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-         * Note that this may show up in logs.
-         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -1651,7 +1611,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPasswordWoVersion Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+         * @param masterPasswordWoVersion Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
          * 
          * @return builder
          * 
@@ -1662,7 +1622,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPasswordWoVersion Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+         * @param masterPasswordWoVersion Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
          * 
          * @return builder
          * 

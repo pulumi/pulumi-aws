@@ -55,6 +55,11 @@ export type InstanceProfile = import("./instanceProfile").InstanceProfile;
 export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
 utilities.lazyLoad(exports, ["InstanceProfile"], () => require("./instanceProfile"));
 
+export { MigrationProjectArgs, MigrationProjectState } from "./migrationProject";
+export type MigrationProject = import("./migrationProject").MigrationProject;
+export const MigrationProject: typeof import("./migrationProject").MigrationProject = null as any;
+utilities.lazyLoad(exports, ["MigrationProject"], () => require("./migrationProject"));
+
 export { ReplicationConfigArgs, ReplicationConfigState } from "./replicationConfig";
 export type ReplicationConfig = import("./replicationConfig").ReplicationConfig;
 export const ReplicationConfig: typeof import("./replicationConfig").ReplicationConfig = null as any;
@@ -95,6 +100,8 @@ const _module = {
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws:dms/instanceProfile:InstanceProfile":
                 return new InstanceProfile(name, <any>undefined, { urn })
+            case "aws:dms/migrationProject:MigrationProject":
+                return new MigrationProject(name, <any>undefined, { urn })
             case "aws:dms/replicationConfig:ReplicationConfig":
                 return new ReplicationConfig(name, <any>undefined, { urn })
             case "aws:dms/replicationInstance:ReplicationInstance":
@@ -115,6 +122,7 @@ pulumi.runtime.registerResourceModule("aws", "dms/dataProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/instanceProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "dms/migrationProject", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "dms/replicationSubnetGroup", _module)

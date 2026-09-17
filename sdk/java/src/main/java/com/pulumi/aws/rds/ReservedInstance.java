@@ -242,14 +242,14 @@ public class ReservedInstance extends com.pulumi.resources.CustomResource {
         return this.productDescription;
     }
     /**
-     * Recurring price charged to run this reserved DB instance.
+     * Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
      * 
      */
     @Export(name="recurringCharges", refs={List.class,ReservedInstanceRecurringCharge.class}, tree="[0,1]")
     private Output<List<ReservedInstanceRecurringCharge>> recurringCharges;
 
     /**
-     * @return Recurring price charged to run this reserved DB instance.
+     * @return Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
      * 
      */
     public Output<List<ReservedInstanceRecurringCharge>> recurringCharges() {

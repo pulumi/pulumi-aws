@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicyTable{}
 	case "aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation":
 		r = &PolicyTableAssociation{}
+	case "aws:ec2transitgateway/policyTableEntry:PolicyTableEntry":
+		r = &PolicyTableEntry{}
 	case "aws:ec2transitgateway/prefixListReference:PrefixListReference":
 		r = &PrefixListReference{}
 	case "aws:ec2transitgateway/route:Route":
@@ -160,6 +162,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2transitgateway/policyTableAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2transitgateway/policyTableEntry",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

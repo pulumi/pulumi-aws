@@ -29,9 +29,9 @@ class InstanceAutomatedBackupsReplicationArgs:
 
         :param pulumi.Input[_builtins.str] source_db_instance_arn: ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-        :param pulumi.Input[_builtins.str] pre_signed_url: A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+        :param pulumi.Input[_builtins.str] pre_signed_url: URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period: The retention period for the replicated automated backups, defaults to `7`.
+        :param pulumi.Input[_builtins.int] retention_period: Retention period for the replicated automated backups, defaults to `7`.
         """
         pulumi.set(__self__, "source_db_instance_arn", source_db_instance_arn)
         if kms_key_id is not None:
@@ -71,7 +71,7 @@ class InstanceAutomatedBackupsReplicationArgs:
     @pulumi.getter(name="preSignedUrl")
     def pre_signed_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+        URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         """
         return pulumi.get(self, "pre_signed_url")
 
@@ -95,7 +95,7 @@ class InstanceAutomatedBackupsReplicationArgs:
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The retention period for the replicated automated backups, defaults to `7`.
+        Retention period for the replicated automated backups, defaults to `7`.
         """
         return pulumi.get(self, "retention_period")
 
@@ -116,9 +116,9 @@ class _InstanceAutomatedBackupsReplicationState:
         Input properties used for looking up and filtering InstanceAutomatedBackupsReplication resources.
 
         :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-        :param pulumi.Input[_builtins.str] pre_signed_url: A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+        :param pulumi.Input[_builtins.str] pre_signed_url: URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period: The retention period for the replicated automated backups, defaults to `7`.
+        :param pulumi.Input[_builtins.int] retention_period: Retention period for the replicated automated backups, defaults to `7`.
         :param pulumi.Input[_builtins.str] source_db_instance_arn: ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         """
         if kms_key_id is not None:
@@ -148,7 +148,7 @@ class _InstanceAutomatedBackupsReplicationState:
     @pulumi.getter(name="preSignedUrl")
     def pre_signed_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+        URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         """
         return pulumi.get(self, "pre_signed_url")
 
@@ -172,7 +172,7 @@ class _InstanceAutomatedBackupsReplicationState:
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The retention period for the replicated automated backups, defaults to `7`.
+        Retention period for the replicated automated backups, defaults to `7`.
         """
         return pulumi.get(self, "retention_period")
 
@@ -270,9 +270,9 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-        :param pulumi.Input[_builtins.str] pre_signed_url: A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+        :param pulumi.Input[_builtins.str] pre_signed_url: URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period: The retention period for the replicated automated backups, defaults to `7`.
+        :param pulumi.Input[_builtins.int] retention_period: Retention period for the replicated automated backups, defaults to `7`.
         :param pulumi.Input[_builtins.str] source_db_instance_arn: ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         """
         ...
@@ -402,9 +402,9 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-        :param pulumi.Input[_builtins.str] pre_signed_url: A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+        :param pulumi.Input[_builtins.str] pre_signed_url: URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] retention_period: The retention period for the replicated automated backups, defaults to `7`.
+        :param pulumi.Input[_builtins.int] retention_period: Retention period for the replicated automated backups, defaults to `7`.
         :param pulumi.Input[_builtins.str] source_db_instance_arn: ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -430,7 +430,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
     @pulumi.getter(name="preSignedUrl")
     def pre_signed_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+        URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
         """
         return pulumi.get(self, "pre_signed_url")
 
@@ -446,7 +446,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The retention period for the replicated automated backups, defaults to `7`.
+        Retention period for the replicated automated backups, defaults to `7`.
         """
         return pulumi.get(self, "retention_period")
 

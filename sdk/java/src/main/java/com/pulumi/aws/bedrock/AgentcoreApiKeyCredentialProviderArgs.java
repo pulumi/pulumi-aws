@@ -18,7 +18,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
     public static final AgentcoreApiKeyCredentialProviderArgs Empty = new AgentcoreApiKeyCredentialProviderArgs();
 
     /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
      * 
      * **Write-Only API Key (choose one approach):**
      * 
@@ -27,7 +27,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+     * @return API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
      * 
      * **Write-Only API Key (choose one approach):**
      * 
@@ -38,7 +38,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
      * 
      */
     @Import(name="apiKeyWo")
@@ -46,7 +46,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> apiKeyWo() {
@@ -54,14 +54,14 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
     }
 
     /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      * 
      */
     @Import(name="apiKeyWoVersion")
     private @Nullable Output<Integer> apiKeyWoVersion;
 
     /**
-     * @return Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * @return Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      * 
      */
     public Optional<Output<Integer>> apiKeyWoVersion() {
@@ -151,7 +151,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param apiKey API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+         * @param apiKey API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
          * 
          * **Write-Only API Key (choose one approach):**
          * 
@@ -164,7 +164,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param apiKey API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+         * @param apiKey API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
          * 
          * **Write-Only API Key (choose one approach):**
          * 
@@ -177,7 +177,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
 
         /**
          * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+         * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
 
         /**
          * @param apiKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+         * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param apiKeyWoVersion Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+         * @param apiKeyWoVersion Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class AgentcoreApiKeyCredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param apiKeyWoVersion Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+         * @param apiKeyWoVersion Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
          * 
          * @return builder
          * 

@@ -19,7 +19,10 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
-    /// ## Import
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import `aws.apigateway.Deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
     /// 

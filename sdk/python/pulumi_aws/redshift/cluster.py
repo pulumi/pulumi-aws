@@ -91,23 +91,13 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
-               Conflicts with `master_password` and `master_password_wo`.
-               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password_wo`.
-               One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs, and it will be stored in the state file.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Conflicts with `manage_master_password` and `master_password_wo`. One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         :param pulumi.Input[_builtins.str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password`.
-               One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+               Password for the master DB user. Conflicts with `manage_master_password` and `master_password`. One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `master_password_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] master_password_wo_version: Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
         :param pulumi.Input[_builtins.int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
@@ -476,9 +466,7 @@ class ClusterArgs:
     @pulumi.getter(name="manageMasterPassword")
     def manage_master_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        Conflicts with `master_password` and `master_password_wo`.
-        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         """
         return pulumi.get(self, "manage_master_password")
 
@@ -502,11 +490,7 @@ class ClusterArgs:
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password_wo`.
-        One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs, and it will be stored in the state file.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        Password for the master DB user. Conflicts with `manage_master_password` and `master_password_wo`. One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         """
         return pulumi.get(self, "master_password")
 
@@ -531,11 +515,7 @@ class ClusterArgs:
     def master_password_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password`.
-        One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        Password for the master DB user. Conflicts with `manage_master_password` and `master_password`. One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `master_password_wo_version` to be set.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -547,7 +527,7 @@ class ClusterArgs:
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+        Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         """
         return pulumi.get(self, "master_password_wo_version")
 
@@ -819,24 +799,14 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
-               Conflicts with `master_password` and `master_password_wo`.
-               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password_wo`.
-               One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs, and it will be stored in the state file.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Conflicts with `manage_master_password` and `master_password_wo`. One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         :param pulumi.Input[_builtins.str] master_password_secret_arn: ARN of the cluster admin credentials secret
         :param pulumi.Input[_builtins.str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password`.
-               One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+               Password for the master DB user. Conflicts with `manage_master_password` and `master_password`. One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `master_password_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] master_password_wo_version: Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
         :param pulumi.Input[_builtins.str] node_type: The node type to be provisioned for the cluster.
@@ -1299,9 +1269,7 @@ class _ClusterState:
     @pulumi.getter(name="manageMasterPassword")
     def manage_master_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        Conflicts with `master_password` and `master_password_wo`.
-        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         """
         return pulumi.get(self, "manage_master_password")
 
@@ -1325,11 +1293,7 @@ class _ClusterState:
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password_wo`.
-        One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs, and it will be stored in the state file.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        Password for the master DB user. Conflicts with `manage_master_password` and `master_password_wo`. One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         """
         return pulumi.get(self, "master_password")
 
@@ -1366,11 +1330,7 @@ class _ClusterState:
     def master_password_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password`.
-        One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        Password for the master DB user. Conflicts with `manage_master_password` and `master_password`. One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `master_password_wo_version` to be set.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -1382,7 +1342,7 @@ class _ClusterState:
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+        Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         """
         return pulumi.get(self, "master_password_wo_version")
 
@@ -1713,23 +1673,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
-               Conflicts with `master_password` and `master_password_wo`.
-               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password_wo`.
-               One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs, and it will be stored in the state file.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Conflicts with `manage_master_password` and `master_password_wo`. One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         :param pulumi.Input[_builtins.str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password`.
-               One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+               Password for the master DB user. Conflicts with `manage_master_password` and `master_password`. One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `master_password_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] master_password_wo_version: Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
         :param pulumi.Input[_builtins.str] node_type: The node type to be provisioned for the cluster.
@@ -2027,24 +1977,14 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
-        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
-               Conflicts with `master_password` and `master_password_wo`.
-               One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password_wo`.
-               One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs, and it will be stored in the state file.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Conflicts with `manage_master_password` and `master_password_wo`. One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         :param pulumi.Input[_builtins.str] master_password_secret_arn: ARN of the cluster admin credentials secret
         :param pulumi.Input[_builtins.str] master_password_secret_kms_key_id: ID of the KMS key used to encrypt the cluster admin credentials secret.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user.
-               Conflicts with `manage_master_password` and `master_password`.
-               One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-               Note that this may show up in logs.
-               Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+               Password for the master DB user. Conflicts with `manage_master_password` and `master_password`. One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `master_password_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] master_password_wo_version: Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the Redshift cluster is multi-AZ.
         :param pulumi.Input[_builtins.str] node_type: The node type to be provisioned for the cluster.
@@ -2351,9 +2291,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="manageMasterPassword")
     def manage_master_password(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        Conflicts with `master_password` and `master_password_wo`.
-        One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
+        Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
         """
         return pulumi.get(self, "manage_master_password")
 
@@ -2369,11 +2307,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password_wo`.
-        One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs, and it will be stored in the state file.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        Password for the master DB user. Conflicts with `manage_master_password` and `master_password_wo`. One of `master_password`, `master_password_wo` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         """
         return pulumi.get(self, "master_password")
 
@@ -2398,11 +2332,7 @@ class Cluster(pulumi.CustomResource):
     def master_password_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user.
-        Conflicts with `manage_master_password` and `master_password`.
-        One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
-        Note that this may show up in logs.
-        Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        Password for the master DB user. Conflicts with `manage_master_password` and `master_password`. One of `master_password_wo`, `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `master_password_wo_version` to be set.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -2410,7 +2340,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+        Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         """
         return pulumi.get(self, "master_password_wo_version")
 

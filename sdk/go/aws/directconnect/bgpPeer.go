@@ -51,8 +51,10 @@ type BgpPeer struct {
 	AmazonAddress pulumi.StringOutput `pulumi:"amazonAddress"`
 	// The Direct Connect endpoint on which the BGP peer terminates.
 	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsn pulumi.IntPtrOutput `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong pulumi.StringPtrOutput `pulumi:"bgpAsnLong"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
 	// The ID of the BGP peer.
@@ -77,9 +79,6 @@ func NewBgpPeer(ctx *pulumi.Context,
 
 	if args.AddressFamily == nil {
 		return nil, errors.New("invalid value for required argument 'AddressFamily'")
-	}
-	if args.BgpAsn == nil {
-		return nil, errors.New("invalid value for required argument 'BgpAsn'")
 	}
 	if args.VirtualInterfaceId == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualInterfaceId'")
@@ -114,8 +113,10 @@ type bgpPeerState struct {
 	AmazonAddress *string `pulumi:"amazonAddress"`
 	// The Direct Connect endpoint on which the BGP peer terminates.
 	AwsDevice *string `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn *int `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong *string `pulumi:"bgpAsnLong"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey *string `pulumi:"bgpAuthKey"`
 	// The ID of the BGP peer.
@@ -139,8 +140,10 @@ type BgpPeerState struct {
 	AmazonAddress pulumi.StringPtrInput
 	// The Direct Connect endpoint on which the BGP peer terminates.
 	AwsDevice pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn pulumi.IntPtrInput
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong pulumi.StringPtrInput
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringPtrInput
 	// The ID of the BGP peer.
@@ -166,8 +169,10 @@ type bgpPeerArgs struct {
 	// The IPv4 CIDR address to use to send traffic to Amazon.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	AmazonAddress *string `pulumi:"amazonAddress"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn int `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsn *int `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong *string `pulumi:"bgpAsnLong"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey *string `pulumi:"bgpAuthKey"`
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
@@ -186,8 +191,10 @@ type BgpPeerArgs struct {
 	// The IPv4 CIDR address to use to send traffic to Amazon.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	AmazonAddress pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntInput
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsn pulumi.IntPtrInput
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong pulumi.StringPtrInput
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringPtrInput
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
@@ -302,9 +309,14 @@ func (o BgpPeerOutput) AwsDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
 }
 
-// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-func (o BgpPeerOutput) BgpAsn() pulumi.IntOutput {
-	return o.ApplyT(func(v *BgpPeer) pulumi.IntOutput { return v.BgpAsn }).(pulumi.IntOutput)
+// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+func (o BgpPeerOutput) BgpAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.IntPtrOutput { return v.BgpAsn }).(pulumi.IntPtrOutput)
+}
+
+// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+func (o BgpPeerOutput) BgpAsnLong() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.StringPtrOutput { return v.BgpAsnLong }).(pulumi.StringPtrOutput)
 }
 
 // The authentication key for BGP configuration.

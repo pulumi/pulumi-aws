@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Rds
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -153,51 +153,159 @@ namespace Pulumi.Aws.Rds
     [OutputType]
     public sealed class GetClusterResult
     {
+        /// <summary>
+        /// ARN of the cluster.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Availability Zones of the RDS cluster.
+        /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
+        /// <summary>
+        /// Target backtrack window, in seconds.
+        /// </summary>
         public readonly int BacktrackWindow;
+        /// <summary>
+        /// Days to retain backups for.
+        /// </summary>
         public readonly int BackupRetentionPeriod;
         public readonly string ClusterIdentifier;
+        /// <summary>
+        /// List of RDS Instances that are a part of this cluster.
+        /// </summary>
         public readonly ImmutableArray<string> ClusterMembers;
+        /// <summary>
+        /// RDS Cluster Resource ID.
+        /// </summary>
         public readonly string ClusterResourceId;
+        /// <summary>
+        /// Scalability mode of the cluster.
+        /// </summary>
         public readonly string ClusterScalabilityType;
+        /// <summary>
+        /// Mode of Database Insights that is enabled for the cluster.
+        /// </summary>
         public readonly string DatabaseInsightsMode;
+        /// <summary>
+        /// Name for an automatically created database on cluster creation.
+        /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// Cluster parameter group associated with the cluster.
+        /// </summary>
         public readonly string DbClusterParameterGroupName;
+        /// <summary>
+        /// DB subnet group associated with the cluster.
+        /// </summary>
         public readonly string DbSubnetGroupName;
+        /// <summary>
+        /// System ID of the cluster.
+        /// </summary>
         public readonly string DbSystemId;
+        /// <summary>
+        /// Whether the cluster has deletion protection enabled.
+        /// </summary>
         public readonly bool DeletionProtection;
+        /// <summary>
+        /// List of log types exported to CloudWatch Logs.
+        /// </summary>
         public readonly ImmutableArray<string> EnabledCloudwatchLogsExports;
+        /// <summary>
+        /// DNS address of the RDS instance.
+        /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// Database engine.
+        /// </summary>
         public readonly string Engine;
+        /// <summary>
+        /// Database engine mode.
+        /// </summary>
         public readonly string EngineMode;
+        /// <summary>
+        /// Database engine version.
+        /// </summary>
         public readonly string EngineVersion;
+        /// <summary>
+        /// Name of the final snapshot taken when the cluster is deleted.
+        /// </summary>
         public readonly string FinalSnapshotIdentifier;
+        /// <summary>
+        /// Route53 Hosted Zone ID of the endpoint.
+        /// </summary>
         public readonly string HostedZoneId;
+        /// <summary>
+        /// Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        /// </summary>
         public readonly bool IamDatabaseAuthenticationEnabled;
+        /// <summary>
+        /// IAM roles associated with the cluster.
+        /// </summary>
         public readonly ImmutableArray<string> IamRoles;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Amazon Web Services KMS key identifier that is used to encrypt the secret.
+        /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// Block that specifies the master user secret. Only available when `ManageMasterUserPassword` is set to `True`. Documented below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterMasterUserSecretResult> MasterUserSecrets;
+        /// <summary>
+        /// Master username for the database.
+        /// </summary>
         public readonly string MasterUsername;
+        /// <summary>
+        /// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the cluster.
+        /// </summary>
         public readonly int MonitoringInterval;
+        /// <summary>
+        /// ARN of the IAM role used by RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+        /// </summary>
         public readonly string MonitoringRoleArn;
+        /// <summary>
+        /// Network type of the cluster.
+        /// </summary>
         public readonly string NetworkType;
+        /// <summary>
+        /// Port on which the DB accepts connections.
+        /// </summary>
         public readonly int Port;
+        /// <summary>
+        /// Daily time range during which automated backups are created.
+        /// </summary>
         public readonly string PreferredBackupWindow;
+        /// <summary>
+        /// Weekly time range during which system maintenance can occur.
+        /// </summary>
         public readonly string PreferredMaintenanceWindow;
+        /// <summary>
+        /// Read-only endpoint for the cluster, automatically load-balanced across replicas.
+        /// </summary>
         public readonly string ReaderEndpoint;
         public readonly string Region;
+        /// <summary>
+        /// ARN of the source DB cluster or DB instance if this DB cluster is created as a read replica.
+        /// </summary>
         public readonly string ReplicationSourceIdentifier;
+        /// <summary>
+        /// Whether the DB cluster is encrypted.
+        /// </summary>
         public readonly bool StorageEncrypted;
         /// <summary>
-        /// A map of tags assigned to the resource.
+        /// Map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Order in which minor and major version upgrades are applied to the cluster.
+        /// </summary>
         public readonly string UpgradeRolloutOrder;
+        /// <summary>
+        /// VPC security groups the cluster belongs to.
+        /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]

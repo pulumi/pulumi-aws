@@ -158,9 +158,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of your final DB snapshot
-        /// when this DB cluster is deleted. If omitted, no final snapshot will be
-        /// made.
+        /// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Output("finalSnapshotIdentifier")]
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
@@ -190,22 +188,20 @@ namespace Pulumi.Aws.DocDB
         public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPasswordWo` and `ManageMasterUserPassword`.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPasswordWo` and `ManageMasterUserPassword`.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user. Note that this may
-        /// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPassword` and `ManageMasterUserPassword`.
+        /// Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPassword` and `ManageMasterUserPassword`. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         [Output("masterPasswordWo")]
         public Output<string?> MasterPasswordWo { get; private set; } = null!;
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Output("masterPasswordWoVersion")]
         public Output<int?> MasterPasswordWoVersion { get; private set; } = null!;
@@ -467,9 +463,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of your final DB snapshot
-        /// when this DB cluster is deleted. If omitted, no final snapshot will be
-        /// made.
+        /// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
@@ -496,8 +490,7 @@ namespace Pulumi.Aws.DocDB
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPasswordWo` and `ManageMasterUserPassword`.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPasswordWo` and `ManageMasterUserPassword`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -514,8 +507,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user. Note that this may
-        /// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPassword` and `ManageMasterUserPassword`.
+        /// Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPassword` and `ManageMasterUserPassword`. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? MasterPasswordWo
         {
@@ -528,7 +520,7 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Input("masterPasswordWoVersion")]
         public Input<int>? MasterPasswordWoVersion { get; set; }
@@ -762,9 +754,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of your final DB snapshot
-        /// when this DB cluster is deleted. If omitted, no final snapshot will be
-        /// made.
+        /// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
@@ -797,8 +787,7 @@ namespace Pulumi.Aws.DocDB
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// Password for the master DB user. Note that this may
-        /// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPasswordWo` and `ManageMasterUserPassword`.
+        /// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPasswordWo` and `ManageMasterUserPassword`.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -815,8 +804,7 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user. Note that this may
-        /// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPassword` and `ManageMasterUserPassword`.
+        /// Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `MasterPassword` and `ManageMasterUserPassword`. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? MasterPasswordWo
         {
@@ -829,7 +817,7 @@ namespace Pulumi.Aws.DocDB
         }
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Input("masterPasswordWoVersion")]
         public Input<int>? MasterPasswordWoVersion { get; set; }

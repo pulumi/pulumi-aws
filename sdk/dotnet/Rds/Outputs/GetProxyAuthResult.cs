@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class GetProxyAuthResult
     {
+        /// <summary>
+        /// Type of authentication that the proxy uses for connections from the proxy to the underlying database.
+        /// </summary>
         public readonly string AuthScheme;
+        /// <summary>
+        /// Type of authentication the proxy uses for connections from clients.
+        /// </summary>
         public readonly string ClientPasswordAuthType;
+        /// <summary>
+        /// User-specified description about the authentication used by a proxy to log in as a specific database user.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+        /// </summary>
         public readonly string IamAuth;
+        /// <summary>
+        /// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+        /// </summary>
         public readonly string SecretArn;
+        /// <summary>
+        /// Name of the database user to which the proxy connects.
+        /// </summary>
         public readonly string Username;
 
         [OutputConstructor]

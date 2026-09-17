@@ -13,6 +13,106 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetSecurityGroupsFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetSecurityGroupsFilterInput is an input type that accepts GetSecurityGroupsFilterArgs and GetSecurityGroupsFilterOutput values.
+// You can construct a concrete instance of `GetSecurityGroupsFilterInput` via:
+//
+//	GetSecurityGroupsFilterArgs{...}
+type GetSecurityGroupsFilterInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupsFilterOutput() GetSecurityGroupsFilterOutput
+	ToGetSecurityGroupsFilterOutputWithContext(context.Context) GetSecurityGroupsFilterOutput
+}
+
+type GetSecurityGroupsFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSecurityGroupsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupsFilter)(nil)).Elem()
+}
+
+func (i GetSecurityGroupsFilterArgs) ToGetSecurityGroupsFilterOutput() GetSecurityGroupsFilterOutput {
+	return i.ToGetSecurityGroupsFilterOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupsFilterArgs) ToGetSecurityGroupsFilterOutputWithContext(ctx context.Context) GetSecurityGroupsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupsFilterOutput)
+}
+
+// GetSecurityGroupsFilterArrayInput is an input type that accepts GetSecurityGroupsFilterArray and GetSecurityGroupsFilterArrayOutput values.
+// You can construct a concrete instance of `GetSecurityGroupsFilterArrayInput` via:
+//
+//	GetSecurityGroupsFilterArray{ GetSecurityGroupsFilterArgs{...} }
+type GetSecurityGroupsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSecurityGroupsFilterArrayOutput() GetSecurityGroupsFilterArrayOutput
+	ToGetSecurityGroupsFilterArrayOutputWithContext(context.Context) GetSecurityGroupsFilterArrayOutput
+}
+
+type GetSecurityGroupsFilterArray []GetSecurityGroupsFilterInput
+
+func (GetSecurityGroupsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupsFilter)(nil)).Elem()
+}
+
+func (i GetSecurityGroupsFilterArray) ToGetSecurityGroupsFilterArrayOutput() GetSecurityGroupsFilterArrayOutput {
+	return i.ToGetSecurityGroupsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecurityGroupsFilterArray) ToGetSecurityGroupsFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupsFilterArrayOutput)
+}
+
+type GetSecurityGroupsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupsFilter)(nil)).Elem()
+}
+
+func (o GetSecurityGroupsFilterOutput) ToGetSecurityGroupsFilterOutput() GetSecurityGroupsFilterOutput {
+	return o
+}
+
+func (o GetSecurityGroupsFilterOutput) ToGetSecurityGroupsFilterOutputWithContext(ctx context.Context) GetSecurityGroupsFilterOutput {
+	return o
+}
+
+func (o GetSecurityGroupsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityGroupsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityGroupsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSecurityGroupsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecurityGroupsFilter)(nil)).Elem()
+}
+
+func (o GetSecurityGroupsFilterArrayOutput) ToGetSecurityGroupsFilterArrayOutput() GetSecurityGroupsFilterArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupsFilterArrayOutput) ToGetSecurityGroupsFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupsFilterArrayOutput {
+	return o
+}
+
+func (o GetSecurityGroupsFilterArrayOutput) Index(i pulumi.IntInput) GetSecurityGroupsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityGroupsFilter {
+		return vs[0].([]GetSecurityGroupsFilter)[vs[1].(int)]
+	}).(GetSecurityGroupsFilterOutput)
+}
+
 type GetServiceLinkVirtualInterfaceFilter struct {
 	// Name of the filter.
 	Name string `pulumi:"name"`
@@ -4090,6 +4190,8 @@ func (o GetVpnGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayFi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupsFilterInput)(nil)).Elem(), GetSecurityGroupsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupsFilterArrayInput)(nil)).Elem(), GetSecurityGroupsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilterInput)(nil)).Elem(), GetServiceLinkVirtualInterfaceFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfaceFilterArrayInput)(nil)).Elem(), GetServiceLinkVirtualInterfaceFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceLinkVirtualInterfacesFilterInput)(nil)).Elem(), GetServiceLinkVirtualInterfacesFilterArgs{})
@@ -4160,6 +4262,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), GetVpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterInput)(nil)).Elem(), GetVpnGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterArrayInput)(nil)).Elem(), GetVpnGatewayFilterArray{})
+	pulumi.RegisterOutputType(GetSecurityGroupsFilterOutput{})
+	pulumi.RegisterOutputType(GetSecurityGroupsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfaceFilterOutput{})
 	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfaceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceLinkVirtualInterfacesFilterOutput{})

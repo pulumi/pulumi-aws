@@ -121,6 +121,11 @@ export type ProvisionedConcurrencyConfig = import("./provisionedConcurrencyConfi
 export const ProvisionedConcurrencyConfig: typeof import("./provisionedConcurrencyConfig").ProvisionedConcurrencyConfig = null as any;
 utilities.lazyLoad(exports, ["ProvisionedConcurrencyConfig"], () => require("./provisionedConcurrencyConfig"));
 
+export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 export { RuntimeManagementConfigArgs, RuntimeManagementConfigState } from "./runtimeManagementConfig";
 export type RuntimeManagementConfig = import("./runtimeManagementConfig").RuntimeManagementConfig;
 export const RuntimeManagementConfig: typeof import("./runtimeManagementConfig").RuntimeManagementConfig = null as any;
@@ -167,6 +172,8 @@ const _module = {
                 return new Permission(name, <any>undefined, { urn })
             case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
                 return new ProvisionedConcurrencyConfig(name, <any>undefined, { urn })
+            case "aws:lambda/resourcePolicy:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig":
                 return new RuntimeManagementConfig(name, <any>undefined, { urn })
             default:
@@ -190,4 +197,5 @@ pulumi.runtime.registerResourceModule("aws", "lambda/layerVersionPermission", _m
 pulumi.runtime.registerResourceModule("aws", "lambda/microvmsImage", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/permission", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/provisionedConcurrencyConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/runtimeManagementConfig", _module)

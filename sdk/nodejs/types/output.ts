@@ -629,6 +629,14 @@ export namespace agentregistry {
          * OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
          */
         discoveryUrl: string;
+        /**
+         * Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+         */
+        privateEndpointOverrides: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride[];
+        /**
+         * Private endpoint used to reach the specified domain. See above.
+         */
+        privateEndpoints: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint[];
     }
 
     export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
@@ -668,11 +676,130 @@ export namespace agentregistry {
         matchValueStringLists: string[];
     }
 
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResources: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource[];
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResources: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain: string;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds: string[];
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: string[];
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags: {[key: string]: string};
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+        /**
+         * Domain name to which this private endpoint override applies.
+         */
+        domain: string;
+        /**
+         * Private endpoint used to reach the specified domain. See above.
+         */
+        privateEndpoints: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResources: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource[];
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResources: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain: string;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds: string[];
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: string[];
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags: {[key: string]: string};
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier: string;
+    }
+
+    export interface GetRegistryEncryptionConfiguration {
+        /**
+         * ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+         */
+        kmsKeyArn: string;
+    }
+
     export interface RegistryApprovalConfiguration {
         /**
          * Set of rules that determine which registry records are automatically approved on submission. Valid values: `APPROVE_ALL`. When omitted or empty, submitted records require manual review.
          */
         autoApprovalRules?: string[];
+    }
+
+    export interface RegistryAutoDetectionConfiguration {
+        /**
+         * Whether auto-detection is requested for the registry.
+         */
+        enabled: boolean;
+        /**
+         * Source from which resources are detected. Valid values: `ORGANIZATION`.
+         */
+        scope: string;
     }
 
     export interface RegistryDiscoveryConfiguration {
@@ -714,6 +841,14 @@ export namespace agentregistry {
          * OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
          */
         discoveryUrl: string;
+        /**
+         * Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+         */
+        privateEndpoint?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint;
+        /**
+         * Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+         */
+        privateEndpointOverrides?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride[];
     }
 
     export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
@@ -751,6 +886,114 @@ export namespace agentregistry {
          * Set of string values to match. Each value must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
          */
         matchValueStringLists?: string[];
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResource?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource;
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResource?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain?: string;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds?: string[];
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: string[];
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+        /**
+         * Domain name to which this private endpoint override applies.
+         */
+        domain: string;
+        /**
+         * Private endpoint used to reach the specified domain. See above.
+         */
+        privateEndpoint: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResource?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource;
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResource?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain?: string;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds?: string[];
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: string[];
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier?: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier?: string;
+    }
+
+    export interface RegistryEncryptionConfiguration {
+        /**
+         * ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+         */
+        kmsKeyArn: string;
     }
 
     export interface RegistryTimeouts {
@@ -15602,7 +15845,7 @@ export namespace bedrock {
         /**
          * Maximum percentage of documents that a sync job can delete from your index.
          */
-        deletionProtectionThreshold?: number;
+        deletionProtectionThreshold: number;
     }
 
     export interface AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration {
@@ -21235,36 +21478,54 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
         /**
+         * Atlassian OAuth provider configuration. See `predefined providers` below.
+         */
+        atlassianOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig;
+        /**
          * Custom OAuth2 provider configuration. See `custom` below.
          */
         customOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig;
         /**
-         * GitHub OAuth provider configuration. See `github` below.
+         * GitHub OAuth provider configuration. See `predefined providers` below.
          */
         githubOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig;
         /**
-         * Google OAuth provider configuration. See `google` below.
+         * Google OAuth provider configuration. See `predefined providers` below.
          */
         googleOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig;
         /**
-         * Microsoft OAuth provider configuration. See `microsoft` below.
+         * Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
+         *
+         * > **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+         */
+        includedOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig;
+        /**
+         * LinkedIn OAuth provider configuration. See `predefined providers` below.
+         */
+        linkedinOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig;
+        /**
+         * Microsoft OAuth provider configuration. See `predefined providers` below.
          */
         microsoftOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig;
         /**
-         * Salesforce OAuth provider configuration. See `salesforce` below.
+         * Salesforce OAuth provider configuration. See `predefined providers` below.
          */
         salesforceOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig;
         /**
-         * Slack OAuth provider configuration. See `slack` below.
+         * Slack OAuth provider configuration. See `predefined providers` below.
          */
         slackOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig;
     }
 
-    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig {
         /**
-         * Used together with write-only credentials to trigger an update. Increment this value when an update to `clientIdWo` or `clientSecretWo` is required.
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          *
-         * **OAuth Discovery Configuration:**
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
          */
         clientCredentialsWoVersion?: number;
         /**
@@ -21273,7 +21534,7 @@ export namespace bedrock {
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only OAuth2 client ID. Cannot be used with `clientId`. Must be used together with `clientSecretWo` and `clientCredentialsWoVersion`.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
         /**
@@ -21283,14 +21544,144 @@ export namespace bedrock {
          */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only OAuth2 client secret. Cannot be used with `clientSecret`. Must be used together with `clientIdWo` and `clientCredentialsWoVersion`.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
-        oauthDiscovery?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery;
+        oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery {
+        /**
+         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         */
+        authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
+        /**
+         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         */
+        discoveryUrl: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint: string;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer: string;
+        /**
+         * Set of OAuth2 response types supported by the authorization server.
+         */
+        responseTypes: string[];
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+        /**
+         * Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+         */
+        clientAuthenticationMethod?: string;
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **OAuth Discovery Configuration:**
+         */
+        clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+         */
+        clientId?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
+        clientSecret?: string;
+        /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientSecretWo?: string;
+        /**
+         * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
+         */
+        oauthDiscovery: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery;
+        /**
+         * On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+         */
+        onBehalfOfTokenExchangeConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig;
+        /**
+         * Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+         */
+        privateEndpoint?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint;
+        /**
+         * Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+         */
+        privateEndpointOverrides?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride[];
+        privateKeyJwtConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
@@ -21321,24 +21712,208 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods?: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig {
+        /**
+         * Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
+         */
+        grantType: string;
+        /**
+         * Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+         */
+        tokenExchangeGrantTypeConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig {
+        /**
+         * Content type for the actor token in the token exchange. Valid values: `NONE`, `M2M`, `AWS_IAM_ID_TOKEN_JWT`.
+         */
+        actorTokenContent: string;
+        /**
+         * Set of scopes for the actor token. Only valid when `actorTokenContent` is `M2M`.
+         */
+        actorTokenScopes?: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
+        /**
+         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         */
+        managedVpcResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
+        selfManagedLatticeResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain for the managed VPC resource.
+         */
+        routingDomain?: string;
+        /**
+         * Set of up to 5 security group IDs for the managed VPC resource.
+         */
+        securityGroupIds?: string[];
+        /**
+         * Set of subnet IDs for the managed VPC resource.
+         */
+        subnetIds: string[];
+        /**
+         * Key-value map of tags for the managed VPC resource.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Identifier of the VPC.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride {
+        /**
+         * Domain the private endpoint override applies to.
+         */
+        domain: string;
+        /**
+         * Private endpoint configuration for the domain. See `privateEndpoint` above.
+         */
+        privateEndpoint: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         */
+        managedVpcResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
+        selfManagedLatticeResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain for the managed VPC resource.
+         */
+        routingDomain?: string;
+        /**
+         * Set of up to 5 security group IDs for the managed VPC resource.
+         */
+        securityGroupIds?: string[];
+        /**
+         * Set of subnet IDs for the managed VPC resource.
+         */
+        subnetIds: string[];
+        /**
+         * Key-value map of tags for the managed VPC resource.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Identifier of the VPC.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
+        resourceConfigurationIdentifier?: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
+        resourceConfigurationIdentifier?: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig {
+        additionalHeaderClaims?: {[key: string]: string};
+        additionalPayloadClaims?: {[key: string]: string};
+        privateKeySource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource;
+        signingAlgorithm?: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource {
+        kmsKeySource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource {
+        kmsKeyArn: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
@@ -21369,24 +21944,70 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
@@ -21417,24 +22038,287 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
     }
 
-    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint?: string;
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientSecretWo?: string;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer?: string;
+        /**
+         * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
+         */
+        oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery[];
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint?: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery {
+        /**
+         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         */
+        authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
+        /**
+         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         */
+        discoveryUrl: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint: string;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer: string;
+        /**
+         * Set of OAuth2 response types supported by the authorization server.
+         */
+        responseTypes: string[];
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
+        clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
+        clientId?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
+        clientSecret?: string;
+        /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
+         */
+        oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery {
+        /**
+         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         */
+        authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
+        /**
+         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         */
+        discoveryUrl: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint: string;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer: string;
+        /**
+         * Set of OAuth2 response types supported by the authorization server.
+         */
+        responseTypes: string[];
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
+        clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
+        clientId?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
+        clientSecret?: string;
+        /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientSecretWo?: string;
+        /**
+         * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery[];
+        /**
+         * Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
+         *
+         * **Write-Only Tenant ID:**
+         */
+        tenantId?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+         */
+        tenantIdWo?: string;
+        /**
+         * Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
+         *
+         * **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+         */
+        tenantIdWoVersion?: number;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
@@ -21465,24 +22349,70 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
@@ -21513,24 +22443,70 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
@@ -21561,6 +22537,10 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderTimeouts {
@@ -40388,6 +41368,66 @@ export namespace dms {
         useTaskStartTimeForFullLoadTimestamp: boolean;
     }
 
+    export interface MigrationProjectSchemaConversionApplicationAttributes {
+        /**
+         * S3 bucket path that the application uses for exporting assessment reports.
+         */
+        s3BucketPath?: string;
+        /**
+         * ARN of the IAM role the application uses to access its S3 bucket.
+         */
+        s3BucketRoleArn?: string;
+    }
+
+    export interface MigrationProjectSourceDataProviderDescriptor {
+        /**
+         * ARN of the data provider.
+         *
+         * The following arguments are optional:
+         */
+        dataProviderArn: string;
+        /**
+         * Name of the source data provider.
+         */
+        dataProviderName: string;
+        /**
+         * ARN of the IAM role used to access AWS Secrets Manager.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+         */
+        secretsManagerSecretId?: string;
+    }
+
+    export interface MigrationProjectTargetDataProviderDescriptor {
+        /**
+         * ARN of the data provider.
+         *
+         * The following arguments are optional:
+         */
+        dataProviderArn: string;
+        /**
+         * Name of the target data provider.
+         */
+        dataProviderName: string;
+        /**
+         * ARN of the IAM role used to access AWS Secrets Manager.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+         */
+        secretsManagerSecretId?: string;
+    }
+
+    export interface MigrationProjectTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface ReplicationConfigComputeConfig {
         /**
          * The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
@@ -49394,6 +50434,46 @@ export namespace ec2transitgateway {
         dynamicRouting?: string;
     }
 
+    export interface PolicyTableEntryPolicyRule {
+        /**
+         * Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
+         */
+        destinationCidrBlock?: string;
+        /**
+         * Destination port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+         */
+        destinationPortRange: string;
+        /**
+         * Metadata key/value tag associated with the policy rule. See below.
+         */
+        metadata?: outputs.ec2transitgateway.PolicyTableEntryPolicyRuleMetadata;
+        /**
+         * Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
+         */
+        protocol?: string;
+        /**
+         * Source CIDR block to match. If not specified, all source CIDR blocks are matched.
+         */
+        sourceCidrBlock?: string;
+        /**
+         * Source port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+         */
+        sourcePortRange: string;
+    }
+
+    export interface PolicyTableEntryPolicyRuleMetadata {
+        /**
+         * Metadata key name for the policy rule.
+         */
+        key?: string;
+        /**
+         * Metadata key value for the policy rule.
+         *
+         * > **Note:** The EC2 API does not return policy rule metadata when describing transit gateway policy table entries, so Terraform cannot detect drift in `metadata` or recover its value when importing this resource. Configure `metadata` explicitly if you need it managed.
+         */
+        value?: string;
+    }
+
 }
 
 export namespace ecr {
@@ -58074,11 +59154,11 @@ export namespace fsx {
         password?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
          */
         passwordWo?: string;
         /**
-         * Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+         * Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
          */
         passwordWoVersion?: number;
         /**
@@ -58889,11 +59969,11 @@ export namespace glue {
         /**
          * List of locations that point to the path where a Delta table is located.
          */
-        additionalLocations?: string[];
+        additionalLocations: string[];
         /**
          * List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          */
-        bucketColumns?: string[];
+        bucketColumns: string[];
         /**
          * Configuration block for columns in the table. See `columns` below.
          */
@@ -58921,7 +60001,7 @@ export namespace glue {
         /**
          * User-supplied properties in key-value form.
          */
-        parameters?: {[key: string]: string};
+        parameters: {[key: string]: string};
         /**
          * Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
          */
@@ -58929,7 +60009,7 @@ export namespace glue {
         /**
          * Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
          */
-        serDeInfo?: outputs.glue.CatalogTableStorageDescriptorSerDeInfo;
+        serDeInfo: outputs.glue.CatalogTableStorageDescriptorSerDeInfo;
         /**
          * Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
          */
@@ -58956,7 +60036,7 @@ export namespace glue {
         /**
          * Key-value pairs defining properties associated with the column.
          */
-        parameters?: {[key: string]: string};
+        parameters: {[key: string]: string};
         /**
          * Datatype of data in the Column.
          */
@@ -59001,7 +60081,7 @@ export namespace glue {
         /**
          * Map of initialization parameters for the SerDe, in key-value form.
          */
-        parameters?: {[key: string]: string};
+        parameters: {[key: string]: string};
         /**
          * Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
          */
@@ -59077,11 +60157,11 @@ export namespace glue {
         /**
          * List of the Apache Iceberg table versions referenced by the materialized view.
          */
-        subObjectVersionIds?: number[];
+        subObjectVersionIds: number[];
         /**
          * List of base table ARNs that make up the view.
          */
-        subObjects?: string[];
+        subObjects: string[];
         /**
          * ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
          */
@@ -85628,11 +86708,11 @@ export namespace mailmanager {
         secretArn?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
          */
         smtpPasswordWo?: string;
         /**
-         * Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+         * Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
          */
         smtpPasswordWoVersion?: number;
         /**
@@ -99586,17 +100666,15 @@ export namespace rds {
 
     export interface ClusterParameterGroupParameter {
         /**
-         * "immediate" (default), or "pending-reboot". Some
-         * engines can't apply some parameters without a reboot, and you will need to
-         * specify "pending-reboot" here.
+         * "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
          */
         applyMethod?: string;
         /**
-         * The name of the DB parameter.
+         * Name of the DB parameter.
          */
         name: string;
         /**
-         * The value of the DB parameter.
+         * Value of the DB parameter.
          */
         value: string;
     }
@@ -99607,8 +100685,7 @@ export namespace rds {
          */
         restoreToTime?: string;
         /**
-         * Type of restore to be performed.
-         * Valid options are `full-copy` (default) and `copy-on-write`.
+         * Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
          */
         restoreType?: string;
         /**
@@ -99644,8 +100721,6 @@ export namespace rds {
         sourceEngine: string;
         /**
          * Version of the source engine used to make the backup
-         *
-         * This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
          */
         sourceEngineVersion: string;
     }
@@ -99711,8 +100786,17 @@ export namespace rds {
     }
 
     export interface GetClusterMasterUserSecret {
+        /**
+         * Amazon Web Services KMS key identifier that is used to encrypt the secret.
+         */
         kmsKeyId: string;
+        /**
+         * ARN of the secret.
+         */
         secretArn: string;
+        /**
+         * Status of the secret.
+         */
         secretStatus: string;
     }
 
@@ -99728,7 +100812,13 @@ export namespace rds {
     }
 
     export interface GetEngineVersionFilter {
+        /**
+         * Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         */
         name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
         values: string[];
     }
 
@@ -99772,7 +100862,7 @@ export namespace rds {
 
     export interface GetInstanceMasterUserSecret {
         /**
-         * The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+         * Amazon Web Services KMS key identifier that is used to encrypt the secret.
          */
         kmsKeyId: string;
         /**
@@ -99780,7 +100870,7 @@ export namespace rds {
          */
         secretArn: string;
         /**
-         * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+         * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          */
         secretStatus: string;
     }
@@ -99797,11 +100887,29 @@ export namespace rds {
     }
 
     export interface GetProxyAuth {
+        /**
+         * Type of authentication that the proxy uses for connections from the proxy to the underlying database.
+         */
         authScheme: string;
+        /**
+         * Type of authentication the proxy uses for connections from clients.
+         */
         clientPasswordAuthType: string;
+        /**
+         * User-specified description about the authentication used by a proxy to log in as a specific database user.
+         */
         description: string;
+        /**
+         * Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+         */
         iamAuth: string;
+        /**
+         * ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+         */
         secretArn: string;
+        /**
+         * Name of the database user to which the proxy connects.
+         */
         username: string;
     }
 
@@ -99931,15 +101039,7 @@ export namespace rds {
 
     export interface InstanceBlueGreenUpdate {
         /**
-         * Enables low-downtime updates when `true`.
-         * Default is `false`.
-         *
-         * [instance-replication]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-         * [instance-maintenance]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-         * [blue-green]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+         * Enables low-downtime updates when `true`. Default is `false`.
          */
         enabled?: boolean;
     }
@@ -99957,23 +101057,22 @@ export namespace rds {
 
     export interface InstanceListenerEndpoint {
         /**
-         * Specifies the DNS address of the DB instance.
+         * DNS address of the DB instance.
          */
         address: string;
         /**
-         * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+         * ID that Amazon Route 53 assigns when you create a hosted zone.
          */
         hostedZoneId: string;
         /**
-         * The port on which the DB accepts connections.
+         * Port on which the DB accepts connections.
          */
         port: number;
     }
 
     export interface InstanceMasterUserSecret {
         /**
-         * The ARN for the KMS encryption key. If creating an
-         * encrypted replica, set this to the destination KMS ARN.
+         * ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
          */
         kmsKeyId: string;
         /**
@@ -99981,41 +101080,41 @@ export namespace rds {
          */
         secretArn: string;
         /**
-         * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+         * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          */
         secretStatus: string;
     }
 
     export interface InstanceRestoreToPointInTime {
         /**
-         * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+         * Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
          */
         restoreTime?: string;
         /**
-         * The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+         * ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
          */
         sourceDbInstanceAutomatedBackupsArn?: string;
         /**
-         * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
+         * Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
          */
         sourceDbInstanceIdentifier?: string;
         /**
-         * The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
+         * Resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
          */
         sourceDbiResourceId?: string;
         /**
-         * A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+         * Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
          */
         useLatestRestorableTime?: boolean;
     }
 
     export interface InstanceS3Import {
         /**
-         * The bucket name where your backup is stored
+         * Bucket name where your backup is stored.
          */
         bucketName: string;
         /**
-         * Can be blank, but is the path to your backup
+         * Can be blank, but is the path to your backup.
          */
         bucketPrefix?: string;
         /**
@@ -100023,13 +101122,11 @@ export namespace rds {
          */
         ingestionRole: string;
         /**
-         * Source engine for the backup
+         * Source engine for the backup.
          */
         sourceEngine: string;
         /**
-         * Version of the source engine used to make the backup
-         *
-         * This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+         * Version of the source engine used to make the backup.
          */
         sourceEngineVersion: string;
     }
@@ -100059,7 +101156,7 @@ export namespace rds {
          */
         optionName: string;
         /**
-         * The option settings to apply. See `optionSettings` Block below for more details.
+         * Option settings to apply. See `optionSettings` Block below for more details.
          */
         optionSettings?: outputs.rds.OptionGroupOptionOptionSetting[];
         /**
@@ -100089,17 +101186,15 @@ export namespace rds {
 
     export interface ParameterGroupParameter {
         /**
-         * "immediate" (default), or "pending-reboot". Some
-         * engines can't apply some parameters without a reboot, and you will need to
-         * specify "pending-reboot" here.
+         * "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
          */
         applyMethod: string;
         /**
-         * The name of the DB parameter.
+         * Name of the DB parameter.
          */
         name: string;
         /**
-         * The value of the DB parameter.
+         * Value of the DB parameter.
          */
         value: string;
     }
@@ -100142,7 +101237,7 @@ export namespace rds {
 
     export interface ProxyDefaultTargetGroupConnectionPoolConfig {
         /**
-         * The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+         * Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
          */
         connectionBorrowTimeout?: number;
         /**
@@ -100150,7 +101245,7 @@ export namespace rds {
          */
         initQuery?: string;
         /**
-         * The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+         * Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
          */
         maxConnectionsPercent?: number;
         /**
@@ -100164,7 +101259,13 @@ export namespace rds {
     }
 
     export interface ReservedInstanceRecurringCharge {
+        /**
+         * Amount of the recurring charge.
+         */
         recurringChargeAmount: number;
+        /**
+         * Frequency of the recurring charge.
+         */
         recurringChargeFrequency: string;
     }
 
@@ -121940,14 +123041,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -122574,14 +123675,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -122897,14 +123998,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -123147,14 +124248,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -123401,14 +124502,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -123651,14 +124752,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -123897,14 +124998,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -124147,14 +125248,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -124397,14 +125498,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -124651,14 +125752,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -124901,14 +126002,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -125147,14 +126248,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }

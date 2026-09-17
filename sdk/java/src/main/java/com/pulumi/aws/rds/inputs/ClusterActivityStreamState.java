@@ -17,20 +17,14 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
     public static final ClusterActivityStreamState Empty = new ClusterActivityStreamState();
 
     /**
-     * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+     * Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      * 
      */
     @Import(name="engineNativeAuditFieldsIncluded")
     private @Nullable Output<Boolean> engineNativeAuditFieldsIncluded;
 
     /**
-     * @return Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+     * @return Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      * 
      */
     public Optional<Output<Boolean>> engineNativeAuditFieldsIncluded() {
@@ -38,14 +32,14 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * Name of the Amazon Kinesis data stream to be used for the database activity stream.
      * 
      */
     @Import(name="kinesisStreamName")
     private @Nullable Output<String> kinesisStreamName;
 
     /**
-     * @return The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * @return Name of the Amazon Kinesis data stream to be used for the database activity stream.
      * 
      */
     public Optional<Output<String>> kinesisStreamName() {
@@ -53,14 +47,14 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * @return AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -68,14 +62,14 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * Mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * @return Mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -142,10 +136,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param engineNativeAuditFieldsIncluded Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-         * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+         * @param engineNativeAuditFieldsIncluded Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
          * 
          * @return builder
          * 
@@ -156,10 +147,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param engineNativeAuditFieldsIncluded Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-         * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+         * @param engineNativeAuditFieldsIncluded Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
          * 
          * @return builder
          * 
@@ -169,7 +157,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kinesisStreamName The name of the Amazon Kinesis data stream to be used for the database activity stream.
+         * @param kinesisStreamName Name of the Amazon Kinesis data stream to be used for the database activity stream.
          * 
          * @return builder
          * 
@@ -180,7 +168,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kinesisStreamName The name of the Amazon Kinesis data stream to be used for the database activity stream.
+         * @param kinesisStreamName Name of the Amazon Kinesis data stream to be used for the database activity stream.
          * 
          * @return builder
          * 
@@ -190,7 +178,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kmsKeyId The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+         * @param kmsKeyId AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
          * 
          * @return builder
          * 
@@ -201,7 +189,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kmsKeyId The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+         * @param kmsKeyId AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
          * 
          * @return builder
          * 
@@ -211,7 +199,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param mode Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+         * @param mode Mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
          * 
          * @return builder
          * 
@@ -222,7 +210,7 @@ public final class ClusterActivityStreamState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param mode Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+         * @param mode Mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
          * 
          * @return builder
          * 

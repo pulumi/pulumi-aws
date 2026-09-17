@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+        /// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `Auth` block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetProxyAuthResult> Auths;
         /// <summary>

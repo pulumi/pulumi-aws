@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterMasterUserSecret {
+    /**
+     * @return Amazon Web Services KMS key identifier that is used to encrypt the secret.
+     * 
+     */
     private String kmsKeyId;
+    /**
+     * @return ARN of the secret.
+     * 
+     */
     private String secretArn;
+    /**
+     * @return Status of the secret.
+     * 
+     */
     private String secretStatus;
 
     private GetClusterMasterUserSecret() {}
+    /**
+     * @return Amazon Web Services KMS key identifier that is used to encrypt the secret.
+     * 
+     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * @return ARN of the secret.
+     * 
+     */
     public String secretArn() {
         return this.secretArn;
     }
+    /**
+     * @return Status of the secret.
+     * 
+     */
     public String secretStatus() {
         return this.secretStatus;
     }

@@ -101,7 +101,7 @@ class GetSubnetGroupResult:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[_builtins.str]:
         """
-        Contains a list of subnet identifiers.
+        List of subnet identifiers.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -109,7 +109,7 @@ class GetSubnetGroupResult:
     @pulumi.getter(name="supportedNetworkTypes")
     def supported_network_types(self) -> Sequence[_builtins.str]:
         """
-        The network type of the DB subnet group.
+        Network type of the DB subnet group.
         """
         return pulumi.get(self, "supported_network_types")
 

@@ -48,16 +48,14 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Set this value to true to include manual DB Cluster Snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     * Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
      * 
      */
     @Import(name="includePublic")
     private @Nullable Output<Boolean> includePublic;
 
     /**
-     * @return Set this value to true to include manual DB Cluster Snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     * @return Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
      * 
      */
     public Optional<Output<Boolean>> includePublic() {
@@ -65,18 +63,14 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Set this value to true to include shared manual DB Cluster Snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
+     * Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
      * 
      */
     @Import(name="includeShared")
     private @Nullable Output<Boolean> includeShared;
 
     /**
-     * @return Set this value to true to include shared manual DB Cluster Snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
+     * @return Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
      * 
      */
     public Optional<Output<Boolean>> includeShared() {
@@ -114,18 +108,14 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+     * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      * 
      */
     @Import(name="snapshotType")
     private @Nullable Output<String> snapshotType;
 
     /**
-     * @return Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+     * @return Type of snapshots to be returned. If you don&#39;t specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      * 
      */
     public Optional<Output<String>> snapshotType() {
@@ -133,16 +123,14 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB cluster snapshot.
+     * Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB cluster snapshot.
+     * @return Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -223,8 +211,7 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param includePublic Set this value to true to include manual DB Cluster Snapshots that are public and can be
-         * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+         * @param includePublic Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
          * 
          * @return builder
          * 
@@ -235,8 +222,7 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param includePublic Set this value to true to include manual DB Cluster Snapshots that are public and can be
-         * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+         * @param includePublic Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
          * 
          * @return builder
          * 
@@ -246,9 +232,7 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param includeShared Set this value to true to include shared manual DB Cluster Snapshots from other
-         * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-         * The default is `false`.
+         * @param includeShared Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
          * 
          * @return builder
          * 
@@ -259,9 +243,7 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param includeShared Set this value to true to include shared manual DB Cluster Snapshots from other
-         * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-         * The default is `false`.
+         * @param includeShared Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
          * 
          * @return builder
          * 
@@ -313,9 +295,7 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-         * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-         * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
          * 
          * @return builder
          * 
@@ -326,9 +306,7 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-         * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-         * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
          * 
          * @return builder
          * 
@@ -338,8 +316,7 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired DB cluster snapshot.
+         * @param tags Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
          * 
          * @return builder
          * 
@@ -350,8 +327,7 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired DB cluster snapshot.
+         * @param tags Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
          * 
          * @return builder
          * 

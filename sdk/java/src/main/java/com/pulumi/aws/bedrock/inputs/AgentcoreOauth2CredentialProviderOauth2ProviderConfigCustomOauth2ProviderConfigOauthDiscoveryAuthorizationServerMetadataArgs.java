@@ -77,6 +77,21 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         return this.tokenEndpoint;
     }
 
+    /**
+     * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * 
+     */
+    @Import(name="tokenEndpointAuthMethods")
+    private @Nullable Output<List<String>> tokenEndpointAuthMethods;
+
+    /**
+     * @return List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * 
+     */
+    public Optional<Output<List<String>>> tokenEndpointAuthMethods() {
+        return Optional.ofNullable(this.tokenEndpointAuthMethods);
+    }
+
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs() {}
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs $) {
@@ -84,6 +99,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         this.issuer = $.issuer;
         this.responseTypes = $.responseTypes;
         this.tokenEndpoint = $.tokenEndpoint;
+        this.tokenEndpointAuthMethods = $.tokenEndpointAuthMethods;
     }
 
     public static Builder builder() {
@@ -196,6 +212,37 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
          */
         public Builder tokenEndpoint(String tokenEndpoint) {
             return tokenEndpoint(Output.of(tokenEndpoint));
+        }
+
+        /**
+         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenEndpointAuthMethods(@Nullable Output<List<String>> tokenEndpointAuthMethods) {
+            $.tokenEndpointAuthMethods = tokenEndpointAuthMethods;
+            return this;
+        }
+
+        /**
+         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenEndpointAuthMethods(List<String> tokenEndpointAuthMethods) {
+            return tokenEndpointAuthMethods(Output.of(tokenEndpointAuthMethods));
+        }
+
+        /**
+         * @param tokenEndpointAuthMethods List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenEndpointAuthMethods(String... tokenEndpointAuthMethods) {
+            return tokenEndpointAuthMethods(List.of(tokenEndpointAuthMethods));
         }
 
         public AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs build() {

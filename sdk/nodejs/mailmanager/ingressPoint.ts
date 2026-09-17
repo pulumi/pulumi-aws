@@ -151,6 +151,10 @@ export class IngressPoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
+     * Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     */
+    declare public readonly statusToUpdate: pulumi.Output<string | undefined>;
+    /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -197,6 +201,7 @@ export class IngressPoint extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["ruleSetId"] = state?.ruleSetId;
             resourceInputs["status"] = state?.status;
+            resourceInputs["statusToUpdate"] = state?.statusToUpdate;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
@@ -219,6 +224,7 @@ export class IngressPoint extends pulumi.CustomResource {
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["ruleSetId"] = args?.ruleSetId;
+            resourceInputs["statusToUpdate"] = args?.statusToUpdate;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["tlsPolicy"] = args?.tlsPolicy;
@@ -281,6 +287,10 @@ export interface IngressPointState {
      */
     status?: pulumi.Input<string | undefined>;
     /**
+     * Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     */
+    statusToUpdate?: pulumi.Input<string | undefined>;
+    /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -329,6 +339,10 @@ export interface IngressPointArgs {
      * Identifier of the rule set applied to the ingress point.
      */
     ruleSetId: pulumi.Input<string>;
+    /**
+     * Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     */
+    statusToUpdate?: pulumi.Input<string | undefined>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

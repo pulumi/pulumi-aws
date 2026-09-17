@@ -66,6 +66,24 @@ namespace Pulumi.Aws.AgentRegistry.Inputs
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+        /// </summary>
+        [Input("privateEndpoint")]
+        public Input<Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        [Input("privateEndpointOverrides")]
+        private InputList<Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>? _privateEndpointOverrides;
+
+        /// <summary>
+        /// Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+        /// </summary>
+        public InputList<Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs> PrivateEndpointOverrides
+        {
+            get => _privateEndpointOverrides ?? (_privateEndpointOverrides = new InputList<Inputs.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>());
+            set => _privateEndpointOverrides = value;
+        }
+
         public RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerArgs()
         {
         }

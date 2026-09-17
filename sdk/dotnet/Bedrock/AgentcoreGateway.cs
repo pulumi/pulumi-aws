@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Bedrock
     ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayProtocolConfigurationMcpArgs
     ///             {
     ///                 Instructions = "Gateway for handling MCP requests",
-    ///                 SearchType = "HYBRID",
+    ///                 SearchType = "SEMANTIC",
     ///                 SupportedVersions = new[]
     ///                 {
     ///                     "2025-03-26",

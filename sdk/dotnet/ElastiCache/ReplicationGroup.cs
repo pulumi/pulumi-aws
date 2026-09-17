@@ -356,13 +356,13 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. Requires `AuthTokenWoVersion`.
+        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. If set, requires `AuthTokenWoVersion` to be set.
         /// </summary>
         [Output("authTokenWo")]
         public Output<string?> AuthTokenWo { get; private set; } = null!;
 
         /// <summary>
-        /// Integer that, when changed, triggers a re-send of `AuthTokenWo` to the replication group. Requires `AuthTokenWo`.
+        /// Required when `AuthTokenWo` is set. Changing this value triggers an update to `AuthTokenWo`.
         /// </summary>
         [Output("authTokenWoVersion")]
         public Output<int?> AuthTokenWoVersion { get; private set; } = null!;
@@ -760,7 +760,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. Requires `AuthTokenWoVersion`.
+        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. If set, requires `AuthTokenWoVersion` to be set.
         /// </summary>
         public Input<string>? AuthTokenWo
         {
@@ -773,7 +773,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Integer that, when changed, triggers a re-send of `AuthTokenWo` to the replication group. Requires `AuthTokenWo`.
+        /// Required when `AuthTokenWo` is set. Changing this value triggers an update to `AuthTokenWo`.
         /// </summary>
         [Input("authTokenWoVersion")]
         public Input<int>? AuthTokenWoVersion { get; set; }
@@ -1140,7 +1140,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. Requires `AuthTokenWoVersion`.
+        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. If set, requires `AuthTokenWoVersion` to be set.
         /// </summary>
         public Input<string>? AuthTokenWo
         {
@@ -1153,7 +1153,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Integer that, when changed, triggers a re-send of `AuthTokenWo` to the replication group. Requires `AuthTokenWo`.
+        /// Required when `AuthTokenWo` is set. Changing this value triggers an update to `AuthTokenWo`.
         /// </summary>
         [Input("authTokenWoVersion")]
         public Input<int>? AuthTokenWoVersion { get; set; }

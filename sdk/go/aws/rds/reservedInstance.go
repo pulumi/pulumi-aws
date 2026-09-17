@@ -90,7 +90,7 @@ type ReservedInstance struct {
 	OfferingType pulumi.StringOutput `pulumi:"offeringType"`
 	// Description of the reserved DB instance.
 	ProductDescription pulumi.StringOutput `pulumi:"productDescription"`
-	// Recurring price charged to run this reserved DB instance.
+	// Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
 	RecurringCharges ReservedInstanceRecurringChargeArrayOutput `pulumi:"recurringCharges"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -165,7 +165,7 @@ type reservedInstanceState struct {
 	OfferingType *string `pulumi:"offeringType"`
 	// Description of the reserved DB instance.
 	ProductDescription *string `pulumi:"productDescription"`
-	// Recurring price charged to run this reserved DB instance.
+	// Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
 	RecurringCharges []ReservedInstanceRecurringCharge `pulumi:"recurringCharges"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -208,7 +208,7 @@ type ReservedInstanceState struct {
 	OfferingType pulumi.StringPtrInput
 	// Description of the reserved DB instance.
 	ProductDescription pulumi.StringPtrInput
-	// Recurring price charged to run this reserved DB instance.
+	// Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
 	RecurringCharges ReservedInstanceRecurringChargeArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -405,7 +405,7 @@ func (o ReservedInstanceOutput) ProductDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.ProductDescription }).(pulumi.StringOutput)
 }
 
-// Recurring price charged to run this reserved DB instance.
+// Recurring price charged to run this reserved DB instance. See `recurringCharges` below.
 func (o ReservedInstanceOutput) RecurringCharges() ReservedInstanceRecurringChargeArrayOutput {
 	return o.ApplyT(func(v *ReservedInstance) ReservedInstanceRecurringChargeArrayOutput { return v.RecurringCharges }).(ReservedInstanceRecurringChargeArrayOutput)
 }

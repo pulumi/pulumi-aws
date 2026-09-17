@@ -33,12 +33,12 @@ class OptionGroupArgs:
         """
         The set of arguments for constructing a OptionGroup resource.
 
-        :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
-        :param pulumi.Input[_builtins.str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
+        :param pulumi.Input[_builtins.str] engine_name: Name of the engine that this option group should be associated with.
+        :param pulumi.Input[_builtins.str] major_engine_version: Major version of the engine that this option group should be associated with.
         :param pulumi.Input[_builtins.str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: Options to apply. See `option` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -66,7 +66,7 @@ class OptionGroupArgs:
     @pulumi.getter(name="engineName")
     def engine_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the name of the engine that this option group should be associated with.
+        Name of the engine that this option group should be associated with.
         """
         return pulumi.get(self, "engine_name")
 
@@ -78,7 +78,7 @@ class OptionGroupArgs:
     @pulumi.getter(name="majorEngineVersion")
     def major_engine_version(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the major version of the engine that this option group should be associated with.
+        Major version of the engine that this option group should be associated with.
         """
         return pulumi.get(self, "major_engine_version")
 
@@ -126,7 +126,7 @@ class OptionGroupArgs:
     @pulumi.getter
     def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
         """
-        The options to apply. See `option` Block below for more details.
+        Options to apply. See `option` Block below for more details.
         """
         return pulumi.get(self, "options")
 
@@ -189,12 +189,12 @@ class _OptionGroupState:
         Input properties used for looking up and filtering OptionGroup resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the DB option group.
-        :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
-        :param pulumi.Input[_builtins.str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
+        :param pulumi.Input[_builtins.str] engine_name: Name of the engine that this option group should be associated with.
+        :param pulumi.Input[_builtins.str] major_engine_version: Major version of the engine that this option group should be associated with.
         :param pulumi.Input[_builtins.str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: Options to apply. See `option` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -241,7 +241,7 @@ class _OptionGroupState:
     @pulumi.getter(name="engineName")
     def engine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the engine that this option group should be associated with.
+        Name of the engine that this option group should be associated with.
         """
         return pulumi.get(self, "engine_name")
 
@@ -253,7 +253,7 @@ class _OptionGroupState:
     @pulumi.getter(name="majorEngineVersion")
     def major_engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the major version of the engine that this option group should be associated with.
+        Major version of the engine that this option group should be associated with.
         """
         return pulumi.get(self, "major_engine_version")
 
@@ -301,7 +301,7 @@ class _OptionGroupState:
     @pulumi.getter
     def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
         """
-        The options to apply. See `option` Block below for more details.
+        Options to apply. See `option` Block below for more details.
         """
         return pulumi.get(self, "options")
 
@@ -435,12 +435,12 @@ class OptionGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
-        :param pulumi.Input[_builtins.str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
+        :param pulumi.Input[_builtins.str] engine_name: Name of the engine that this option group should be associated with.
+        :param pulumi.Input[_builtins.str] major_engine_version: Major version of the engine that this option group should be associated with.
         :param pulumi.Input[_builtins.str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: Options to apply. See `option` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -589,12 +589,12 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the DB option group.
-        :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
-        :param pulumi.Input[_builtins.str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
+        :param pulumi.Input[_builtins.str] engine_name: Name of the engine that this option group should be associated with.
+        :param pulumi.Input[_builtins.str] major_engine_version: Major version of the engine that this option group should be associated with.
         :param pulumi.Input[_builtins.str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[_builtins.str] option_group_description: Description of the option group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: Options to apply. See `option` Block below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -629,7 +629,7 @@ class OptionGroup(pulumi.CustomResource):
     @pulumi.getter(name="engineName")
     def engine_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the engine that this option group should be associated with.
+        Name of the engine that this option group should be associated with.
         """
         return pulumi.get(self, "engine_name")
 
@@ -637,7 +637,7 @@ class OptionGroup(pulumi.CustomResource):
     @pulumi.getter(name="majorEngineVersion")
     def major_engine_version(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the major version of the engine that this option group should be associated with.
+        Major version of the engine that this option group should be associated with.
         """
         return pulumi.get(self, "major_engine_version")
 
@@ -669,7 +669,7 @@ class OptionGroup(pulumi.CustomResource):
     @pulumi.getter
     def options(self) -> pulumi.Output[Optional[Sequence['outputs.OptionGroupOption']]]:
         """
-        The options to apply. See `option` Block below for more details.
+        Options to apply. See `option` Block below for more details.
         """
         return pulumi.get(self, "options")
 

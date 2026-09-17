@@ -1887,6 +1887,17 @@ export namespace agentregistry {
         autoApprovalRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
+    export interface RegistryAutoDetectionConfiguration {
+        /**
+         * Whether auto-detection is requested for the registry.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Source from which resources are detected. Valid values: `ORGANIZATION`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface RegistryDiscoveryConfiguration {
         /**
          * Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
@@ -1926,6 +1937,14 @@ export namespace agentregistry {
          * OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
          */
         discoveryUrl: pulumi.Input<string>;
+        /**
+         * Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+         */
+        privateEndpoint?: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint | undefined>;
+        /**
+         * Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+         */
+        privateEndpointOverrides?: pulumi.Input<pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride>[] | undefined>;
     }
 
     export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
@@ -1963,6 +1982,114 @@ export namespace agentregistry {
          * Set of string values to match. Each value must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
          */
         matchValueStringLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResource?: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource | undefined>;
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResource?: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource | undefined>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: pulumi.Input<string>;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain?: pulumi.Input<string | undefined>;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: pulumi.Input<string>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+        /**
+         * Domain name to which this private endpoint override applies.
+         */
+        domain: pulumi.Input<string>;
+        /**
+         * Private endpoint used to reach the specified domain. See above.
+         */
+        privateEndpoint: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResource?: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource | undefined>;
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResource?: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource | undefined>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: pulumi.Input<string>;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain?: pulumi.Input<string | undefined>;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: pulumi.Input<string>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
+    }
+
+    export interface RegistryEncryptionConfiguration {
+        /**
+         * ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+         */
+        kmsKeyArn: pulumi.Input<string>;
     }
 
     export interface RegistryTimeouts {
@@ -19276,36 +19403,54 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
         /**
+         * Atlassian OAuth provider configuration. See `predefined providers` below.
+         */
+        atlassianOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig | undefined>;
+        /**
          * Custom OAuth2 provider configuration. See `custom` below.
          */
         customOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig | undefined>;
         /**
-         * GitHub OAuth provider configuration. See `github` below.
+         * GitHub OAuth provider configuration. See `predefined providers` below.
          */
         githubOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig | undefined>;
         /**
-         * Google OAuth provider configuration. See `google` below.
+         * Google OAuth provider configuration. See `predefined providers` below.
          */
         googleOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig | undefined>;
         /**
-         * Microsoft OAuth provider configuration. See `microsoft` below.
+         * Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
+         *
+         * > **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+         */
+        includedOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig | undefined>;
+        /**
+         * LinkedIn OAuth provider configuration. See `predefined providers` below.
+         */
+        linkedinOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig | undefined>;
+        /**
+         * Microsoft OAuth provider configuration. See `predefined providers` below.
          */
         microsoftOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig | undefined>;
         /**
-         * Salesforce OAuth provider configuration. See `salesforce` below.
+         * Salesforce OAuth provider configuration. See `predefined providers` below.
          */
         salesforceOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig | undefined>;
         /**
-         * Slack OAuth provider configuration. See `slack` below.
+         * Slack OAuth provider configuration. See `predefined providers` below.
          */
         slackOauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig | undefined>;
     }
 
-    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig {
         /**
-         * Used together with write-only credentials to trigger an update. Increment this value when an update to `clientIdWo` or `clientSecretWo` is required.
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          *
-         * **OAuth Discovery Configuration:**
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
          */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
         /**
@@ -19314,7 +19459,7 @@ export namespace bedrock {
         clientId?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only OAuth2 client ID. Cannot be used with `clientId`. Must be used together with `clientSecretWo` and `clientCredentialsWoVersion`.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: pulumi.Input<string | undefined>;
         /**
@@ -19324,14 +19469,144 @@ export namespace bedrock {
          */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig | undefined>;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: pulumi.Input<string | undefined>;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only OAuth2 client secret. Cannot be used with `clientSecret`. Must be used together with `clientIdWo` and `clientCredentialsWoVersion`.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
-        oauthDiscovery?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery | undefined>;
+        oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery>[] | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery {
+        /**
+         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         */
+        authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
+        /**
+         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         */
+        discoveryUrl: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint: pulumi.Input<string>;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer: pulumi.Input<string>;
+        /**
+         * Set of OAuth2 response types supported by the authorization server.
+         */
+        responseTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint: pulumi.Input<string>;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+        /**
+         * Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+         */
+        clientAuthenticationMethod?: pulumi.Input<string | undefined>;
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **OAuth Discovery Configuration:**
+         */
+        clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
+        /**
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+         */
+        clientId?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientIdWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
+        clientSecret?: pulumi.Input<string | undefined>;
+        /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig | undefined>;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientSecretWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
+         */
+        oauthDiscovery: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery>;
+        /**
+         * On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+         */
+        onBehalfOfTokenExchangeConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig | undefined>;
+        /**
+         * Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+         */
+        privateEndpoint?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint | undefined>;
+        /**
+         * Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+         */
+        privateEndpointOverrides?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride>[] | undefined>;
+        privateKeyJwtConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: pulumi.Input<string>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
@@ -19362,24 +19637,208 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: pulumi.Input<string>;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig {
+        /**
+         * Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
+         */
+        grantType: pulumi.Input<string>;
+        /**
+         * Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+         */
+        tokenExchangeGrantTypeConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig {
+        /**
+         * Content type for the actor token in the token exchange. Valid values: `NONE`, `M2M`, `AWS_IAM_ID_TOKEN_JWT`.
+         */
+        actorTokenContent: pulumi.Input<string>;
+        /**
+         * Set of scopes for the actor token. Only valid when `actorTokenContent` is `M2M`.
+         */
+        actorTokenScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
+        /**
+         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         */
+        managedVpcResource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource | undefined>;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
+        selfManagedLatticeResource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+         */
+        endpointIpAddressType: pulumi.Input<string>;
+        /**
+         * Routing domain for the managed VPC resource.
+         */
+        routingDomain?: pulumi.Input<string | undefined>;
+        /**
+         * Set of up to 5 security group IDs for the managed VPC resource.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Set of subnet IDs for the managed VPC resource.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Key-value map of tags for the managed VPC resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Identifier of the VPC.
+         */
+        vpcIdentifier: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride {
+        /**
+         * Domain the private endpoint override applies to.
+         */
+        domain: pulumi.Input<string>;
+        /**
+         * Private endpoint configuration for the domain. See `privateEndpoint` above.
+         */
+        privateEndpoint: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         */
+        managedVpcResource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource | undefined>;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
+        selfManagedLatticeResource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+         */
+        endpointIpAddressType: pulumi.Input<string>;
+        /**
+         * Routing domain for the managed VPC resource.
+         */
+        routingDomain?: pulumi.Input<string | undefined>;
+        /**
+         * Set of up to 5 security group IDs for the managed VPC resource.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Set of subnet IDs for the managed VPC resource.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Key-value map of tags for the managed VPC resource.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        /**
+         * Identifier of the VPC.
+         */
+        vpcIdentifier: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
+        resourceConfigurationIdentifier?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig {
+        additionalHeaderClaims?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        additionalPayloadClaims?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        privateKeySource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource | undefined>;
+        signingAlgorithm?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource {
+        kmsKeySource?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource {
+        kmsKeyArn: pulumi.Input<string>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig | undefined>;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: pulumi.Input<string | undefined>;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery>[] | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: pulumi.Input<string>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
@@ -19410,24 +19869,70 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: pulumi.Input<string>;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig | undefined>;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: pulumi.Input<string | undefined>;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery>[] | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: pulumi.Input<string>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
@@ -19458,24 +19963,287 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: pulumi.Input<string>;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig | undefined>;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: pulumi.Input<string | undefined>;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientSecretWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
+         */
+        oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery>[] | undefined>;
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery {
+        /**
+         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         */
+        authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
+        /**
+         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         */
+        discoveryUrl: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint: pulumi.Input<string>;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer: pulumi.Input<string>;
+        /**
+         * Set of OAuth2 response types supported by the authorization server.
+         */
+        responseTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint: pulumi.Input<string>;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
+        clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
+        clientId?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientIdWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
+        clientSecret?: pulumi.Input<string | undefined>;
+        /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig | undefined>;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
+         */
+        oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery>[] | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery {
+        /**
+         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         */
+        authorizationServerMetadatas: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata>[]>;
+        /**
+         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         */
+        discoveryUrl: pulumi.Input<string>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint: pulumi.Input<string>;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer: pulumi.Input<string>;
+        /**
+         * Set of OAuth2 response types supported by the authorization server.
+         */
+        responseTypes: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint: pulumi.Input<string>;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
+        clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
+        clientId?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientIdWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
+        clientSecret?: pulumi.Input<string | undefined>;
+        /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig | undefined>;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientSecretWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery>[] | undefined>;
+        /**
+         * Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
+         *
+         * **Write-Only Tenant ID:**
+         */
+        tenantId?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+         */
+        tenantIdWo?: pulumi.Input<string | undefined>;
+        /**
+         * Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
+         *
+         * **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+         */
+        tenantIdWoVersion?: pulumi.Input<number | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: pulumi.Input<string>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
@@ -19506,24 +20274,70 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: pulumi.Input<string>;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig | undefined>;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: pulumi.Input<string | undefined>;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery>[] | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: pulumi.Input<string>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
@@ -19554,24 +20368,70 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: pulumi.Input<string>;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: pulumi.Input<number | undefined>;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: pulumi.Input<string | undefined>;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: pulumi.Input<string | undefined>;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig | undefined>;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: pulumi.Input<string | undefined>;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: pulumi.Input<string | undefined>;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery>[] | undefined>;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: pulumi.Input<string>;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: pulumi.Input<string>;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
@@ -19602,6 +20462,10 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: pulumi.Input<string>;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface AgentcoreOauth2CredentialProviderTimeouts {
@@ -34494,6 +35358,66 @@ export namespace dms {
         serviceAccessRoleArn?: pulumi.Input<string | undefined>;
     }
 
+    export interface MigrationProjectSchemaConversionApplicationAttributes {
+        /**
+         * S3 bucket path that the application uses for exporting assessment reports.
+         */
+        s3BucketPath?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the IAM role the application uses to access its S3 bucket.
+         */
+        s3BucketRoleArn?: pulumi.Input<string | undefined>;
+    }
+
+    export interface MigrationProjectSourceDataProviderDescriptor {
+        /**
+         * ARN of the data provider.
+         *
+         * The following arguments are optional:
+         */
+        dataProviderArn: pulumi.Input<string>;
+        /**
+         * Name of the source data provider.
+         */
+        dataProviderName?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the IAM role used to access AWS Secrets Manager.
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface MigrationProjectTargetDataProviderDescriptor {
+        /**
+         * ARN of the data provider.
+         *
+         * The following arguments are optional:
+         */
+        dataProviderArn: pulumi.Input<string>;
+        /**
+         * Name of the target data provider.
+         */
+        dataProviderName?: pulumi.Input<string | undefined>;
+        /**
+         * ARN of the IAM role used to access AWS Secrets Manager.
+         */
+        secretsManagerAccessRoleArn?: pulumi.Input<string | undefined>;
+        /**
+         * Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+         */
+        secretsManagerSecretId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface MigrationProjectTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string | undefined>;
+    }
+
     export interface ReplicationConfigComputeConfig {
         /**
          * The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
@@ -42148,6 +43072,46 @@ export namespace ec2transitgateway {
          */
         dynamicRouting?: pulumi.Input<string | undefined>;
     }
+
+    export interface PolicyTableEntryPolicyRule {
+        /**
+         * Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
+         */
+        destinationCidrBlock?: pulumi.Input<string | undefined>;
+        /**
+         * Destination port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+         */
+        destinationPortRange?: pulumi.Input<string | undefined>;
+        /**
+         * Metadata key/value tag associated with the policy rule. See below.
+         */
+        metadata?: pulumi.Input<inputs.ec2transitgateway.PolicyTableEntryPolicyRuleMetadata | undefined>;
+        /**
+         * Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
+         */
+        protocol?: pulumi.Input<string | undefined>;
+        /**
+         * Source CIDR block to match. If not specified, all source CIDR blocks are matched.
+         */
+        sourceCidrBlock?: pulumi.Input<string | undefined>;
+        /**
+         * Source port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+         */
+        sourcePortRange?: pulumi.Input<string | undefined>;
+    }
+
+    export interface PolicyTableEntryPolicyRuleMetadata {
+        /**
+         * Metadata key name for the policy rule.
+         */
+        key?: pulumi.Input<string | undefined>;
+        /**
+         * Metadata key value for the policy rule.
+         *
+         * > **Note:** The EC2 API does not return policy rule metadata when describing transit gateway policy table entries, so Terraform cannot detect drift in `metadata` or recover its value when importing this resource. Configure `metadata` explicitly if you need it managed.
+         */
+        value?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace ecr {
@@ -48865,11 +49829,11 @@ export namespace fsx {
         password?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
          */
         passwordWo?: pulumi.Input<string | undefined>;
         /**
-         * Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+         * Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
          */
         passwordWoVersion?: pulumi.Input<number | undefined>;
         /**
@@ -75099,11 +76063,11 @@ export namespace mailmanager {
         secretArn?: pulumi.Input<string | undefined>;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
          */
         smtpPasswordWo?: pulumi.Input<string | undefined>;
         /**
-         * Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+         * Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
          */
         smtpPasswordWoVersion?: pulumi.Input<number | undefined>;
         /**
@@ -87075,17 +88039,15 @@ export namespace rds {
 
     export interface ClusterParameterGroupParameter {
         /**
-         * "immediate" (default), or "pending-reboot". Some
-         * engines can't apply some parameters without a reboot, and you will need to
-         * specify "pending-reboot" here.
+         * "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
          */
         applyMethod?: pulumi.Input<string | undefined>;
         /**
-         * The name of the DB parameter.
+         * Name of the DB parameter.
          */
         name: pulumi.Input<string>;
         /**
-         * The value of the DB parameter.
+         * Value of the DB parameter.
          */
         value: pulumi.Input<string>;
     }
@@ -87096,8 +88058,7 @@ export namespace rds {
          */
         restoreToTime?: pulumi.Input<string | undefined>;
         /**
-         * Type of restore to be performed.
-         * Valid options are `full-copy` (default) and `copy-on-write`.
+         * Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
          */
         restoreType?: pulumi.Input<string | undefined>;
         /**
@@ -87133,8 +88094,6 @@ export namespace rds {
         sourceEngine: pulumi.Input<string>;
         /**
          * Version of the source engine used to make the backup
-         *
-         * This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
          */
         sourceEngineVersion: pulumi.Input<string>;
     }
@@ -87222,12 +88181,24 @@ export namespace rds {
     }
 
     export interface GetEngineVersionFilter {
+        /**
+         * Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         */
         name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
         values: string[];
     }
 
     export interface GetEngineVersionFilterArgs {
+        /**
+         * Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         */
         name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -87288,15 +88259,7 @@ export namespace rds {
 
     export interface InstanceBlueGreenUpdate {
         /**
-         * Enables low-downtime updates when `true`.
-         * Default is `false`.
-         *
-         * [instance-replication]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-         * [instance-maintenance]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-         * [blue-green]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+         * Enables low-downtime updates when `true`. Default is `false`.
          */
         enabled?: pulumi.Input<boolean | undefined>;
     }
@@ -87314,23 +88277,22 @@ export namespace rds {
 
     export interface InstanceListenerEndpoint {
         /**
-         * Specifies the DNS address of the DB instance.
+         * DNS address of the DB instance.
          */
         address?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+         * ID that Amazon Route 53 assigns when you create a hosted zone.
          */
         hostedZoneId?: pulumi.Input<string | undefined>;
         /**
-         * The port on which the DB accepts connections.
+         * Port on which the DB accepts connections.
          */
         port?: pulumi.Input<number | undefined>;
     }
 
     export interface InstanceMasterUserSecret {
         /**
-         * The ARN for the KMS encryption key. If creating an
-         * encrypted replica, set this to the destination KMS ARN.
+         * ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
          */
         kmsKeyId?: pulumi.Input<string | undefined>;
         /**
@@ -87338,41 +88300,41 @@ export namespace rds {
          */
         secretArn?: pulumi.Input<string | undefined>;
         /**
-         * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+         * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          */
         secretStatus?: pulumi.Input<string | undefined>;
     }
 
     export interface InstanceRestoreToPointInTime {
         /**
-         * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+         * Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
          */
         restoreTime?: pulumi.Input<string | undefined>;
         /**
-         * The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+         * ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
          */
         sourceDbInstanceAutomatedBackupsArn?: pulumi.Input<string | undefined>;
         /**
-         * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
+         * Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
          */
         sourceDbInstanceIdentifier?: pulumi.Input<string | undefined>;
         /**
-         * The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
+         * Resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
          */
         sourceDbiResourceId?: pulumi.Input<string | undefined>;
         /**
-         * A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+         * Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
          */
         useLatestRestorableTime?: pulumi.Input<boolean | undefined>;
     }
 
     export interface InstanceS3Import {
         /**
-         * The bucket name where your backup is stored
+         * Bucket name where your backup is stored.
          */
         bucketName: pulumi.Input<string>;
         /**
-         * Can be blank, but is the path to your backup
+         * Can be blank, but is the path to your backup.
          */
         bucketPrefix?: pulumi.Input<string | undefined>;
         /**
@@ -87380,13 +88342,11 @@ export namespace rds {
          */
         ingestionRole: pulumi.Input<string>;
         /**
-         * Source engine for the backup
+         * Source engine for the backup.
          */
         sourceEngine: pulumi.Input<string>;
         /**
-         * Version of the source engine used to make the backup
-         *
-         * This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+         * Version of the source engine used to make the backup.
          */
         sourceEngineVersion: pulumi.Input<string>;
     }
@@ -87416,7 +88376,7 @@ export namespace rds {
          */
         optionName: pulumi.Input<string>;
         /**
-         * The option settings to apply. See `optionSettings` Block below for more details.
+         * Option settings to apply. See `optionSettings` Block below for more details.
          */
         optionSettings?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOptionOptionSetting>[] | undefined>;
         /**
@@ -87446,17 +88406,15 @@ export namespace rds {
 
     export interface ParameterGroupParameter {
         /**
-         * "immediate" (default), or "pending-reboot". Some
-         * engines can't apply some parameters without a reboot, and you will need to
-         * specify "pending-reboot" here.
+         * "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
          */
         applyMethod?: pulumi.Input<string | undefined>;
         /**
-         * The name of the DB parameter.
+         * Name of the DB parameter.
          */
         name: pulumi.Input<string>;
         /**
-         * The value of the DB parameter.
+         * Value of the DB parameter.
          */
         value: pulumi.Input<string>;
     }
@@ -87499,7 +88457,7 @@ export namespace rds {
 
     export interface ProxyDefaultTargetGroupConnectionPoolConfig {
         /**
-         * The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+         * Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
          */
         connectionBorrowTimeout?: pulumi.Input<number | undefined>;
         /**
@@ -87507,7 +88465,7 @@ export namespace rds {
          */
         initQuery?: pulumi.Input<string | undefined>;
         /**
-         * The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+         * Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
          */
         maxConnectionsPercent?: pulumi.Input<number | undefined>;
         /**
@@ -87521,7 +88479,13 @@ export namespace rds {
     }
 
     export interface ReservedInstanceRecurringCharge {
+        /**
+         * Amount of the recurring charge.
+         */
         recurringChargeAmount?: pulumi.Input<number | undefined>;
+        /**
+         * Frequency of the recurring charge.
+         */
         recurringChargeFrequency?: pulumi.Input<string | undefined>;
     }
 
@@ -107199,14 +108163,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -107833,14 +108797,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -108156,14 +109120,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -108406,14 +109370,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -108660,14 +109624,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -108910,14 +109874,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -109156,14 +110120,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -109406,14 +110370,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -109656,14 +110620,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -109910,14 +110874,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -110160,14 +111124,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
@@ -110406,14 +111370,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: pulumi.Input<string>;
     }

@@ -62,9 +62,13 @@ export class BgpPeer extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
-    declare public readonly bgpAsn: pulumi.Output<number>;
+    declare public readonly bgpAsn: pulumi.Output<number | undefined>;
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     */
+    declare public readonly bgpAsnLong: pulumi.Output<string | undefined>;
     /**
      * The authentication key for BGP configuration.
      */
@@ -108,6 +112,7 @@ export class BgpPeer extends pulumi.CustomResource {
             resourceInputs["amazonAddress"] = state?.amazonAddress;
             resourceInputs["awsDevice"] = state?.awsDevice;
             resourceInputs["bgpAsn"] = state?.bgpAsn;
+            resourceInputs["bgpAsnLong"] = state?.bgpAsnLong;
             resourceInputs["bgpAuthKey"] = state?.bgpAuthKey;
             resourceInputs["bgpPeerId"] = state?.bgpPeerId;
             resourceInputs["bgpStatus"] = state?.bgpStatus;
@@ -119,15 +124,13 @@ export class BgpPeer extends pulumi.CustomResource {
             if (args?.addressFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if (args?.bgpAsn === undefined && !opts.urn) {
-                throw new Error("Missing required property 'bgpAsn'");
-            }
             if (args?.virtualInterfaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
             resourceInputs["addressFamily"] = args?.addressFamily;
             resourceInputs["amazonAddress"] = args?.amazonAddress;
             resourceInputs["bgpAsn"] = args?.bgpAsn;
+            resourceInputs["bgpAsnLong"] = args?.bgpAsnLong;
             resourceInputs["bgpAuthKey"] = args?.bgpAuthKey;
             resourceInputs["customerAddress"] = args?.customerAddress;
             resourceInputs["region"] = args?.region;
@@ -159,9 +162,13 @@ export interface BgpPeerState {
      */
     awsDevice?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
     bgpAsn?: pulumi.Input<number | undefined>;
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     */
+    bgpAsnLong?: pulumi.Input<string | undefined>;
     /**
      * The authentication key for BGP configuration.
      */
@@ -203,9 +210,13 @@ export interface BgpPeerArgs {
      */
     amazonAddress?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
-    bgpAsn: pulumi.Input<number>;
+    bgpAsn?: pulumi.Input<number | undefined>;
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     */
+    bgpAsnLong?: pulumi.Input<string | undefined>;
     /**
      * The authentication key for BGP configuration.
      */

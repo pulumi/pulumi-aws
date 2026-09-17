@@ -20,7 +20,7 @@ public final class GetProxyResult {
      */
     private String arn;
     /**
-     * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+     * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `auth` block below.
      * 
      */
     private List<GetProxyAuth> auths;
@@ -101,7 +101,7 @@ public final class GetProxyResult {
         return this.arn;
     }
     /**
-     * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+     * @return Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `auth` block below.
      * 
      */
     public List<GetProxyAuth> auths() {

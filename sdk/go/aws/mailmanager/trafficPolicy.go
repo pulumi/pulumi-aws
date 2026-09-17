@@ -93,10 +93,10 @@ type TrafficPolicy struct {
 	// Maximum message size, in bytes, allowed by the traffic policy.
 	MaxMessageSizeBytes pulumi.IntPtrOutput `pulumi:"maxMessageSizeBytes"`
 	// Name of the traffic policy.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Traffic policy statements. See `policyStatement` Block below.
 	//
 	// The following arguments are optional:
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Traffic policy statements. See `policyStatement` Block below.
 	PolicyStatements TrafficPolicyPolicyStatementArrayOutput `pulumi:"policyStatements"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -150,10 +150,10 @@ type trafficPolicyState struct {
 	// Maximum message size, in bytes, allowed by the traffic policy.
 	MaxMessageSizeBytes *int `pulumi:"maxMessageSizeBytes"`
 	// Name of the traffic policy.
-	Name *string `pulumi:"name"`
-	// Traffic policy statements. See `policyStatement` Block below.
 	//
 	// The following arguments are optional:
+	Name *string `pulumi:"name"`
+	// Traffic policy statements. See `policyStatement` Block below.
 	PolicyStatements []TrafficPolicyPolicyStatement `pulumi:"policyStatements"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -175,10 +175,10 @@ type TrafficPolicyState struct {
 	// Maximum message size, in bytes, allowed by the traffic policy.
 	MaxMessageSizeBytes pulumi.IntPtrInput
 	// Name of the traffic policy.
-	Name pulumi.StringPtrInput
-	// Traffic policy statements. See `policyStatement` Block below.
 	//
 	// The following arguments are optional:
+	Name pulumi.StringPtrInput
+	// Traffic policy statements. See `policyStatement` Block below.
 	PolicyStatements TrafficPolicyPolicyStatementArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -198,10 +198,10 @@ type trafficPolicyArgs struct {
 	// Maximum message size, in bytes, allowed by the traffic policy.
 	MaxMessageSizeBytes *int `pulumi:"maxMessageSizeBytes"`
 	// Name of the traffic policy.
-	Name *string `pulumi:"name"`
-	// Traffic policy statements. See `policyStatement` Block below.
 	//
 	// The following arguments are optional:
+	Name *string `pulumi:"name"`
+	// Traffic policy statements. See `policyStatement` Block below.
 	PolicyStatements []TrafficPolicyPolicyStatement `pulumi:"policyStatements"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -216,10 +216,10 @@ type TrafficPolicyArgs struct {
 	// Maximum message size, in bytes, allowed by the traffic policy.
 	MaxMessageSizeBytes pulumi.IntPtrInput
 	// Name of the traffic policy.
-	Name pulumi.StringPtrInput
-	// Traffic policy statements. See `policyStatement` Block below.
 	//
 	// The following arguments are optional:
+	Name pulumi.StringPtrInput
+	// Traffic policy statements. See `policyStatement` Block below.
 	PolicyStatements TrafficPolicyPolicyStatementArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -340,13 +340,13 @@ func (o TrafficPolicyOutput) MaxMessageSizeBytes() pulumi.IntPtrOutput {
 }
 
 // Name of the traffic policy.
+//
+// The following arguments are optional:
 func (o TrafficPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Traffic policy statements. See `policyStatement` Block below.
-//
-// The following arguments are optional:
 func (o TrafficPolicyOutput) PolicyStatements() TrafficPolicyPolicyStatementArrayOutput {
 	return o.ApplyT(func(v *TrafficPolicy) TrafficPolicyPolicyStatementArrayOutput { return v.PolicyStatements }).(TrafficPolicyPolicyStatementArrayOutput)
 }

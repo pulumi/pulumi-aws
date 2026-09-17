@@ -164,6 +164,19 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `catalogId` - (String) ID of the Glue Catalog.
+ * * `databaseName` - (String) Name of the Glue Catalog Database.
+ * * `name` - (String) Name of the Glue Catalog Table.
+ *
+ * #### Optional
+ *
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
  *
  * ```sh
@@ -263,7 +276,7 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      */
-    declare public readonly viewDefinition: pulumi.Output<outputs.glue.CatalogTableViewDefinition | undefined>;
+    declare public readonly viewDefinition: pulumi.Output<outputs.glue.CatalogTableViewDefinition>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */

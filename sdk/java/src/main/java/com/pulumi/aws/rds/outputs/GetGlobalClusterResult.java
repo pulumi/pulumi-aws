@@ -30,7 +30,7 @@ public final class GetGlobalClusterResult {
      */
     private Boolean deletionProtection;
     /**
-     * @return The endpoint for the Global Cluster.
+     * @return Endpoint for the Global Cluster.
      * 
      */
     private String endpoint;
@@ -40,7 +40,7 @@ public final class GetGlobalClusterResult {
      */
     private String engine;
     /**
-     * @return The current lifecycle support status of the database engine for this Global Cluster.
+     * @return Current lifecycle support status of the database engine for this Global Cluster.
      * 
      */
     private String engineLifecycleSupport;
@@ -67,7 +67,7 @@ public final class GetGlobalClusterResult {
      */
     private Boolean storageEncrypted;
     /**
-     * @return A map of tags to assigned to the Global Cluster.
+     * @return Map of tags assigned to the Global Cluster.
      * 
      */
     private Map<String,String> tags;
@@ -95,7 +95,7 @@ public final class GetGlobalClusterResult {
         return this.deletionProtection;
     }
     /**
-     * @return The endpoint for the Global Cluster.
+     * @return Endpoint for the Global Cluster.
      * 
      */
     public String endpoint() {
@@ -109,7 +109,7 @@ public final class GetGlobalClusterResult {
         return this.engine;
     }
     /**
-     * @return The current lifecycle support status of the database engine for this Global Cluster.
+     * @return Current lifecycle support status of the database engine for this Global Cluster.
      * 
      */
     public String engineLifecycleSupport() {
@@ -150,7 +150,7 @@ public final class GetGlobalClusterResult {
         return this.storageEncrypted;
     }
     /**
-     * @return A map of tags to assigned to the Global Cluster.
+     * @return Map of tags assigned to the Global Cluster.
      * 
      */
     public Map<String,String> tags() {

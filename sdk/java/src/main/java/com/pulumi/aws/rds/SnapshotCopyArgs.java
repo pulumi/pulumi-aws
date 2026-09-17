@@ -35,14 +35,14 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Destination region to place snapshot copy.
+     * Destination Region to place snapshot copy.
      * 
      */
     @Import(name="destinationRegion")
     private @Nullable Output<String> destinationRegion;
 
     /**
-     * @return The Destination region to place snapshot copy.
+     * @return Destination Region to place snapshot copy.
      * 
      */
     public Optional<Output<String>> destinationRegion() {
@@ -65,14 +65,14 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of an option group to associate with the copy of the snapshot.
+     * Name of an option group to associate with the copy of the snapshot.
      * 
      */
     @Import(name="optionGroupName")
     private @Nullable Output<String> optionGroupName;
 
     /**
-     * @return The name of an option group to associate with the copy of the snapshot.
+     * @return Name of an option group to associate with the copy of the snapshot.
      * 
      */
     public Optional<Output<String>> optionGroupName() {
@@ -80,14 +80,14 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * he URL that contains a Signature Version 4 signed request.
+     * URL that contains a Signature Version 4 signed request.
      * 
      */
     @Import(name="presignedUrl")
     private @Nullable Output<String> presignedUrl;
 
     /**
-     * @return he URL that contains a Signature Version 4 signed request.
+     * @return URL that contains a Signature Version 4 signed request.
      * 
      */
     public Optional<Output<String>> presignedUrl() {
@@ -155,14 +155,14 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The external custom Availability Zone.
+     * External custom Availability Zone.
      * 
      */
     @Import(name="targetCustomAvailabilityZone")
     private @Nullable Output<String> targetCustomAvailabilityZone;
 
     /**
-     * @return The external custom Availability Zone.
+     * @return External custom Availability Zone.
      * 
      */
     public Optional<Output<String>> targetCustomAvailabilityZone() {
@@ -170,14 +170,14 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      * 
      */
     @Import(name="targetDbSnapshotIdentifier", required=true)
     private Output<String> targetDbSnapshotIdentifier;
 
     /**
-     * @return The Identifier for the snapshot.
+     * @return Identifier for the snapshot.
      * 
      */
     public Output<String> targetDbSnapshotIdentifier() {
@@ -240,7 +240,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationRegion The Destination region to place snapshot copy.
+         * @param destinationRegion Destination Region to place snapshot copy.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationRegion The Destination region to place snapshot copy.
+         * @param destinationRegion Destination Region to place snapshot copy.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupName The name of an option group to associate with the copy of the snapshot.
+         * @param optionGroupName Name of an option group to associate with the copy of the snapshot.
          * 
          * @return builder
          * 
@@ -293,7 +293,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupName The name of an option group to associate with the copy of the snapshot.
+         * @param optionGroupName Name of an option group to associate with the copy of the snapshot.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param presignedUrl he URL that contains a Signature Version 4 signed request.
+         * @param presignedUrl URL that contains a Signature Version 4 signed request.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param presignedUrl he URL that contains a Signature Version 4 signed request.
+         * @param presignedUrl URL that contains a Signature Version 4 signed request.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetCustomAvailabilityZone The external custom Availability Zone.
+         * @param targetCustomAvailabilityZone External custom Availability Zone.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetCustomAvailabilityZone The external custom Availability Zone.
+         * @param targetCustomAvailabilityZone External custom Availability Zone.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetDbSnapshotIdentifier The Identifier for the snapshot.
+         * @param targetDbSnapshotIdentifier Identifier for the snapshot.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class SnapshotCopyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetDbSnapshotIdentifier The Identifier for the snapshot.
+         * @param targetDbSnapshotIdentifier Identifier for the snapshot.
          * 
          * @return builder
          * 

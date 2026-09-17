@@ -19,11 +19,11 @@ namespace Pulumi.Aws.MailManager.Outputs
         public readonly string? SecretArn;
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `SmtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+        /// SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `SmtpPasswordWoVersion` to be set.
         /// </summary>
         public readonly string? SmtpPasswordWo;
         /// <summary>
-        /// Version number for `SmtpPasswordWo`. Increment this value to trigger a password update. Required when using `SmtpPasswordWo`.
+        /// Required when `SmtpPasswordWo` is set. Changing this value triggers an update to `SmtpPasswordWo`.
         /// </summary>
         public readonly int? SmtpPasswordWoVersion;
         /// <summary>

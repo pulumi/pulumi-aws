@@ -16,16 +16,14 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
     public static final InstanceMasterUserSecretArgs Empty = new InstanceMasterUserSecretArgs();
 
     /**
-     * The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
+     * ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
+     * @return ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -48,14 +46,14 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     @Import(name="secretStatus")
     private @Nullable Output<String> secretStatus;
 
     /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     public Optional<Output<String>> secretStatus() {
@@ -89,8 +87,7 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param kmsKeyId The ARN for the KMS encryption key. If creating an
-         * encrypted replica, set this to the destination KMS ARN.
+         * @param kmsKeyId ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
          * 
          * @return builder
          * 
@@ -101,8 +98,7 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param kmsKeyId The ARN for the KMS encryption key. If creating an
-         * encrypted replica, set this to the destination KMS ARN.
+         * @param kmsKeyId ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
          * 
          * @return builder
          * 
@@ -133,7 +129,7 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param secretStatus The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+         * @param secretStatus Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          * 
          * @return builder
          * 
@@ -144,7 +140,7 @@ public final class InstanceMasterUserSecretArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param secretStatus The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+         * @param secretStatus Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          * 
          * @return builder
          * 

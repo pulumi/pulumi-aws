@@ -4608,6 +4608,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dms/migrationProject",
+  "fqn": "pulumi_aws.dms",
+  "classes": {
+   "aws:dms/migrationProject:MigrationProject": "MigrationProject"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dms/replicationConfig",
   "fqn": "pulumi_aws.dms",
   "classes": {
@@ -5940,6 +5948,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2transitgateway",
   "classes": {
    "aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation": "PolicyTableAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2transitgateway/policyTableEntry",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/policyTableEntry:PolicyTableEntry": "PolicyTableEntry"
   }
  },
  {
@@ -8356,6 +8372,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lambda_",
   "classes": {
    "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig": "ProvisionedConcurrencyConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambda/resourcePolicy",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/resourcePolicy:ResourcePolicy": "ResourcePolicy"
   }
  },
  {

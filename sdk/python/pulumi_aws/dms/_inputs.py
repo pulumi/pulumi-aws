@@ -57,6 +57,14 @@ __all__ = [
     'EndpointRedisSettingsArgsDict',
     'EndpointRedshiftSettingsArgs',
     'EndpointRedshiftSettingsArgsDict',
+    'MigrationProjectSchemaConversionApplicationAttributesArgs',
+    'MigrationProjectSchemaConversionApplicationAttributesArgsDict',
+    'MigrationProjectSourceDataProviderDescriptorArgs',
+    'MigrationProjectSourceDataProviderDescriptorArgsDict',
+    'MigrationProjectTargetDataProviderDescriptorArgs',
+    'MigrationProjectTargetDataProviderDescriptorArgsDict',
+    'MigrationProjectTimeoutsArgs',
+    'MigrationProjectTimeoutsArgsDict',
     'ReplicationConfigComputeConfigArgs',
     'ReplicationConfigComputeConfigArgsDict',
     'ReplicationInstanceKerberosAuthenticationSettingsArgs',
@@ -4384,6 +4392,272 @@ class EndpointRedshiftSettingsArgs:
     @service_access_role_arn.setter
     def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_access_role_arn", value)
+
+
+class MigrationProjectSchemaConversionApplicationAttributesArgsDict(TypedDict):
+    s3_bucket_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 bucket path that the application uses for exporting assessment reports.
+    """
+    s3_bucket_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role the application uses to access its S3 bucket.
+    """
+
+@pulumi.input_type
+class MigrationProjectSchemaConversionApplicationAttributesArgs:
+    def __init__(__self__, *,
+                 s3_bucket_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] s3_bucket_path: S3 bucket path that the application uses for exporting assessment reports.
+        :param pulumi.Input[_builtins.str] s3_bucket_role_arn: ARN of the IAM role the application uses to access its S3 bucket.
+        """
+        if s3_bucket_path is not None:
+            pulumi.set(__self__, "s3_bucket_path", s3_bucket_path)
+        if s3_bucket_role_arn is not None:
+            pulumi.set(__self__, "s3_bucket_role_arn", s3_bucket_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketPath")
+    def s3_bucket_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 bucket path that the application uses for exporting assessment reports.
+        """
+        return pulumi.get(self, "s3_bucket_path")
+
+    @s3_bucket_path.setter
+    def s3_bucket_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_bucket_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketRoleArn")
+    def s3_bucket_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role the application uses to access its S3 bucket.
+        """
+        return pulumi.get(self, "s3_bucket_role_arn")
+
+    @s3_bucket_role_arn.setter
+    def s3_bucket_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_bucket_role_arn", value)
+
+
+class MigrationProjectSourceDataProviderDescriptorArgsDict(TypedDict):
+    data_provider_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the data provider.
+
+    The following arguments are optional:
+    """
+    data_provider_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the source data provider.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access AWS Secrets Manager.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+    """
+
+@pulumi.input_type
+class MigrationProjectSourceDataProviderDescriptorArgs:
+    def __init__(__self__, *,
+                 data_provider_arn: pulumi.Input[_builtins.str],
+                 data_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] data_provider_arn: ARN of the data provider.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] data_provider_name: Name of the source data provider.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: ARN of the IAM role used to access AWS Secrets Manager.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+        """
+        pulumi.set(__self__, "data_provider_arn", data_provider_arn)
+        if data_provider_name is not None:
+            pulumi.set(__self__, "data_provider_name", data_provider_name)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="dataProviderArn")
+    def data_provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the data provider.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "data_provider_arn")
+
+    @data_provider_arn.setter
+    def data_provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataProviderName")
+    def data_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the source data provider.
+        """
+        return pulumi.get(self, "data_provider_name")
+
+    @data_provider_name.setter
+    def data_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_provider_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access AWS Secrets Manager.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+
+class MigrationProjectTargetDataProviderDescriptorArgsDict(TypedDict):
+    data_provider_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the data provider.
+
+    The following arguments are optional:
+    """
+    data_provider_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the target data provider.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access AWS Secrets Manager.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+    """
+
+@pulumi.input_type
+class MigrationProjectTargetDataProviderDescriptorArgs:
+    def __init__(__self__, *,
+                 data_provider_arn: pulumi.Input[_builtins.str],
+                 data_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] data_provider_arn: ARN of the data provider.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] data_provider_name: Name of the target data provider.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: ARN of the IAM role used to access AWS Secrets Manager.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+        """
+        pulumi.set(__self__, "data_provider_arn", data_provider_arn)
+        if data_provider_name is not None:
+            pulumi.set(__self__, "data_provider_name", data_provider_name)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="dataProviderArn")
+    def data_provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the data provider.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "data_provider_arn")
+
+    @data_provider_arn.setter
+    def data_provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataProviderName")
+    def data_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the target data provider.
+        """
+        return pulumi.get(self, "data_provider_name")
+
+    @data_provider_name.setter
+    def data_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_provider_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access AWS Secrets Manager.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+
+class MigrationProjectTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class MigrationProjectTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
 
 
 class ReplicationConfigComputeConfigArgsDict(TypedDict):

@@ -82,56 +82,56 @@ public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
     @Export(name="dbProxyEndpointName", refs={String.class}, tree="[0]")
     private Output<String> dbProxyEndpointName;
 
     /**
-     * @return The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * @return Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
     public Output<String> dbProxyEndpointName() {
         return this.dbProxyEndpointName;
     }
     /**
-     * The name of the DB proxy associated with the DB proxy endpoint that you create.
+     * Name of the DB proxy associated with the DB proxy endpoint that you create.
      * 
      */
     @Export(name="dbProxyName", refs={String.class}, tree="[0]")
     private Output<String> dbProxyName;
 
     /**
-     * @return The name of the DB proxy associated with the DB proxy endpoint that you create.
+     * @return Name of the DB proxy associated with the DB proxy endpoint that you create.
      * 
      */
     public Output<String> dbProxyName() {
         return this.dbProxyName;
     }
     /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * @return Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
     public Output<String> endpoint() {
         return this.endpoint;
     }
     /**
-     * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+     * Whether this endpoint is the default endpoint for the associated DB proxy.
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
     /**
-     * @return Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+     * @return Whether this endpoint is the default endpoint for the associated DB proxy.
      * 
      */
     public Output<Boolean> isDefault() {
@@ -152,14 +152,14 @@ public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A mapping of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return Map of tags to assign to the resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -172,28 +172,28 @@ public class ProxyEndpoint extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+     * Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      * 
      */
     @Export(name="targetRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetRole;
 
     /**
-     * @return Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+     * @return Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      * 
      */
     public Output<Optional<String>> targetRole() {
         return Codegen.optional(this.targetRole);
     }
     /**
-     * The VPC ID of the DB proxy endpoint.
+     * VPC ID of the DB proxy endpoint.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The VPC ID of the DB proxy endpoint.
+     * @return VPC ID of the DB proxy endpoint.
      * 
      */
     public Output<String> vpcId() {

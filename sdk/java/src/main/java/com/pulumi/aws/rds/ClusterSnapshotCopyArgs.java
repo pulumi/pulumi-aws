@@ -36,14 +36,14 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Destination region to place snapshot copy.
+     * Destination region to place the snapshot copy.
      * 
      */
     @Import(name="destinationRegion")
     private @Nullable Output<String> destinationRegion;
 
     /**
-     * @return The Destination region to place snapshot copy.
+     * @return Destination region to place the snapshot copy.
      * 
      */
     public Optional<Output<String>> destinationRegion() {
@@ -221,7 +221,7 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationRegion The Destination region to place snapshot copy.
+         * @param destinationRegion Destination region to place the snapshot copy.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param destinationRegion The Destination region to place snapshot copy.
+         * @param destinationRegion Destination region to place the snapshot copy.
          * 
          * @return builder
          * 

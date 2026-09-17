@@ -63,18 +63,16 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly adminPasswordSecretKmsKeyId: pulumi.Output<string>;
     /**
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     declare public readonly adminUserPassword: pulumi.Output<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
      */
     declare public readonly adminUserPasswordWo: pulumi.Output<string | undefined>;
     /**
-     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
      */
     declare public readonly adminUserPasswordWoVersion: pulumi.Output<number | undefined>;
     /**
@@ -106,8 +104,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     declare public readonly logExports: pulumi.Output<string[] | undefined>;
     /**
-     * Whether to use AWS SecretManager to manage namespace's admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+     * Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      */
     declare public readonly manageAdminPassword: pulumi.Output<boolean | undefined>;
     /**
@@ -206,18 +203,16 @@ export interface NamespaceState {
      */
     adminPasswordSecretKmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     adminUserPassword?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
      */
     adminUserPasswordWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
      */
     adminUserPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -249,8 +244,7 @@ export interface NamespaceState {
      */
     logExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Whether to use AWS SecretManager to manage namespace's admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+     * Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      */
     manageAdminPassword?: pulumi.Input<boolean | undefined>;
     /**
@@ -284,18 +278,16 @@ export interface NamespaceArgs {
      */
     adminPasswordSecretKmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      */
     adminUserPassword?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
      */
     adminUserPasswordWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
      */
     adminUserPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -323,8 +315,7 @@ export interface NamespaceArgs {
      */
     logExports?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Whether to use AWS SecretManager to manage namespace's admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+     * Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      */
     manageAdminPassword?: pulumi.Input<boolean | undefined>;
     /**

@@ -33,14 +33,14 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
     }
 
     /**
-     * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+     * URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      * 
      */
     @Import(name="preSignedUrl")
     private @Nullable Output<String> preSignedUrl;
 
     /**
-     * @return A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+     * @return URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      * 
      */
     public Optional<Output<String>> preSignedUrl() {
@@ -63,14 +63,14 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
     }
 
     /**
-     * The retention period for the replicated automated backups, defaults to `7`.
+     * Retention period for the replicated automated backups, defaults to `7`.
      * 
      */
     @Import(name="retentionPeriod")
     private @Nullable Output<Integer> retentionPeriod;
 
     /**
-     * @return The retention period for the replicated automated backups, defaults to `7`.
+     * @return Retention period for the replicated automated backups, defaults to `7`.
      * 
      */
     public Optional<Output<Integer>> retentionPeriod() {
@@ -142,7 +142,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param preSignedUrl A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+         * @param preSignedUrl URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param preSignedUrl A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+         * @param preSignedUrl URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param retentionPeriod The retention period for the replicated automated backups, defaults to `7`.
+         * @param retentionPeriod Retention period for the replicated automated backups, defaults to `7`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param retentionPeriod The retention period for the replicated automated backups, defaults to `7`.
+         * @param retentionPeriod Retention period for the replicated automated backups, defaults to `7`.
          * 
          * @return builder
          * 

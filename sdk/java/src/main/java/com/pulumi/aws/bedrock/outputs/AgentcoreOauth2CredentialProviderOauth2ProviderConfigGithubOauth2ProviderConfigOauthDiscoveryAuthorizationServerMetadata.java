@@ -31,6 +31,11 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
      * 
      */
     private String tokenEndpoint;
+    /**
+     * @return List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * 
+     */
+    private List<String> tokenEndpointAuthMethods;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata() {}
     /**
@@ -61,6 +66,13 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
     public String tokenEndpoint() {
         return this.tokenEndpoint;
     }
+    /**
+     * @return List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * 
+     */
+    public List<String> tokenEndpointAuthMethods() {
+        return this.tokenEndpointAuthMethods;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -75,6 +87,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
         private String issuer;
         private List<String> responseTypes;
         private String tokenEndpoint;
+        private List<String> tokenEndpointAuthMethods;
         public Builder() {}
         public Builder(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata defaults) {
     	      Objects.requireNonNull(defaults);
@@ -82,6 +95,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
     	      this.issuer = defaults.issuer;
     	      this.responseTypes = defaults.responseTypes;
     	      this.tokenEndpoint = defaults.tokenEndpoint;
+    	      this.tokenEndpointAuthMethods = defaults.tokenEndpointAuthMethods;
         }
 
         @CustomType.Setter
@@ -119,12 +133,24 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOa
             this.tokenEndpoint = tokenEndpoint;
             return this;
         }
+        @CustomType.Setter
+        public Builder tokenEndpointAuthMethods(List<String> tokenEndpointAuthMethods) {
+            if (tokenEndpointAuthMethods == null) {
+              throw new MissingRequiredPropertyException("AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata", "tokenEndpointAuthMethods");
+            }
+            this.tokenEndpointAuthMethods = tokenEndpointAuthMethods;
+            return this;
+        }
+        public Builder tokenEndpointAuthMethods(String... tokenEndpointAuthMethods) {
+            return tokenEndpointAuthMethods(List.of(tokenEndpointAuthMethods));
+        }
         public AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata build() {
             final var _resultValue = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata();
             _resultValue.authorizationEndpoint = authorizationEndpoint;
             _resultValue.issuer = issuer;
             _resultValue.responseTypes = responseTypes;
             _resultValue.tokenEndpoint = tokenEndpoint;
+            _resultValue.tokenEndpointAuthMethods = tokenEndpointAuthMethods;
             return _resultValue;
         }
     }

@@ -350,7 +350,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
      * 
      */
     @Export(name="valueWo", refs={String.class}, tree="[0]")
@@ -358,14 +358,14 @@ public class Parameter extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+     * Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
      * 
      */
     public Output<Optional<String>> valueWo() {
         return Codegen.optional(this.valueWo);
     }
     /**
-     * Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     * Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
      * 
      * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
      * 
@@ -374,7 +374,7 @@ public class Parameter extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> valueWoVersion;
 
     /**
-     * @return Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+     * @return Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
      * 
      * &gt; **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
      * 

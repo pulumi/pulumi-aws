@@ -481,6 +481,169 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Restore From S3
+ * 
+ * Full details on the core parameters and impacts are in the API Docs: [RestoreDBClusterFromS3](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterFromS3.html). Requires that the S3 bucket be in the same region as the RDS cluster you&#39;re trying to create.
+ * 
+ * &gt; **NOTE:** RDS Aurora Serverless does not support loading data from S3, so its not possible to directly use `engineMode` set to `serverless` with `s3Import`.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.inputs.ClusterS3ImportArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var db = new Cluster("db", ClusterArgs.builder()
+ *             .s3Import(ClusterS3ImportArgs.builder()
+ *                 .sourceEngine("mysql")
+ *                 .sourceEngineVersion("5.6")
+ *                 .bucketName("mybucket")
+ *                 .bucketPrefix("backups")
+ *                 .ingestionRole("arn:aws:iam::1234567890:role/role-xtrabackup-rds-restore")
+ *                 .build())
+ *             .engine("aurora")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Restore To Point In Time
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.inputs.ClusterRestoreToPointInTimeArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example_clone = new Cluster("example-clone", ClusterArgs.builder()
+ *             .restoreToPointInTime(ClusterRestoreToPointInTimeArgs.builder()
+ *                 .sourceClusterIdentifier("example")
+ *                 .restoreType("copy-on-write")
+ *                 .useLatestRestorableTime(true)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Serverless v1 Scaling Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.inputs.ClusterScalingConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Cluster("example", ClusterArgs.builder()
+ *             .scalingConfiguration(ClusterScalingConfigurationArgs.builder()
+ *                 .autoPause(true)
+ *                 .maxCapacity(256)
+ *                 .minCapacity(2)
+ *                 .secondsBeforeTimeout(360)
+ *                 .secondsUntilAutoPause(300)
+ *                 .timeoutAction("ForceApplyCapacityChange")
+ *                 .build())
+ *             .engineMode("serverless")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Serverless v2 Scaling Configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
+ * import com.pulumi.aws.rds.inputs.ClusterServerlessv2ScalingConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Cluster("example", ClusterArgs.builder()
+ *             .serverlessv2ScalingConfiguration(ClusterServerlessv2ScalingConfigurationArgs.builder()
+ *                 .maxCapacity(256.0)
+ *                 .minCapacity(0.0)
+ *                 .secondsUntilAutoPause(3600)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -504,14 +667,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
     /**
-     * The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+     * Amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
     /**
-     * @return The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
+     * @return Amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
      * 
      */
     public Output<Integer> allocatedStorage() {
@@ -532,14 +695,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowMajorVersionUpgrade);
     }
     /**
-     * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> applyImmediately;
 
     /**
-     * @return Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+     * @return Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      * 
      */
     public Output<Boolean> applyImmediately() {
@@ -574,22 +737,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.autoMinorVersionUpgrade;
     }
     /**
-     * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-     * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
-     * A maximum of 3 AZs can be configured.
-     * **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
+     * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured. **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
-     * @return List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
-     * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
-     * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
-     * A maximum of 3 AZs can be configured.
-     * **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
+     * @return List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created. RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up. We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary. A maximum of 3 AZs can be configured. **Note:** [Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) require exactly 3 Availability Zones in the DB subnet group. Aurora DB clusters can operate with fewer AZs, but RDS will still automatically assign 3 AZs as described above.
      * 
      */
     public Output<List<String>> availabilityZones() {
@@ -624,14 +779,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.backupRetentionPeriod;
     }
     /**
-     * The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+     * CA certificate identifier to use for the DB cluster&#39;s server certificate.
      * 
      */
     @Export(name="caCertificateIdentifier", refs={String.class}, tree="[0]")
     private Output<String> caCertificateIdentifier;
 
     /**
-     * @return The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+     * @return CA certificate identifier to use for the DB cluster&#39;s server certificate.
      * 
      */
     public Output<String> caCertificateIdentifier() {
@@ -652,14 +807,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.caCertificateValidTill;
     }
     /**
-     * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      * 
      */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier. If omitted, this provider will assign a random, unique identifier.
+     * @return Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
      * 
      */
     public Output<String> clusterIdentifier() {
@@ -708,14 +863,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterResourceId;
     }
     /**
-     * Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+     * Scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
      * 
      */
     @Export(name="clusterScalabilityType", refs={String.class}, tree="[0]")
     private Output<String> clusterScalabilityType;
 
     /**
-     * @return Specifies the scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
+     * @return Scalability mode of the Aurora DB cluster. When set to `limitless`, the cluster operates as an Aurora Limitless Database. When set to `standard` (the default), the cluster uses normal DB instance creation. Valid values: `limitless`, `standard`.
      * 
      */
     public Output<String> clusterScalabilityType() {
@@ -736,14 +891,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyTagsToSnapshot);
     }
     /**
-     * The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+     * Mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
      * 
      */
     @Export(name="databaseInsightsMode", refs={String.class}, tree="[0]")
     private Output<String> databaseInsightsMode;
 
     /**
-     * @return The mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
+     * @return Mode of Database Insights to enable for the DB cluster. Valid values: `standard`, `advanced`.
      * 
      */
     public Output<String> databaseInsightsMode() {
@@ -764,28 +919,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+     * Compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      * 
      */
     @Export(name="dbClusterInstanceClass", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dbClusterInstanceClass;
 
     /**
-     * @return The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
+     * @return Compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example `db.m6g.xlarge`. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
      * 
      */
     public Output<Optional<String>> dbClusterInstanceClass() {
         return Codegen.optional(this.dbClusterInstanceClass);
     }
     /**
-     * A cluster parameter group to associate with the cluster.
+     * Cluster parameter group to associate with the cluster.
      * 
      */
     @Export(name="dbClusterParameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbClusterParameterGroupName;
 
     /**
-     * @return A cluster parameter group to associate with the cluster.
+     * @return Cluster parameter group to associate with the cluster.
      * 
      */
     public Output<String> dbClusterParameterGroupName() {
@@ -806,16 +961,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dbInstanceParameterGroupName);
     }
     /**
-     * DB subnet group to associate with this DB cluster.
-     * **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * DB subnet group to associate with this DB cluster. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbSubnetGroupName;
 
     /**
-     * @return DB subnet group to associate with this DB cluster.
-     * **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
+     * @return DB subnet group to associate with this DB cluster. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      * 
      */
     public Output<String> dbSubnetGroupName() {
@@ -836,60 +989,56 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.dbSystemId;
     }
     /**
-     * Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+     * Whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
      * 
      */
     @Export(name="deleteAutomatedBackups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteAutomatedBackups;
 
     /**
-     * @return Specifies whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
+     * @return Whether to remove automated backups immediately after the DB cluster is deleted. Default is `true`.
      * 
      */
     public Output<Optional<Boolean>> deleteAutomatedBackups() {
         return Codegen.optional(this.deleteAutomatedBackups);
     }
     /**
-     * If the DB cluster should have deletion protection enabled.
-     * The database can&#39;t be deleted when this value is set to `true`.
-     * The default is `false`.
+     * If the DB cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
      * 
      */
     @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deletionProtection;
 
     /**
-     * @return If the DB cluster should have deletion protection enabled.
-     * The database can&#39;t be deleted when this value is set to `true`.
-     * The default is `false`.
+     * @return If the DB cluster should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
      * 
      */
     public Output<Optional<Boolean>> deletionProtection() {
         return Codegen.optional(this.deletionProtection);
     }
     /**
-     * The ID of the Directory Service Active Directory domain to create the cluster in.
+     * ID of the Directory Service Active Directory domain to create the cluster in.
      * 
      */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domain;
 
     /**
-     * @return The ID of the Directory Service Active Directory domain to create the cluster in.
+     * @return ID of the Directory Service Active Directory domain to create the cluster in.
      * 
      */
     public Output<Optional<String>> domain() {
         return Codegen.optional(this.domain);
     }
     /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
+     * Name of the IAM role to be used when making API calls to the Directory Service.
      * 
      */
     @Export(name="domainIamRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainIamRoleName;
 
     /**
-     * @return The name of the IAM role to be used when making API calls to the Directory Service.
+     * @return Name of the IAM role to be used when making API calls to the Directory Service.
      * 
      */
     public Output<Optional<String>> domainIamRoleName() {
@@ -980,14 +1129,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
-     * The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * Life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
     @Export(name="engineLifecycleSupport", refs={String.class}, tree="[0]")
     private Output<String> engineLifecycleSupport;
 
     /**
-     * @return The life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * @return Life cycle type for this DB instance. This setting is valid for cluster types Aurora DB clusters and Multi-AZ DB clusters. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
     public Output<String> engineLifecycleSupport() {
@@ -1078,14 +1227,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.hostedZoneId;
     }
     /**
-     * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+     * Whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
      * 
      */
     @Export(name="iamDatabaseAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> iamDatabaseAuthenticationEnabled;
 
     /**
-     * @return Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
+     * @return Whether mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html) for availability and limitations.
      * 
      */
     public Output<Optional<Boolean>> iamDatabaseAuthenticationEnabled() {
@@ -1163,7 +1312,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     @Export(name="masterPasswordWo", refs={String.class}, tree="[0]")
@@ -1171,21 +1320,21 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`.
+     * Password for the master DB user. Note that this may show up in logs. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manageMasterUserPassword` is set to `true`. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> masterPasswordWo() {
         return Codegen.optional(this.masterPasswordWo);
     }
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     @Export(name="masterPasswordWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> masterPasswordWoVersion;
 
     /**
-     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * @return Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     public Output<Optional<Integer>> masterPasswordWoVersion() {
@@ -1290,28 +1439,28 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.performanceInsightsEnabled);
     }
     /**
-     * Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     * KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
      * 
      */
     @Export(name="performanceInsightsKmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> performanceInsightsKmsKeyId;
 
     /**
-     * @return Specifies the KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
+     * @return KMS Key ID to encrypt Performance Insights data. If not specified, the default RDS KMS key will be used (`aws/rds`).
      * 
      */
     public Output<String> performanceInsightsKmsKeyId() {
         return this.performanceInsightsKmsKeyId;
     }
     /**
-     * Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     * Amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
      * 
      */
     @Export(name="performanceInsightsRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output<Integer> performanceInsightsRetentionPeriod;
 
     /**
-     * @return Specifies the amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
+     * @return Amount of time to retain performance insights data for. Defaults to 7 days if Performance Insights are enabled. Valid values are `7`, `month * 31` (where month is a number of months from 1-23), and `731`. See [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.Overview.cost.html) for more information on retention periods.
      * 
      */
     public Output<Integer> performanceInsightsRetentionPeriod() {
@@ -1360,16 +1509,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.preferredMaintenanceWindow;
     }
     /**
-     * Read-only endpoint for the Aurora cluster, automatically
-     * load-balanced across replicas
+     * Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
      * 
      */
     @Export(name="readerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> readerEndpoint;
 
     /**
-     * @return Read-only endpoint for the Aurora cluster, automatically
-     * load-balanced across replicas
+     * @return Read-only endpoint for the Aurora cluster, automatically load-balanced across replicas
      * 
      */
     public Output<String> readerEndpoint() {
@@ -1452,56 +1599,56 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serverlessv2ScalingConfiguration);
     }
     /**
-     * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
+     * Whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      * 
      */
     @Export(name="skipFinalSnapshot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipFinalSnapshot;
 
     /**
-     * @return Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
+     * @return Whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> skipFinalSnapshot() {
         return Codegen.optional(this.skipFinalSnapshot);
     }
     /**
-     * Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+     * Whether to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      * 
      */
     @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotIdentifier;
 
     /**
-     * @return Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
+     * @return Whether to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `globalClusterIdentifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
      * 
      */
     public Output<Optional<String>> snapshotIdentifier() {
         return Codegen.optional(this.snapshotIdentifier);
     }
     /**
-     * The source region for an encrypted replica DB cluster.
+     * Source region for an encrypted replica DB cluster.
      * 
      */
     @Export(name="sourceRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceRegion;
 
     /**
-     * @return The source region for an encrypted replica DB cluster.
+     * @return Source region for an encrypted replica DB cluster.
      * 
      */
     public Output<Optional<String>> sourceRegion() {
         return Codegen.optional(this.sourceRegion);
     }
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
+     * @return Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<Boolean> storageEncrypted() {
@@ -1522,14 +1669,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.storageType;
     }
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -1580,24 +1727,12 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
      * 
-     * For more detailed documentation about each argument, refer to
-     * the AWS official documentation:
-     * 
-     * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
-     * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
-     * 
      */
     @Export(name="warningEventCategories", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> warningEventCategories;
 
     /**
      * @return Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this cluster during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the AWS official documentation:
-     * 
-     * * [create-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster.html)
-     * * [modify-db-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-cluster.html)
      * 
      */
     public Output<Optional<List<String>>> warningEventCategories() {

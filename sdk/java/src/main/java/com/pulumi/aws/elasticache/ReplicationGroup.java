@@ -493,7 +493,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
      * 
      */
     @Export(name="authTokenWo", refs={String.class}, tree="[0]")
@@ -501,21 +501,21 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. Requires `authTokenWoVersion`.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> authTokenWo() {
         return Codegen.optional(this.authTokenWo);
     }
     /**
-     * Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     * Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
      * 
      */
     @Export(name="authTokenWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> authTokenWoVersion;
 
     /**
-     * @return Integer that, when changed, triggers a re-send of `authTokenWo` to the replication group. Requires `authTokenWo`.
+     * @return Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
      * 
      */
     public Output<Optional<Integer>> authTokenWoVersion() {

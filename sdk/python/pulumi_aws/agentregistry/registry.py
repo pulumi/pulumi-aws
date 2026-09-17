@@ -23,7 +23,9 @@ class RegistryArgs:
     def __init__(__self__, *,
                  discovery_configuration: pulumi.Input['RegistryDiscoveryConfigurationArgs'],
                  approval_configuration: pulumi.Input[Optional['RegistryApprovalConfigurationArgs']] = None,
+                 auto_detection_configuration: pulumi.Input[Optional['RegistryAutoDetectionConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -33,7 +35,9 @@ class RegistryArgs:
 
         :param pulumi.Input['RegistryDiscoveryConfigurationArgs'] discovery_configuration: Discovery configuration for the registry. See below.
         :param pulumi.Input['RegistryApprovalConfigurationArgs'] approval_configuration: Approval configuration for registry records. See below.
+        :param pulumi.Input['RegistryAutoDetectionConfigurationArgs'] auto_detection_configuration: Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
         :param pulumi.Input[_builtins.str] description: Description of the registry. Maximum length of 4096 characters.
+        :param pulumi.Input['RegistryEncryptionConfigurationArgs'] encryption_configuration: Server-side encryption configuration for the registry. See below.
         :param pulumi.Input[_builtins.str] name: Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
                
                The following arguments are optional:
@@ -43,8 +47,12 @@ class RegistryArgs:
         pulumi.set(__self__, "discovery_configuration", discovery_configuration)
         if approval_configuration is not None:
             pulumi.set(__self__, "approval_configuration", approval_configuration)
+        if auto_detection_configuration is not None:
+            pulumi.set(__self__, "auto_detection_configuration", auto_detection_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -79,6 +87,18 @@ class RegistryArgs:
         pulumi.set(self, "approval_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="autoDetectionConfiguration")
+    def auto_detection_configuration(self) -> pulumi.Input[Optional['RegistryAutoDetectionConfigurationArgs']]:
+        """
+        Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+        """
+        return pulumi.get(self, "auto_detection_configuration")
+
+    @auto_detection_configuration.setter
+    def auto_detection_configuration(self, value: pulumi.Input[Optional['RegistryAutoDetectionConfigurationArgs']]):
+        pulumi.set(self, "auto_detection_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -89,6 +109,18 @@ class RegistryArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']]:
+        """
+        Server-side encryption configuration for the registry. See below.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -142,8 +174,10 @@ class RegistryArgs:
 class _RegistryState:
     def __init__(__self__, *,
                  approval_configuration: pulumi.Input[Optional['RegistryApprovalConfigurationArgs']] = None,
+                 auto_detection_configuration: pulumi.Input[Optional['RegistryAutoDetectionConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_configuration: pulumi.Input[Optional['RegistryDiscoveryConfigurationArgs']] = None,
+                 encryption_configuration: pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -155,8 +189,10 @@ class _RegistryState:
         Input properties used for looking up and filtering Registry resources.
 
         :param pulumi.Input['RegistryApprovalConfigurationArgs'] approval_configuration: Approval configuration for registry records. See below.
+        :param pulumi.Input['RegistryAutoDetectionConfigurationArgs'] auto_detection_configuration: Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
         :param pulumi.Input[_builtins.str] description: Description of the registry. Maximum length of 4096 characters.
         :param pulumi.Input['RegistryDiscoveryConfigurationArgs'] discovery_configuration: Discovery configuration for the registry. See below.
+        :param pulumi.Input['RegistryEncryptionConfigurationArgs'] encryption_configuration: Server-side encryption configuration for the registry. See below.
         :param pulumi.Input[_builtins.str] name: Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
                
                The following arguments are optional:
@@ -168,10 +204,14 @@ class _RegistryState:
         """
         if approval_configuration is not None:
             pulumi.set(__self__, "approval_configuration", approval_configuration)
+        if auto_detection_configuration is not None:
+            pulumi.set(__self__, "auto_detection_configuration", auto_detection_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if discovery_configuration is not None:
             pulumi.set(__self__, "discovery_configuration", discovery_configuration)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -200,6 +240,18 @@ class _RegistryState:
         pulumi.set(self, "approval_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="autoDetectionConfiguration")
+    def auto_detection_configuration(self) -> pulumi.Input[Optional['RegistryAutoDetectionConfigurationArgs']]:
+        """
+        Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+        """
+        return pulumi.get(self, "auto_detection_configuration")
+
+    @auto_detection_configuration.setter
+    def auto_detection_configuration(self, value: pulumi.Input[Optional['RegistryAutoDetectionConfigurationArgs']]):
+        pulumi.set(self, "auto_detection_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -222,6 +274,18 @@ class _RegistryState:
     @discovery_configuration.setter
     def discovery_configuration(self, value: pulumi.Input[Optional['RegistryDiscoveryConfigurationArgs']]):
         pulumi.set(self, "discovery_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']]:
+        """
+        Server-side encryption configuration for the registry. See below.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: pulumi.Input[Optional['RegistryEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -314,8 +378,10 @@ class Registry(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
+                 auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -428,8 +494,10 @@ class Registry(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']] approval_configuration: Approval configuration for registry records. See below.
+        :param pulumi.Input[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']] auto_detection_configuration: Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
         :param pulumi.Input[_builtins.str] description: Description of the registry. Maximum length of 4096 characters.
         :param pulumi.Input[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']] discovery_configuration: Discovery configuration for the registry. See below.
+        :param pulumi.Input[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']] encryption_configuration: Server-side encryption configuration for the registry. See below.
         :param pulumi.Input[_builtins.str] name: Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
                
                The following arguments are optional:
@@ -562,8 +630,10 @@ class Registry(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
+                 auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -578,10 +648,12 @@ class Registry(pulumi.CustomResource):
             __props__ = RegistryArgs.__new__(RegistryArgs)
 
             __props__.__dict__["approval_configuration"] = approval_configuration
+            __props__.__dict__["auto_detection_configuration"] = auto_detection_configuration
             __props__.__dict__["description"] = description
             if discovery_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'discovery_configuration'")
             __props__.__dict__["discovery_configuration"] = discovery_configuration
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
@@ -600,8 +672,10 @@ class Registry(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             approval_configuration: pulumi.Input[Optional[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']]] = None,
+            auto_detection_configuration: pulumi.Input[Optional[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             discovery_configuration: pulumi.Input[Optional[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']]] = None,
+            encryption_configuration: pulumi.Input[Optional[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -617,8 +691,10 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RegistryApprovalConfigurationArgs', 'RegistryApprovalConfigurationArgsDict']] approval_configuration: Approval configuration for registry records. See below.
+        :param pulumi.Input[Union['RegistryAutoDetectionConfigurationArgs', 'RegistryAutoDetectionConfigurationArgsDict']] auto_detection_configuration: Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
         :param pulumi.Input[_builtins.str] description: Description of the registry. Maximum length of 4096 characters.
         :param pulumi.Input[Union['RegistryDiscoveryConfigurationArgs', 'RegistryDiscoveryConfigurationArgsDict']] discovery_configuration: Discovery configuration for the registry. See below.
+        :param pulumi.Input[Union['RegistryEncryptionConfigurationArgs', 'RegistryEncryptionConfigurationArgsDict']] encryption_configuration: Server-side encryption configuration for the registry. See below.
         :param pulumi.Input[_builtins.str] name: Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
                
                The following arguments are optional:
@@ -633,8 +709,10 @@ class Registry(pulumi.CustomResource):
         __props__ = _RegistryState.__new__(_RegistryState)
 
         __props__.__dict__["approval_configuration"] = approval_configuration
+        __props__.__dict__["auto_detection_configuration"] = auto_detection_configuration
         __props__.__dict__["description"] = description
         __props__.__dict__["discovery_configuration"] = discovery_configuration
+        __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["registry_arn"] = registry_arn
@@ -653,6 +731,14 @@ class Registry(pulumi.CustomResource):
         return pulumi.get(self, "approval_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="autoDetectionConfiguration")
+    def auto_detection_configuration(self) -> pulumi.Output[Optional['outputs.RegistryAutoDetectionConfiguration']]:
+        """
+        Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+        """
+        return pulumi.get(self, "auto_detection_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -667,6 +753,14 @@ class Registry(pulumi.CustomResource):
         Discovery configuration for the registry. See below.
         """
         return pulumi.get(self, "discovery_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.RegistryEncryptionConfiguration']]:
+        """
+        Server-side encryption configuration for the registry. See below.
+        """
+        return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter

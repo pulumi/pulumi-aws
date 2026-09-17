@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -18,22 +19,51 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
 
     public static final AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs Empty = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs();
 
+    /**
+     * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+     * 
+     * **Microsoft-Specific Configuration:**
+     * 
+     * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+     * 
+     * **Standard Tenant ID:**
+     * 
+     */
     @Import(name="clientCredentialsWoVersion")
     private @Nullable Output<Integer> clientCredentialsWoVersion;
 
+    /**
+     * @return Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+     * 
+     * **Microsoft-Specific Configuration:**
+     * 
+     * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+     * 
+     * **Standard Tenant ID:**
+     * 
+     */
     public Optional<Output<Integer>> clientCredentialsWoVersion() {
         return Optional.ofNullable(this.clientCredentialsWoVersion);
     }
 
+    /**
+     * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+     * 
+     */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
+    /**
+     * @return OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+     * 
+     */
     public Optional<Output<String>> clientId() {
         return Optional.ofNullable(this.clientId);
     }
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
      * 
      */
     @Import(name="clientIdWo")
@@ -41,21 +71,69 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> clientIdWo() {
         return Optional.ofNullable(this.clientIdWo);
     }
 
+    /**
+     * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+     * 
+     * **Write-Only Credentials (choose one pair):**
+     * 
+     */
     @Import(name="clientSecret")
     private @Nullable Output<String> clientSecret;
 
+    /**
+     * @return OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+     * 
+     * **Write-Only Credentials (choose one pair):**
+     * 
+     */
     public Optional<Output<String>> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
 
     /**
+     * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+     * 
+     * **Advanced Configuration:**
+     * 
+     */
+    @Import(name="clientSecretConfig")
+    private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigArgs> clientSecretConfig;
+
+    /**
+     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+     * 
+     * **Advanced Configuration:**
+     * 
+     */
+    public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigArgs>> clientSecretConfig() {
+        return Optional.ofNullable(this.clientSecretConfig);
+    }
+
+    /**
+     * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+     * 
+     */
+    @Import(name="clientSecretSource")
+    private @Nullable Output<String> clientSecretSource;
+
+    /**
+     * @return Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+     * 
+     */
+    public Optional<Output<String>> clientSecretSource() {
+        return Optional.ofNullable(this.clientSecretSource);
+    }
+
+    /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
      * 
      */
     @Import(name="clientSecretWo")
@@ -63,6 +141,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> clientSecretWo() {
@@ -72,12 +151,16 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
     /**
      * OAuth discovery configuration. See `oauthDiscovery` below.
      * 
+     * **Externally-Managed Client Secret:**
+     * 
      */
     @Import(name="oauthDiscoveries")
     private @Nullable Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs>> oauthDiscoveries;
 
     /**
      * @return OAuth discovery configuration. See `oauthDiscovery` below.
+     * 
+     * **Externally-Managed Client Secret:**
      * 
      */
     public Optional<Output<List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs>>> oauthDiscoveries() {
@@ -91,6 +174,8 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
         this.clientId = $.clientId;
         this.clientIdWo = $.clientIdWo;
         this.clientSecret = $.clientSecret;
+        this.clientSecretConfig = $.clientSecretConfig;
+        this.clientSecretSource = $.clientSecretSource;
         this.clientSecretWo = $.clientSecretWo;
         this.oauthDiscoveries = $.oauthDiscoveries;
     }
@@ -113,26 +198,63 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
             $ = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param clientCredentialsWoVersion Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         * 
+         * **Microsoft-Specific Configuration:**
+         * 
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         * 
+         * **Standard Tenant ID:**
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientCredentialsWoVersion(@Nullable Output<Integer> clientCredentialsWoVersion) {
             $.clientCredentialsWoVersion = clientCredentialsWoVersion;
             return this;
         }
 
+        /**
+         * @param clientCredentialsWoVersion Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         * 
+         * **Microsoft-Specific Configuration:**
+         * 
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         * 
+         * **Standard Tenant ID:**
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientCredentialsWoVersion(Integer clientCredentialsWoVersion) {
             return clientCredentialsWoVersion(Output.of(clientCredentialsWoVersion));
         }
 
+        /**
+         * @param clientId OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(@Nullable Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
+        /**
+         * @param clientId OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
         /**
          * @param clientIdWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -144,6 +266,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
 
         /**
          * @param clientIdWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -152,17 +275,80 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
             return clientIdWo(Output.of(clientIdWo));
         }
 
+        /**
+         * @param clientSecret OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         * 
+         * **Write-Only Credentials (choose one pair):**
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(@Nullable Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
+        /**
+         * @param clientSecret OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         * 
+         * **Write-Only Credentials (choose one pair):**
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
         /**
+         * @param clientSecretConfig Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         * 
+         * **Advanced Configuration:**
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretConfig(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigArgs> clientSecretConfig) {
+            $.clientSecretConfig = clientSecretConfig;
+            return this;
+        }
+
+        /**
+         * @param clientSecretConfig Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         * 
+         * **Advanced Configuration:**
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigArgs clientSecretConfig) {
+            return clientSecretConfig(Output.of(clientSecretConfig));
+        }
+
+        /**
+         * @param clientSecretSource Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretSource(@Nullable Output<String> clientSecretSource) {
+            $.clientSecretSource = clientSecretSource;
+            return this;
+        }
+
+        /**
+         * @param clientSecretSource Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientSecretSource(String clientSecretSource) {
+            return clientSecretSource(Output.of(clientSecretSource));
+        }
+
+        /**
          * @param clientSecretWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -174,6 +360,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
 
         /**
          * @param clientSecretWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -184,6 +371,8 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
 
         /**
          * @param oauthDiscoveries OAuth discovery configuration. See `oauthDiscovery` below.
+         * 
+         * **Externally-Managed Client Secret:**
          * 
          * @return builder
          * 
@@ -196,6 +385,8 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
         /**
          * @param oauthDiscoveries OAuth discovery configuration. See `oauthDiscovery` below.
          * 
+         * **Externally-Managed Client Secret:**
+         * 
          * @return builder
          * 
          */
@@ -205,6 +396,8 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesfor
 
         /**
          * @param oauthDiscoveries OAuth discovery configuration. See `oauthDiscovery` below.
+         * 
+         * **Externally-Managed Client Secret:**
          * 
          * @return builder
          * 

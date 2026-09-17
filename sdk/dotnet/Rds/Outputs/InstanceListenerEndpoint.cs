@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Rds.Outputs
     public sealed class InstanceListenerEndpoint
     {
         /// <summary>
-        /// Specifies the DNS address of the DB instance.
+        /// DNS address of the DB instance.
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        /// ID that Amazon Route 53 assigns when you create a hosted zone.
         /// </summary>
         public readonly string? HostedZoneId;
         /// <summary>
-        /// The port on which the DB accepts connections.
+        /// Port on which the DB accepts connections.
         /// </summary>
         public readonly int? Port;
 

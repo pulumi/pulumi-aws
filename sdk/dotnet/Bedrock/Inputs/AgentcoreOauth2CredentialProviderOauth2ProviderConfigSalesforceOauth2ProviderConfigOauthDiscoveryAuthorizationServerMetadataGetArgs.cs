@@ -42,6 +42,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("tokenEndpoint", required: true)]
         public Input<string> TokenEndpoint { get; set; } = null!;
 
+        [Input("tokenEndpointAuthMethods", required: true)]
+        private InputList<string>? _tokenEndpointAuthMethods;
+
+        /// <summary>
+        /// List of authentication methods supported by the token endpoint. Must contain one or two values matching `ClientSecretPost` or `ClientSecretBasic`.
+        /// </summary>
+        public InputList<string> TokenEndpointAuthMethods
+        {
+            get => _tokenEndpointAuthMethods ?? (_tokenEndpointAuthMethods = new InputList<string>());
+            set => _tokenEndpointAuthMethods = value;
+        }
+
         public AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataGetArgs()
         {
         }

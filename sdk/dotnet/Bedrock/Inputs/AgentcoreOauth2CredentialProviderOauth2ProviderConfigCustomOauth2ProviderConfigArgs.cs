@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Used together with write-only credentials to trigger an update. Increment this value when an update to `ClientIdWo` or `ClientSecretWo` is required.
+        /// Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+        /// </summary>
+        [Input("clientAuthenticationMethod")]
+        public Input<string>? ClientAuthenticationMethod { get; set; }
+
+        /// <summary>
+        /// Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
         /// 
         /// **OAuth Discovery Configuration:**
         /// </summary>
@@ -24,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private Input<string>? _clientId;
 
         /// <summary>
-        /// OAuth2 client ID. Cannot be used with `ClientIdWo`. Must be used together with `ClientSecret`.
+        /// OAuth2 client ID. Conflicts with `ClientIdWo`. Must be used together with `ClientSecret`.
         /// </summary>
         public Input<string>? ClientId
         {
@@ -41,7 +47,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only OAuth2 client ID. Cannot be used with `ClientId`. Must be used together with `ClientSecretWo` and `ClientCredentialsWoVersion`.
+        /// Write-only OAuth2 client ID. Conflicts with `ClientId`. If set, requires `ClientSecretWo` and `ClientCredentialsWoVersion` to be set.
         /// </summary>
         public Input<string>? ClientIdWo
         {
@@ -57,7 +63,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private Input<string>? _clientSecret;
 
         /// <summary>
-        /// OAuth2 client secret. Cannot be used with `ClientSecretWo`. Must be used together with `ClientId`.
+        /// OAuth2 client secret. Conflicts with `ClientSecretWo`. Must be used together with `ClientId`.
         /// 
         /// **Write-Only Credentials (choose one pair):**
         /// </summary>
@@ -71,12 +77,26 @@ namespace Pulumi.Aws.Bedrock.Inputs
             }
         }
 
+        /// <summary>
+        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` below.
+        /// 
+        /// **Advanced Configuration:**
+        /// </summary>
+        [Input("clientSecretConfig")]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigArgs>? ClientSecretConfig { get; set; }
+
+        /// <summary>
+        /// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `ClientSecretConfig`.
+        /// </summary>
+        [Input("clientSecretSource")]
+        public Input<string>? ClientSecretSource { get; set; }
+
         [Input("clientSecretWo")]
         private Input<string>? _clientSecretWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only OAuth2 client secret. Cannot be used with `ClientSecret`. Must be used together with `ClientIdWo` and `ClientCredentialsWoVersion`.
+        /// Write-only OAuth2 client secret. Conflicts with `ClientSecret`. If set, requires `ClientIdWo` and `ClientCredentialsWoVersion` to be set.
         /// </summary>
         public Input<string>? ClientSecretWo
         {
@@ -90,9 +110,38 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         /// <summary>
         /// OAuth discovery configuration. See `OauthDiscovery` below.
+        /// 
+        /// **Externally-Managed Client Secret:**
         /// </summary>
-        [Input("oauthDiscovery")]
-        public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs>? OauthDiscovery { get; set; }
+        [Input("oauthDiscovery", required: true)]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs> OauthDiscovery { get; set; } = null!;
+
+        /// <summary>
+        /// On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `OnBehalfOfTokenExchangeConfig` below.
+        /// </summary>
+        [Input("onBehalfOfTokenExchangeConfig")]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs>? OnBehalfOfTokenExchangeConfig { get; set; }
+
+        /// <summary>
+        /// Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `PrivateEndpoint` below.
+        /// </summary>
+        [Input("privateEndpoint")]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        [Input("privateEndpointOverrides")]
+        private InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs>? _privateEndpointOverrides;
+
+        /// <summary>
+        /// Private endpoint overrides for the custom OAuth2 provider configuration. See `PrivateEndpointOverride` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs> PrivateEndpointOverrides
+        {
+            get => _privateEndpointOverrides ?? (_privateEndpointOverrides = new InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs>());
+            set => _privateEndpointOverrides = value;
+        }
+
+        [Input("privateKeyJwtConfig")]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigArgs>? PrivateKeyJwtConfig { get; set; }
 
         public AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs()
         {

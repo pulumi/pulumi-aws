@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetInstanceMasterUserSecret {
     /**
-     * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+     * @return Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
     private String kmsKeyId;
@@ -21,14 +21,14 @@ public final class GetInstanceMasterUserSecret {
      */
     private String secretArn;
     /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     private String secretStatus;
 
     private GetInstanceMasterUserSecret() {}
     /**
-     * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+     * @return Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
     public String kmsKeyId() {
@@ -42,7 +42,7 @@ public final class GetInstanceMasterUserSecret {
         return this.secretArn;
     }
     /**
-     * @return The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+     * @return Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
      * 
      */
     public String secretStatus() {

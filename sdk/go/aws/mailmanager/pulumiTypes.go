@@ -251,9 +251,9 @@ type IngressPointIngressPointConfiguration struct {
 	// ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
 	SecretArn *string `pulumi:"secretArn"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+	// SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
 	SmtpPasswordWo *string `pulumi:"smtpPasswordWo"`
-	// Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+	// Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
 	SmtpPasswordWoVersion *int `pulumi:"smtpPasswordWoVersion"`
 	// Configuration used to authenticate with `MTLS` ingress points. See `tlsAuthConfiguration` Block for details.
 	TlsAuthConfiguration *IngressPointIngressPointConfigurationTlsAuthConfiguration `pulumi:"tlsAuthConfiguration"`
@@ -274,9 +274,9 @@ type IngressPointIngressPointConfigurationArgs struct {
 	// ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+	// SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
 	SmtpPasswordWo pulumi.StringPtrInput `pulumi:"smtpPasswordWo"`
-	// Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+	// Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
 	SmtpPasswordWoVersion pulumi.IntPtrInput `pulumi:"smtpPasswordWoVersion"`
 	// Configuration used to authenticate with `MTLS` ingress points. See `tlsAuthConfiguration` Block for details.
 	TlsAuthConfiguration IngressPointIngressPointConfigurationTlsAuthConfigurationPtrInput `pulumi:"tlsAuthConfiguration"`
@@ -365,12 +365,12 @@ func (o IngressPointIngressPointConfigurationOutput) SecretArn() pulumi.StringPt
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+// SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
 func (o IngressPointIngressPointConfigurationOutput) SmtpPasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressPointIngressPointConfiguration) *string { return v.SmtpPasswordWo }).(pulumi.StringPtrOutput)
 }
 
-// Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+// Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
 func (o IngressPointIngressPointConfigurationOutput) SmtpPasswordWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IngressPointIngressPointConfiguration) *int { return v.SmtpPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
@@ -417,7 +417,7 @@ func (o IngressPointIngressPointConfigurationPtrOutput) SecretArn() pulumi.Strin
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+// SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
 func (o IngressPointIngressPointConfigurationPtrOutput) SmtpPasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IngressPointIngressPointConfiguration) *string {
 		if v == nil {
@@ -427,7 +427,7 @@ func (o IngressPointIngressPointConfigurationPtrOutput) SmtpPasswordWo() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+// Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
 func (o IngressPointIngressPointConfigurationPtrOutput) SmtpPasswordWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IngressPointIngressPointConfiguration) *int {
 		if v == nil {

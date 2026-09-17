@@ -76,7 +76,7 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
     }
 
     /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
      *
      * **Write-Only API Key (choose one approach):**
      */
@@ -87,11 +87,11 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
     declare public /*out*/ readonly apiKeySecretArns: pulumi.Output<outputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn[]>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
      */
     declare public readonly apiKeyWo: pulumi.Output<string | undefined>;
     /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      */
     declare public readonly apiKeyWoVersion: pulumi.Output<number | undefined>;
     /**
@@ -165,7 +165,7 @@ export class AgentcoreApiKeyCredentialProvider extends pulumi.CustomResource {
  */
 export interface AgentcoreApiKeyCredentialProviderState {
     /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
      *
      * **Write-Only API Key (choose one approach):**
      */
@@ -176,11 +176,11 @@ export interface AgentcoreApiKeyCredentialProviderState {
     apiKeySecretArns?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreApiKeyCredentialProviderApiKeySecretArn>[] | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
      */
     apiKeyWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      */
     apiKeyWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -214,18 +214,18 @@ export interface AgentcoreApiKeyCredentialProviderState {
  */
 export interface AgentcoreApiKeyCredentialProviderArgs {
     /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
      *
      * **Write-Only API Key (choose one approach):**
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
      */
     apiKeyWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      */
     apiKeyWoVersion?: pulumi.Input<number | undefined>;
     /**

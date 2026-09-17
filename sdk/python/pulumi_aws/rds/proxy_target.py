@@ -27,11 +27,9 @@ class ProxyTargetArgs:
         """
         The set of arguments for constructing a ProxyTarget resource.
 
-        :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy.
-        :param pulumi.Input[_builtins.str] target_group_name: The name of the target group.
+        :param pulumi.Input[_builtins.str] db_proxy_name: Name of the DB proxy.
+        :param pulumi.Input[_builtins.str] target_group_name: Name of the target group.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB cluster identifier.
-               
-               **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[_builtins.str] db_instance_identifier: DB instance identifier.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -48,7 +46,7 @@ class ProxyTargetArgs:
     @pulumi.getter(name="dbProxyName")
     def db_proxy_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the DB proxy.
+        Name of the DB proxy.
         """
         return pulumi.get(self, "db_proxy_name")
 
@@ -60,7 +58,7 @@ class ProxyTargetArgs:
     @pulumi.getter(name="targetGroupName")
     def target_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the target group.
+        Name of the target group.
         """
         return pulumi.get(self, "target_group_name")
 
@@ -73,8 +71,6 @@ class ProxyTargetArgs:
     def db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DB cluster identifier.
-
-        **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         """
         return pulumi.get(self, "db_cluster_identifier")
 
@@ -125,16 +121,14 @@ class _ProxyTargetState:
         Input properties used for looking up and filtering ProxyTarget resources.
 
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB cluster identifier.
-               
-               **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[_builtins.str] db_instance_identifier: DB instance identifier.
-        :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy.
+        :param pulumi.Input[_builtins.str] db_proxy_name: Name of the DB proxy.
         :param pulumi.Input[_builtins.str] endpoint: Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
         :param pulumi.Input[_builtins.int] port: Port for the target RDS DB Instance or Aurora DB Cluster.
         :param pulumi.Input[_builtins.str] rds_resource_id: Identifier representing the DB Instance or DB Cluster target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_arn: ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
-        :param pulumi.Input[_builtins.str] target_group_name: The name of the target group.
+        :param pulumi.Input[_builtins.str] target_group_name: Name of the target group.
         :param pulumi.Input[_builtins.str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         :param pulumi.Input[_builtins.str] type: Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """
@@ -166,8 +160,6 @@ class _ProxyTargetState:
     def db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DB cluster identifier.
-
-        **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         """
         return pulumi.get(self, "db_cluster_identifier")
 
@@ -191,7 +183,7 @@ class _ProxyTargetState:
     @pulumi.getter(name="dbProxyName")
     def db_proxy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the DB proxy.
+        Name of the DB proxy.
         """
         return pulumi.get(self, "db_proxy_name")
 
@@ -263,7 +255,7 @@ class _ProxyTargetState:
     @pulumi.getter(name="targetGroupName")
     def target_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the target group.
+        Name of the target group.
         """
         return pulumi.get(self, "target_group_name")
 
@@ -335,12 +327,10 @@ class ProxyTarget(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB cluster identifier.
-               
-               **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[_builtins.str] db_instance_identifier: DB instance identifier.
-        :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy.
+        :param pulumi.Input[_builtins.str] db_proxy_name: Name of the DB proxy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] target_group_name: The name of the target group.
+        :param pulumi.Input[_builtins.str] target_group_name: Name of the target group.
         """
         ...
     @overload
@@ -445,16 +435,14 @@ class ProxyTarget(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_cluster_identifier: DB cluster identifier.
-               
-               **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[_builtins.str] db_instance_identifier: DB instance identifier.
-        :param pulumi.Input[_builtins.str] db_proxy_name: The name of the DB proxy.
+        :param pulumi.Input[_builtins.str] db_proxy_name: Name of the DB proxy.
         :param pulumi.Input[_builtins.str] endpoint: Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
         :param pulumi.Input[_builtins.int] port: Port for the target RDS DB Instance or Aurora DB Cluster.
         :param pulumi.Input[_builtins.str] rds_resource_id: Identifier representing the DB Instance or DB Cluster target.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_arn: ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
-        :param pulumi.Input[_builtins.str] target_group_name: The name of the target group.
+        :param pulumi.Input[_builtins.str] target_group_name: Name of the target group.
         :param pulumi.Input[_builtins.str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
         :param pulumi.Input[_builtins.str] type: Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """
@@ -480,8 +468,6 @@ class ProxyTarget(pulumi.CustomResource):
     def db_cluster_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         DB cluster identifier.
-
-        **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         """
         return pulumi.get(self, "db_cluster_identifier")
 
@@ -497,7 +483,7 @@ class ProxyTarget(pulumi.CustomResource):
     @pulumi.getter(name="dbProxyName")
     def db_proxy_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the DB proxy.
+        Name of the DB proxy.
         """
         return pulumi.get(self, "db_proxy_name")
 
@@ -545,7 +531,7 @@ class ProxyTarget(pulumi.CustomResource):
     @pulumi.getter(name="targetGroupName")
     def target_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the target group.
+        Name of the target group.
         """
         return pulumi.get(self, "target_group_name")
 

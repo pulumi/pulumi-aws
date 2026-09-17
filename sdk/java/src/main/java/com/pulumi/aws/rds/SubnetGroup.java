@@ -79,42 +79,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/subnetGroup:SubnetGroup")
 public class SubnetGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the db subnet group.
+     * ARN of the db subnet group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the db subnet group.
+     * @return ARN of the db subnet group.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * Description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return The description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return Description of the DB subnet group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+     * Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+     * @return Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -149,56 +149,56 @@ public class SubnetGroup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A list of VPC subnet IDs.
+     * List of VPC subnet IDs.
      * 
      */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of VPC subnet IDs.
+     * @return List of VPC subnet IDs.
      * 
      */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
     /**
-     * The network type of the db subnet group.
+     * Network type of the db subnet group.
      * 
      */
     @Export(name="supportedNetworkTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> supportedNetworkTypes;
 
     /**
-     * @return The network type of the db subnet group.
+     * @return Network type of the db subnet group.
      * 
      */
     public Output<List<String>> supportedNetworkTypes() {
         return this.supportedNetworkTypes;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

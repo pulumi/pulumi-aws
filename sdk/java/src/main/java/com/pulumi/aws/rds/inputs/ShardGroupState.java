@@ -36,14 +36,14 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+     * Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
      * 
      */
     @Import(name="computeRedundancy")
     private @Nullable Output<Integer> computeRedundancy;
 
     /**
-     * @return Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+     * @return Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
      * 
      */
     public Optional<Output<Integer>> computeRedundancy() {
@@ -51,14 +51,14 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the primary DB cluster for the DB shard group.
+     * Name of the primary DB cluster for the DB shard group.
      * 
      */
     @Import(name="dbClusterIdentifier")
     private @Nullable Output<String> dbClusterIdentifier;
 
     /**
-     * @return The name of the primary DB cluster for the DB shard group.
+     * @return Name of the primary DB cluster for the DB shard group.
      * 
      */
     public Optional<Output<String>> dbClusterIdentifier() {
@@ -66,14 +66,14 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the DB shard group.
+     * Name of the DB shard group.
      * 
      */
     @Import(name="dbShardGroupIdentifier")
     private @Nullable Output<String> dbShardGroupIdentifier;
 
     /**
-     * @return The name of the DB shard group.
+     * @return Name of the DB shard group.
      * 
      */
     public Optional<Output<String>> dbShardGroupIdentifier() {
@@ -81,14 +81,14 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS Region-unique, immutable identifier for the DB shard group.
+     * AWS Region-unique, immutable identifier for the DB shard group.
      * 
      */
     @Import(name="dbShardGroupResourceId")
     private @Nullable Output<String> dbShardGroupResourceId;
 
     /**
-     * @return The AWS Region-unique, immutable identifier for the DB shard group.
+     * @return AWS Region-unique, immutable identifier for the DB shard group.
      * 
      */
     public Optional<Output<String>> dbShardGroupResourceId() {
@@ -96,14 +96,14 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The connection endpoint for the DB shard group.
+     * Connection endpoint for the DB shard group.
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The connection endpoint for the DB shard group.
+     * @return Connection endpoint for the DB shard group.
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -111,14 +111,14 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+     * Maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
     @Import(name="maxAcu")
     private @Nullable Output<Double> maxAcu;
 
     /**
-     * @return The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+     * @return Maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
     public Optional<Output<Double>> maxAcu() {
@@ -126,14 +126,14 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+     * Minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
     @Import(name="minAcu")
     private @Nullable Output<Double> minAcu;
 
     /**
-     * @return The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+     * @return Minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
     public Optional<Output<Double>> minAcu() {
@@ -141,14 +141,14 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether the DB shard group is publicly accessible.
+     * Whether the DB shard group is publicly accessible.
      * 
      */
     @Import(name="publiclyAccessible")
     private @Nullable Output<Boolean> publiclyAccessible;
 
     /**
-     * @return Indicates whether the DB shard group is publicly accessible.
+     * @return Whether the DB shard group is publicly accessible.
      * 
      */
     public Optional<Output<Boolean>> publiclyAccessible() {
@@ -173,8 +173,6 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
@@ -182,22 +180,20 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-     * 
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -269,7 +265,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeRedundancy Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+         * @param computeRedundancy Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
          * 
          * @return builder
          * 
@@ -280,7 +276,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeRedundancy Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+         * @param computeRedundancy Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
          * 
          * @return builder
          * 
@@ -290,7 +286,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbClusterIdentifier The name of the primary DB cluster for the DB shard group.
+         * @param dbClusterIdentifier Name of the primary DB cluster for the DB shard group.
          * 
          * @return builder
          * 
@@ -301,7 +297,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbClusterIdentifier The name of the primary DB cluster for the DB shard group.
+         * @param dbClusterIdentifier Name of the primary DB cluster for the DB shard group.
          * 
          * @return builder
          * 
@@ -311,7 +307,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbShardGroupIdentifier The name of the DB shard group.
+         * @param dbShardGroupIdentifier Name of the DB shard group.
          * 
          * @return builder
          * 
@@ -322,7 +318,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbShardGroupIdentifier The name of the DB shard group.
+         * @param dbShardGroupIdentifier Name of the DB shard group.
          * 
          * @return builder
          * 
@@ -332,7 +328,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbShardGroupResourceId The AWS Region-unique, immutable identifier for the DB shard group.
+         * @param dbShardGroupResourceId AWS Region-unique, immutable identifier for the DB shard group.
          * 
          * @return builder
          * 
@@ -343,7 +339,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbShardGroupResourceId The AWS Region-unique, immutable identifier for the DB shard group.
+         * @param dbShardGroupResourceId AWS Region-unique, immutable identifier for the DB shard group.
          * 
          * @return builder
          * 
@@ -353,7 +349,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The connection endpoint for the DB shard group.
+         * @param endpoint Connection endpoint for the DB shard group.
          * 
          * @return builder
          * 
@@ -364,7 +360,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param endpoint The connection endpoint for the DB shard group.
+         * @param endpoint Connection endpoint for the DB shard group.
          * 
          * @return builder
          * 
@@ -374,7 +370,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxAcu The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+         * @param maxAcu Maximum capacity of the DB shard group in Aurora capacity units (ACUs).
          * 
          * @return builder
          * 
@@ -385,7 +381,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxAcu The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+         * @param maxAcu Maximum capacity of the DB shard group in Aurora capacity units (ACUs).
          * 
          * @return builder
          * 
@@ -395,7 +391,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minAcu The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+         * @param minAcu Minimum capacity of the DB shard group in Aurora capacity units (ACUs).
          * 
          * @return builder
          * 
@@ -406,7 +402,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minAcu The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+         * @param minAcu Minimum capacity of the DB shard group in Aurora capacity units (ACUs).
          * 
          * @return builder
          * 
@@ -416,7 +412,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible Indicates whether the DB shard group is publicly accessible.
+         * @param publiclyAccessible Whether the DB shard group is publicly accessible.
          * 
          * @return builder
          * 
@@ -427,7 +423,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible Indicates whether the DB shard group is publicly accessible.
+         * @param publiclyAccessible Whether the DB shard group is publicly accessible.
          * 
          * @return builder
          * 
@@ -460,8 +456,6 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-         * 
          * @return builder
          * 
          */
@@ -473,8 +467,6 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-         * 
          * @return builder
          * 
          */
@@ -483,7 +475,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -494,7 +486,7 @@ public final class ShardGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

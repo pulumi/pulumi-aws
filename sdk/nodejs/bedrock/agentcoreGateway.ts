@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *     protocolConfiguration: {
  *         mcp: {
  *             instructions: "Gateway for handling MCP requests",
- *             searchType: "HYBRID",
+ *             searchType: "SEMANTIC",
  *             supportedVersions: [
  *                 "2025-03-26",
  *                 "2025-06-18",

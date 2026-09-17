@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventSubscription{}
 	case "aws:dms/instanceProfile:InstanceProfile":
 		r = &InstanceProfile{}
+	case "aws:dms/migrationProject:MigrationProject":
+		r = &MigrationProject{}
 	case "aws:dms/replicationConfig:ReplicationConfig":
 		r = &ReplicationConfig{}
 	case "aws:dms/replicationInstance:ReplicationInstance":
@@ -77,6 +79,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dms/instanceProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dms/migrationProject",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

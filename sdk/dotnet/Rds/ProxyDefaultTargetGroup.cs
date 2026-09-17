@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The settings that determine the size and behavior of the connection pool for the target group.
+        /// Settings that determine the size and behavior of the connection pool for the target group. See `ConnectionPoolConfig` Block for details.
         /// </summary>
         [Output("connectionPoolConfig")]
         public Output<Outputs.ProxyDefaultTargetGroupConnectionPoolConfig> ConnectionPoolConfig { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbProxyName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the default target group.
+        /// Name of the default target group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ProxyDefaultTargetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The settings that determine the size and behavior of the connection pool for the target group.
+        /// Settings that determine the size and behavior of the connection pool for the target group. See `ConnectionPoolConfig` Block for details.
         /// </summary>
         [Input("connectionPoolConfig")]
         public Input<Inputs.ProxyDefaultTargetGroupConnectionPoolConfigArgs>? ConnectionPoolConfig { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The settings that determine the size and behavior of the connection pool for the target group.
+        /// Settings that determine the size and behavior of the connection pool for the target group. See `ConnectionPoolConfig` Block for details.
         /// </summary>
         [Input("connectionPoolConfig")]
         public Input<Inputs.ProxyDefaultTargetGroupConnectionPoolConfigGetArgs>? ConnectionPoolConfig { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbProxyName { get; set; }
 
         /// <summary>
-        /// The name of the default target group.
+        /// Name of the default target group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -55,7 +55,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
+     * Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
      */
     declare public readonly connectionPoolConfig: pulumi.Output<outputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
     /**
@@ -63,7 +63,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
      */
     declare public readonly dbProxyName: pulumi.Output<string>;
     /**
-     * The name of the default target group.
+     * Name of the default target group.
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
@@ -114,7 +114,7 @@ export interface ProxyDefaultTargetGroupState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
+     * Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
      */
     connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig | undefined>;
     /**
@@ -122,7 +122,7 @@ export interface ProxyDefaultTargetGroupState {
      */
     dbProxyName?: pulumi.Input<string | undefined>;
     /**
-     * The name of the default target group.
+     * Name of the default target group.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface ProxyDefaultTargetGroupState {
  */
 export interface ProxyDefaultTargetGroupArgs {
     /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
+     * Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
      */
     connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig | undefined>;
     /**

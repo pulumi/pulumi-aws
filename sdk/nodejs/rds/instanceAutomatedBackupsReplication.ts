@@ -102,7 +102,7 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
-     * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+     * URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      */
     declare public readonly preSignedUrl: pulumi.Output<string | undefined>;
     /**
@@ -110,7 +110,7 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The retention period for the replicated automated backups, defaults to `7`.
+     * Retention period for the replicated automated backups, defaults to `7`.
      */
     declare public readonly retentionPeriod: pulumi.Output<number | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface InstanceAutomatedBackupsReplicationState {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+     * URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      */
     preSignedUrl?: pulumi.Input<string | undefined>;
     /**
@@ -169,7 +169,7 @@ export interface InstanceAutomatedBackupsReplicationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The retention period for the replicated automated backups, defaults to `7`.
+     * Retention period for the replicated automated backups, defaults to `7`.
      */
     retentionPeriod?: pulumi.Input<number | undefined>;
     /**
@@ -187,7 +187,7 @@ export interface InstanceAutomatedBackupsReplicationArgs {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+     * URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      */
     preSignedUrl?: pulumi.Input<string | undefined>;
     /**
@@ -195,7 +195,7 @@ export interface InstanceAutomatedBackupsReplicationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The retention period for the replicated automated backups, defaults to `7`.
+     * Retention period for the replicated automated backups, defaults to `7`.
      */
     retentionPeriod?: pulumi.Input<number | undefined>;
     /**

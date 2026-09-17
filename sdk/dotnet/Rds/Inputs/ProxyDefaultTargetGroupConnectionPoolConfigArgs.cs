@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Rds.Inputs
     public sealed class ProxyDefaultTargetGroupConnectionPoolConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+        /// Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
         /// </summary>
         [Input("connectionBorrowTimeout")]
         public Input<int>? ConnectionBorrowTimeout { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? InitQuery { get; set; }
 
         /// <summary>
-        /// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the MaxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+        /// Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the MaxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
         /// </summary>
         [Input("maxConnectionsPercent")]
         public Input<int>? MaxConnectionsPercent { get; set; }

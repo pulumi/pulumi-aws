@@ -89,28 +89,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/snapshotCopy:SnapshotCopy")
 public class SnapshotCopy extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
     /**
-     * @return Specifies the allocated storage size in gigabytes (GB).
+     * @return Allocated storage size in gigabytes (GB).
      * 
      */
     public Output<Integer> allocatedStorage() {
         return this.allocatedStorage;
     }
     /**
-     * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+     * Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+     * @return Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
     public Output<String> availabilityZone() {
@@ -145,70 +145,70 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
         return this.dbSnapshotArn;
     }
     /**
-     * The Destination region to place snapshot copy.
+     * Destination Region to place snapshot copy.
      * 
      */
     @Export(name="destinationRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationRegion;
 
     /**
-     * @return The Destination region to place snapshot copy.
+     * @return Destination Region to place snapshot copy.
      * 
      */
     public Output<Optional<String>> destinationRegion() {
         return Codegen.optional(this.destinationRegion);
     }
     /**
-     * Specifies whether the DB snapshot is encrypted.
+     * Whether the DB snapshot is encrypted.
      * 
      */
     @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> encrypted;
 
     /**
-     * @return Specifies whether the DB snapshot is encrypted.
+     * @return Whether the DB snapshot is encrypted.
      * 
      */
     public Output<Boolean> encrypted() {
         return this.encrypted;
     }
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return Specifies the name of the database engine.
+     * @return Name of the database engine.
      * 
      */
     public Output<String> engine() {
         return this.engine;
     }
     /**
-     * Specifies the version of the database engine.
+     * Version of the database engine.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return Specifies the version of the database engine.
+     * @return Version of the database engine.
      * 
      */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
     /**
-     * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+     * Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
     @Export(name="iops", refs={Integer.class}, tree="[0]")
     private Output<Integer> iops;
 
     /**
-     * @return Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+     * @return Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
     public Output<Integer> iops() {
@@ -243,34 +243,42 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
         return this.licenseModel;
     }
     /**
-     * The name of an option group to associate with the copy of the snapshot.
+     * Name of an option group to associate with the copy of the snapshot.
      * 
      */
     @Export(name="optionGroupName", refs={String.class}, tree="[0]")
     private Output<String> optionGroupName;
 
     /**
-     * @return The name of an option group to associate with the copy of the snapshot.
+     * @return Name of an option group to associate with the copy of the snapshot.
      * 
      */
     public Output<String> optionGroupName() {
         return this.optionGroupName;
     }
+    /**
+     * Port that the database engine is listening on.
+     * 
+     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
+    /**
+     * @return Port that the database engine is listening on.
+     * 
+     */
     public Output<Integer> port() {
         return this.port;
     }
     /**
-     * he URL that contains a Signature Version 4 signed request.
+     * URL that contains a Signature Version 4 signed request.
      * 
      */
     @Export(name="presignedUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> presignedUrl;
 
     /**
-     * @return he URL that contains a Signature Version 4 signed request.
+     * @return URL that contains a Signature Version 4 signed request.
      * 
      */
     public Output<Optional<String>> presignedUrl() {
@@ -304,9 +312,17 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> sharedAccounts() {
         return Codegen.optional(this.sharedAccounts);
     }
+    /**
+     * Type of the DB snapshot.
+     * 
+     */
     @Export(name="snapshotType", refs={String.class}, tree="[0]")
     private Output<String> snapshotType;
 
+    /**
+     * @return Type of the DB snapshot.
+     * 
+     */
     public Output<String> snapshotType() {
         return this.snapshotType;
     }
@@ -325,28 +341,28 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
         return this.sourceDbSnapshotIdentifier;
     }
     /**
-     * The region that the DB snapshot was created in or copied from.
+     * Region that the DB snapshot was created in or copied from.
      * 
      */
     @Export(name="sourceRegion", refs={String.class}, tree="[0]")
     private Output<String> sourceRegion;
 
     /**
-     * @return The region that the DB snapshot was created in or copied from.
+     * @return Region that the DB snapshot was created in or copied from.
      * 
      */
     public Output<String> sourceRegion() {
         return this.sourceRegion;
     }
     /**
-     * Specifies the storage type associated with DB snapshot.
+     * Storage type associated with DB snapshot.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
     /**
-     * @return Specifies the storage type associated with DB snapshot.
+     * @return Storage type associated with DB snapshot.
      * 
      */
     public Output<String> storageType() {
@@ -367,42 +383,42 @@ public class SnapshotCopy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The external custom Availability Zone.
+     * External custom Availability Zone.
      * 
      */
     @Export(name="targetCustomAvailabilityZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetCustomAvailabilityZone;
 
     /**
-     * @return The external custom Availability Zone.
+     * @return External custom Availability Zone.
      * 
      */
     public Output<Optional<String>> targetCustomAvailabilityZone() {
         return Codegen.optional(this.targetCustomAvailabilityZone);
     }
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      * 
      */
     @Export(name="targetDbSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> targetDbSnapshotIdentifier;
 
     /**
-     * @return The Identifier for the snapshot.
+     * @return Identifier for the snapshot.
      * 
      */
     public Output<String> targetDbSnapshotIdentifier() {

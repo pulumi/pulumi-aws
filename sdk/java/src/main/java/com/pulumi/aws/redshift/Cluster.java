@@ -508,18 +508,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maintenanceTrackName);
     }
     /**
-     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     @Export(name="manageMasterPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manageMasterPassword;
 
     /**
-     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     public Output<Optional<Boolean>> manageMasterPassword() {
@@ -540,22 +536,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.manualSnapshotRetentionPeriod);
     }
     /**
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> masterPassword;
 
     /**
-     * @return Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * @return Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     public Output<Optional<String>> masterPassword() {
@@ -591,11 +579,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     @Export(name="masterPasswordWo", refs={String.class}, tree="[0]")
@@ -603,25 +587,21 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> masterPasswordWo() {
         return Codegen.optional(this.masterPasswordWo);
     }
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     @Export(name="masterPasswordWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> masterPasswordWoVersion;
 
     /**
-     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * @return Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     public Output<Optional<Integer>> masterPasswordWoVersion() {

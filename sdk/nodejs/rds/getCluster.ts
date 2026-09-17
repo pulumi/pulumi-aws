@@ -43,7 +43,7 @@ export interface GetClusterArgs {
      */
     region?: string;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: {[key: string]: string};
 }
@@ -52,51 +52,159 @@ export interface GetClusterArgs {
  * A collection of values returned by getCluster.
  */
 export interface GetClusterResult {
+    /**
+     * ARN of the cluster.
+     */
     readonly arn: string;
+    /**
+     * Availability Zones of the RDS cluster.
+     */
     readonly availabilityZones: string[];
+    /**
+     * Target backtrack window, in seconds.
+     */
     readonly backtrackWindow: number;
+    /**
+     * Days to retain backups for.
+     */
     readonly backupRetentionPeriod: number;
     readonly clusterIdentifier: string;
+    /**
+     * List of RDS Instances that are a part of this cluster.
+     */
     readonly clusterMembers: string[];
+    /**
+     * RDS Cluster Resource ID.
+     */
     readonly clusterResourceId: string;
+    /**
+     * Scalability mode of the cluster.
+     */
     readonly clusterScalabilityType: string;
+    /**
+     * Mode of Database Insights that is enabled for the cluster.
+     */
     readonly databaseInsightsMode: string;
+    /**
+     * Name for an automatically created database on cluster creation.
+     */
     readonly databaseName: string;
+    /**
+     * Cluster parameter group associated with the cluster.
+     */
     readonly dbClusterParameterGroupName: string;
+    /**
+     * DB subnet group associated with the cluster.
+     */
     readonly dbSubnetGroupName: string;
+    /**
+     * System ID of the cluster.
+     */
     readonly dbSystemId: string;
+    /**
+     * Whether the cluster has deletion protection enabled.
+     */
     readonly deletionProtection: boolean;
+    /**
+     * List of log types exported to CloudWatch Logs.
+     */
     readonly enabledCloudwatchLogsExports: string[];
+    /**
+     * DNS address of the RDS instance.
+     */
     readonly endpoint: string;
+    /**
+     * Database engine.
+     */
     readonly engine: string;
+    /**
+     * Database engine mode.
+     */
     readonly engineMode: string;
+    /**
+     * Database engine version.
+     */
     readonly engineVersion: string;
+    /**
+     * Name of the final snapshot taken when the cluster is deleted.
+     */
     readonly finalSnapshotIdentifier: string;
+    /**
+     * Route53 Hosted Zone ID of the endpoint.
+     */
     readonly hostedZoneId: string;
+    /**
+     * Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     */
     readonly iamDatabaseAuthenticationEnabled: boolean;
+    /**
+     * IAM roles associated with the cluster.
+     */
     readonly iamRoles: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Amazon Web Services KMS key identifier that is used to encrypt the secret.
+     */
     readonly kmsKeyId: string;
+    /**
+     * Block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to `true`. Documented below.
+     */
     readonly masterUserSecrets: outputs.rds.GetClusterMasterUserSecret[];
+    /**
+     * Master username for the database.
+     */
     readonly masterUsername: string;
+    /**
+     * Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the cluster.
+     */
     readonly monitoringInterval: number;
+    /**
+     * ARN of the IAM role used by RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+     */
     readonly monitoringRoleArn: string;
+    /**
+     * Network type of the cluster.
+     */
     readonly networkType: string;
+    /**
+     * Port on which the DB accepts connections.
+     */
     readonly port: number;
+    /**
+     * Daily time range during which automated backups are created.
+     */
     readonly preferredBackupWindow: string;
+    /**
+     * Weekly time range during which system maintenance can occur.
+     */
     readonly preferredMaintenanceWindow: string;
+    /**
+     * Read-only endpoint for the cluster, automatically load-balanced across replicas.
+     */
     readonly readerEndpoint: string;
     readonly region: string;
+    /**
+     * ARN of the source DB cluster or DB instance if this DB cluster is created as a read replica.
+     */
     readonly replicationSourceIdentifier: string;
+    /**
+     * Whether the DB cluster is encrypted.
+     */
     readonly storageEncrypted: boolean;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * Order in which minor and major version upgrades are applied to the cluster.
+     */
     readonly upgradeRolloutOrder: string;
+    /**
+     * VPC security groups the cluster belongs to.
+     */
     readonly vpcSecurityGroupIds: string[];
 }
 /**
@@ -135,7 +243,7 @@ export interface GetClusterOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags assigned to the resource.
+     * Map of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

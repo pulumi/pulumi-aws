@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface test dxvif-33cc44dd
  * ```
+ *
+ * > **Note:** When a virtual interface uses an ASN in the `bgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgpAsn` rather than `bgpAsnLong`. If the virtual interface was originally created with `bgpAsnLong` set to a value in that range, update your configuration to use `bgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgpAsnLong` as expected.
  */
 export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
     /**
@@ -77,9 +79,13 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
-    declare public readonly bgpAsn: pulumi.Output<number>;
+    declare public readonly bgpAsn: pulumi.Output<number | undefined>;
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     */
+    declare public readonly bgpAsnLong: pulumi.Output<string | undefined>;
     /**
      * The authentication key for BGP configuration.
      */
@@ -148,6 +154,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["awsDevice"] = state?.awsDevice;
             resourceInputs["bgpAsn"] = state?.bgpAsn;
+            resourceInputs["bgpAsnLong"] = state?.bgpAsnLong;
             resourceInputs["bgpAuthKey"] = state?.bgpAuthKey;
             resourceInputs["connectionId"] = state?.connectionId;
             resourceInputs["customerAddress"] = state?.customerAddress;
@@ -165,9 +172,6 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             if (args?.addressFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
             }
-            if (args?.bgpAsn === undefined && !opts.urn) {
-                throw new Error("Missing required property 'bgpAsn'");
-            }
             if (args?.connectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
@@ -180,6 +184,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             resourceInputs["addressFamily"] = args?.addressFamily;
             resourceInputs["amazonAddress"] = args?.amazonAddress;
             resourceInputs["bgpAsn"] = args?.bgpAsn;
+            resourceInputs["bgpAsnLong"] = args?.bgpAsnLong;
             resourceInputs["bgpAuthKey"] = args?.bgpAuthKey;
             resourceInputs["connectionId"] = args?.connectionId;
             resourceInputs["customerAddress"] = args?.customerAddress;
@@ -223,9 +228,13 @@ export interface HostedPrivateVirtualInterfaceState {
      */
     awsDevice?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
     bgpAsn?: pulumi.Input<number | undefined>;
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     */
+    bgpAsnLong?: pulumi.Input<string | undefined>;
     /**
      * The authentication key for BGP configuration.
      */
@@ -289,9 +298,13 @@ export interface HostedPrivateVirtualInterfaceArgs {
      */
     amazonAddress?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
-    bgpAsn: pulumi.Input<number>;
+    bgpAsn?: pulumi.Input<number | undefined>;
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     */
+    bgpAsnLong?: pulumi.Input<string | undefined>;
     /**
      * The authentication key for BGP configuration.
      */

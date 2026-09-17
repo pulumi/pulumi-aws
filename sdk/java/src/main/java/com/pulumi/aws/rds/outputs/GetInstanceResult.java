@@ -26,7 +26,7 @@ public final class GetInstanceResult {
      */
     private Integer allocatedStorage;
     /**
-     * @return Indicates that minor version patches are applied automatically.
+     * @return Whether minor version patches are applied automatically.
      * 
      */
     private Boolean autoMinorVersionUpgrade;
@@ -36,7 +36,7 @@ public final class GetInstanceResult {
      */
     private String availabilityZone;
     /**
-     * @return Specifies the number of days for which automatic DB snapshots are retained.
+     * @return Number of days for which automatic DB snapshots are retained.
      * 
      */
     private Integer backupRetentionPeriod;
@@ -46,7 +46,7 @@ public final class GetInstanceResult {
      */
     private String caCertIdentifier;
     /**
-     * @return The mode of Database Insights that is enabled for the DB instance.
+     * @return Mode of Database Insights that is enabled for the DB instance.
      * 
      */
     private String databaseInsightsMode;
@@ -61,7 +61,7 @@ public final class GetInstanceResult {
      */
     private String dbInstanceArn;
     /**
-     * @return Contains the name of the compute and memory capacity class of the DB instance.
+     * @return Name of the compute and memory capacity class of the DB instance.
      * 
      */
     private String dbInstanceClass;
@@ -72,7 +72,7 @@ public final class GetInstanceResult {
      */
     private Integer dbInstancePort;
     /**
-     * @return Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+     * @return Name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
      * 
      */
     private String dbName;
@@ -122,7 +122,7 @@ public final class GetInstanceResult {
      */
     private Integer iops;
     /**
-     * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+     * @return Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
     private String kmsKeyId;
@@ -137,12 +137,12 @@ public final class GetInstanceResult {
      */
     private List<GetInstanceMasterUserSecret> masterUserSecrets;
     /**
-     * @return Contains the master username for the DB instance.
+     * @return Master username for the DB instance.
      * 
      */
     private String masterUsername;
     /**
-     * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+     * @return Upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
      * 
      */
     private Integer maxAllocatedStorage;
@@ -177,12 +177,12 @@ public final class GetInstanceResult {
      */
     private Integer port;
     /**
-     * @return Specifies the daily time range during which automated backups are created.
+     * @return Daily time range during which automated backups are created.
      * 
      */
     private String preferredBackupWindow;
     /**
-     * @return Specifies the weekly time range during which system maintenance can occur in UTC.
+     * @return Weekly time range during which system maintenance can occur in UTC.
      * 
      */
     private String preferredMaintenanceWindow;
@@ -250,7 +250,7 @@ public final class GetInstanceResult {
         return this.allocatedStorage;
     }
     /**
-     * @return Indicates that minor version patches are applied automatically.
+     * @return Whether minor version patches are applied automatically.
      * 
      */
     public Boolean autoMinorVersionUpgrade() {
@@ -264,7 +264,7 @@ public final class GetInstanceResult {
         return this.availabilityZone;
     }
     /**
-     * @return Specifies the number of days for which automatic DB snapshots are retained.
+     * @return Number of days for which automatic DB snapshots are retained.
      * 
      */
     public Integer backupRetentionPeriod() {
@@ -278,7 +278,7 @@ public final class GetInstanceResult {
         return this.caCertIdentifier;
     }
     /**
-     * @return The mode of Database Insights that is enabled for the DB instance.
+     * @return Mode of Database Insights that is enabled for the DB instance.
      * 
      */
     public String databaseInsightsMode() {
@@ -299,7 +299,7 @@ public final class GetInstanceResult {
         return this.dbInstanceArn;
     }
     /**
-     * @return Contains the name of the compute and memory capacity class of the DB instance.
+     * @return Name of the compute and memory capacity class of the DB instance.
      * 
      */
     public String dbInstanceClass() {
@@ -316,7 +316,7 @@ public final class GetInstanceResult {
         return this.dbInstancePort;
     }
     /**
-     * @return Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+     * @return Name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
      * 
      */
     public String dbName() {
@@ -386,7 +386,7 @@ public final class GetInstanceResult {
         return this.iops;
     }
     /**
-     * @return The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+     * @return Amazon Web Services KMS key identifier that is used to encrypt the secret.
      * 
      */
     public String kmsKeyId() {
@@ -407,14 +407,14 @@ public final class GetInstanceResult {
         return this.masterUserSecrets;
     }
     /**
-     * @return Contains the master username for the DB instance.
+     * @return Master username for the DB instance.
      * 
      */
     public String masterUsername() {
         return this.masterUsername;
     }
     /**
-     * @return The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+     * @return Upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
      * 
      */
     public Integer maxAllocatedStorage() {
@@ -463,14 +463,14 @@ public final class GetInstanceResult {
         return this.port;
     }
     /**
-     * @return Specifies the daily time range during which automated backups are created.
+     * @return Daily time range during which automated backups are created.
      * 
      */
     public String preferredBackupWindow() {
         return this.preferredBackupWindow;
     }
     /**
-     * @return Specifies the weekly time range during which system maintenance can occur in UTC.
+     * @return Weekly time range during which system maintenance can occur in UTC.
      * 
      */
     public String preferredMaintenanceWindow() {

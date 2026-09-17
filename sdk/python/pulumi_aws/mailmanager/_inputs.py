@@ -225,11 +225,11 @@ class IngressPointIngressPointConfigurationArgsDict(TypedDict):
     smtp_password_wo: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-    SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtp_password_wo_version` to be set. See Write-Only Arguments for more information.
+    SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtp_password_wo_version` to be set.
     """
     smtp_password_wo_version: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Version number for `smtp_password_wo`. Increment this value to trigger a password update. Required when using `smtp_password_wo`.
+    Required when `smtp_password_wo` is set. Changing this value triggers an update to `smtp_password_wo`.
     """
     tls_auth_configuration: NotRequired[pulumi.Input[Optional['IngressPointIngressPointConfigurationTlsAuthConfigurationArgsDict']]]
     """
@@ -246,8 +246,8 @@ class IngressPointIngressPointConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
         :param pulumi.Input[_builtins.str] smtp_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtp_password_wo_version` to be set. See Write-Only Arguments for more information.
-        :param pulumi.Input[_builtins.int] smtp_password_wo_version: Version number for `smtp_password_wo`. Increment this value to trigger a password update. Required when using `smtp_password_wo`.
+               SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtp_password_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] smtp_password_wo_version: Required when `smtp_password_wo` is set. Changing this value triggers an update to `smtp_password_wo`.
         :param pulumi.Input['IngressPointIngressPointConfigurationTlsAuthConfigurationArgs'] tls_auth_configuration: Configuration used to authenticate with `MTLS` ingress points. See `tls_auth_configuration` Block for details.
         """
         if secret_arn is not None:
@@ -276,7 +276,7 @@ class IngressPointIngressPointConfigurationArgs:
     def smtp_password_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtp_password_wo_version` to be set. See Write-Only Arguments for more information.
+        SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtp_password_wo_version` to be set.
         """
         return pulumi.get(self, "smtp_password_wo")
 
@@ -288,7 +288,7 @@ class IngressPointIngressPointConfigurationArgs:
     @pulumi.getter(name="smtpPasswordWoVersion")
     def smtp_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Version number for `smtp_password_wo`. Increment this value to trigger a password update. Required when using `smtp_password_wo`.
+        Required when `smtp_password_wo` is set. Changing this value triggers an update to `smtp_password_wo`.
         """
         return pulumi.get(self, "smtp_password_wo_version")
 

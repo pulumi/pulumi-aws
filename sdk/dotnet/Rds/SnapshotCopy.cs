@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Rds
     public partial class SnapshotCopy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
+        /// Allocated storage size in gigabytes (GB).
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        /// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
@@ -87,31 +87,31 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbSnapshotArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Destination region to place snapshot copy.
+        /// Destination Region to place snapshot copy.
         /// </summary>
         [Output("destinationRegion")]
         public Output<string?> DestinationRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB snapshot is encrypted.
+        /// Whether the DB snapshot is encrypted.
         /// </summary>
         [Output("encrypted")]
         public Output<bool> Encrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the database engine.
+        /// Name of the database engine.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the version of the database engine.
+        /// Version of the database engine.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        /// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         /// </summary>
         [Output("iops")]
         public Output<int> Iops { get; private set; } = null!;
@@ -129,16 +129,19 @@ namespace Pulumi.Aws.Rds
         public Output<string> LicenseModel { get; private set; } = null!;
 
         /// <summary>
-        /// The name of an option group to associate with the copy of the snapshot.
+        /// Name of an option group to associate with the copy of the snapshot.
         /// </summary>
         [Output("optionGroupName")]
         public Output<string> OptionGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Port that the database engine is listening on.
+        /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// he URL that contains a Signature Version 4 signed request.
+        /// URL that contains a Signature Version 4 signed request.
         /// </summary>
         [Output("presignedUrl")]
         public Output<string?> PresignedUrl { get; private set; } = null!;
@@ -155,6 +158,9 @@ namespace Pulumi.Aws.Rds
         [Output("sharedAccounts")]
         public Output<ImmutableArray<string>> SharedAccounts { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the DB snapshot.
+        /// </summary>
         [Output("snapshotType")]
         public Output<string> SnapshotType { get; private set; } = null!;
 
@@ -165,13 +171,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> SourceDbSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The region that the DB snapshot was created in or copied from.
+        /// Region that the DB snapshot was created in or copied from.
         /// </summary>
         [Output("sourceRegion")]
         public Output<string> SourceRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage type associated with DB snapshot.
+        /// Storage type associated with DB snapshot.
         /// </summary>
         [Output("storageType")]
         public Output<string> StorageType { get; private set; } = null!;
@@ -183,19 +189,19 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The external custom Availability Zone.
+        /// External custom Availability Zone.
         /// </summary>
         [Output("targetCustomAvailabilityZone")]
         public Output<string?> TargetCustomAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// The Identifier for the snapshot.
+        /// Identifier for the snapshot.
         /// </summary>
         [Output("targetDbSnapshotIdentifier")]
         public Output<string> TargetDbSnapshotIdentifier { get; private set; } = null!;
@@ -259,7 +265,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTags { get; set; }
 
         /// <summary>
-        /// The Destination region to place snapshot copy.
+        /// Destination Region to place snapshot copy.
         /// </summary>
         [Input("destinationRegion")]
         public Input<string>? DestinationRegion { get; set; }
@@ -271,13 +277,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The name of an option group to associate with the copy of the snapshot.
+        /// Name of an option group to associate with the copy of the snapshot.
         /// </summary>
         [Input("optionGroupName")]
         public Input<string>? OptionGroupName { get; set; }
 
         /// <summary>
-        /// he URL that contains a Signature Version 4 signed request.
+        /// URL that contains a Signature Version 4 signed request.
         /// </summary>
         [Input("presignedUrl")]
         public Input<string>? PresignedUrl { get; set; }
@@ -319,13 +325,13 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// The external custom Availability Zone.
+        /// External custom Availability Zone.
         /// </summary>
         [Input("targetCustomAvailabilityZone")]
         public Input<string>? TargetCustomAvailabilityZone { get; set; }
 
         /// <summary>
-        /// The Identifier for the snapshot.
+        /// Identifier for the snapshot.
         /// </summary>
         [Input("targetDbSnapshotIdentifier", required: true)]
         public Input<string> TargetDbSnapshotIdentifier { get; set; } = null!;
@@ -339,13 +345,13 @@ namespace Pulumi.Aws.Rds
     public sealed class SnapshotCopyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the allocated storage size in gigabytes (GB).
+        /// Allocated storage size in gigabytes (GB).
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        /// Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
@@ -363,31 +369,31 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSnapshotArn { get; set; }
 
         /// <summary>
-        /// The Destination region to place snapshot copy.
+        /// Destination Region to place snapshot copy.
         /// </summary>
         [Input("destinationRegion")]
         public Input<string>? DestinationRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB snapshot is encrypted.
+        /// Whether the DB snapshot is encrypted.
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// Specifies the name of the database engine.
+        /// Name of the database engine.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// Specifies the version of the database engine.
+        /// Version of the database engine.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        /// Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
@@ -405,16 +411,19 @@ namespace Pulumi.Aws.Rds
         public Input<string>? LicenseModel { get; set; }
 
         /// <summary>
-        /// The name of an option group to associate with the copy of the snapshot.
+        /// Name of an option group to associate with the copy of the snapshot.
         /// </summary>
         [Input("optionGroupName")]
         public Input<string>? OptionGroupName { get; set; }
 
+        /// <summary>
+        /// Port that the database engine is listening on.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// he URL that contains a Signature Version 4 signed request.
+        /// URL that contains a Signature Version 4 signed request.
         /// </summary>
         [Input("presignedUrl")]
         public Input<string>? PresignedUrl { get; set; }
@@ -437,6 +446,9 @@ namespace Pulumi.Aws.Rds
             set => _sharedAccounts = value;
         }
 
+        /// <summary>
+        /// Type of the DB snapshot.
+        /// </summary>
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }
 
@@ -447,13 +459,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceDbSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The region that the DB snapshot was created in or copied from.
+        /// Region that the DB snapshot was created in or copied from.
         /// </summary>
         [Input("sourceRegion")]
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Specifies the storage type associated with DB snapshot.
+        /// Storage type associated with DB snapshot.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -474,7 +486,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -483,13 +495,13 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// The external custom Availability Zone.
+        /// External custom Availability Zone.
         /// </summary>
         [Input("targetCustomAvailabilityZone")]
         public Input<string>? TargetCustomAvailabilityZone { get; set; }
 
         /// <summary>
-        /// The Identifier for the snapshot.
+        /// Identifier for the snapshot.
         /// </summary>
         [Input("targetDbSnapshotIdentifier")]
         public Input<string>? TargetDbSnapshotIdentifier { get; set; }

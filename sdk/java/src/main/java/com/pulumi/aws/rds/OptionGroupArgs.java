@@ -22,14 +22,14 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final OptionGroupArgs Empty = new OptionGroupArgs();
 
     /**
-     * Specifies the name of the engine that this option group should be associated with.
+     * Name of the engine that this option group should be associated with.
      * 
      */
     @Import(name="engineName", required=true)
     private Output<String> engineName;
 
     /**
-     * @return Specifies the name of the engine that this option group should be associated with.
+     * @return Name of the engine that this option group should be associated with.
      * 
      */
     public Output<String> engineName() {
@@ -37,14 +37,14 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the major version of the engine that this option group should be associated with.
+     * Major version of the engine that this option group should be associated with.
      * 
      */
     @Import(name="majorEngineVersion", required=true)
     private Output<String> majorEngineVersion;
 
     /**
-     * @return Specifies the major version of the engine that this option group should be associated with.
+     * @return Major version of the engine that this option group should be associated with.
      * 
      */
     public Output<String> majorEngineVersion() {
@@ -97,14 +97,14 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The options to apply. See `option` Block below for more details.
+     * Options to apply. See `option` Block below for more details.
      * 
      */
     @Import(name="options")
     private @Nullable Output<List<OptionGroupOptionArgs>> options;
 
     /**
-     * @return The options to apply. See `option` Block below for more details.
+     * @return Options to apply. See `option` Block below for more details.
      * 
      */
     public Optional<Output<List<OptionGroupOptionArgs>>> options() {
@@ -189,7 +189,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineName Specifies the name of the engine that this option group should be associated with.
+         * @param engineName Name of the engine that this option group should be associated with.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineName Specifies the name of the engine that this option group should be associated with.
+         * @param engineName Name of the engine that this option group should be associated with.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param majorEngineVersion Specifies the major version of the engine that this option group should be associated with.
+         * @param majorEngineVersion Major version of the engine that this option group should be associated with.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param majorEngineVersion Specifies the major version of the engine that this option group should be associated with.
+         * @param majorEngineVersion Major version of the engine that this option group should be associated with.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options The options to apply. See `option` Block below for more details.
+         * @param options Options to apply. See `option` Block below for more details.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options The options to apply. See `option` Block below for more details.
+         * @param options Options to apply. See `option` Block below for more details.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class OptionGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param options The options to apply. See `option` Block below for more details.
+         * @param options Options to apply. See `option` Block below for more details.
          * 
          * @return builder
          * 

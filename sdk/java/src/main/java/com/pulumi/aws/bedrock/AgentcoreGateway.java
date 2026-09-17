@@ -141,7 +141,7 @@ import javax.annotation.Nullable;
  *             .protocolConfiguration(AgentcoreGatewayProtocolConfigurationArgs.builder()
  *                 .mcp(AgentcoreGatewayProtocolConfigurationMcpArgs.builder()
  *                     .instructions("Gateway for handling MCP requests")
- *                     .searchType("HYBRID")
+ *                     .searchType("SEMANTIC")
  *                     .supportedVersions(                    
  *                         "2025-03-26",
  *                         "2025-06-18")

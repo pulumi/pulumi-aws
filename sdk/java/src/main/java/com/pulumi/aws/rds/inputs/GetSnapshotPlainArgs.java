@@ -17,14 +17,14 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetSnapshotPlainArgs Empty = new GetSnapshotPlainArgs();
 
     /**
-     * Returns the list of snapshots created by the specific db_instance
+     * Returns the list of snapshots created by the specific db_instance.
      * 
      */
     @Import(name="dbInstanceIdentifier")
     private @Nullable String dbInstanceIdentifier;
 
     /**
-     * @return Returns the list of snapshots created by the specific db_instance
+     * @return Returns the list of snapshots created by the specific db_instance.
      * 
      */
     public Optional<String> dbInstanceIdentifier() {
@@ -47,16 +47,14 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Set this value to true to include manual DB snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     * Set this value to true to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
      * 
      */
     @Import(name="includePublic")
     private @Nullable Boolean includePublic;
 
     /**
-     * @return Set this value to true to include manual DB snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     * @return Set this value to true to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
      * 
      */
     public Optional<Boolean> includePublic() {
@@ -64,18 +62,14 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Set this value to true to include shared manual DB snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
+     * Set this value to true to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
      * 
      */
     @Import(name="includeShared")
     private @Nullable Boolean includeShared;
 
     /**
-     * @return Set this value to true to include shared manual DB snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
+     * @return Set this value to true to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
      * 
      */
     public Optional<Boolean> includeShared() {
@@ -83,16 +77,14 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * If more than one result is returned, use the most
-     * recent Snapshot.
+     * If more than one result is returned, use the most recent Snapshot.
      * 
      */
     @Import(name="mostRecent")
     private @Nullable Boolean mostRecent;
 
     /**
-     * @return If more than one result is returned, use the most
-     * recent Snapshot.
+     * @return If more than one result is returned, use the most recent Snapshot.
      * 
      */
     public Optional<Boolean> mostRecent() {
@@ -115,18 +107,14 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+     * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      * 
      */
     @Import(name="snapshotType")
     private @Nullable String snapshotType;
 
     /**
-     * @return Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+     * @return Type of snapshots to be returned. If you don&#39;t specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      * 
      */
     public Optional<String> snapshotType() {
@@ -134,8 +122,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB snapshot.
+     * Mapping of tags, each pair of which must exactly match a pair on the desired DB snapshot.
      * 
      * &gt; **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
      * 
@@ -144,8 +131,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB snapshot.
+     * @return Mapping of tags, each pair of which must exactly match a pair on the desired DB snapshot.
      * 
      * &gt; **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
      * 
@@ -186,7 +172,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param dbInstanceIdentifier Returns the list of snapshots created by the specific db_instance
+         * @param dbInstanceIdentifier Returns the list of snapshots created by the specific db_instance.
          * 
          * @return builder
          * 
@@ -208,8 +194,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param includePublic Set this value to true to include manual DB snapshots that are public and can be
-         * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+         * @param includePublic Set this value to true to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
          * 
          * @return builder
          * 
@@ -220,9 +205,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param includeShared Set this value to true to include shared manual DB snapshots from other
-         * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-         * The default is `false`.
+         * @param includeShared Set this value to true to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
          * 
          * @return builder
          * 
@@ -233,8 +216,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent Snapshot.
+         * @param mostRecent If more than one result is returned, use the most recent Snapshot.
          * 
          * @return builder
          * 
@@ -256,9 +238,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-         * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-         * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
          * 
          * @return builder
          * 
@@ -269,8 +249,7 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired DB snapshot.
+         * @param tags Mapping of tags, each pair of which must exactly match a pair on the desired DB snapshot.
          * 
          * &gt; **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
          * 

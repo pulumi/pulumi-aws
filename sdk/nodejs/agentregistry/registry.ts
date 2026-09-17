@@ -147,6 +147,10 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public readonly approvalConfiguration: pulumi.Output<outputs.agentregistry.RegistryApprovalConfiguration | undefined>;
     /**
+     * Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+     */
+    declare public readonly autoDetectionConfiguration: pulumi.Output<outputs.agentregistry.RegistryAutoDetectionConfiguration | undefined>;
+    /**
      * Description of the registry. Maximum length of 4096 characters.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -154,6 +158,10 @@ export class Registry extends pulumi.CustomResource {
      * Discovery configuration for the registry. See below.
      */
     declare public readonly discoveryConfiguration: pulumi.Output<outputs.agentregistry.RegistryDiscoveryConfiguration>;
+    /**
+     * Server-side encryption configuration for the registry. See below.
+     */
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.agentregistry.RegistryEncryptionConfiguration | undefined>;
     /**
      * Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
      *
@@ -196,8 +204,10 @@ export class Registry extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RegistryState | undefined;
             resourceInputs["approvalConfiguration"] = state?.approvalConfiguration;
+            resourceInputs["autoDetectionConfiguration"] = state?.autoDetectionConfiguration;
             resourceInputs["description"] = state?.description;
             resourceInputs["discoveryConfiguration"] = state?.discoveryConfiguration;
+            resourceInputs["encryptionConfiguration"] = state?.encryptionConfiguration;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["registryArn"] = state?.registryArn;
@@ -211,8 +221,10 @@ export class Registry extends pulumi.CustomResource {
                 throw new Error("Missing required property 'discoveryConfiguration'");
             }
             resourceInputs["approvalConfiguration"] = args?.approvalConfiguration;
+            resourceInputs["autoDetectionConfiguration"] = args?.autoDetectionConfiguration;
             resourceInputs["description"] = args?.description;
             resourceInputs["discoveryConfiguration"] = args?.discoveryConfiguration;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
@@ -235,6 +247,10 @@ export interface RegistryState {
      */
     approvalConfiguration?: pulumi.Input<inputs.agentregistry.RegistryApprovalConfiguration | undefined>;
     /**
+     * Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+     */
+    autoDetectionConfiguration?: pulumi.Input<inputs.agentregistry.RegistryAutoDetectionConfiguration | undefined>;
+    /**
      * Description of the registry. Maximum length of 4096 characters.
      */
     description?: pulumi.Input<string | undefined>;
@@ -242,6 +258,10 @@ export interface RegistryState {
      * Discovery configuration for the registry. See below.
      */
     discoveryConfiguration?: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfiguration | undefined>;
+    /**
+     * Server-side encryption configuration for the registry. See below.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.agentregistry.RegistryEncryptionConfiguration | undefined>;
     /**
      * Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
      *
@@ -280,6 +300,10 @@ export interface RegistryArgs {
      */
     approvalConfiguration?: pulumi.Input<inputs.agentregistry.RegistryApprovalConfiguration | undefined>;
     /**
+     * Auto-detection configuration for the registry. When provided, the registry is automatically populated with resources discovered according to the configuration. See below.
+     */
+    autoDetectionConfiguration?: pulumi.Input<inputs.agentregistry.RegistryAutoDetectionConfiguration | undefined>;
+    /**
      * Description of the registry. Maximum length of 4096 characters.
      */
     description?: pulumi.Input<string | undefined>;
@@ -287,6 +311,10 @@ export interface RegistryArgs {
      * Discovery configuration for the registry. See below.
      */
     discoveryConfiguration: pulumi.Input<inputs.agentregistry.RegistryDiscoveryConfiguration>;
+    /**
+     * Server-side encryption configuration for the registry. See below.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.agentregistry.RegistryEncryptionConfiguration | undefined>;
     /**
      * Name of the registry. Must start with a letter or digit. Valid characters are a-z, A-Z, 0-9, _ (underscore), - (hyphen), . (dot), and / (forward slash). The name can have up to 64 characters.
      *

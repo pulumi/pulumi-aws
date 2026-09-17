@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentcoreApiKeyCredentialProvider : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// API key value. Cannot be used with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+        /// API key value. Conflicts with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
         /// 
         /// **Write-Only API Key (choose one approach):**
         /// </summary>
@@ -82,13 +82,13 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only API key value. Cannot be used with `ApiKey`. Must be used together with `ApiKeyWoVersion`.
+        /// Write-only API key value. Conflicts with `ApiKey`. If set, requires `ApiKeyWoVersion` to be set.
         /// </summary>
         [Output("apiKeyWo")]
         public Output<string?> ApiKeyWo { get; private set; } = null!;
 
         /// <summary>
-        /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
+        /// Required when `ApiKeyWo` is set. Changing this value triggers an update to `ApiKeyWo`.
         /// </summary>
         [Output("apiKeyWoVersion")]
         public Output<int?> ApiKeyWoVersion { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Bedrock
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// API key value. Cannot be used with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+        /// API key value. Conflicts with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
         /// 
         /// **Write-Only API Key (choose one approach):**
         /// </summary>
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only API key value. Cannot be used with `ApiKey`. Must be used together with `ApiKeyWoVersion`.
+        /// Write-only API key value. Conflicts with `ApiKey`. If set, requires `ApiKeyWoVersion` to be set.
         /// </summary>
         public Input<string>? ApiKeyWo
         {
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
+        /// Required when `ApiKeyWo` is set. Changing this value triggers an update to `ApiKeyWo`.
         /// </summary>
         [Input("apiKeyWoVersion")]
         public Input<int>? ApiKeyWoVersion { get; set; }
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Bedrock
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// API key value. Cannot be used with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+        /// API key value. Conflicts with `ApiKeyWo`. This value will be visible in pulumi preview outputs and logs.
         /// 
         /// **Write-Only API Key (choose one approach):**
         /// </summary>
@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only API key value. Cannot be used with `ApiKey`. Must be used together with `ApiKeyWoVersion`.
+        /// Write-only API key value. Conflicts with `ApiKey`. If set, requires `ApiKeyWoVersion` to be set.
         /// </summary>
         public Input<string>? ApiKeyWo
         {
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
-        /// Used together with `ApiKeyWo` to trigger an update. Increment this value when an update to `ApiKeyWo` is required.
+        /// Required when `ApiKeyWo` is set. Changing this value triggers an update to `ApiKeyWo`.
         /// </summary>
         [Input("apiKeyWoVersion")]
         public Input<int>? ApiKeyWoVersion { get; set; }

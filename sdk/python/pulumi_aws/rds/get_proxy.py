@@ -92,7 +92,7 @@ class GetProxyResult:
     @pulumi.getter
     def auths(self) -> Sequence['outputs.GetProxyAuthResult']:
         """
-        Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+        Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `auth` block below.
         """
         return pulumi.get(self, "auths")
 

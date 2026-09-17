@@ -96,6 +96,8 @@ type LookupRegistryResult struct {
 	Description string `pulumi:"description"`
 	// Discovery configuration for the registry. See below.
 	DiscoveryConfigurations []GetRegistryDiscoveryConfiguration `pulumi:"discoveryConfigurations"`
+	// Server-side encryption configuration for the registry. See below.
+	EncryptionConfigurations []GetRegistryEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// Name of the registry.
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
@@ -104,7 +106,7 @@ type LookupRegistryResult struct {
 	RegistryId  string `pulumi:"registryId"`
 	// Current status of the registry. Valid values: `CREATING`, `READY`, `UPDATING`, `DELETING`, `CREATE_FAILED`, `UPDATE_FAILED`, `DELETE_FAILED`.
 	Status string `pulumi:"status"`
-	// Map of tags assigned to the registry.
+	// Tags applied to the service-managed VPC resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Timestamp when the registry was last updated.
 	UpdatedAt string `pulumi:"updatedAt"`
@@ -164,6 +166,11 @@ func (o LookupRegistryResultOutput) DiscoveryConfigurations() GetRegistryDiscove
 	return o.ApplyT(func(v LookupRegistryResult) []GetRegistryDiscoveryConfiguration { return v.DiscoveryConfigurations }).(GetRegistryDiscoveryConfigurationArrayOutput)
 }
 
+// Server-side encryption configuration for the registry. See below.
+func (o LookupRegistryResultOutput) EncryptionConfigurations() GetRegistryEncryptionConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupRegistryResult) []GetRegistryEncryptionConfiguration { return v.EncryptionConfigurations }).(GetRegistryEncryptionConfigurationArrayOutput)
+}
+
 // Name of the registry.
 func (o LookupRegistryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Name }).(pulumi.StringOutput)
@@ -187,7 +194,7 @@ func (o LookupRegistryResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Map of tags assigned to the registry.
+// Tags applied to the service-managed VPC resource.
 func (o LookupRegistryResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupRegistryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

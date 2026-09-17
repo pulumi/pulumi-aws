@@ -46,12 +46,12 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
     private @Nullable String password;
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
      * 
      */
     private @Nullable String passwordWo;
     /**
-     * @return Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+     * @return Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
      * 
      */
     private @Nullable Integer passwordWoVersion;
@@ -106,14 +106,14 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
     }
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+     * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
      * 
      */
     public Optional<String> passwordWo() {
         return Optional.ofNullable(this.passwordWo);
     }
     /**
-     * @return Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+     * @return Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
      * 
      */
     public Optional<Integer> passwordWoVersion() {

@@ -150,13 +150,13 @@ namespace Pulumi.Aws.SecretsManager
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Text data that you want to encrypt and store in this version of the secret. This is required if `SecretBinary` or `SecretString` is not set.
+        /// Text data that you want to encrypt and store in this version of the secret. This is required if `SecretBinary` or `SecretString` is not set. If set, requires `SecretStringWoVersion` to be set.
         /// </summary>
         [Output("secretStringWo")]
         public Output<string?> SecretStringWo { get; private set; } = null!;
 
         /// <summary>
-        /// Version identifier that works together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
+        /// Required when `SecretStringWo` is set. Changing this value triggers an update to `SecretStringWo`.
         /// </summary>
         [Output("secretStringWoVersion")]
         public Output<int?> SecretStringWoVersion { get; private set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.SecretsManager
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Text data that you want to encrypt and store in this version of the secret. This is required if `SecretBinary` or `SecretString` is not set.
+        /// Text data that you want to encrypt and store in this version of the secret. This is required if `SecretBinary` or `SecretString` is not set. If set, requires `SecretStringWoVersion` to be set.
         /// </summary>
         public Input<string>? SecretStringWo
         {
@@ -289,7 +289,7 @@ namespace Pulumi.Aws.SecretsManager
         }
 
         /// <summary>
-        /// Version identifier that works together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
+        /// Required when `SecretStringWo` is set. Changing this value triggers an update to `SecretStringWo`.
         /// </summary>
         [Input("secretStringWoVersion")]
         public Input<int>? SecretStringWoVersion { get; set; }
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.SecretsManager
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Text data that you want to encrypt and store in this version of the secret. This is required if `SecretBinary` or `SecretString` is not set.
+        /// Text data that you want to encrypt and store in this version of the secret. This is required if `SecretBinary` or `SecretString` is not set. If set, requires `SecretStringWoVersion` to be set.
         /// </summary>
         public Input<string>? SecretStringWo
         {
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.SecretsManager
         }
 
         /// <summary>
-        /// Version identifier that works together with `SecretStringWo` to trigger an update. Increment this value when an update to `SecretStringWo` is required.
+        /// Required when `SecretStringWo` is set. Changing this value triggers an update to `SecretStringWo`.
         /// </summary>
         [Input("secretStringWoVersion")]
         public Input<int>? SecretStringWoVersion { get; set; }

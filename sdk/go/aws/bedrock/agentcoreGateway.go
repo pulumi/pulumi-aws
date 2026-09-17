@@ -118,7 +118,7 @@ import (
 //				ProtocolConfiguration: &bedrock.AgentcoreGatewayProtocolConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayProtocolConfigurationMcpArgs{
 //						Instructions: pulumi.String("Gateway for handling MCP requests"),
-//						SearchType:   pulumi.String("HYBRID"),
+//						SearchType:   pulumi.String("SEMANTIC"),
 //						SupportedVersions: pulumi.StringArray{
 //							pulumi.String("2025-03-26"),
 //							pulumi.String("2025-06-18"),

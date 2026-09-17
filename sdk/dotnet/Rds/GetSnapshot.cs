@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetSnapshotArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the list of snapshots created by the specific db_instance
+        /// Returns the list of snapshots created by the specific db_instance.
         /// </summary>
         [Input("dbInstanceIdentifier")]
         public string? DbInstanceIdentifier { get; set; }
@@ -193,23 +193,19 @@ namespace Pulumi.Aws.Rds
         public string? DbSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Set this value to true to include manual DB snapshots that are public and can be
-        /// copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
+        /// Set this value to true to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includePublic")]
         public bool? IncludePublic { get; set; }
 
         /// <summary>
-        /// Set this value to true to include shared manual DB snapshots from other
-        /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-        /// The default is `False`.
+        /// Set this value to true to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includeShared")]
         public bool? IncludeShared { get; set; }
 
         /// <summary>
-        /// If more than one result is returned, use the most
-        /// recent Snapshot.
+        /// If more than one result is returned, use the most recent Snapshot.
         /// </summary>
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
@@ -221,9 +217,7 @@ namespace Pulumi.Aws.Rds
         public string? Region { get; set; }
 
         /// <summary>
-        /// Type of snapshots to be returned. If you don't specify a SnapshotType
-        /// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-        /// included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
+        /// Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
         /// </summary>
         [Input("snapshotType")]
         public string? SnapshotType { get; set; }
@@ -232,8 +226,7 @@ namespace Pulumi.Aws.Rds
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired DB snapshot.
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired DB snapshot.
         /// 
         /// &gt; **NOTE:** One of either `DbInstanceIdentifier` or `DbSnapshotIdentifier` is required.
         /// </summary>
@@ -252,7 +245,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetSnapshotInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the list of snapshots created by the specific db_instance
+        /// Returns the list of snapshots created by the specific db_instance.
         /// </summary>
         [Input("dbInstanceIdentifier")]
         public Input<string>? DbInstanceIdentifier { get; set; }
@@ -264,23 +257,19 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Set this value to true to include manual DB snapshots that are public and can be
-        /// copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
+        /// Set this value to true to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includePublic")]
         public Input<bool>? IncludePublic { get; set; }
 
         /// <summary>
-        /// Set this value to true to include shared manual DB snapshots from other
-        /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-        /// The default is `False`.
+        /// Set this value to true to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includeShared")]
         public Input<bool>? IncludeShared { get; set; }
 
         /// <summary>
-        /// If more than one result is returned, use the most
-        /// recent Snapshot.
+        /// If more than one result is returned, use the most recent Snapshot.
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
@@ -292,9 +281,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of snapshots to be returned. If you don't specify a SnapshotType
-        /// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-        /// included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
+        /// Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
         /// </summary>
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }
@@ -303,8 +290,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired DB snapshot.
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired DB snapshot.
         /// 
         /// &gt; **NOTE:** One of either `DbInstanceIdentifier` or `DbSnapshotIdentifier` is required.
         /// </summary>
@@ -377,6 +363,9 @@ namespace Pulumi.Aws.Rds
         /// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
         /// </summary>
         public readonly string OriginalSnapshotCreateTime;
+        /// <summary>
+        /// Port that the database engine was listening on at the time of the snapshot.
+        /// </summary>
         public readonly int Port;
         public readonly string Region;
         /// <summary>

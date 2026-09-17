@@ -72,6 +72,7 @@ import * as utilities from "../utilities";
  *                         "code",
  *                         "id_token",
  *                     ],
+ *                     tokenEndpointAuthMethods: ["client_secret_basic"],
  *                 },
  *             },
  *             clientIdWo: "keycloak-client-id",
@@ -85,6 +86,8 @@ import * as utilities from "../utilities";
  * ```
  *
  * ## Import
+ *
+ * > **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `clientId`, `clientSecret`, `clientSecretSource`, `clientSecretConfig`, and the write-only `clientIdWo`/`clientSecretWo`/`clientCredentialsWoVersion` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
  *
  * ### Identity Schema
  *
@@ -132,6 +135,10 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
     }
 
     /**
+     * Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+     */
+    declare public /*out*/ readonly callbackUrl: pulumi.Output<string>;
+    /**
      * ARN of the AWS Secrets Manager secret containing the client secret.
      */
     declare public /*out*/ readonly clientSecretArns: pulumi.Output<outputs.bedrock.AgentcoreOauth2CredentialProviderClientSecretArn[]>;
@@ -140,7 +147,7 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly credentialProviderArn: pulumi.Output<string>;
     /**
-     * Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      */
     declare public readonly credentialProviderVendor: pulumi.Output<string>;
     /**
@@ -152,7 +159,7 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly oauth2ProviderConfig: pulumi.Output<outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfig | undefined>;
+    declare public readonly oauth2ProviderConfig: pulumi.Output<outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -180,6 +187,7 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentcoreOauth2CredentialProviderState | undefined;
+            resourceInputs["callbackUrl"] = state?.callbackUrl;
             resourceInputs["clientSecretArns"] = state?.clientSecretArns;
             resourceInputs["credentialProviderArn"] = state?.credentialProviderArn;
             resourceInputs["credentialProviderVendor"] = state?.credentialProviderVendor;
@@ -194,12 +202,16 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
             if (args?.credentialProviderVendor === undefined && !opts.urn) {
                 throw new Error("Missing required property 'credentialProviderVendor'");
             }
+            if (args?.oauth2ProviderConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'oauth2ProviderConfig'");
+            }
             resourceInputs["credentialProviderVendor"] = args?.credentialProviderVendor;
             resourceInputs["name"] = args?.name;
             resourceInputs["oauth2ProviderConfig"] = args?.oauth2ProviderConfig;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
+            resourceInputs["callbackUrl"] = undefined /*out*/;
             resourceInputs["clientSecretArns"] = undefined /*out*/;
             resourceInputs["credentialProviderArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -214,6 +226,10 @@ export class AgentcoreOauth2CredentialProvider extends pulumi.CustomResource {
  */
 export interface AgentcoreOauth2CredentialProviderState {
     /**
+     * Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+     */
+    callbackUrl?: pulumi.Input<string | undefined>;
+    /**
      * ARN of the AWS Secrets Manager secret containing the client secret.
      */
     clientSecretArns?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderClientSecretArn>[] | undefined>;
@@ -222,7 +238,7 @@ export interface AgentcoreOauth2CredentialProviderState {
      */
     credentialProviderArn?: pulumi.Input<string | undefined>;
     /**
-     * Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      */
     credentialProviderVendor?: pulumi.Input<string | undefined>;
     /**
@@ -255,7 +271,7 @@ export interface AgentcoreOauth2CredentialProviderState {
  */
 export interface AgentcoreOauth2CredentialProviderArgs {
     /**
-     * Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      */
     credentialProviderVendor: pulumi.Input<string>;
     /**
@@ -267,7 +283,7 @@ export interface AgentcoreOauth2CredentialProviderArgs {
      *
      * The following arguments are optional:
      */
-    oauth2ProviderConfig?: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfig | undefined>;
+    oauth2ProviderConfig: pulumi.Input<inputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

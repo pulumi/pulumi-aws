@@ -499,22 +499,52 @@ __all__ = [
     'AgentcoreMemoryTimeouts',
     'AgentcoreOauth2CredentialProviderClientSecretArn',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig',
+    'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
     'AgentcoreOauth2CredentialProviderTimeouts',
@@ -23999,12 +24029,18 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customOauth2ProviderConfig":
+        if key == "atlassianOauth2ProviderConfig":
+            suggest = "atlassian_oauth2_provider_config"
+        elif key == "customOauth2ProviderConfig":
             suggest = "custom_oauth2_provider_config"
         elif key == "githubOauth2ProviderConfig":
             suggest = "github_oauth2_provider_config"
         elif key == "googleOauth2ProviderConfig":
             suggest = "google_oauth2_provider_config"
+        elif key == "includedOauth2ProviderConfig":
+            suggest = "included_oauth2_provider_config"
+        elif key == "linkedinOauth2ProviderConfig":
+            suggest = "linkedin_oauth2_provider_config"
         elif key == "microsoftOauth2ProviderConfig":
             suggest = "microsoft_oauth2_provider_config"
         elif key == "salesforceOauth2ProviderConfig":
@@ -24024,32 +24060,54 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 atlassian_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig'] = None,
                  custom_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig'] = None,
                  github_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig'] = None,
                  google_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig'] = None,
+                 included_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig'] = None,
+                 linkedin_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig'] = None,
                  microsoft_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig'] = None,
                  salesforce_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig'] = None,
                  slack_oauth2_provider_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig'] = None):
         """
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigArgs' atlassian_oauth2_provider_config: Atlassian OAuth provider configuration. See `predefined providers` below.
         :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs' custom_oauth2_provider_config: Custom OAuth2 provider configuration. See `custom` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs' github_oauth2_provider_config: GitHub OAuth provider configuration. See `github` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs' google_oauth2_provider_config: Google OAuth provider configuration. See `google` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs' microsoft_oauth2_provider_config: Microsoft OAuth provider configuration. See `microsoft` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs' salesforce_oauth2_provider_config: Salesforce OAuth provider configuration. See `salesforce` below.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs' slack_oauth2_provider_config: Slack OAuth provider configuration. See `slack` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs' github_oauth2_provider_config: GitHub OAuth provider configuration. See `predefined providers` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs' google_oauth2_provider_config: Google OAuth provider configuration. See `predefined providers` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigArgs' included_oauth2_provider_config: Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
+               
+               > **Note:** `included_oauth2_provider_config` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `client_id` and `client_secret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorization_endpoint`, `token_endpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigArgs' linkedin_oauth2_provider_config: LinkedIn OAuth provider configuration. See `predefined providers` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs' microsoft_oauth2_provider_config: Microsoft OAuth provider configuration. See `predefined providers` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs' salesforce_oauth2_provider_config: Salesforce OAuth provider configuration. See `predefined providers` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs' slack_oauth2_provider_config: Slack OAuth provider configuration. See `predefined providers` below.
         """
+        if atlassian_oauth2_provider_config is not None:
+            pulumi.set(__self__, "atlassian_oauth2_provider_config", atlassian_oauth2_provider_config)
         if custom_oauth2_provider_config is not None:
             pulumi.set(__self__, "custom_oauth2_provider_config", custom_oauth2_provider_config)
         if github_oauth2_provider_config is not None:
             pulumi.set(__self__, "github_oauth2_provider_config", github_oauth2_provider_config)
         if google_oauth2_provider_config is not None:
             pulumi.set(__self__, "google_oauth2_provider_config", google_oauth2_provider_config)
+        if included_oauth2_provider_config is not None:
+            pulumi.set(__self__, "included_oauth2_provider_config", included_oauth2_provider_config)
+        if linkedin_oauth2_provider_config is not None:
+            pulumi.set(__self__, "linkedin_oauth2_provider_config", linkedin_oauth2_provider_config)
         if microsoft_oauth2_provider_config is not None:
             pulumi.set(__self__, "microsoft_oauth2_provider_config", microsoft_oauth2_provider_config)
         if salesforce_oauth2_provider_config is not None:
             pulumi.set(__self__, "salesforce_oauth2_provider_config", salesforce_oauth2_provider_config)
         if slack_oauth2_provider_config is not None:
             pulumi.set(__self__, "slack_oauth2_provider_config", slack_oauth2_provider_config)
+
+    @_builtins.property
+    @pulumi.getter(name="atlassianOauth2ProviderConfig")
+    def atlassian_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig']:
+        """
+        Atlassian OAuth provider configuration. See `predefined providers` below.
+        """
+        return pulumi.get(self, "atlassian_oauth2_provider_config")
 
     @_builtins.property
     @pulumi.getter(name="customOauth2ProviderConfig")
@@ -24063,7 +24121,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="githubOauth2ProviderConfig")
     def github_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig']:
         """
-        GitHub OAuth provider configuration. See `github` below.
+        GitHub OAuth provider configuration. See `predefined providers` below.
         """
         return pulumi.get(self, "github_oauth2_provider_config")
 
@@ -24071,15 +24129,33 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="googleOauth2ProviderConfig")
     def google_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig']:
         """
-        Google OAuth provider configuration. See `google` below.
+        Google OAuth provider configuration. See `predefined providers` below.
         """
         return pulumi.get(self, "google_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="includedOauth2ProviderConfig")
+    def included_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig']:
+        """
+        Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
+
+        > **Note:** `included_oauth2_provider_config` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `client_id` and `client_secret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorization_endpoint`, `token_endpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+        """
+        return pulumi.get(self, "included_oauth2_provider_config")
+
+    @_builtins.property
+    @pulumi.getter(name="linkedinOauth2ProviderConfig")
+    def linkedin_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig']:
+        """
+        LinkedIn OAuth provider configuration. See `predefined providers` below.
+        """
+        return pulumi.get(self, "linkedin_oauth2_provider_config")
 
     @_builtins.property
     @pulumi.getter(name="microsoftOauth2ProviderConfig")
     def microsoft_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig']:
         """
-        Microsoft OAuth provider configuration. See `microsoft` below.
+        Microsoft OAuth provider configuration. See `predefined providers` below.
         """
         return pulumi.get(self, "microsoft_oauth2_provider_config")
 
@@ -24087,7 +24163,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="salesforceOauth2ProviderConfig")
     def salesforce_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig']:
         """
-        Salesforce OAuth provider configuration. See `salesforce` below.
+        Salesforce OAuth provider configuration. See `predefined providers` below.
         """
         return pulumi.get(self, "salesforce_oauth2_provider_config")
 
@@ -24095,13 +24171,13 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfig(dict):
     @pulumi.getter(name="slackOauth2ProviderConfig")
     def slack_oauth2_provider_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig']:
         """
-        Slack OAuth provider configuration. See `slack` below.
+        Slack OAuth provider configuration. See `predefined providers` below.
         """
         return pulumi.get(self, "slack_oauth2_provider_config")
 
 
 @pulumi.output_type
-class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig(dict):
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24113,20 +24189,24 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
             suggest = "client_id_wo"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
         elif key == "clientSecretWo":
             suggest = "client_secret_wo"
-        elif key == "oauthDiscovery":
-            suggest = "oauth_discovery"
+        elif key == "oauthDiscoveries":
+            suggest = "oauth_discoveries"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig.__key_warning(key)
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig.__key_warning(key)
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -24134,21 +24214,33 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  client_id: Optional[_builtins.str] = None,
                  client_id_wo: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig'] = None,
+                 client_secret_source: Optional[_builtins.str] = None,
                  client_secret_wo: Optional[_builtins.str] = None,
-                 oauth_discovery: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery'] = None):
+                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery']] = None):
         """
-        :param _builtins.int client_credentials_wo_version: Used together with write-only credentials to trigger an update. Increment this value when an update to `client_id_wo` or `client_secret_wo` is required.
+        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
                
-               **OAuth Discovery Configuration:**
+               **Microsoft-Specific Configuration:**
+               
+               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+               
+               **Standard Tenant ID:**
         :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only OAuth2 client ID. Cannot be used with `client_id`. Must be used together with `client_secret_wo` and `client_credentials_wo_version`.
+               Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
         :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
                
                **Write-Only Credentials (choose one pair):**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+               
+               **Advanced Configuration:**
+        :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only OAuth2 client secret. Cannot be used with `client_secret`. Must be used together with `client_id_wo` and `client_credentials_wo_version`.
-        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs' oauth_discovery: OAuth discovery configuration. See `oauth_discovery` below.
+               Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+               
+               **Externally-Managed Client Secret:**
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -24158,18 +24250,26 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
             pulumi.set(__self__, "client_id_wo", client_id_wo)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if client_secret_wo is not None:
             pulumi.set(__self__, "client_secret_wo", client_secret_wo)
-        if oauth_discovery is not None:
-            pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if oauth_discoveries is not None:
+            pulumi.set(__self__, "oauth_discoveries", oauth_discoveries)
 
     @_builtins.property
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
         """
-        Used together with write-only credentials to trigger an update. Increment this value when an update to `client_id_wo` or `client_secret_wo` is required.
+        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
 
-        **OAuth Discovery Configuration:**
+        **Microsoft-Specific Configuration:**
+
+        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+
+        **Standard Tenant ID:**
         """
         return pulumi.get(self, "client_credentials_wo_version")
 
@@ -24186,7 +24286,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     def client_id_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only OAuth2 client ID. Cannot be used with `client_id`. Must be used together with `client_secret_wo` and `client_credentials_wo_version`.
+        Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_id_wo")
 
@@ -24201,21 +24301,489 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
         return pulumi.get(self, "client_secret")
 
     @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig']:
+        """
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+
+        **Advanced Configuration:**
+        """
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[_builtins.str]:
+        """
+        Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        """
+        return pulumi.get(self, "client_secret_source")
+
+    @_builtins.property
     @pulumi.getter(name="clientSecretWo")
     def client_secret_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only OAuth2 client secret. Cannot be used with `client_secret`. Must be used together with `client_id_wo` and `client_credentials_wo_version`.
+        Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_secret_wo")
 
     @_builtins.property
-    @pulumi.getter(name="oauthDiscovery")
-    def oauth_discovery(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery']:
+    @pulumi.getter(name="oauthDiscoveries")
+    def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery']]:
         """
         OAuth discovery configuration. See `oauth_discovery` below.
+
+        **Externally-Managed Client Secret:**
+        """
+        return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the client secret value from the Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the client secret value from the Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadatas":
+            suggest = "authorization_server_metadatas"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
+                 discovery_url: _builtins.str):
+        """
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
+        pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadatas")
+    def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
+        """
+        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        """
+        return pulumi.get(self, "authorization_server_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        """
+        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "tokenEndpointAuthMethods":
+            suggest = "token_endpoint_auth_methods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 response_types: Sequence[_builtins.str],
+                 token_endpoint: _builtins.str,
+                 token_endpoint_auth_methods: Sequence[_builtins.str]):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "response_types", response_types)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "token_endpoint_auth_methods", token_endpoint_auth_methods)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Sequence[_builtins.str]:
+        """
+        Set of OAuth2 response types supported by the authorization server.
+        """
+        return pulumi.get(self, "response_types")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthMethods")
+    def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
+        """
+        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        return pulumi.get(self, "token_endpoint_auth_methods")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oauthDiscovery":
+            suggest = "oauth_discovery"
+        elif key == "clientAuthenticationMethod":
+            suggest = "client_authentication_method"
+        elif key == "clientCredentialsWoVersion":
+            suggest = "client_credentials_wo_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientIdWo":
+            suggest = "client_id_wo"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "onBehalfOfTokenExchangeConfig":
+            suggest = "on_behalf_of_token_exchange_config"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateEndpointOverrides":
+            suggest = "private_endpoint_overrides"
+        elif key == "privateKeyJwtConfig":
+            suggest = "private_key_jwt_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oauth_discovery: 'outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery',
+                 client_authentication_method: Optional[_builtins.str] = None,
+                 client_credentials_wo_version: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 client_id_wo: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig'] = None,
+                 client_secret_source: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 on_behalf_of_token_exchange_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig'] = None,
+                 private_endpoint: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint'] = None,
+                 private_endpoint_overrides: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride']] = None,
+                 private_key_jwt_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig'] = None):
+        """
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs' oauth_discovery: OAuth discovery configuration. See `oauth_discovery` below.
+               
+               **Externally-Managed Client Secret:**
+        :param _builtins.str client_authentication_method: Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+               
+               **OAuth Discovery Configuration:**
+        :param _builtins.str client_id: OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        :param _builtins.str client_secret: OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+               
+               **Write-Only Credentials (choose one pair):**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+               
+               **Advanced Configuration:**
+        :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigArgs' on_behalf_of_token_exchange_config: On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `on_behalf_of_token_exchange_config` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointArgs' private_endpoint: Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `private_endpoint` below.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverrideArgs'] private_endpoint_overrides: Private endpoint overrides for the custom OAuth2 provider configuration. See `private_endpoint_override` below.
+        """
+        pulumi.set(__self__, "oauth_discovery", oauth_discovery)
+        if client_authentication_method is not None:
+            pulumi.set(__self__, "client_authentication_method", client_authentication_method)
+        if client_credentials_wo_version is not None:
+            pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_id_wo is not None:
+            pulumi.set(__self__, "client_id_wo", client_id_wo)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if on_behalf_of_token_exchange_config is not None:
+            pulumi.set(__self__, "on_behalf_of_token_exchange_config", on_behalf_of_token_exchange_config)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
+        if private_key_jwt_config is not None:
+            pulumi.set(__self__, "private_key_jwt_config", private_key_jwt_config)
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscovery")
+    def oauth_discovery(self) -> 'outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery':
+        """
+        OAuth discovery configuration. See `oauth_discovery` below.
+
+        **Externally-Managed Client Secret:**
         """
         return pulumi.get(self, "oauth_discovery")
+
+    @_builtins.property
+    @pulumi.getter(name="clientAuthenticationMethod")
+    def client_authentication_method(self) -> Optional[_builtins.str]:
+        """
+        Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+        """
+        return pulumi.get(self, "client_authentication_method")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsWoVersion")
+    def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+
+        **OAuth Discovery Configuration:**
+        """
+        return pulumi.get(self, "client_credentials_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID. Conflicts with `client_id_wo`. Must be used together with `client_secret`.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdWo")
+    def client_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        """
+        return pulumi.get(self, "client_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client secret. Conflicts with `client_secret_wo`. Must be used together with `client_id`.
+
+        **Write-Only Credentials (choose one pair):**
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig']:
+        """
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+
+        **Advanced Configuration:**
+        """
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[_builtins.str]:
+        """
+        Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        """
+        return pulumi.get(self, "client_secret_source")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="onBehalfOfTokenExchangeConfig")
+    def on_behalf_of_token_exchange_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig']:
+        """
+        On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `on_behalf_of_token_exchange_config` below.
+        """
+        return pulumi.get(self, "on_behalf_of_token_exchange_config")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint']:
+        """
+        Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride']]:
+        """
+        Private endpoint overrides for the custom OAuth2 provider configuration. See `private_endpoint_override` below.
+        """
+        return pulumi.get(self, "private_endpoint_overrides")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyJwtConfig")
+    def private_key_jwt_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig']:
+        return pulumi.get(self, "private_key_jwt_config")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the client secret value from the Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the client secret value from the Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        return pulumi.get(self, "secret_id")
 
 
 @pulumi.output_type
@@ -24279,6 +24847,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
             suggest = "token_endpoint"
         elif key == "responseTypes":
             suggest = "response_types"
+        elif key == "tokenEndpointAuthMethods":
+            suggest = "token_endpoint_auth_methods"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
@@ -24295,18 +24865,22 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
                  authorization_endpoint: _builtins.str,
                  issuer: _builtins.str,
                  token_endpoint: _builtins.str,
-                 response_types: Optional[Sequence[_builtins.str]] = None):
+                 response_types: Optional[Sequence[_builtins.str]] = None,
+                 token_endpoint_auth_methods: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
         if response_types is not None:
             pulumi.set(__self__, "response_types", response_types)
+        if token_endpoint_auth_methods is not None:
+            pulumi.set(__self__, "token_endpoint_auth_methods", token_endpoint_auth_methods)
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
@@ -24340,6 +24914,651 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
         """
         return pulumi.get(self, "response_types")
 
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthMethods")
+    def token_endpoint_auth_methods(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        return pulumi.get(self, "token_endpoint_auth_methods")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "grantType":
+            suggest = "grant_type"
+        elif key == "tokenExchangeGrantTypeConfig":
+            suggest = "token_exchange_grant_type_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grant_type: _builtins.str,
+                 token_exchange_grant_type_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig'] = None):
+        """
+        :param _builtins.str grant_type: Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfigArgs' token_exchange_grant_type_config: Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `token_exchange_grant_type_config` below.
+        """
+        pulumi.set(__self__, "grant_type", grant_type)
+        if token_exchange_grant_type_config is not None:
+            pulumi.set(__self__, "token_exchange_grant_type_config", token_exchange_grant_type_config)
+
+    @_builtins.property
+    @pulumi.getter(name="grantType")
+    def grant_type(self) -> _builtins.str:
+        """
+        Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
+        """
+        return pulumi.get(self, "grant_type")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenExchangeGrantTypeConfig")
+    def token_exchange_grant_type_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig']:
+        """
+        Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `token_exchange_grant_type_config` below.
+        """
+        return pulumi.get(self, "token_exchange_grant_type_config")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actorTokenContent":
+            suggest = "actor_token_content"
+        elif key == "actorTokenScopes":
+            suggest = "actor_token_scopes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actor_token_content: _builtins.str,
+                 actor_token_scopes: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str actor_token_content: Content type for the actor token in the token exchange. Valid values: `NONE`, `M2M`, `AWS_IAM_ID_TOKEN_JWT`.
+        :param Sequence[_builtins.str] actor_token_scopes: Set of scopes for the actor token. Only valid when `actor_token_content` is `M2M`.
+        """
+        pulumi.set(__self__, "actor_token_content", actor_token_content)
+        if actor_token_scopes is not None:
+            pulumi.set(__self__, "actor_token_scopes", actor_token_scopes)
+
+    @_builtins.property
+    @pulumi.getter(name="actorTokenContent")
+    def actor_token_content(self) -> _builtins.str:
+        """
+        Content type for the actor token in the token exchange. Valid values: `NONE`, `M2M`, `AWS_IAM_ID_TOKEN_JWT`.
+        """
+        return pulumi.get(self, "actor_token_content")
+
+    @_builtins.property
+    @pulumi.getter(name="actorTokenScopes")
+    def actor_token_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of scopes for the actor token. Only valid when `actor_token_content` is `M2M`.
+        """
+        return pulumi.get(self, "actor_token_scopes")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Service-managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource']:
+        """
+        Service-managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource']:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+        :param Sequence[_builtins.str] subnet_ids: Set of subnet IDs for the managed VPC resource.
+        :param _builtins.str vpc_identifier: Identifier of the VPC.
+        :param _builtins.str routing_domain: Routing domain for the managed VPC resource.
+        :param Sequence[_builtins.str] security_group_ids: Set of up to 5 security group IDs for the managed VPC resource.
+        :param Mapping[str, _builtins.str] tags: Key-value map of tags for the managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        Set of subnet IDs for the managed VPC resource.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain for the managed VPC resource.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of up to 5 security group IDs for the managed VPC resource.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Key-value map of tags for the managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 private_endpoint: 'outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint'):
+        """
+        :param _builtins.str domain: Domain the private endpoint override applies to.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointArgs' private_endpoint: Private endpoint configuration for the domain. See `private_endpoint` above.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Domain the private endpoint override applies to.
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint':
+        """
+        Private endpoint configuration for the domain. See `private_endpoint` above.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Service-managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource']:
+        """
+        Service-managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource']:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+        :param Sequence[_builtins.str] subnet_ids: Set of subnet IDs for the managed VPC resource.
+        :param _builtins.str vpc_identifier: Identifier of the VPC.
+        :param _builtins.str routing_domain: Routing domain for the managed VPC resource.
+        :param Sequence[_builtins.str] security_group_ids: Set of up to 5 security group IDs for the managed VPC resource.
+        :param Mapping[str, _builtins.str] tags: Key-value map of tags for the managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        Set of subnet IDs for the managed VPC resource.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain for the managed VPC resource.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of up to 5 security group IDs for the managed VPC resource.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Key-value map of tags for the managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
+        if resource_configuration_identifier is not None:
+            pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> Optional[_builtins.str]:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalHeaderClaims":
+            suggest = "additional_header_claims"
+        elif key == "additionalPayloadClaims":
+            suggest = "additional_payload_claims"
+        elif key == "privateKeySource":
+            suggest = "private_key_source"
+        elif key == "signingAlgorithm":
+            suggest = "signing_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_header_claims: Optional[Mapping[str, _builtins.str]] = None,
+                 additional_payload_claims: Optional[Mapping[str, _builtins.str]] = None,
+                 private_key_source: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource'] = None,
+                 signing_algorithm: Optional[_builtins.str] = None):
+        if additional_header_claims is not None:
+            pulumi.set(__self__, "additional_header_claims", additional_header_claims)
+        if additional_payload_claims is not None:
+            pulumi.set(__self__, "additional_payload_claims", additional_payload_claims)
+        if private_key_source is not None:
+            pulumi.set(__self__, "private_key_source", private_key_source)
+        if signing_algorithm is not None:
+            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalHeaderClaims")
+    def additional_header_claims(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "additional_header_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalPayloadClaims")
+    def additional_payload_claims(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "additional_payload_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeySource")
+    def private_key_source(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource']:
+        return pulumi.get(self, "private_key_source")
+
+    @_builtins.property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "signing_algorithm")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeySource":
+            suggest = "kms_key_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_source: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource'] = None):
+        if kms_key_source is not None:
+            pulumi.set(__self__, "kms_key_source", kms_key_source)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeySource")
+    def kms_key_source(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource']:
+        return pulumi.get(self, "kms_key_source")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: _builtins.str):
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> _builtins.str:
+        return pulumi.get(self, "kms_key_arn")
+
 
 @pulumi.output_type
 class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig(dict):
@@ -24354,6 +25573,10 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
             suggest = "client_id_wo"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
         elif key == "clientSecretWo":
             suggest = "client_secret_wo"
         elif key == "oauthDiscoveries":
@@ -24375,12 +25598,33 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
                  client_id: Optional[_builtins.str] = None,
                  client_id_wo: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig'] = None,
+                 client_secret_source: Optional[_builtins.str] = None,
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery']] = None):
         """
+        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+               
+               **Microsoft-Specific Configuration:**
+               
+               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+               
+               **Standard Tenant ID:**
+        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+               
+               **Write-Only Credentials (choose one pair):**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+               
+               **Advanced Configuration:**
+        :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+               
+               **Externally-Managed Client Secret:**
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -24390,6 +25634,10 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
             pulumi.set(__self__, "client_id_wo", client_id_wo)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if client_secret_wo is not None:
             pulumi.set(__self__, "client_secret_wo", client_secret_wo)
         if oauth_discoveries is not None:
@@ -24398,11 +25646,23 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+
+        **Microsoft-Specific Configuration:**
+
+        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+
+        **Standard Tenant ID:**
+        """
         return pulumi.get(self, "client_credentials_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
@@ -24410,19 +25670,44 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     def client_id_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_id_wo")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+
+        **Write-Only Credentials (choose one pair):**
+        """
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig']:
+        """
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+
+        **Advanced Configuration:**
+        """
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[_builtins.str]:
+        """
+        Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        """
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="clientSecretWo")
     def client_secret_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_secret_wo")
 
@@ -24431,8 +25716,58 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery']]:
         """
         OAuth discovery configuration. See `oauth_discovery` below.
+
+        **Externally-Managed Client Secret:**
         """
         return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the client secret value from the Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the client secret value from the Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        return pulumi.get(self, "secret_id")
 
 
 @pulumi.output_type
@@ -24494,6 +25829,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
             suggest = "response_types"
         elif key == "tokenEndpoint":
             suggest = "token_endpoint"
+        elif key == "tokenEndpointAuthMethods":
+            suggest = "token_endpoint_auth_methods"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
@@ -24510,17 +25847,20 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
                  authorization_endpoint: _builtins.str,
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
-                 token_endpoint: _builtins.str):
+                 token_endpoint: _builtins.str,
+                 token_endpoint_auth_methods: Sequence[_builtins.str]):
         """
         :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "token_endpoint_auth_methods", token_endpoint_auth_methods)
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
@@ -24554,6 +25894,14 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
         """
         return pulumi.get(self, "token_endpoint")
 
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthMethods")
+    def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
+        """
+        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        return pulumi.get(self, "token_endpoint_auth_methods")
+
 
 @pulumi.output_type
 class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig(dict):
@@ -24568,6 +25916,10 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
             suggest = "client_id_wo"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
         elif key == "clientSecretWo":
             suggest = "client_secret_wo"
         elif key == "oauthDiscoveries":
@@ -24589,12 +25941,33 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
                  client_id: Optional[_builtins.str] = None,
                  client_id_wo: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig'] = None,
+                 client_secret_source: Optional[_builtins.str] = None,
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery']] = None):
         """
+        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+               
+               **Microsoft-Specific Configuration:**
+               
+               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+               
+               **Standard Tenant ID:**
+        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+               
+               **Write-Only Credentials (choose one pair):**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+               
+               **Advanced Configuration:**
+        :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+               
+               **Externally-Managed Client Secret:**
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -24604,6 +25977,10 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
             pulumi.set(__self__, "client_id_wo", client_id_wo)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if client_secret_wo is not None:
             pulumi.set(__self__, "client_secret_wo", client_secret_wo)
         if oauth_discoveries is not None:
@@ -24612,11 +25989,23 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     @_builtins.property
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+
+        **Microsoft-Specific Configuration:**
+
+        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+
+        **Standard Tenant ID:**
+        """
         return pulumi.get(self, "client_credentials_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
@@ -24624,19 +26013,44 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     def client_id_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_id_wo")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+
+        **Write-Only Credentials (choose one pair):**
+        """
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig']:
+        """
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+
+        **Advanced Configuration:**
+        """
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[_builtins.str]:
+        """
+        Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        """
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="clientSecretWo")
     def client_secret_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_secret_wo")
 
@@ -24645,8 +26059,58 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery']]:
         """
         OAuth discovery configuration. See `oauth_discovery` below.
+
+        **Externally-Managed Client Secret:**
         """
         return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the client secret value from the Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the client secret value from the Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        return pulumi.get(self, "secret_id")
 
 
 @pulumi.output_type
@@ -24708,6 +26172,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
             suggest = "response_types"
         elif key == "tokenEndpoint":
             suggest = "token_endpoint"
+        elif key == "tokenEndpointAuthMethods":
+            suggest = "token_endpoint_auth_methods"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
@@ -24724,17 +26190,20 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
                  authorization_endpoint: _builtins.str,
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
-                 token_endpoint: _builtins.str):
+                 token_endpoint: _builtins.str,
+                 token_endpoint_auth_methods: Sequence[_builtins.str]):
         """
         :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "token_endpoint_auth_methods", token_endpoint_auth_methods)
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
@@ -24768,6 +26237,740 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
         """
         return pulumi.get(self, "token_endpoint")
 
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthMethods")
+    def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
+        """
+        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        return pulumi.get(self, "token_endpoint_auth_methods")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "clientCredentialsWoVersion":
+            suggest = "client_credentials_wo_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientIdWo":
+            suggest = "client_id_wo"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "oauthDiscoveries":
+            suggest = "oauth_discoveries"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: Optional[_builtins.str] = None,
+                 client_credentials_wo_version: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 client_id_wo: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig'] = None,
+                 client_secret_source: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 issuer: Optional[_builtins.str] = None,
+                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery']] = None,
+                 token_endpoint: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+               
+               **Microsoft-Specific Configuration:**
+               
+               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+               
+               **Standard Tenant ID:**
+        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+               
+               **Write-Only Credentials (choose one pair):**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+               
+               **Advanced Configuration:**
+        :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+               
+               **Externally-Managed Client Secret:**
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        """
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if client_credentials_wo_version is not None:
+            pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_id_wo is not None:
+            pulumi.set(__self__, "client_id_wo", client_id_wo)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if oauth_discoveries is not None:
+            pulumi.set(__self__, "oauth_discoveries", oauth_discoveries)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsWoVersion")
+    def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+
+        **Microsoft-Specific Configuration:**
+
+        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+
+        **Standard Tenant ID:**
+        """
+        return pulumi.get(self, "client_credentials_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdWo")
+    def client_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        """
+        return pulumi.get(self, "client_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+
+        **Write-Only Credentials (choose one pair):**
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig']:
+        """
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+
+        **Advanced Configuration:**
+        """
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[_builtins.str]:
+        """
+        Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        """
+        return pulumi.get(self, "client_secret_source")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscoveries")
+    def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery']]:
+        """
+        OAuth discovery configuration. See `oauth_discovery` below.
+
+        **Externally-Managed Client Secret:**
+        """
+        return pulumi.get(self, "oauth_discoveries")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the client secret value from the Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the client secret value from the Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadatas":
+            suggest = "authorization_server_metadatas"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
+                 discovery_url: _builtins.str):
+        """
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
+        pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadatas")
+    def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
+        """
+        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        """
+        return pulumi.get(self, "authorization_server_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        """
+        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "tokenEndpointAuthMethods":
+            suggest = "token_endpoint_auth_methods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 response_types: Sequence[_builtins.str],
+                 token_endpoint: _builtins.str,
+                 token_endpoint_auth_methods: Sequence[_builtins.str]):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "response_types", response_types)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "token_endpoint_auth_methods", token_endpoint_auth_methods)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Sequence[_builtins.str]:
+        """
+        Set of OAuth2 response types supported by the authorization server.
+        """
+        return pulumi.get(self, "response_types")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthMethods")
+    def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
+        """
+        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        return pulumi.get(self, "token_endpoint_auth_methods")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCredentialsWoVersion":
+            suggest = "client_credentials_wo_version"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientIdWo":
+            suggest = "client_id_wo"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
+        elif key == "clientSecretWo":
+            suggest = "client_secret_wo"
+        elif key == "oauthDiscoveries":
+            suggest = "oauth_discoveries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_credentials_wo_version: Optional[_builtins.int] = None,
+                 client_id: Optional[_builtins.str] = None,
+                 client_id_wo: Optional[_builtins.str] = None,
+                 client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig'] = None,
+                 client_secret_source: Optional[_builtins.str] = None,
+                 client_secret_wo: Optional[_builtins.str] = None,
+                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery']] = None):
+        """
+        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+               
+               **Microsoft-Specific Configuration:**
+               
+               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+               
+               **Standard Tenant ID:**
+        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+               
+               **Write-Only Credentials (choose one pair):**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+               
+               **Advanced Configuration:**
+        :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+               
+               **Externally-Managed Client Secret:**
+        """
+        if client_credentials_wo_version is not None:
+            pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_id_wo is not None:
+            pulumi.set(__self__, "client_id_wo", client_id_wo)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
+        if client_secret_wo is not None:
+            pulumi.set(__self__, "client_secret_wo", client_secret_wo)
+        if oauth_discoveries is not None:
+            pulumi.set(__self__, "oauth_discoveries", oauth_discoveries)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsWoVersion")
+    def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+
+        **Microsoft-Specific Configuration:**
+
+        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+
+        **Standard Tenant ID:**
+        """
+        return pulumi.get(self, "client_credentials_wo_version")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdWo")
+    def client_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        """
+        return pulumi.get(self, "client_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+
+        **Write-Only Credentials (choose one pair):**
+        """
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig']:
+        """
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+
+        **Advanced Configuration:**
+        """
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[_builtins.str]:
+        """
+        Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        """
+        return pulumi.get(self, "client_secret_source")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretWo")
+    def client_secret_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
+        """
+        return pulumi.get(self, "client_secret_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthDiscoveries")
+    def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery']]:
+        """
+        OAuth discovery configuration. See `oauth_discovery` below.
+
+        **Externally-Managed Client Secret:**
+        """
+        return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the client secret value from the Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the client secret value from the Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationServerMetadatas":
+            suggest = "authorization_server_metadatas"
+        elif key == "discoveryUrl":
+            suggest = "discovery_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_server_metadatas: Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata'],
+                 discovery_url: _builtins.str):
+        """
+        :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs'] authorization_server_metadatas: Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        :param _builtins.str discovery_url: OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        pulumi.set(__self__, "authorization_server_metadatas", authorization_server_metadatas)
+        pulumi.set(__self__, "discovery_url", discovery_url)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationServerMetadatas")
+    def authorization_server_metadatas(self) -> Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata']:
+        """
+        Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
+        """
+        return pulumi.get(self, "authorization_server_metadatas")
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        """
+        OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorization_server_metadata`.
+        """
+        return pulumi.get(self, "discovery_url")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "responseTypes":
+            suggest = "response_types"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
+        elif key == "tokenEndpointAuthMethods":
+            suggest = "token_endpoint_auth_methods"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: _builtins.str,
+                 issuer: _builtins.str,
+                 response_types: Sequence[_builtins.str],
+                 token_endpoint: _builtins.str,
+                 token_endpoint_auth_methods: Sequence[_builtins.str]):
+        """
+        :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
+        :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
+        :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
+        :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "response_types", response_types)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "token_endpoint_auth_methods", token_endpoint_auth_methods)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 authorization endpoint URL.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        """
+        OAuth2 authorization server issuer identifier.
+        """
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="responseTypes")
+    def response_types(self) -> Sequence[_builtins.str]:
+        """
+        Set of OAuth2 response types supported by the authorization server.
+        """
+        return pulumi.get(self, "response_types")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> _builtins.str:
+        """
+        OAuth2 token endpoint URL.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthMethods")
+    def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
+        """
+        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        return pulumi.get(self, "token_endpoint_auth_methods")
+
 
 @pulumi.output_type
 class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig(dict):
@@ -24782,10 +26985,20 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
             suggest = "client_id_wo"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
         elif key == "clientSecretWo":
             suggest = "client_secret_wo"
         elif key == "oauthDiscoveries":
             suggest = "oauth_discoveries"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "tenantIdWo":
+            suggest = "tenant_id_wo"
+        elif key == "tenantIdWoVersion":
+            suggest = "tenant_id_wo_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig. Access the value via the '{suggest}' property getter instead.")
@@ -24803,12 +27016,44 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
                  client_id: Optional[_builtins.str] = None,
                  client_id_wo: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig'] = None,
+                 client_secret_source: Optional[_builtins.str] = None,
                  client_secret_wo: Optional[_builtins.str] = None,
-                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery']] = None):
+                 oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery']] = None,
+                 tenant_id: Optional[_builtins.str] = None,
+                 tenant_id_wo: Optional[_builtins.str] = None,
+                 tenant_id_wo_version: Optional[_builtins.int] = None):
         """
+        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+               
+               **Microsoft-Specific Configuration:**
+               
+               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+               
+               **Standard Tenant ID:**
+        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+               
+               **Write-Only Credentials (choose one pair):**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+               
+               **Advanced Configuration:**
+        :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+               
+               **Externally-Managed Client Secret:**
+        :param _builtins.str tenant_id: Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenant_id_wo`.
+               
+               **Write-Only Tenant ID:**
+        :param _builtins.str tenant_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenant_id`. Must be used together with `tenant_id_wo_version`.
+        :param _builtins.int tenant_id_wo_version: Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenant_id_wo` is required.
+               
+               **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -24818,19 +27063,41 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
             pulumi.set(__self__, "client_id_wo", client_id_wo)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if client_secret_wo is not None:
             pulumi.set(__self__, "client_secret_wo", client_secret_wo)
         if oauth_discoveries is not None:
             pulumi.set(__self__, "oauth_discoveries", oauth_discoveries)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if tenant_id_wo is not None:
+            pulumi.set(__self__, "tenant_id_wo", tenant_id_wo)
+        if tenant_id_wo_version is not None:
+            pulumi.set(__self__, "tenant_id_wo_version", tenant_id_wo_version)
 
     @_builtins.property
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+
+        **Microsoft-Specific Configuration:**
+
+        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+
+        **Standard Tenant ID:**
+        """
         return pulumi.get(self, "client_credentials_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
@@ -24838,19 +27105,44 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     def client_id_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_id_wo")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+
+        **Write-Only Credentials (choose one pair):**
+        """
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig']:
+        """
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+
+        **Advanced Configuration:**
+        """
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[_builtins.str]:
+        """
+        Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        """
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="clientSecretWo")
     def client_secret_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_secret_wo")
 
@@ -24859,8 +27151,87 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery']]:
         """
         OAuth discovery configuration. See `oauth_discovery` below.
+
+        **Externally-Managed Client Secret:**
         """
         return pulumi.get(self, "oauth_discoveries")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenant_id_wo`.
+
+        **Write-Only Tenant ID:**
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantIdWo")
+    def tenant_id_wo(self) -> Optional[_builtins.str]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenant_id`. Must be used together with `tenant_id_wo_version`.
+        """
+        return pulumi.get(self, "tenant_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantIdWoVersion")
+    def tenant_id_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenant_id_wo` is required.
+
+        **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+        """
+        return pulumi.get(self, "tenant_id_wo_version")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the client secret value from the Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the client secret value from the Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        return pulumi.get(self, "secret_id")
 
 
 @pulumi.output_type
@@ -24922,6 +27293,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
             suggest = "response_types"
         elif key == "tokenEndpoint":
             suggest = "token_endpoint"
+        elif key == "tokenEndpointAuthMethods":
+            suggest = "token_endpoint_auth_methods"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
@@ -24938,17 +27311,20 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
                  authorization_endpoint: _builtins.str,
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
-                 token_endpoint: _builtins.str):
+                 token_endpoint: _builtins.str,
+                 token_endpoint_auth_methods: Sequence[_builtins.str]):
         """
         :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "token_endpoint_auth_methods", token_endpoint_auth_methods)
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
@@ -24982,6 +27358,14 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
         """
         return pulumi.get(self, "token_endpoint")
 
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthMethods")
+    def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
+        """
+        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        return pulumi.get(self, "token_endpoint_auth_methods")
+
 
 @pulumi.output_type
 class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig(dict):
@@ -24996,6 +27380,10 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
             suggest = "client_id_wo"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
         elif key == "clientSecretWo":
             suggest = "client_secret_wo"
         elif key == "oauthDiscoveries":
@@ -25017,12 +27405,33 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
                  client_id: Optional[_builtins.str] = None,
                  client_id_wo: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig'] = None,
+                 client_secret_source: Optional[_builtins.str] = None,
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery']] = None):
         """
+        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+               
+               **Microsoft-Specific Configuration:**
+               
+               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+               
+               **Standard Tenant ID:**
+        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+               
+               **Write-Only Credentials (choose one pair):**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+               
+               **Advanced Configuration:**
+        :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+               
+               **Externally-Managed Client Secret:**
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -25032,6 +27441,10 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
             pulumi.set(__self__, "client_id_wo", client_id_wo)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if client_secret_wo is not None:
             pulumi.set(__self__, "client_secret_wo", client_secret_wo)
         if oauth_discoveries is not None:
@@ -25040,11 +27453,23 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     @_builtins.property
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+
+        **Microsoft-Specific Configuration:**
+
+        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+
+        **Standard Tenant ID:**
+        """
         return pulumi.get(self, "client_credentials_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
@@ -25052,19 +27477,44 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     def client_id_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_id_wo")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+
+        **Write-Only Credentials (choose one pair):**
+        """
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig']:
+        """
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+
+        **Advanced Configuration:**
+        """
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[_builtins.str]:
+        """
+        Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        """
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="clientSecretWo")
     def client_secret_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_secret_wo")
 
@@ -25073,8 +27523,58 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery']]:
         """
         OAuth discovery configuration. See `oauth_discovery` below.
+
+        **Externally-Managed Client Secret:**
         """
         return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the client secret value from the Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the client secret value from the Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        return pulumi.get(self, "secret_id")
 
 
 @pulumi.output_type
@@ -25136,6 +27636,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
             suggest = "response_types"
         elif key == "tokenEndpoint":
             suggest = "token_endpoint"
+        elif key == "tokenEndpointAuthMethods":
+            suggest = "token_endpoint_auth_methods"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
@@ -25152,17 +27654,20 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
                  authorization_endpoint: _builtins.str,
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
-                 token_endpoint: _builtins.str):
+                 token_endpoint: _builtins.str,
+                 token_endpoint_auth_methods: Sequence[_builtins.str]):
         """
         :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "token_endpoint_auth_methods", token_endpoint_auth_methods)
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
@@ -25196,6 +27701,14 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
         """
         return pulumi.get(self, "token_endpoint")
 
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthMethods")
+    def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
+        """
+        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        return pulumi.get(self, "token_endpoint_auth_methods")
+
 
 @pulumi.output_type
 class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig(dict):
@@ -25210,6 +27723,10 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
             suggest = "client_id_wo"
         elif key == "clientSecret":
             suggest = "client_secret"
+        elif key == "clientSecretConfig":
+            suggest = "client_secret_config"
+        elif key == "clientSecretSource":
+            suggest = "client_secret_source"
         elif key == "clientSecretWo":
             suggest = "client_secret_wo"
         elif key == "oauthDiscoveries":
@@ -25231,12 +27748,33 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
                  client_id: Optional[_builtins.str] = None,
                  client_id_wo: Optional[_builtins.str] = None,
                  client_secret: Optional[_builtins.str] = None,
+                 client_secret_config: Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig'] = None,
+                 client_secret_source: Optional[_builtins.str] = None,
                  client_secret_wo: Optional[_builtins.str] = None,
                  oauth_discoveries: Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery']] = None):
         """
+        :param _builtins.int client_credentials_wo_version: Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+               
+               **Microsoft-Specific Configuration:**
+               
+               The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+               
+               **Standard Tenant ID:**
+        :param _builtins.str client_id: OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
         :param _builtins.str client_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
+        :param _builtins.str client_secret: OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+               
+               **Write-Only Credentials (choose one pair):**
+        :param 'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfigArgs' client_secret_config: Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+               
+               **Advanced Configuration:**
+        :param _builtins.str client_secret_source: Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
         :param _builtins.str client_secret_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         :param Sequence['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs'] oauth_discoveries: OAuth discovery configuration. See `oauth_discovery` below.
+               
+               **Externally-Managed Client Secret:**
         """
         if client_credentials_wo_version is not None:
             pulumi.set(__self__, "client_credentials_wo_version", client_credentials_wo_version)
@@ -25246,6 +27784,10 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
             pulumi.set(__self__, "client_id_wo", client_id_wo)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if client_secret_config is not None:
+            pulumi.set(__self__, "client_secret_config", client_secret_config)
+        if client_secret_source is not None:
+            pulumi.set(__self__, "client_secret_source", client_secret_source)
         if client_secret_wo is not None:
             pulumi.set(__self__, "client_secret_wo", client_secret_wo)
         if oauth_discoveries is not None:
@@ -25254,11 +27796,23 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @_builtins.property
     @pulumi.getter(name="clientCredentialsWoVersion")
     def client_credentials_wo_version(self) -> Optional[_builtins.int]:
+        """
+        Required when `client_id_wo` and `client_secret_wo` are set. Changing this value triggers an update to `client_id_wo` and `client_secret_wo`.
+
+        **Microsoft-Specific Configuration:**
+
+        The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+
+        **Standard Tenant ID:**
+        """
         return pulumi.get(self, "client_credentials_wo_version")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client ID. Cannot be used with `client_id_wo`. Must be used together with `client_secret`.
+        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
@@ -25266,19 +27820,44 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     def client_id_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client ID. Conflicts with `client_id`. If set, requires `client_secret_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_id_wo")
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[_builtins.str]:
+        """
+        OAuth2 client secret. Cannot be used with `client_secret_wo`. Must be used together with `client_id`.
+
+        **Write-Only Credentials (choose one pair):**
+        """
         return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretConfig")
+    def client_secret_config(self) -> Optional['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig']:
+        """
+        Reference to an AWS Secrets Manager secret that stores the client secret. Required when `client_secret_source` is `EXTERNAL`. See `client_secret_config` below.
+
+        **Advanced Configuration:**
+        """
+        return pulumi.get(self, "client_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecretSource")
+    def client_secret_source(self) -> Optional[_builtins.str]:
+        """
+        Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `client_secret_config`.
+        """
+        return pulumi.get(self, "client_secret_source")
 
     @_builtins.property
     @pulumi.getter(name="clientSecretWo")
     def client_secret_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        Write-only OAuth2 client secret. Conflicts with `client_secret`. If set, requires `client_id_wo` and `client_credentials_wo_version` to be set.
         """
         return pulumi.get(self, "client_secret_wo")
 
@@ -25287,8 +27866,58 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     def oauth_discoveries(self) -> Optional[Sequence['outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery']]:
         """
         OAuth discovery configuration. See `oauth_discovery` below.
+
+        **Externally-Managed Client Secret:**
         """
         return pulumi.get(self, "oauth_discoveries")
+
+
+@pulumi.output_type
+class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jsonKey":
+            suggest = "json_key"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 json_key: _builtins.str,
+                 secret_id: _builtins.str):
+        """
+        :param _builtins.str json_key: JSON key used to extract the client secret value from the Secrets Manager secret.
+        :param _builtins.str secret_id: ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        pulumi.set(__self__, "json_key", json_key)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="jsonKey")
+    def json_key(self) -> _builtins.str:
+        """
+        JSON key used to extract the client secret value from the Secrets Manager secret.
+        """
+        return pulumi.get(self, "json_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        ID of the AWS Secrets Manager secret that stores the client secret value.
+        """
+        return pulumi.get(self, "secret_id")
 
 
 @pulumi.output_type
@@ -25350,6 +27979,8 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
             suggest = "response_types"
         elif key == "tokenEndpoint":
             suggest = "token_endpoint"
+        elif key == "tokenEndpointAuthMethods":
+            suggest = "token_endpoint_auth_methods"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata. Access the value via the '{suggest}' property getter instead.")
@@ -25366,17 +27997,20 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
                  authorization_endpoint: _builtins.str,
                  issuer: _builtins.str,
                  response_types: Sequence[_builtins.str],
-                 token_endpoint: _builtins.str):
+                 token_endpoint: _builtins.str,
+                 token_endpoint_auth_methods: Sequence[_builtins.str]):
         """
         :param _builtins.str authorization_endpoint: OAuth2 authorization endpoint URL.
         :param _builtins.str issuer: OAuth2 authorization server issuer identifier.
         :param Sequence[_builtins.str] response_types: Set of OAuth2 response types supported by the authorization server.
         :param _builtins.str token_endpoint: OAuth2 token endpoint URL.
+        :param Sequence[_builtins.str] token_endpoint_auth_methods: List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "response_types", response_types)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "token_endpoint_auth_methods", token_endpoint_auth_methods)
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
@@ -25409,6 +28043,14 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
         OAuth2 token endpoint URL.
         """
         return pulumi.get(self, "token_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthMethods")
+    def token_endpoint_auth_methods(self) -> Sequence[_builtins.str]:
+        """
+        List of authentication methods supported by the token endpoint. Must contain one or two values matching `client_secret_post` or `client_secret_basic`.
+        """
+        return pulumi.get(self, "token_endpoint_auth_methods")
 
 
 @pulumi.output_type

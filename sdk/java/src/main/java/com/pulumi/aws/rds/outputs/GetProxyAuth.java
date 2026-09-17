@@ -10,29 +10,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProxyAuth {
+    /**
+     * @return Type of authentication that the proxy uses for connections from the proxy to the underlying database.
+     * 
+     */
     private String authScheme;
+    /**
+     * @return Type of authentication the proxy uses for connections from clients.
+     * 
+     */
     private String clientPasswordAuthType;
+    /**
+     * @return User-specified description about the authentication used by a proxy to log in as a specific database user.
+     * 
+     */
     private String description;
+    /**
+     * @return Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+     * 
+     */
     private String iamAuth;
+    /**
+     * @return ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+     * 
+     */
     private String secretArn;
+    /**
+     * @return Name of the database user to which the proxy connects.
+     * 
+     */
     private String username;
 
     private GetProxyAuth() {}
+    /**
+     * @return Type of authentication that the proxy uses for connections from the proxy to the underlying database.
+     * 
+     */
     public String authScheme() {
         return this.authScheme;
     }
+    /**
+     * @return Type of authentication the proxy uses for connections from clients.
+     * 
+     */
     public String clientPasswordAuthType() {
         return this.clientPasswordAuthType;
     }
+    /**
+     * @return User-specified description about the authentication used by a proxy to log in as a specific database user.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+     * 
+     */
     public String iamAuth() {
         return this.iamAuth;
     }
+    /**
+     * @return ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+     * 
+     */
     public String secretArn() {
         return this.secretArn;
     }
+    /**
+     * @return Name of the database user to which the proxy connects.
+     * 
+     */
     public String username() {
         return this.username;
     }

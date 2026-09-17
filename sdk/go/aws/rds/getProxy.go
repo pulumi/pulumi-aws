@@ -60,7 +60,7 @@ type LookupProxyArgs struct {
 type LookupProxyResult struct {
 	// ARN of the DB Proxy.
 	Arn string `pulumi:"arn"`
-	// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+	// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `auth` block below.
 	Auths []GetProxyAuth `pulumi:"auths"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging bool `pulumi:"debugLogging"`
@@ -129,7 +129,7 @@ func (o LookupProxyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `auth` block below.
 func (o LookupProxyResultOutput) Auths() GetProxyAuthArrayOutput {
 	return o.ApplyT(func(v LookupProxyResult) []GetProxyAuth { return v.Auths }).(GetProxyAuthArrayOutput)
 }

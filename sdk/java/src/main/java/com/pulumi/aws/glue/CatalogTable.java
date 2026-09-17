@@ -284,6 +284,19 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `catalogId` - (String) ID of the Glue Catalog.
+ * * `databaseName` - (String) Name of the Glue Catalog Database.
+ * * `name` - (String) Name of the Glue Catalog Table.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
  * 
  * ```sh
@@ -512,14 +525,14 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="viewDefinition", refs={CatalogTableViewDefinition.class}, tree="[0]")
-    private Output</* @Nullable */ CatalogTableViewDefinition> viewDefinition;
+    private Output<CatalogTableViewDefinition> viewDefinition;
 
     /**
      * @return Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      * 
      */
-    public Output<Optional<CatalogTableViewDefinition>> viewDefinition() {
-        return Codegen.optional(this.viewDefinition);
+    public Output<CatalogTableViewDefinition> viewDefinition() {
+        return this.viewDefinition;
     }
     /**
      * If the table is a view, the expanded text of the view; otherwise null.

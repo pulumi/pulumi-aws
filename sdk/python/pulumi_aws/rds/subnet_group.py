@@ -28,12 +28,12 @@ class SubnetGroupArgs:
         """
         The set of arguments for constructing a SubnetGroup resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
-        :param pulumi.Input[_builtins.str] description: The description of the DB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] name: The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of VPC subnet IDs.
+        :param pulumi.Input[_builtins.str] description: Description of the DB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] name: Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if description is None:
@@ -53,7 +53,7 @@ class SubnetGroupArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of VPC subnet IDs.
+        List of VPC subnet IDs.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -65,7 +65,7 @@ class SubnetGroupArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the DB subnet group. Defaults to "Managed by Pulumi".
+        Description of the DB subnet group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -77,7 +77,7 @@ class SubnetGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -113,7 +113,7 @@ class SubnetGroupArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -138,15 +138,15 @@ class _SubnetGroupState:
         """
         Input properties used for looking up and filtering SubnetGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the db subnet group.
-        :param pulumi.Input[_builtins.str] description: The description of the DB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] name: The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] arn: ARN of the db subnet group.
+        :param pulumi.Input[_builtins.str] description: Description of the DB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] name: Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: The network type of the db subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of VPC subnet IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: Network type of the db subnet group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_id: Provides the VPC ID of the DB subnet group.
         """
         if arn is not None:
@@ -176,7 +176,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the db subnet group.
+        ARN of the db subnet group.
         """
         return pulumi.get(self, "arn")
 
@@ -188,7 +188,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the DB subnet group. Defaults to "Managed by Pulumi".
+        Description of the DB subnet group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -200,7 +200,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -236,7 +236,7 @@ class _SubnetGroupState:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of VPC subnet IDs.
+        List of VPC subnet IDs.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -248,7 +248,7 @@ class _SubnetGroupState:
     @pulumi.getter(name="supportedNetworkTypes")
     def supported_network_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The network type of the db subnet group.
+        Network type of the db subnet group.
         """
         return pulumi.get(self, "supported_network_types")
 
@@ -260,7 +260,7 @@ class _SubnetGroupState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -272,7 +272,7 @@ class _SubnetGroupState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -348,12 +348,12 @@ class SubnetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: The description of the DB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] name: The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] description: Description of the DB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] name: Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of VPC subnet IDs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -472,15 +472,15 @@ class SubnetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the db subnet group.
-        :param pulumi.Input[_builtins.str] description: The description of the DB subnet group. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[_builtins.str] name: The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        :param pulumi.Input[_builtins.str] arn: ARN of the db subnet group.
+        :param pulumi.Input[_builtins.str] description: Description of the DB subnet group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[_builtins.str] name: Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of VPC subnet IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: The network type of the db subnet group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of VPC subnet IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_network_types: Network type of the db subnet group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_id: Provides the VPC ID of the DB subnet group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -503,7 +503,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the db subnet group.
+        ARN of the db subnet group.
         """
         return pulumi.get(self, "arn")
 
@@ -511,7 +511,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
         """
-        The description of the DB subnet group. Defaults to "Managed by Pulumi".
+        Description of the DB subnet group. Defaults to "Managed by Pulumi".
         """
         return pulumi.get(self, "description")
 
@@ -519,7 +519,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the DB subnet group. If omitted, the provider will assign a random, unique name.
+        Name of the DB subnet group. If omitted, the provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -543,7 +543,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of VPC subnet IDs.
+        List of VPC subnet IDs.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -551,7 +551,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter(name="supportedNetworkTypes")
     def supported_network_types(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The network type of the db subnet group.
+        Network type of the db subnet group.
         """
         return pulumi.get(self, "supported_network_types")
 
@@ -559,7 +559,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -567,7 +567,7 @@ class SubnetGroup(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

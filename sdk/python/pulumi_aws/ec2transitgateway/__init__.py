@@ -38,6 +38,7 @@ from .peering_attachment import *
 from .peering_attachment_accepter import *
 from .policy_table import *
 from .policy_table_association import *
+from .policy_table_entry import *
 from .prefix_list_reference import *
 from .route import *
 from .route_table import *

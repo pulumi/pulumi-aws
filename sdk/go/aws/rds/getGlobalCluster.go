@@ -52,7 +52,7 @@ func LookupGlobalCluster(ctx *pulumi.Context, args *LookupGlobalClusterArgs, opt
 
 // A collection of arguments for invoking getGlobalCluster.
 type LookupGlobalClusterArgs struct {
-	// The global cluster identifier of the RDS global cluster.
+	// Global cluster identifier of the RDS global cluster.
 	//
 	// The following arguments are optional:
 	Identifier string `pulumi:"identifier"`
@@ -68,11 +68,11 @@ type LookupGlobalClusterResult struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`.
 	DeletionProtection bool `pulumi:"deletionProtection"`
-	// The endpoint for the Global Cluster.
+	// Endpoint for the Global Cluster.
 	Endpoint string `pulumi:"endpoint"`
 	// Name of the database engine.
 	Engine string `pulumi:"engine"`
-	// The current lifecycle support status of the database engine for this Global Cluster.
+	// Current lifecycle support status of the database engine for this Global Cluster.
 	EngineLifecycleSupport string `pulumi:"engineLifecycleSupport"`
 	// Version of the database engine for this Global Cluster.
 	EngineVersion string `pulumi:"engineVersion"`
@@ -84,7 +84,7 @@ type LookupGlobalClusterResult struct {
 	ResourceId string `pulumi:"resourceId"`
 	// Whether the DB cluster is encrypted.
 	StorageEncrypted bool `pulumi:"storageEncrypted"`
-	// A map of tags to assigned to the Global Cluster.
+	// Map of tags assigned to the Global Cluster.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -95,7 +95,7 @@ func LookupGlobalClusterOutput(ctx *pulumi.Context, args LookupGlobalClusterOutp
 
 // A collection of arguments for invoking getGlobalCluster.
 type LookupGlobalClusterOutputArgs struct {
-	// The global cluster identifier of the RDS global cluster.
+	// Global cluster identifier of the RDS global cluster.
 	//
 	// The following arguments are optional:
 	Identifier pulumi.StringInput `pulumi:"identifier"`
@@ -137,7 +137,7 @@ func (o LookupGlobalClusterResultOutput) DeletionProtection() pulumi.BoolOutput 
 	return o.ApplyT(func(v LookupGlobalClusterResult) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
 }
 
-// The endpoint for the Global Cluster.
+// Endpoint for the Global Cluster.
 func (o LookupGlobalClusterResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -147,7 +147,7 @@ func (o LookupGlobalClusterResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.Engine }).(pulumi.StringOutput)
 }
 
-// The current lifecycle support status of the database engine for this Global Cluster.
+// Current lifecycle support status of the database engine for this Global Cluster.
 func (o LookupGlobalClusterResultOutput) EngineLifecycleSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) string { return v.EngineLifecycleSupport }).(pulumi.StringOutput)
 }
@@ -180,7 +180,7 @@ func (o LookupGlobalClusterResultOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) bool { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// A map of tags to assigned to the Global Cluster.
+// Map of tags assigned to the Global Cluster.
 func (o LookupGlobalClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

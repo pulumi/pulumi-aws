@@ -19626,6 +19626,106 @@ func (o NetworkAclEgressArrayOutput) Index(i pulumi.IntInput) NetworkAclEgressOu
 	}).(NetworkAclEgressOutput)
 }
 
+type NetworkAclFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// NetworkAclFilterInput is an input type that accepts NetworkAclFilterArgs and NetworkAclFilterOutput values.
+// You can construct a concrete instance of `NetworkAclFilterInput` via:
+//
+//	NetworkAclFilterArgs{...}
+type NetworkAclFilterInput interface {
+	pulumi.Input
+
+	ToNetworkAclFilterOutput() NetworkAclFilterOutput
+	ToNetworkAclFilterOutputWithContext(context.Context) NetworkAclFilterOutput
+}
+
+type NetworkAclFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (NetworkAclFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclFilter)(nil)).Elem()
+}
+
+func (i NetworkAclFilterArgs) ToNetworkAclFilterOutput() NetworkAclFilterOutput {
+	return i.ToNetworkAclFilterOutputWithContext(context.Background())
+}
+
+func (i NetworkAclFilterArgs) ToNetworkAclFilterOutputWithContext(ctx context.Context) NetworkAclFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclFilterOutput)
+}
+
+// NetworkAclFilterArrayInput is an input type that accepts NetworkAclFilterArray and NetworkAclFilterArrayOutput values.
+// You can construct a concrete instance of `NetworkAclFilterArrayInput` via:
+//
+//	NetworkAclFilterArray{ NetworkAclFilterArgs{...} }
+type NetworkAclFilterArrayInput interface {
+	pulumi.Input
+
+	ToNetworkAclFilterArrayOutput() NetworkAclFilterArrayOutput
+	ToNetworkAclFilterArrayOutputWithContext(context.Context) NetworkAclFilterArrayOutput
+}
+
+type NetworkAclFilterArray []NetworkAclFilterInput
+
+func (NetworkAclFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclFilter)(nil)).Elem()
+}
+
+func (i NetworkAclFilterArray) ToNetworkAclFilterArrayOutput() NetworkAclFilterArrayOutput {
+	return i.ToNetworkAclFilterArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkAclFilterArray) ToNetworkAclFilterArrayOutputWithContext(ctx context.Context) NetworkAclFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkAclFilterArrayOutput)
+}
+
+type NetworkAclFilterOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkAclFilter)(nil)).Elem()
+}
+
+func (o NetworkAclFilterOutput) ToNetworkAclFilterOutput() NetworkAclFilterOutput {
+	return o
+}
+
+func (o NetworkAclFilterOutput) ToNetworkAclFilterOutputWithContext(ctx context.Context) NetworkAclFilterOutput {
+	return o
+}
+
+func (o NetworkAclFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkAclFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o NetworkAclFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkAclFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type NetworkAclFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkAclFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkAclFilter)(nil)).Elem()
+}
+
+func (o NetworkAclFilterArrayOutput) ToNetworkAclFilterArrayOutput() NetworkAclFilterArrayOutput {
+	return o
+}
+
+func (o NetworkAclFilterArrayOutput) ToNetworkAclFilterArrayOutputWithContext(ctx context.Context) NetworkAclFilterArrayOutput {
+	return o
+}
+
+func (o NetworkAclFilterArrayOutput) Index(i pulumi.IntInput) NetworkAclFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkAclFilter {
+		return vs[0].([]NetworkAclFilter)[vs[1].(int)]
+	}).(NetworkAclFilterOutput)
+}
+
 type NetworkAclIngress struct {
 	// The action to take.
 	Action string `pulumi:"action"`
@@ -69736,106 +69836,6 @@ func (o GetSecurityGroupFilterArrayOutput) Index(i pulumi.IntInput) GetSecurityG
 	}).(GetSecurityGroupFilterOutput)
 }
 
-type GetSecurityGroupsFilter struct {
-	Name   string   `pulumi:"name"`
-	Values []string `pulumi:"values"`
-}
-
-// GetSecurityGroupsFilterInput is an input type that accepts GetSecurityGroupsFilterArgs and GetSecurityGroupsFilterOutput values.
-// You can construct a concrete instance of `GetSecurityGroupsFilterInput` via:
-//
-//	GetSecurityGroupsFilterArgs{...}
-type GetSecurityGroupsFilterInput interface {
-	pulumi.Input
-
-	ToGetSecurityGroupsFilterOutput() GetSecurityGroupsFilterOutput
-	ToGetSecurityGroupsFilterOutputWithContext(context.Context) GetSecurityGroupsFilterOutput
-}
-
-type GetSecurityGroupsFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (GetSecurityGroupsFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSecurityGroupsFilter)(nil)).Elem()
-}
-
-func (i GetSecurityGroupsFilterArgs) ToGetSecurityGroupsFilterOutput() GetSecurityGroupsFilterOutput {
-	return i.ToGetSecurityGroupsFilterOutputWithContext(context.Background())
-}
-
-func (i GetSecurityGroupsFilterArgs) ToGetSecurityGroupsFilterOutputWithContext(ctx context.Context) GetSecurityGroupsFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupsFilterOutput)
-}
-
-// GetSecurityGroupsFilterArrayInput is an input type that accepts GetSecurityGroupsFilterArray and GetSecurityGroupsFilterArrayOutput values.
-// You can construct a concrete instance of `GetSecurityGroupsFilterArrayInput` via:
-//
-//	GetSecurityGroupsFilterArray{ GetSecurityGroupsFilterArgs{...} }
-type GetSecurityGroupsFilterArrayInput interface {
-	pulumi.Input
-
-	ToGetSecurityGroupsFilterArrayOutput() GetSecurityGroupsFilterArrayOutput
-	ToGetSecurityGroupsFilterArrayOutputWithContext(context.Context) GetSecurityGroupsFilterArrayOutput
-}
-
-type GetSecurityGroupsFilterArray []GetSecurityGroupsFilterInput
-
-func (GetSecurityGroupsFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSecurityGroupsFilter)(nil)).Elem()
-}
-
-func (i GetSecurityGroupsFilterArray) ToGetSecurityGroupsFilterArrayOutput() GetSecurityGroupsFilterArrayOutput {
-	return i.ToGetSecurityGroupsFilterArrayOutputWithContext(context.Background())
-}
-
-func (i GetSecurityGroupsFilterArray) ToGetSecurityGroupsFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupsFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupsFilterArrayOutput)
-}
-
-type GetSecurityGroupsFilterOutput struct{ *pulumi.OutputState }
-
-func (GetSecurityGroupsFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSecurityGroupsFilter)(nil)).Elem()
-}
-
-func (o GetSecurityGroupsFilterOutput) ToGetSecurityGroupsFilterOutput() GetSecurityGroupsFilterOutput {
-	return o
-}
-
-func (o GetSecurityGroupsFilterOutput) ToGetSecurityGroupsFilterOutputWithContext(ctx context.Context) GetSecurityGroupsFilterOutput {
-	return o
-}
-
-func (o GetSecurityGroupsFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupsFilter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetSecurityGroupsFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetSecurityGroupsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetSecurityGroupsFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSecurityGroupsFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSecurityGroupsFilter)(nil)).Elem()
-}
-
-func (o GetSecurityGroupsFilterArrayOutput) ToGetSecurityGroupsFilterArrayOutput() GetSecurityGroupsFilterArrayOutput {
-	return o
-}
-
-func (o GetSecurityGroupsFilterArrayOutput) ToGetSecurityGroupsFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupsFilterArrayOutput {
-	return o
-}
-
-func (o GetSecurityGroupsFilterArrayOutput) Index(i pulumi.IntInput) GetSecurityGroupsFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityGroupsFilter {
-		return vs[0].([]GetSecurityGroupsFilter)[vs[1].(int)]
-	}).(GetSecurityGroupsFilterOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionArrayInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionArray{})
@@ -70065,6 +70065,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayRegionalNatGatewayAddressArrayInput)(nil)).Elem(), NatGatewayRegionalNatGatewayAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEgressInput)(nil)).Elem(), NetworkAclEgressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclEgressArrayInput)(nil)).Elem(), NetworkAclEgressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclFilterInput)(nil)).Elem(), NetworkAclFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclFilterArrayInput)(nil)).Elem(), NetworkAclFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclIngressInput)(nil)).Elem(), NetworkAclIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclIngressArrayInput)(nil)).Elem(), NetworkAclIngressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeExcludePathInput)(nil)).Elem(), NetworkInsightsAccessScopeExcludePathArgs{})
@@ -70831,8 +70833,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablesFilterArrayInput)(nil)).Elem(), GetRouteTablesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupFilterInput)(nil)).Elem(), GetSecurityGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupFilterArrayInput)(nil)).Elem(), GetSecurityGroupFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupsFilterInput)(nil)).Elem(), GetSecurityGroupsFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupsFilterArrayInput)(nil)).Elem(), GetSecurityGroupsFilterArray{})
 	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionOutput{})
 	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionArrayOutput{})
 	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionCreationDateConditionOutput{})
@@ -71061,6 +71061,8 @@ func init() {
 	pulumi.RegisterOutputType(NatGatewayRegionalNatGatewayAddressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressArrayOutput{})
+	pulumi.RegisterOutputType(NetworkAclFilterOutput{})
+	pulumi.RegisterOutputType(NetworkAclFilterArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclIngressOutput{})
 	pulumi.RegisterOutputType(NetworkAclIngressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeExcludePathOutput{})
@@ -71827,6 +71829,4 @@ func init() {
 	pulumi.RegisterOutputType(GetRouteTablesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupFilterArrayOutput{})
-	pulumi.RegisterOutputType(GetSecurityGroupsFilterOutput{})
-	pulumi.RegisterOutputType(GetSecurityGroupsFilterArrayOutput{})
 }

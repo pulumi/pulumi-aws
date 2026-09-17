@@ -780,6 +780,19 @@ class CatalogTable(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `catalog_id` - (String) ID of the Glue Catalog.
+        * `database_name` - (String) Name of the Glue Catalog Database.
+        * `name` - (String) Name of the Glue Catalog Table.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
+
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
         ```sh
@@ -967,6 +980,19 @@ class CatalogTable(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `catalog_id` - (String) ID of the Glue Catalog.
+        * `database_name` - (String) Name of the Glue Catalog Database.
+        * `name` - (String) Name of the Glue Catalog Table.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
 
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
@@ -1240,7 +1266,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="viewDefinition")
-    def view_definition(self) -> pulumi.Output[Optional['outputs.CatalogTableViewDefinition']]:
+    def view_definition(self) -> pulumi.Output['outputs.CatalogTableViewDefinition']:
         """
         Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         """

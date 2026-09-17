@@ -133,7 +133,7 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
      * 
      */
     @Import(name="secretStringWo")
@@ -141,7 +141,7 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> secretStringWo() {
@@ -149,14 +149,14 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
      * 
      */
     @Import(name="secretStringWoVersion")
     private @Nullable Output<Integer> secretStringWoVersion;
 
     /**
-     * @return Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * @return Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
      * 
      */
     public Optional<Output<Integer>> secretStringWoVersion() {
@@ -388,7 +388,7 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param secretStringWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+         * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param secretStringWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+         * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param secretStringWoVersion Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+         * @param secretStringWoVersion Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param secretStringWoVersion Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+         * @param secretStringWoVersion Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
          * 
          * @return builder
          * 

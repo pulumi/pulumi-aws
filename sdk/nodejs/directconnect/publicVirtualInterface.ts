@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
  * ```
+ *
+ * > **Note:** When a virtual interface uses an ASN in the `bgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgpAsn` rather than `bgpAsnLong`. If the virtual interface was originally created with `bgpAsnLong` set to a value in that range, update your configuration to use `bgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgpAsnLong` as expected.
  */
 export class PublicVirtualInterface extends pulumi.CustomResource {
     /**
@@ -82,7 +84,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
     declare public readonly bgpAsn: pulumi.Output<number>;
     /**
@@ -216,7 +218,7 @@ export interface PublicVirtualInterfaceState {
      */
     awsDevice?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
     bgpAsn?: pulumi.Input<number | undefined>;
     /**
@@ -274,7 +276,7 @@ export interface PublicVirtualInterfaceArgs {
      */
     amazonAddress?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
     bgpAsn: pulumi.Input<number>;
     /**

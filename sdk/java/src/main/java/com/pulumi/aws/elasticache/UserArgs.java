@@ -98,7 +98,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
      * 
      */
     @Import(name="passwordsWo")
@@ -106,7 +106,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+     * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> passwordsWo() {
@@ -114,14 +114,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     * Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
      * 
      */
     @Import(name="passwordsWoVersion")
     private @Nullable Output<Integer> passwordsWoVersion;
 
     /**
-     * @return Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+     * @return Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
      * 
      */
     public Optional<Output<Integer>> passwordsWoVersion() {
@@ -343,7 +343,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param passwordsWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+         * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param passwordsWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+         * Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordsWoVersion Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+         * @param passwordsWoVersion Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param passwordsWoVersion Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+         * @param passwordsWoVersion Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
          * 
          * @return builder
          * 

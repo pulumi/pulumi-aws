@@ -3104,7 +3104,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -3112,7 +3112,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -3122,7 +3122,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(di
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -3130,7 +3130,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(di
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -5457,7 +5457,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -5465,7 +5465,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -5475,7 +5475,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -5483,7 +5483,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -6680,7 +6680,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -6688,7 +6688,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -6698,7 +6698,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -6706,7 +6706,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -7633,7 +7633,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -7641,7 +7641,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -7651,7 +7651,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -7659,7 +7659,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -8599,7 +8599,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -8607,7 +8607,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -8617,7 +8617,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -8625,7 +8625,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -9555,7 +9555,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -9563,7 +9563,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -9573,7 +9573,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -9581,7 +9581,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -10497,7 +10497,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -10505,7 +10505,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -10515,7 +10515,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -10523,7 +10523,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -11452,7 +11452,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -11460,7 +11460,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -11470,7 +11470,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(d
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -11478,7 +11478,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(d
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -12405,7 +12405,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleH
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -12413,7 +12413,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleH
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -12423,7 +12423,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQ
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -12431,7 +12431,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQ
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -13371,7 +13371,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -13379,7 +13379,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -13389,7 +13389,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgume
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -13397,7 +13397,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgume
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -14327,7 +14327,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -14335,7 +14335,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -14345,7 +14345,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(di
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -14353,7 +14353,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(di
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -15269,7 +15269,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -15277,7 +15277,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -15287,7 +15287,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dic
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query header to inspect. This setting must be provided as lower case characters.
+        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -15295,7 +15295,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dic
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query header to inspect. This setting must be provided as lower case characters.
+        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
