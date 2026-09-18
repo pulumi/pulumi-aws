@@ -1,6 +1,0 @@
-name: regress-5219
-runtime: nodejs
-config:
-  pulumi:tags:
-    value:
-      pulumi:template: aws-typescript

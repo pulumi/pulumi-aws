@@ -1,8 +1,0 @@
-name: ec2-instance
-runtime: yaml
-resources:
-  my-ec2-instance:
-    properties:
-      ami: ami-a0cfeed8
-      instanceType: t2.micro
-    type: aws:ec2:Instance

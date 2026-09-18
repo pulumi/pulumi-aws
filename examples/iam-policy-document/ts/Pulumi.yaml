@@ -1,3 +1,0 @@
-name: iam-policy-doc-upgrade
-runtime: nodejs
-description: Upgrade IAM Policy Document types

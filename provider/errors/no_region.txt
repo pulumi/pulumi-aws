@@ -1,2 +1,0 @@
-Missing region information
-Make sure you have set your AWS region, e.g. `pulumi config set aws:region us-west-2`.
