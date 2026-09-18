@@ -807,14 +807,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.caCertificateValidTill;
     }
     /**
-     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     * Cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
-     * @return Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     * @return Cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
     public Output<String> clusterIdentifier() {
@@ -1641,14 +1641,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceRegion);
     }
     /**
-     * Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+     * @return Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<Boolean> storageEncrypted() {

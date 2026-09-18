@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -608,7 +608,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

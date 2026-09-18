@@ -335,7 +335,7 @@ type GlobalCluster struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
 	SourceDbClusterIdentifier pulumi.StringOutput `pulumi:"sourceDbClusterIdentifier"`
-	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -408,7 +408,7 @@ type globalClusterState struct {
 	Region *string `pulumi:"region"`
 	// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
-	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -449,7 +449,7 @@ type GlobalClusterState struct {
 	Region pulumi.StringPtrInput
 	// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
 	SourceDbClusterIdentifier pulumi.StringPtrInput
-	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
 	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -484,7 +484,7 @@ type globalClusterArgs struct {
 	Region *string `pulumi:"region"`
 	// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
-	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -514,7 +514,7 @@ type GlobalClusterArgs struct {
 	Region pulumi.StringPtrInput
 	// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
 	SourceDbClusterIdentifier pulumi.StringPtrInput
-	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
 	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -681,7 +681,7 @@ func (o GlobalClusterOutput) SourceDbClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.StringOutput { return v.SourceDbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+// Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
 func (o GlobalClusterOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *GlobalCluster) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }

@@ -276,7 +276,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     declare public readonly sourceDbClusterIdentifier: pulumi.Output<string>;
     /**
-     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      */
     declare public readonly storageEncrypted: pulumi.Output<boolean>;
     /**
@@ -411,7 +411,7 @@ export interface GlobalClusterState {
      */
     sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      */
     storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
@@ -469,7 +469,7 @@ export interface GlobalClusterArgs {
      */
     sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. Terraform will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      */
     storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**

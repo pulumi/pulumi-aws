@@ -584,7 +584,7 @@ type Cluster struct {
 	CaCertificateIdentifier pulumi.StringOutput `pulumi:"caCertificateIdentifier"`
 	// Expiration date of the DB instance’s server certificate
 	CaCertificateValidTill pulumi.StringOutput `pulumi:"caCertificateValidTill"`
-	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	// Cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringOutput `pulumi:"clusterIdentifierPrefix"`
@@ -704,7 +704,7 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// Source region for an encrypted replica DB cluster.
 	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
-	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
 	// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2`, `gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
@@ -784,7 +784,7 @@ type clusterState struct {
 	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
 	// Expiration date of the DB instance’s server certificate
 	CaCertificateValidTill *string `pulumi:"caCertificateValidTill"`
-	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	// Cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
@@ -904,7 +904,7 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Source region for an encrypted replica DB cluster.
 	SourceRegion *string `pulumi:"sourceRegion"`
-	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2`, `gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
 	StorageType *string `pulumi:"storageType"`
@@ -941,7 +941,7 @@ type ClusterState struct {
 	CaCertificateIdentifier pulumi.StringPtrInput
 	// Expiration date of the DB instance’s server certificate
 	CaCertificateValidTill pulumi.StringPtrInput
-	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	// Cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
@@ -1061,7 +1061,7 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Source region for an encrypted replica DB cluster.
 	SourceRegion pulumi.StringPtrInput
-	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
 	// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2`, `gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
 	StorageType pulumi.StringPtrInput
@@ -1098,7 +1098,7 @@ type clusterArgs struct {
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// CA certificate identifier to use for the DB cluster's server certificate.
 	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
-	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	// Cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
@@ -1206,7 +1206,7 @@ type clusterArgs struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// Source region for an encrypted replica DB cluster.
 	SourceRegion *string `pulumi:"sourceRegion"`
-	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
 	// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2`, `gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
 	StorageType *string `pulumi:"storageType"`
@@ -1236,7 +1236,7 @@ type ClusterArgs struct {
 	BackupRetentionPeriod pulumi.IntPtrInput
 	// CA certificate identifier to use for the DB cluster's server certificate.
 	CaCertificateIdentifier pulumi.StringPtrInput
-	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	// Cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
@@ -1344,7 +1344,7 @@ type ClusterArgs struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// Source region for an encrypted replica DB cluster.
 	SourceRegion pulumi.StringPtrInput
-	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+	// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 	StorageEncrypted pulumi.BoolPtrInput
 	// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `storageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `io1`, `io2`, `gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `io1` (Multi-AZ DB Clusters).
 	StorageType pulumi.StringPtrInput
@@ -1493,7 +1493,7 @@ func (o ClusterOutput) CaCertificateValidTill() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CaCertificateValidTill }).(pulumi.StringOutput)
 }
 
-// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+// Cluster identifier. If omitted, this provider will assign a random, unique identifier.
 func (o ClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -1795,7 +1795,7 @@ func (o ClusterOutput) SourceRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SourceRegion }).(pulumi.StringPtrOutput)
 }
 
-// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+// Whether the DB cluster is encrypted. The default is `false` for `provisioned` `engineMode` and `true` for `serverless` `engineMode`. When restoring an unencrypted `snapshotIdentifier`, the `kmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
 func (o ClusterOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }

@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`. Additionally, `write-only` values are never stored to state. If set, requires `ValueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`. Additionally, `write-only` values are never stored to state. If set, requires `ValueWoVersion`.
         /// </summary>
         [Output("valueWo")]
         public Output<string?> ValueWo { get; private set; } = null!;
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`. Additionally, `write-only` values are never stored to state. If set, requires `ValueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`. Additionally, `write-only` values are never stored to state. If set, requires `ValueWoVersion`.
         /// </summary>
         public Input<string>? ValueWo
         {
@@ -509,7 +509,7 @@ namespace Pulumi.Aws.Ssm
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`. Additionally, `write-only` values are never stored to state. If set, requires `ValueWoVersion`. In Terraform CLI version 0.15 and later, this may require additional configuration handling for certain scenarios. For more information, see the Terraform v0.15 Upgrade Guide.
+        /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `Type`. Additionally, `write-only` values are never stored to state. If set, requires `ValueWoVersion`.
         /// </summary>
         public Input<string>? ValueWo
         {

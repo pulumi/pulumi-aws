@@ -527,7 +527,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> CaCertificateValidTill { get; private set; } = null!;
 
         /// <summary>
-        /// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        /// Cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
@@ -885,7 +885,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> SourceRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
@@ -1032,7 +1032,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? CaCertificateIdentifier { get; set; }
 
         /// <summary>
-        /// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        /// Cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
@@ -1392,7 +1392,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -1514,7 +1514,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? CaCertificateValidTill { get; set; }
 
         /// <summary>
-        /// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        /// Cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
@@ -1916,7 +1916,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
-        /// Whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. Terraform will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` for `Provisioned` `EngineMode` and `True` for `Serverless` `EngineMode`. When restoring an unencrypted `SnapshotIdentifier`, the `KmsKeyId` argument must be provided to encrypt the restored cluster. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
