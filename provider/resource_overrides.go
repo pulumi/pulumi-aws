@@ -1534,6 +1534,14 @@ func resourceOverrides(p shim.Provider) map[string]*tfbridge.ResourceInfo {
 				// contain white spaces, brackets, wildcard characters, or special characters.
 				// https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mq/create-broker.html#options
 				"broker_name": tfbridge.AutoName("brokerName", 55, "-"),
+				// HACK: remove this field for now as it produces a perpetual empty diff.
+				// shared_resources is Computed-only. For a RabbitMQ broker with no RAM shares
+				// DescribeSharedResources returns an empty list, which reaches Pulumi state as
+				// null, and a null value for a Computed attribute is indistinguishable from
+				// "not yet computed" -- so every plan emits NewComputed and renders
+				// `+ sharedResources: [unknown]`. Applying never settles it.
+				// https://github.com/pulumi/pulumi-terraform-bridge/issues/3633
+				"shared_resources": {Omit: true},
 			},
 		},
 

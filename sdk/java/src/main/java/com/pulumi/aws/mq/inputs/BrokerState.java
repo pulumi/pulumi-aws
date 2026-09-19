@@ -9,7 +9,6 @@ import com.pulumi.aws.mq.inputs.BrokerInstanceArgs;
 import com.pulumi.aws.mq.inputs.BrokerLdapServerMetadataArgs;
 import com.pulumi.aws.mq.inputs.BrokerLogsArgs;
 import com.pulumi.aws.mq.inputs.BrokerMaintenanceWindowStartTimeArgs;
-import com.pulumi.aws.mq.inputs.BrokerSharedResourceArgs;
 import com.pulumi.aws.mq.inputs.BrokerUserArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -361,21 +360,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-     * 
-     */
-    @Import(name="sharedResources")
-    private @Nullable Output<List<BrokerSharedResourceArgs>> sharedResources;
-
-    /**
-     * @return List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-     * 
-     */
-    public Optional<Output<List<BrokerSharedResourceArgs>>> sharedResources() {
-        return Optional.ofNullable(this.sharedResources);
-    }
-
-    /**
      * Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      * 
      */
@@ -475,7 +459,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         this.region = $.region;
         this.resourceShareArns = $.resourceShareArns;
         this.securityGroups = $.securityGroups;
-        this.sharedResources = $.sharedResources;
         this.storageType = $.storageType;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -995,37 +978,6 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
-        }
-
-        /**
-         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sharedResources(@Nullable Output<List<BrokerSharedResourceArgs>> sharedResources) {
-            $.sharedResources = sharedResources;
-            return this;
-        }
-
-        /**
-         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sharedResources(List<BrokerSharedResourceArgs> sharedResources) {
-            return sharedResources(Output.of(sharedResources));
-        }
-
-        /**
-         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sharedResources(BrokerSharedResourceArgs... sharedResources) {
-            return sharedResources(List.of(sharedResources));
         }
 
         /**

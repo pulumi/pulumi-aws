@@ -246,10 +246,6 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
     /**
-     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-     */
-    declare public /*out*/ readonly sharedResources: pulumi.Output<outputs.mq.BrokerSharedResource[]>;
-    /**
      * Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      */
     declare public readonly storageType: pulumi.Output<string>;
@@ -305,7 +301,6 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
             resourceInputs["resourceShareArns"] = state?.resourceShareArns;
             resourceInputs["securityGroups"] = state?.securityGroups;
-            resourceInputs["sharedResources"] = state?.sharedResources;
             resourceInputs["storageType"] = state?.storageType;
             resourceInputs["subnetIds"] = state?.subnetIds;
             resourceInputs["tags"] = state?.tags;
@@ -348,7 +343,6 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
             resourceInputs["pendingDataReplicationMode"] = undefined /*out*/;
-            resourceInputs["sharedResources"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -450,10 +444,6 @@ export interface BrokerState {
      * List of security group IDs assigned to the broker.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-     */
-    sharedResources?: pulumi.Input<pulumi.Input<inputs.mq.BrokerSharedResource>[] | undefined>;
     /**
      * Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      */

@@ -12,7 +12,6 @@ import com.pulumi.aws.mq.outputs.BrokerInstance;
 import com.pulumi.aws.mq.outputs.BrokerLdapServerMetadata;
 import com.pulumi.aws.mq.outputs.BrokerLogs;
 import com.pulumi.aws.mq.outputs.BrokerMaintenanceWindowStartTime;
-import com.pulumi.aws.mq.outputs.BrokerSharedResource;
 import com.pulumi.aws.mq.outputs.BrokerUser;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -529,20 +528,6 @@ public class Broker extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> securityGroups() {
         return Codegen.optional(this.securityGroups);
-    }
-    /**
-     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-     * 
-     */
-    @Export(name="sharedResources", refs={List.class,BrokerSharedResource.class}, tree="[0,1]")
-    private Output<List<BrokerSharedResource>> sharedResources;
-
-    /**
-     * @return List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-     * 
-     */
-    public Output<List<BrokerSharedResource>> sharedResources() {
-        return this.sharedResources;
     }
     /**
      * Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.

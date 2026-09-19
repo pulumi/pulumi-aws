@@ -239,8 +239,6 @@ type Broker struct {
 	ResourceShareArns pulumi.StringArrayOutput `pulumi:"resourceShareArns"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-	SharedResources BrokerSharedResourceArrayOutput `pulumi:"sharedResources"`
 	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
@@ -338,8 +336,6 @@ type brokerState struct {
 	ResourceShareArns []string `pulumi:"resourceShareArns"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-	SharedResources []BrokerSharedResource `pulumi:"sharedResources"`
 	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType *string `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
@@ -399,8 +395,6 @@ type BrokerState struct {
 	ResourceShareArns pulumi.StringArrayInput
 	// List of security group IDs assigned to the broker.
 	SecurityGroups pulumi.StringArrayInput
-	// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-	SharedResources BrokerSharedResourceArrayInput
 	// Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
 	StorageType pulumi.StringPtrInput
 	// List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
@@ -717,11 +711,6 @@ func (o BrokerOutput) ResourceShareArns() pulumi.StringArrayOutput {
 // List of security group IDs assigned to the broker.
 func (o BrokerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Broker) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
-}
-
-// List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
-func (o BrokerOutput) SharedResources() BrokerSharedResourceArrayOutput {
-	return o.ApplyT(func(v *Broker) BrokerSharedResourceArrayOutput { return v.SharedResources }).(BrokerSharedResourceArrayOutput)
 }
 
 // Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.

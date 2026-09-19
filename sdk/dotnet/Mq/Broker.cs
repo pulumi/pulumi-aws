@@ -318,12 +318,6 @@ namespace Pulumi.Aws.Mq
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
 
         /// <summary>
-        /// List of resources shared with the broker via `ResourceShareArns`. Only populated for `EngineType` of `RabbitMQ`.
-        /// </summary>
-        [Output("sharedResources")]
-        public Output<ImmutableArray<Outputs.BrokerSharedResource>> SharedResources { get; private set; } = null!;
-
-        /// <summary>
         /// Storage type of the broker. For `EngineType` `ActiveMQ`, valid values are `Efs` and `Ebs` (AWS-default is `Efs`). For `EngineType` `RabbitMQ`, only `Ebs` is supported. When using `Ebs`, only the `mq.m5` broker instance type family is supported.
         /// </summary>
         [Output("storageType")]
@@ -727,18 +721,6 @@ namespace Pulumi.Aws.Mq
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
-        }
-
-        [Input("sharedResources")]
-        private InputList<Inputs.BrokerSharedResourceGetArgs>? _sharedResources;
-
-        /// <summary>
-        /// List of resources shared with the broker via `ResourceShareArns`. Only populated for `EngineType` of `RabbitMQ`.
-        /// </summary>
-        public InputList<Inputs.BrokerSharedResourceGetArgs> SharedResources
-        {
-            get => _sharedResources ?? (_sharedResources = new InputList<Inputs.BrokerSharedResourceGetArgs>());
-            set => _sharedResources = value;
         }
 
         /// <summary>
