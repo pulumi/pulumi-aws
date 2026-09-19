@@ -90690,25 +90690,6 @@ export namespace mq {
         timeZone: string;
     }
 
-    export interface BrokerSharedResource {
-        /**
-         * DNS names through which the broker reaches the shared resource.
-         */
-        dnsNames: string[];
-        /**
-         * ARN of the shared resource.
-         */
-        resourceArn: string;
-        /**
-         * Status of the shared resource.
-         */
-        status: string;
-        /**
-         * Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
-         */
-        type: string;
-    }
-
     export interface BrokerUser {
         /**
          * Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.

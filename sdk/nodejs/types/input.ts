@@ -79873,25 +79873,6 @@ export namespace mq {
         timeZone: pulumi.Input<string>;
     }
 
-    export interface BrokerSharedResource {
-        /**
-         * DNS names through which the broker reaches the shared resource.
-         */
-        dnsNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * ARN of the shared resource.
-         */
-        resourceArn?: pulumi.Input<string | undefined>;
-        /**
-         * Status of the shared resource.
-         */
-        status?: pulumi.Input<string | undefined>;
-        /**
-         * Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
-         */
-        type?: pulumi.Input<string | undefined>;
-    }
-
     export interface BrokerUser {
         /**
          * Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
