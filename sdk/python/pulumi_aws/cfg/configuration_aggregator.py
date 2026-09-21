@@ -242,9 +242,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]] = None,
+                 account_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorAccountAggregationSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 organization_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
+                 organization_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorOrganizationAggregationSource']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -318,9 +318,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
+        :param pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorAccountAggregationSource']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
         :param pulumi.Input[_builtins.str] name: The name of the configuration aggregator.
-        :param pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']] organization_aggregation_source: The organization to aggregate config data from as documented below.
+        :param pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorOrganizationAggregationSource']] organization_aggregation_source: The organization to aggregate config data from as documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -415,9 +415,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]] = None,
+                 account_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorAccountAggregationSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 organization_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
+                 organization_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorOrganizationAggregationSource']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -446,10 +446,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]] = None,
+            account_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorAccountAggregationSource']]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            organization_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
+            organization_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorOrganizationAggregationSource']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ConfigurationAggregator':
@@ -460,10 +460,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
+        :param pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorAccountAggregationSource']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
         :param pulumi.Input[_builtins.str] arn: The ARN of the aggregator
         :param pulumi.Input[_builtins.str] name: The name of the configuration aggregator.
-        :param pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']] organization_aggregation_source: The organization to aggregate config data from as documented below.
+        :param pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict', 'outputs.ConfigurationAggregatorOrganizationAggregationSource']] organization_aggregation_source: The organization to aggregate config data from as documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                

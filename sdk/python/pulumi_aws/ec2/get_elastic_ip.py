@@ -270,7 +270,7 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
             tags=self.tags)
 
 
-def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']]] = None,
+def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict', 'outputs.GetElasticIpFilterResult']]] = None,
                    id: Optional[_builtins.str] = None,
                    public_ip: Optional[_builtins.str] = None,
                    region: Optional[_builtins.str] = None,
@@ -323,7 +323,7 @@ def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'G
     ```
 
 
-    :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+    :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict', 'outputs.GetElasticIpFilterResult']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param _builtins.str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param _builtins.str public_ip: Public IP of the specific EIP to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -363,7 +363,7 @@ def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'G
         public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_elastic_ip_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']]]]] = None,
+def get_elastic_ip_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict', 'outputs.GetElasticIpFilterResult']]]]] = None,
                           id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           public_ip: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -416,7 +416,7 @@ def get_elastic_ip_output(filters: pulumi.Input[Optional[Optional[Sequence[Union
     ```
 
 
-    :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+    :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict', 'outputs.GetElasticIpFilterResult']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param _builtins.str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param _builtins.str public_ip: Public IP of the specific EIP to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

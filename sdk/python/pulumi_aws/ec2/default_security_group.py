@@ -318,8 +318,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]]] = None,
-                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]]] = None,
+                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict', 'outputs.DefaultSecurityGroupEgress']]]]] = None,
+                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict', 'outputs.DefaultSecurityGroupIngress']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  revoke_rules_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -395,8 +395,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]] egress: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]] ingress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict', 'outputs.DefaultSecurityGroupEgress']]]] egress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict', 'outputs.DefaultSecurityGroupIngress']]]] ingress: Configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] vpc_id: VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
@@ -490,8 +490,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]]] = None,
-                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]]] = None,
+                 egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict', 'outputs.DefaultSecurityGroupEgress']]]]] = None,
+                 ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict', 'outputs.DefaultSecurityGroupIngress']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  revoke_rules_on_delete: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -529,8 +529,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]]] = None,
-            ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]]] = None,
+            egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict', 'outputs.DefaultSecurityGroupEgress']]]]] = None,
+            ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict', 'outputs.DefaultSecurityGroupIngress']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             owner_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -548,8 +548,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the security group.
         :param pulumi.Input[_builtins.str] description: Description of the security group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]] egress: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]] ingress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict', 'outputs.DefaultSecurityGroupEgress']]]] egress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict', 'outputs.DefaultSecurityGroupIngress']]]] ingress: Configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the security group.
         :param pulumi.Input[_builtins.str] owner_id: Owner ID.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

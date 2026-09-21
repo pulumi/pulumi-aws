@@ -281,7 +281,7 @@ class ReportGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_reports: pulumi.Input[Optional[_builtins.bool]] = None,
-                 export_config: pulumi.Input[Optional[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict']]] = None,
+                 export_config: pulumi.Input[Optional[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict', 'outputs.ReportGroupExportConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -345,7 +345,7 @@ class ReportGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-        :param pulumi.Input[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
+        :param pulumi.Input[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict', 'outputs.ReportGroupExportConfig']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         :param pulumi.Input[_builtins.str] name: The name of a Report Group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -428,7 +428,7 @@ class ReportGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delete_reports: pulumi.Input[Optional[_builtins.bool]] = None,
-                 export_config: pulumi.Input[Optional[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict']]] = None,
+                 export_config: pulumi.Input[Optional[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict', 'outputs.ReportGroupExportConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -468,7 +468,7 @@ class ReportGroup(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created: pulumi.Input[Optional[_builtins.str]] = None,
             delete_reports: pulumi.Input[Optional[_builtins.bool]] = None,
-            export_config: pulumi.Input[Optional[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict']]] = None,
+            export_config: pulumi.Input[Optional[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict', 'outputs.ReportGroupExportConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -484,7 +484,7 @@ class ReportGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of Report Group.
         :param pulumi.Input[_builtins.str] created: The date and time this Report Group was created.
         :param pulumi.Input[_builtins.bool] delete_reports: If `true`, deletes any reports that belong to a report group before deleting the report group. If `false`, you must delete any reports in the report group before deleting it. Default value is `false`.
-        :param pulumi.Input[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
+        :param pulumi.Input[Union['ReportGroupExportConfigArgs', 'ReportGroupExportConfigArgsDict', 'outputs.ReportGroupExportConfig']] export_config: Information about the destination where the raw data of this Report Group is exported. see Export Config documented below.
         :param pulumi.Input[_builtins.str] name: The name of a Report Group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

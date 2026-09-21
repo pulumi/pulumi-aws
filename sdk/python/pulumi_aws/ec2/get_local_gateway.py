@@ -111,7 +111,7 @@ class AwaitableGetLocalGatewayResult(GetLocalGatewayResult):
             tags=self.tags)
 
 
-def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']]] = None,
+def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict', 'outputs.GetLocalGatewayFilterResult']]] = None,
                       id: Optional[_builtins.str] = None,
                       region: Optional[_builtins.str] = None,
                       state: Optional[_builtins.str] = None,
@@ -134,7 +134,7 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
     ```
 
 
-    :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict', 'outputs.GetLocalGatewayFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str id: Id of the specific Local Gateway to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: Current state of the desired Local Gateway.
@@ -163,7 +163,7 @@ def get_local_gateway(filters: Optional[Sequence[Union['GetLocalGatewayFilterArg
         region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']]]]] = None,
+def get_local_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict', 'outputs.GetLocalGatewayFilterResult']]]]] = None,
                              id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -186,7 +186,7 @@ def get_local_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Un
     ```
 
 
-    :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetLocalGatewayFilterArgs', 'GetLocalGatewayFilterArgsDict', 'outputs.GetLocalGatewayFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str id: Id of the specific Local Gateway to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: Current state of the desired Local Gateway.

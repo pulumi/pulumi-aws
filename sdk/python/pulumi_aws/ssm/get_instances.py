@@ -81,7 +81,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             region=self.region)
 
 
-def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]] = None,
+def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict', 'outputs.GetInstancesFilterResult']]] = None,
                   region: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
@@ -100,7 +100,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
     ```
 
 
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict', 'outputs.GetInstancesFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -114,7 +114,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'))
-def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
+def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict', 'outputs.GetInstancesFilterResult']]]]] = None,
                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
@@ -133,7 +133,7 @@ def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
     ```
 
 
-    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict', 'outputs.GetInstancesFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

@@ -299,8 +299,8 @@ class ReportPlan(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 report_delivery_channel: pulumi.Input[Optional[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']]] = None,
-                 report_setting: pulumi.Input[Optional[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']]] = None,
+                 report_delivery_channel: pulumi.Input[Optional[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict', 'outputs.ReportPlanReportDeliveryChannel']]] = None,
+                 report_setting: pulumi.Input[Optional[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict', 'outputs.ReportPlanReportSetting']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -344,8 +344,8 @@ class ReportPlan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the report plan with a maximum of 1,024 characters.
         :param pulumi.Input[_builtins.str] name: Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']] report_delivery_channel: Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']] report_setting: Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict', 'outputs.ReportPlanReportDeliveryChannel']] report_delivery_channel: Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict', 'outputs.ReportPlanReportSetting']] report_setting: Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -408,8 +408,8 @@ class ReportPlan(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 report_delivery_channel: pulumi.Input[Optional[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']]] = None,
-                 report_setting: pulumi.Input[Optional[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']]] = None,
+                 report_delivery_channel: pulumi.Input[Optional[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict', 'outputs.ReportPlanReportDeliveryChannel']]] = None,
+                 report_setting: pulumi.Input[Optional[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict', 'outputs.ReportPlanReportSetting']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -450,8 +450,8 @@ class ReportPlan(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            report_delivery_channel: pulumi.Input[Optional[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']]] = None,
-            report_setting: pulumi.Input[Optional[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']]] = None,
+            report_delivery_channel: pulumi.Input[Optional[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict', 'outputs.ReportPlanReportDeliveryChannel']]] = None,
+            report_setting: pulumi.Input[Optional[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict', 'outputs.ReportPlanReportSetting']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ReportPlan':
         """
@@ -467,8 +467,8 @@ class ReportPlan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the report plan with a maximum of 1,024 characters.
         :param pulumi.Input[_builtins.str] name: Unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']] report_delivery_channel: Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
-        :param pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']] report_setting: Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        :param pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict', 'outputs.ReportPlanReportDeliveryChannel']] report_delivery_channel: Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        :param pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict', 'outputs.ReportPlanReportSetting']] report_setting: Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

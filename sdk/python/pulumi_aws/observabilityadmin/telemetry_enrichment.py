@@ -115,7 +115,7 @@ class TelemetryEnrichment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict', 'outputs.TelemetryEnrichmentTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS CloudWatch Observability Admin Telemetry Enrichment.
@@ -215,7 +215,7 @@ class TelemetryEnrichment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict', 'outputs.TelemetryEnrichmentTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -240,7 +240,7 @@ class TelemetryEnrichment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             aws_resource_explorer_managed_view_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict']]] = None) -> 'TelemetryEnrichment':
+            timeouts: pulumi.Input[Optional[Union['TelemetryEnrichmentTimeoutsArgs', 'TelemetryEnrichmentTimeoutsArgsDict', 'outputs.TelemetryEnrichmentTimeouts']]] = None) -> 'TelemetryEnrichment':
         """
         Get an existing TelemetryEnrichment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

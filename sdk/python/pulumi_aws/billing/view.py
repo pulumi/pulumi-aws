@@ -394,12 +394,12 @@ class View(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']]] = None,
+                 data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict', 'outputs.ViewDataFilterExpression']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict', 'outputs.ViewTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Billing View.
@@ -429,7 +429,7 @@ class View(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']] data_filter_expression: Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+        :param pulumi.Input[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict', 'outputs.ViewDataFilterExpression']] data_filter_expression: Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
         :param pulumi.Input[_builtins.str] description: Description of the custom billing view.
         :param pulumi.Input[_builtins.str] name: Name of the custom billing view to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_views: List of ARNs of the source data views for the custom billing view.
@@ -484,12 +484,12 @@ class View(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']]] = None,
+                 data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict', 'outputs.ViewDataFilterExpression']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict', 'outputs.ViewTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -528,7 +528,7 @@ class View(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             billing_view_type: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
-            data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']]] = None,
+            data_filter_expression: pulumi.Input[Optional[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict', 'outputs.ViewDataFilterExpression']]] = None,
             derived_view_count: pulumi.Input[Optional[_builtins.int]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -538,7 +538,7 @@ class View(pulumi.CustomResource):
             source_views: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ViewTimeoutsArgs', 'ViewTimeoutsArgsDict', 'outputs.ViewTimeouts']]] = None,
             updated_at: pulumi.Input[Optional[_builtins.str]] = None,
             view_definition_last_updated_at: pulumi.Input[Optional[_builtins.str]] = None) -> 'View':
         """
@@ -551,7 +551,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the View.
         :param pulumi.Input[_builtins.str] billing_view_type: Type of billing group. Valid values are PRIMARY|BILLING_GROUP|CUSTOM.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the billing view was created.
-        :param pulumi.Input[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict']] data_filter_expression: Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
+        :param pulumi.Input[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict', 'outputs.ViewDataFilterExpression']] data_filter_expression: Filter Cost Explorer APIs using the expression. Refer to the data-filter-expression block documentation for more details.
         :param pulumi.Input[_builtins.int] derived_view_count: Number of billing views that use this billing view as a source.
         :param pulumi.Input[_builtins.str] description: Description of the custom billing view.
         :param pulumi.Input[_builtins.str] name: Name of the custom billing view to be created.

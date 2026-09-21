@@ -232,7 +232,7 @@ class ContactChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']]] = None,
+                 delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict', 'outputs.ContactChannelDeliveryAddress']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -295,7 +295,7 @@ class ContactChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_id: ARN of the AWS SSM Contact that the contact channel belongs to.
-        :param pulumi.Input[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']] delivery_address: Block that contains contact engagement details. See details below.
+        :param pulumi.Input[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict', 'outputs.ContactChannelDeliveryAddress']] delivery_address: Block that contains contact engagement details. See details below.
         :param pulumi.Input[_builtins.str] name: Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
@@ -377,7 +377,7 @@ class ContactChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']]] = None,
+                 delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict', 'outputs.ContactChannelDeliveryAddress']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -416,7 +416,7 @@ class ContactChannel(pulumi.CustomResource):
             activation_status: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             contact_id: pulumi.Input[Optional[_builtins.str]] = None,
-            delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']]] = None,
+            delivery_address: pulumi.Input[Optional[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict', 'outputs.ContactChannelDeliveryAddress']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ContactChannel':
@@ -430,7 +430,7 @@ class ContactChannel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] activation_status: Whether the contact channel is activated. The contact channel must be activated to use it to engage the contact. One of `ACTIVATED` or `NOT_ACTIVATED`.
         :param pulumi.Input[_builtins.str] arn: ARN of the contact channel.
         :param pulumi.Input[_builtins.str] contact_id: ARN of the AWS SSM Contact that the contact channel belongs to.
-        :param pulumi.Input[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict']] delivery_address: Block that contains contact engagement details. See details below.
+        :param pulumi.Input[Union['ContactChannelDeliveryAddressArgs', 'ContactChannelDeliveryAddressArgsDict', 'outputs.ContactChannelDeliveryAddress']] delivery_address: Block that contains contact engagement details. See details below.
         :param pulumi.Input[_builtins.str] name: Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] type: Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.

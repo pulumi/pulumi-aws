@@ -469,7 +469,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key: pulumi.Input[Optional[_builtins.str]] = None,
-            api_key_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict']]]]] = None,
+            api_key_secret_arns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn']]]]] = None,
             api_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
             api_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -487,7 +487,7 @@ class AgentcoreApiKeyCredentialProvider(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_key: API key value. Conflicts with `api_key_wo`. This value will be visible in pulumi preview outputs and logs.
                
                **Write-Only API Key (choose one approach):**
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict']]]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs', 'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict', 'outputs.AgentcoreApiKeyCredentialProviderApiKeySecretArn']]]] api_key_secret_arns: ARN of the AWS Secrets Manager secret containing the API key.
         :param pulumi.Input[_builtins.str] api_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
                Write-only API key value. Conflicts with `api_key`. If set, requires `api_key_wo_version` to be set.
         :param pulumi.Input[_builtins.int] api_key_wo_version: Required when `api_key_wo` is set. Changing this value triggers an update to `api_key_wo`.

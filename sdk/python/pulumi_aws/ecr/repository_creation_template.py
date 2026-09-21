@@ -411,9 +411,9 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  applied_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict', 'outputs.RepositoryCreationTemplateEncryptionConfiguration']]]]] = None,
                  image_tag_mutability: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter']]]]] = None,
                  lifecycle_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -500,9 +500,9 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         :param pulumi.Input[_builtins.str] description: The description for this template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict', 'outputs.RepositoryCreationTemplateEncryptionConfiguration']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
         :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
         :param pulumi.Input[_builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -608,9 +608,9 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  applied_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict', 'outputs.RepositoryCreationTemplateEncryptionConfiguration']]]]] = None,
                  image_tag_mutability: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter']]]]] = None,
                  lifecycle_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -654,9 +654,9 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
             applied_fors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             custom_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]]] = None,
+            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict', 'outputs.RepositoryCreationTemplateEncryptionConfiguration']]]]] = None,
             image_tag_mutability: pulumi.Input[Optional[_builtins.str]] = None,
-            image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+            image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter']]]]] = None,
             lifecycle_policy: pulumi.Input[Optional[_builtins.str]] = None,
             prefix: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -673,9 +673,9 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] applied_fors: Which features this template applies to. Must contain one or more of `CREATE_ON_PUSH`, `PULL_THROUGH_CACHE`, or `REPLICATION`.
         :param pulumi.Input[_builtins.str] custom_role_arn: A custom IAM role to use for repository creation. Required if using repository tags or KMS encryption.
         :param pulumi.Input[_builtins.str] description: The description for this template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict', 'outputs.RepositoryCreationTemplateEncryptionConfiguration']]]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
         :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs', 'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
         :param pulumi.Input[_builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

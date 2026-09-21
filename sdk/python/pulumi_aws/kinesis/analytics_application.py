@@ -470,13 +470,13 @@ class AnalyticsApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_logging_options: pulumi.Input[Optional[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict']]] = None,
+                 cloudwatch_logging_options: pulumi.Input[Optional[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.AnalyticsApplicationCloudwatchLoggingOptions']]] = None,
                  code: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 inputs: pulumi.Input[Optional[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict']]] = None,
+                 inputs: pulumi.Input[Optional[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict', 'outputs.AnalyticsApplicationInputs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict']]]]] = None,
-                 reference_data_sources: pulumi.Input[Optional[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict']]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict', 'outputs.AnalyticsApplicationOutput']]]]] = None,
+                 reference_data_sources: pulumi.Input[Optional[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict', 'outputs.AnalyticsApplicationReferenceDataSources']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start_application: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -605,14 +605,14 @@ class AnalyticsApplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
+        :param pulumi.Input[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.AnalyticsApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
                See CloudWatch Logging Options below for more details.
         :param pulumi.Input[_builtins.str] code: SQL Code to transform input data, and generate output.
         :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict']] inputs: Input configuration of the application. See Inputs below for more details.
+        :param pulumi.Input[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict', 'outputs.AnalyticsApplicationInputs']] inputs: Input configuration of the application. See Inputs below for more details.
         :param pulumi.Input[_builtins.str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict']] reference_data_sources: An S3 Reference Data Source for the application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict', 'outputs.AnalyticsApplicationOutput']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
+        :param pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict', 'outputs.AnalyticsApplicationReferenceDataSources']] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
@@ -762,13 +762,13 @@ class AnalyticsApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_logging_options: pulumi.Input[Optional[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict']]] = None,
+                 cloudwatch_logging_options: pulumi.Input[Optional[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.AnalyticsApplicationCloudwatchLoggingOptions']]] = None,
                  code: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 inputs: pulumi.Input[Optional[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict']]] = None,
+                 inputs: pulumi.Input[Optional[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict', 'outputs.AnalyticsApplicationInputs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict']]]]] = None,
-                 reference_data_sources: pulumi.Input[Optional[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict']]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict', 'outputs.AnalyticsApplicationOutput']]]]] = None,
+                 reference_data_sources: pulumi.Input[Optional[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict', 'outputs.AnalyticsApplicationReferenceDataSources']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start_application: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -808,15 +808,15 @@ class AnalyticsApplication(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            cloudwatch_logging_options: pulumi.Input[Optional[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict']]] = None,
+            cloudwatch_logging_options: pulumi.Input[Optional[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.AnalyticsApplicationCloudwatchLoggingOptions']]] = None,
             code: pulumi.Input[Optional[_builtins.str]] = None,
             create_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            inputs: pulumi.Input[Optional[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict']]] = None,
+            inputs: pulumi.Input[Optional[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict', 'outputs.AnalyticsApplicationInputs']]] = None,
             last_update_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict']]]]] = None,
-            reference_data_sources: pulumi.Input[Optional[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict']]] = None,
+            outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict', 'outputs.AnalyticsApplicationOutput']]]]] = None,
+            reference_data_sources: pulumi.Input[Optional[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict', 'outputs.AnalyticsApplicationReferenceDataSources']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             start_application: pulumi.Input[Optional[_builtins.bool]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -831,16 +831,16 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the Kinesis Analytics Appliation.
-        :param pulumi.Input[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
+        :param pulumi.Input[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.AnalyticsApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
                See CloudWatch Logging Options below for more details.
         :param pulumi.Input[_builtins.str] code: SQL Code to transform input data, and generate output.
         :param pulumi.Input[_builtins.str] create_timestamp: The Timestamp when the application version was created.
         :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict']] inputs: Input configuration of the application. See Inputs below for more details.
+        :param pulumi.Input[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict', 'outputs.AnalyticsApplicationInputs']] inputs: Input configuration of the application. See Inputs below for more details.
         :param pulumi.Input[_builtins.str] last_update_timestamp: The Timestamp when the application was last updated.
         :param pulumi.Input[_builtins.str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict']] reference_data_sources: An S3 Reference Data Source for the application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict', 'outputs.AnalyticsApplicationOutput']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
+        :param pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict', 'outputs.AnalyticsApplicationReferenceDataSources']] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.

@@ -269,7 +269,7 @@ class AwaitableGetTableResult(GetTableResult):
 
 def get_table(name: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
-              server_side_encryption: Optional[Union['GetTableServerSideEncryptionArgs', 'GetTableServerSideEncryptionArgsDict']] = None,
+              server_side_encryption: Optional[Union['GetTableServerSideEncryptionArgs', 'GetTableServerSideEncryptionArgsDict', 'outputs.GetTableServerSideEncryptionResult']] = None,
               tags: Optional[Mapping[str, _builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
@@ -324,7 +324,7 @@ def get_table(name: Optional[_builtins.str] = None,
         write_capacity=pulumi.get(__ret__, 'write_capacity'))
 def get_table_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                     server_side_encryption: pulumi.Input[Optional[Optional[Union['GetTableServerSideEncryptionArgs', 'GetTableServerSideEncryptionArgsDict']]]] = None,
+                     server_side_encryption: pulumi.Input[Optional[Optional[Union['GetTableServerSideEncryptionArgs', 'GetTableServerSideEncryptionArgsDict', 'outputs.GetTableServerSideEncryptionResult']]]] = None,
                      tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """

@@ -90,7 +90,7 @@ class AwaitableGetVpcIpamPoolCidrsResult(GetVpcIpamPoolCidrsResult):
             region=self.region)
 
 
-def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']]] = None,
+def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict', 'outputs.GetVpcIpamPoolCidrsFilterResult']]] = None,
                             ipam_pool_id: Optional[_builtins.str] = None,
                             region: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamPoolCidrsResult:
@@ -143,7 +143,7 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidr
     ```
 
 
-    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict', 'outputs.GetVpcIpamPoolCidrsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -160,7 +160,7 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidr
         ipam_pool_cidrs=pulumi.get(__ret__, 'ipam_pool_cidrs'),
         ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_vpc_ipam_pool_cidrs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']]]]] = None,
+def get_vpc_ipam_pool_cidrs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict', 'outputs.GetVpcIpamPoolCidrsFilterResult']]]]] = None,
                                    ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamPoolCidrsResult]:
@@ -213,7 +213,7 @@ def get_vpc_ipam_pool_cidrs_output(filters: pulumi.Input[Optional[Optional[Seque
     ```
 
 
-    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict', 'outputs.GetVpcIpamPoolCidrsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

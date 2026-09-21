@@ -401,10 +401,10 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']]] = None,
+                 aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict', 'outputs.DeviceAwsLocation']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict', 'outputs.DeviceLocation']]] = None,
                  model: pulumi.Input[Optional[_builtins.str]] = None,
                  serial_number: pulumi.Input[Optional[_builtins.str]] = None,
                  site_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -439,12 +439,12 @@ class Device(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']] aws_location: AWS location of the device. Documented below.
+        :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict', 'outputs.DeviceAwsLocation']] aws_location: AWS location of the device. Documented below.
         :param pulumi.Input[_builtins.str] description: Description of the device.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']] location: Location of the device. Documented below.
+        :param pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict', 'outputs.DeviceLocation']] location: Location of the device. Documented below.
         :param pulumi.Input[_builtins.str] model: Model of device.
         :param pulumi.Input[_builtins.str] serial_number: Serial number of the device.
         :param pulumi.Input[_builtins.str] site_id: ID of the site.
@@ -498,10 +498,10 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']]] = None,
+                 aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict', 'outputs.DeviceAwsLocation']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict', 'outputs.DeviceLocation']]] = None,
                  model: pulumi.Input[Optional[_builtins.str]] = None,
                  serial_number: pulumi.Input[Optional[_builtins.str]] = None,
                  site_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -542,10 +542,10 @@ class Device(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']]] = None,
+            aws_location: pulumi.Input[Optional[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict', 'outputs.DeviceAwsLocation']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-            location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']]] = None,
+            location: pulumi.Input[Optional[Union['DeviceLocationArgs', 'DeviceLocationArgsDict', 'outputs.DeviceLocation']]] = None,
             model: pulumi.Input[Optional[_builtins.str]] = None,
             serial_number: pulumi.Input[Optional[_builtins.str]] = None,
             site_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -561,12 +561,12 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the device.
-        :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict']] aws_location: AWS location of the device. Documented below.
+        :param pulumi.Input[Union['DeviceAwsLocationArgs', 'DeviceAwsLocationArgsDict', 'outputs.DeviceAwsLocation']] aws_location: AWS location of the device. Documented below.
         :param pulumi.Input[_builtins.str] description: Description of the device.
         :param pulumi.Input[_builtins.str] global_network_id: ID of the global network.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict']] location: Location of the device. Documented below.
+        :param pulumi.Input[Union['DeviceLocationArgs', 'DeviceLocationArgsDict', 'outputs.DeviceLocation']] location: Location of the device. Documented below.
         :param pulumi.Input[_builtins.str] model: Model of device.
         :param pulumi.Input[_builtins.str] serial_number: Serial number of the device.
         :param pulumi.Input[_builtins.str] site_id: ID of the site.

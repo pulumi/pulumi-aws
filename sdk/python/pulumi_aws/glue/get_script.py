@@ -111,8 +111,8 @@ class AwaitableGetScriptResult(GetScriptResult):
             scala_code=self.scala_code)
 
 
-def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']]] = None,
-               dag_nodes: Optional[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']]] = None,
+def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict', 'outputs.GetScriptDagEdgeResult']]] = None,
+               dag_nodes: Optional[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict', 'outputs.GetScriptDagNodeResult']]] = None,
                language: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptResult:
@@ -306,8 +306,8 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
     ```
 
 
-    :param Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']] dag_edges: List of the edges in the DAG. Defined below.
-    :param Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']] dag_nodes: List of the nodes in the DAG. Defined below.
+    :param Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict', 'outputs.GetScriptDagEdgeResult']] dag_edges: List of the edges in the DAG. Defined below.
+    :param Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict', 'outputs.GetScriptDagNodeResult']] dag_nodes: List of the nodes in the DAG. Defined below.
     :param _builtins.str language: Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -327,8 +327,8 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
         python_script=pulumi.get(__ret__, 'python_script'),
         region=pulumi.get(__ret__, 'region'),
         scala_code=pulumi.get(__ret__, 'scala_code'))
-def get_script_output(dag_edges: pulumi.Input[Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']]]] = None,
-                      dag_nodes: pulumi.Input[Optional[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']]]] = None,
+def get_script_output(dag_edges: pulumi.Input[Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict', 'outputs.GetScriptDagEdgeResult']]]] = None,
+                      dag_nodes: pulumi.Input[Optional[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict', 'outputs.GetScriptDagNodeResult']]]] = None,
                       language: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptResult]:
@@ -522,8 +522,8 @@ def get_script_output(dag_edges: pulumi.Input[Optional[Sequence[Union['GetScript
     ```
 
 
-    :param Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']] dag_edges: List of the edges in the DAG. Defined below.
-    :param Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']] dag_nodes: List of the nodes in the DAG. Defined below.
+    :param Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict', 'outputs.GetScriptDagEdgeResult']] dag_edges: List of the edges in the DAG. Defined below.
+    :param Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict', 'outputs.GetScriptDagNodeResult']] dag_nodes: List of the nodes in the DAG. Defined below.
     :param _builtins.str language: Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

@@ -93,7 +93,7 @@ class AwaitableGetSecretsResult(GetSecretsResult):
             region=self.region)
 
 
-def get_secrets(filters: Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']]] = None,
+def get_secrets(filters: Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict', 'outputs.GetSecretsFilterResult']]] = None,
                 region: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
     """
@@ -112,7 +112,7 @@ def get_secrets(filters: Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSec
     ```
 
 
-    :param Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict', 'outputs.GetSecretsFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -127,7 +127,7 @@ def get_secrets(filters: Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSec
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
         region=pulumi.get(__ret__, 'region'))
-def get_secrets_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']]]]] = None,
+def get_secrets_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict', 'outputs.GetSecretsFilterResult']]]]] = None,
                        region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
     """
@@ -146,7 +146,7 @@ def get_secrets_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['G
     ```
 
 
-    :param Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict', 'outputs.GetSecretsFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

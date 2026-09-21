@@ -549,7 +549,7 @@ class PhoneNumber(pulumi.CustomResource):
             phone_number: pulumi.Input[Optional[_builtins.str]] = None,
             prefix: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PhoneNumberStatusArgs', 'PhoneNumberStatusArgsDict']]]]] = None,
+            statuses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PhoneNumberStatusArgs', 'PhoneNumberStatusArgsDict', 'outputs.PhoneNumberStatus']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -567,7 +567,7 @@ class PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] phone_number: The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
         :param pulumi.Input[_builtins.str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PhoneNumberStatusArgs', 'PhoneNumberStatusArgsDict']]]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PhoneNumberStatusArgs', 'PhoneNumberStatusArgsDict', 'outputs.PhoneNumberStatus']]]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] target_arn: ARN for Amazon Connect instances that phone numbers are claimed to.

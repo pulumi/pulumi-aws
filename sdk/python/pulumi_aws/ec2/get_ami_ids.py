@@ -127,7 +127,7 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
 
 
 def get_ami_ids(executable_users: Optional[Sequence[_builtins.str]] = None,
-                filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']]] = None,
+                filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']]] = None,
                 include_deprecated: Optional[_builtins.bool] = None,
                 name_regex: Optional[_builtins.str] = None,
                 owners: Optional[Sequence[_builtins.str]] = None,
@@ -152,7 +152,7 @@ def get_ami_ids(executable_users: Optional[Sequence[_builtins.str]] = None,
 
 
     :param Sequence[_builtins.str] executable_users: Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` Block below.
+    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']] filters: One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` Block below.
     :param _builtins.bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
     :param _builtins.str name_regex: Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
     :param Sequence[_builtins.str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
@@ -181,7 +181,7 @@ def get_ami_ids(executable_users: Optional[Sequence[_builtins.str]] = None,
         region=pulumi.get(__ret__, 'region'),
         sort_ascending=pulumi.get(__ret__, 'sort_ascending'))
 def get_ami_ids_output(executable_users: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
-                       filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']]]]] = None,
+                       filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']]]]] = None,
                        include_deprecated: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                        name_regex: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        owners: pulumi.Input[Optional[Sequence[_builtins.str]]] = None,
@@ -206,7 +206,7 @@ def get_ami_ids_output(executable_users: pulumi.Input[Optional[Optional[Sequence
 
 
     :param Sequence[_builtins.str] executable_users: Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` Block below.
+    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict', 'outputs.GetAmiIdsFilterResult']] filters: One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` Block below.
     :param _builtins.bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
     :param _builtins.str name_regex: Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
     :param Sequence[_builtins.str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).

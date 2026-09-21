@@ -318,7 +318,7 @@ class DataQualityRuleset(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  ruleset: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_table: pulumi.Input[Optional[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']]] = None,
+                 target_table: pulumi.Input[Optional[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict', 'outputs.DataQualityRulesetTargetTable']]] = None,
                  __props__=None):
         """
         Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
@@ -393,7 +393,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict', 'outputs.DataQualityRulesetTargetTable']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         """
         ...
     @overload
@@ -487,7 +487,7 @@ class DataQualityRuleset(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  ruleset: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_table: pulumi.Input[Optional[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']]] = None,
+                 target_table: pulumi.Input[Optional[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict', 'outputs.DataQualityRulesetTargetTable']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -530,7 +530,7 @@ class DataQualityRuleset(pulumi.CustomResource):
             ruleset: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_table: pulumi.Input[Optional[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']]] = None) -> 'DataQualityRuleset':
+            target_table: pulumi.Input[Optional[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict', 'outputs.DataQualityRulesetTargetTable']]] = None) -> 'DataQualityRuleset':
         """
         Get an existing DataQualityRuleset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -548,7 +548,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict', 'outputs.DataQualityRulesetTargetTable']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

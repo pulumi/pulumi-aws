@@ -434,7 +434,7 @@ class Secret(pulumi.CustomResource):
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict']]]]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict', 'outputs.SecretReplica']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -490,7 +490,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[_builtins.int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict']]]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict', 'outputs.SecretReplica']]]] replicas: Configuration block to support secret replication. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.
         """
@@ -565,7 +565,7 @@ class Secret(pulumi.CustomResource):
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict']]]]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict', 'outputs.SecretReplica']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -609,7 +609,7 @@ class Secret(pulumi.CustomResource):
             policy: pulumi.Input[Optional[_builtins.str]] = None,
             recovery_window_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict']]]]] = None,
+            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict', 'outputs.SecretReplica']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'Secret':
@@ -629,7 +629,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[_builtins.int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict']]]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaArgs', 'SecretReplicaArgsDict', 'outputs.SecretReplica']]]] replicas: Configuration block to support secret replication. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of secret for managed external secrets. Valid values are `SalesforceClientSecret`, `BigIDClientSecret`, and `SnowflakeKeyPairAuthentication`. For more information about supported partners and their specific requirements, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html). This attribute cannot be changed after creation.

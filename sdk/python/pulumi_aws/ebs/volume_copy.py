@@ -351,7 +351,7 @@ class VolumeCopy(pulumi.CustomResource):
                  source_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VolumeCopyTimeoutsArgs', 'VolumeCopyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VolumeCopyTimeoutsArgs', 'VolumeCopyTimeoutsArgsDict', 'outputs.VolumeCopyTimeouts']]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -479,7 +479,7 @@ class VolumeCopy(pulumi.CustomResource):
                  source_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  throughput: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VolumeCopyTimeoutsArgs', 'VolumeCopyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VolumeCopyTimeoutsArgs', 'VolumeCopyTimeoutsArgsDict', 'outputs.VolumeCopyTimeouts']]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -522,7 +522,7 @@ class VolumeCopy(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             throughput: pulumi.Input[Optional[_builtins.int]] = None,
-            timeouts: pulumi.Input[Optional[Union['VolumeCopyTimeoutsArgs', 'VolumeCopyTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['VolumeCopyTimeoutsArgs', 'VolumeCopyTimeoutsArgsDict', 'outputs.VolumeCopyTimeouts']]] = None,
             volume_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'VolumeCopy':
         """
         Get an existing VolumeCopy resource's state with the given name, id, and optional extra

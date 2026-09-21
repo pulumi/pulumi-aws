@@ -393,15 +393,15 @@ class EndpointConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 async_inference_config: pulumi.Input[Optional[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']]] = None,
-                 data_capture_config: pulumi.Input[Optional[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']]] = None,
+                 async_inference_config: pulumi.Input[Optional[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigurationAsyncInferenceConfig']]] = None,
+                 data_capture_config: pulumi.Input[Optional[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict', 'outputs.EndpointConfigurationDataCaptureConfig']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-                 production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]]] = None,
+                 production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict', 'outputs.EndpointConfigurationProductionVariant']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]]] = None,
+                 shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict', 'outputs.EndpointConfigurationShadowProductionVariant']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -423,15 +423,15 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']] async_inference_config: How an endpoint performs asynchronous inference.
-        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigurationAsyncInferenceConfig']] async_inference_config: How an endpoint performs asynchronous inference.
+        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict', 'outputs.EndpointConfigurationDataCaptureConfig']] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`. If `name_prefix` is specified, `name` is populated with the full name.
         :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: List each model that you want to host at this endpoint. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict', 'outputs.EndpointConfigurationProductionVariant']]]] production_variants: List each model that you want to host at this endpoint. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]] shadow_production_variants: Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `production_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict', 'outputs.EndpointConfigurationShadowProductionVariant']]]] shadow_production_variants: Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `production_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -472,15 +472,15 @@ class EndpointConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 async_inference_config: pulumi.Input[Optional[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']]] = None,
-                 data_capture_config: pulumi.Input[Optional[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']]] = None,
+                 async_inference_config: pulumi.Input[Optional[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigurationAsyncInferenceConfig']]] = None,
+                 data_capture_config: pulumi.Input[Optional[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict', 'outputs.EndpointConfigurationDataCaptureConfig']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-                 production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]]] = None,
+                 production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict', 'outputs.EndpointConfigurationProductionVariant']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]]] = None,
+                 shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict', 'outputs.EndpointConfigurationShadowProductionVariant']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -516,15 +516,15 @@ class EndpointConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            async_inference_config: pulumi.Input[Optional[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']]] = None,
-            data_capture_config: pulumi.Input[Optional[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']]] = None,
+            async_inference_config: pulumi.Input[Optional[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigurationAsyncInferenceConfig']]] = None,
+            data_capture_config: pulumi.Input[Optional[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict', 'outputs.EndpointConfigurationDataCaptureConfig']]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-            production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]]] = None,
+            production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict', 'outputs.EndpointConfigurationProductionVariant']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]]] = None,
+            shadow_production_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict', 'outputs.EndpointConfigurationShadowProductionVariant']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'EndpointConfiguration':
         """
@@ -535,15 +535,15 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this endpoint configuration.
-        :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict']] async_inference_config: How an endpoint performs asynchronous inference.
-        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict']] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
+        :param pulumi.Input[Union['EndpointConfigurationAsyncInferenceConfigArgs', 'EndpointConfigurationAsyncInferenceConfigArgsDict', 'outputs.EndpointConfigurationAsyncInferenceConfig']] async_inference_config: How an endpoint performs asynchronous inference.
+        :param pulumi.Input[Union['EndpointConfigurationDataCaptureConfigArgs', 'EndpointConfigurationDataCaptureConfigArgsDict', 'outputs.EndpointConfigurationDataCaptureConfig']] data_capture_config: Parameters to capture input/output of SageMaker AI models endpoints. Fields are documented below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of an IAM role that SageMaker AI can assume to perform actions on your behalf. Required when `model_name` is not specified in `production_variants` to support Inference Components.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a AWS KMS key that SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[_builtins.str] name: Name of the endpoint configuration. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`. If `name_prefix` is specified, `name` is populated with the full name.
         :param pulumi.Input[_builtins.str] name_prefix: Unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: List each model that you want to host at this endpoint. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict', 'outputs.EndpointConfigurationProductionVariant']]]] production_variants: List each model that you want to host at this endpoint. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]] shadow_production_variants: Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `production_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict', 'outputs.EndpointConfigurationShadowProductionVariant']]]] shadow_production_variants: Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `production_variants`. If you use this field, you can only specify one variant for `production_variants` and one variant for `shadow_production_variants`. See below (same arguments as `production_variants`).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

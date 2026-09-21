@@ -111,7 +111,7 @@ class AwaitableGetInstanceTypeOfferingResult(GetInstanceTypeOfferingResult):
             region=self.region)
 
 
-def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']]] = None,
+def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict', 'outputs.GetInstanceTypeOfferingFilterResult']]] = None,
                                location_type: Optional[_builtins.str] = None,
                                preferred_instance_types: Optional[Sequence[_builtins.str]] = None,
                                region: Optional[_builtins.str] = None,
@@ -139,7 +139,7 @@ def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceType
     ```
 
 
-    :param Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict', 'outputs.GetInstanceTypeOfferingFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param _builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param Sequence[_builtins.str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -160,7 +160,7 @@ def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceType
         location_type=pulumi.get(__ret__, 'location_type'),
         preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'),
         region=pulumi.get(__ret__, 'region'))
-def get_instance_type_offering_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']]]]] = None,
+def get_instance_type_offering_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict', 'outputs.GetInstanceTypeOfferingFilterResult']]]]] = None,
                                       location_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                       preferred_instance_types: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -188,7 +188,7 @@ def get_instance_type_offering_output(filters: pulumi.Input[Optional[Optional[Se
     ```
 
 
-    :param Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict', 'outputs.GetInstanceTypeOfferingFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param _builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param Sequence[_builtins.str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

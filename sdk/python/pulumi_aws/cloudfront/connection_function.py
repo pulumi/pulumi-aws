@@ -289,7 +289,7 @@ class ConnectionFunction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_function_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']]] = None,
+                 connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict', 'outputs.ConnectionFunctionConnectionFunctionConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  publish: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -382,7 +382,7 @@ class ConnectionFunction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_function_code: Code for the connection function. Maximum length is 40960 characters.
-        :param pulumi.Input[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
+        :param pulumi.Input[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict', 'outputs.ConnectionFunctionConnectionFunctionConfig']] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
         :param pulumi.Input[_builtins.str] name: Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
                
                The following arguments are optional:
@@ -496,7 +496,7 @@ class ConnectionFunction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_function_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']]] = None,
+                 connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict', 'outputs.ConnectionFunctionConnectionFunctionConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  publish: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -535,7 +535,7 @@ class ConnectionFunction(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             connection_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
             connection_function_code: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']]] = None,
+            connection_function_config: pulumi.Input[Optional[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict', 'outputs.ConnectionFunctionConnectionFunctionConfig']]] = None,
             etag: pulumi.Input[Optional[_builtins.str]] = None,
             live_stage_etag: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -552,7 +552,7 @@ class ConnectionFunction(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connection_function_arn: ARN of the connection function.
         :param pulumi.Input[_builtins.str] connection_function_code: Code for the connection function. Maximum length is 40960 characters.
-        :param pulumi.Input[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict']] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
+        :param pulumi.Input[Union['ConnectionFunctionConnectionFunctionConfigArgs', 'ConnectionFunctionConnectionFunctionConfigArgsDict', 'outputs.ConnectionFunctionConnectionFunctionConfig']] connection_function_config: Configuration information for the connection function. See `connection_function_config` below.
         :param pulumi.Input[_builtins.str] etag: ETag of the connection function.
         :param pulumi.Input[_builtins.str] live_stage_etag: ETag of the function's LIVE stage. Will be empty if the function has not been published.
         :param pulumi.Input[_builtins.str] name: Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.

@@ -212,7 +212,7 @@ class BucketVersioning(pulumi.CustomResource):
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  mfa: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 versioning_configuration: pulumi.Input[Optional[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict']]] = None,
+                 versioning_configuration: pulumi.Input[Optional[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict', 'outputs.BucketVersioningVersioningConfiguration']]] = None,
                  __props__=None):
         """
         Provides a resource for controlling versioning on an S3 bucket.
@@ -321,7 +321,7 @@ class BucketVersioning(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict']] versioning_configuration: Configuration block for the versioning parameters. See below.
+        :param pulumi.Input[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict', 'outputs.BucketVersioningVersioningConfiguration']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         ...
     @overload
@@ -449,7 +449,7 @@ class BucketVersioning(pulumi.CustomResource):
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  mfa: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 versioning_configuration: pulumi.Input[Optional[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict']]] = None,
+                 versioning_configuration: pulumi.Input[Optional[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict', 'outputs.BucketVersioningVersioningConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -484,7 +484,7 @@ class BucketVersioning(pulumi.CustomResource):
             expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
             mfa: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            versioning_configuration: pulumi.Input[Optional[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict']]] = None) -> 'BucketVersioning':
+            versioning_configuration: pulumi.Input[Optional[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict', 'outputs.BucketVersioningVersioningConfiguration']]] = None) -> 'BucketVersioning':
         """
         Get an existing BucketVersioning resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -496,7 +496,7 @@ class BucketVersioning(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict']] versioning_configuration: Configuration block for the versioning parameters. See below.
+        :param pulumi.Input[Union['BucketVersioningVersioningConfigurationArgs', 'BucketVersioningVersioningConfigurationArgsDict', 'outputs.BucketVersioningVersioningConfiguration']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

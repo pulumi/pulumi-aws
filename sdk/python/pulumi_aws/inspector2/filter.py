@@ -306,7 +306,7 @@ class Filter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict']]]]] = None,
+                 filter_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict', 'outputs.FilterFilterCriteria']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  reason: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -353,7 +353,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
         :param pulumi.Input[_builtins.str] description: Description
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict']]]] filter_criterias: Details on the filter criteria. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict', 'outputs.FilterFilterCriteria']]]] filter_criterias: Details on the filter criteria. Documented below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the filter.
@@ -421,7 +421,7 @@ class Filter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict']]]]] = None,
+                 filter_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict', 'outputs.FilterFilterCriteria']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  reason: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -461,7 +461,7 @@ class Filter(pulumi.CustomResource):
             action: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            filter_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict']]]]] = None,
+            filter_criterias: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict', 'outputs.FilterFilterCriteria']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             reason: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -477,7 +477,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
         :param pulumi.Input[_builtins.str] arn: ARN of the Filter.
         :param pulumi.Input[_builtins.str] description: Description
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict']]]] filter_criterias: Details on the filter criteria. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FilterFilterCriteriaArgs', 'FilterFilterCriteriaArgsDict', 'outputs.FilterFilterCriteria']]]] filter_criterias: Details on the filter criteria. Documented below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the filter.

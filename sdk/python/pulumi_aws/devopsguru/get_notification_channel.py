@@ -81,10 +81,10 @@ class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
             sns=self.sns)
 
 
-def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]] = None,
+def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict', 'outputs.GetNotificationChannelFilterResult']]] = None,
                              id: Optional[_builtins.str] = None,
                              region: Optional[_builtins.str] = None,
-                             sns: Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]] = None,
+                             sns: Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict', 'outputs.GetNotificationChannelSnResult']]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationChannelResult:
     """
     Data source for managing an AWS DevOps Guru Notification Channel.
@@ -101,10 +101,10 @@ def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationCh
     ```
 
 
-    :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
+    :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict', 'outputs.GetNotificationChannelFilterResult']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
     :param _builtins.str id: Unique identifier for the notification channel.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
+    :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict', 'outputs.GetNotificationChannelSnResult']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -119,10 +119,10 @@ def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationCh
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         sns=pulumi.get(__ret__, 'sns'))
-def get_notification_channel_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]]]] = None,
+def get_notification_channel_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict', 'outputs.GetNotificationChannelFilterResult']]]]] = None,
                                     id: pulumi.Input[Optional[_builtins.str]] = None,
                                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                    sns: pulumi.Input[Optional[Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]]]] = None,
+                                    sns: pulumi.Input[Optional[Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict', 'outputs.GetNotificationChannelSnResult']]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
     Data source for managing an AWS DevOps Guru Notification Channel.
@@ -139,10 +139,10 @@ def get_notification_channel_output(filters: pulumi.Input[Optional[Optional[Sequ
     ```
 
 
-    :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
+    :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict', 'outputs.GetNotificationChannelFilterResult']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
     :param _builtins.str id: Unique identifier for the notification channel.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
+    :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict', 'outputs.GetNotificationChannelSnResult']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
     """
     __args__ = dict()
     __args__['filters'] = filters

@@ -90,7 +90,7 @@ class AwaitableGetRouteTableAssociationsResult(GetRouteTableAssociationsResult):
             transit_gateway_route_table_id=self.transit_gateway_route_table_id)
 
 
-def get_route_table_associations(filters: Optional[Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict']]] = None,
+def get_route_table_associations(filters: Optional[Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict', 'outputs.GetRouteTableAssociationsFilterResult']]] = None,
                                  region: Optional[_builtins.str] = None,
                                  transit_gateway_route_table_id: Optional[_builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableAssociationsResult:
@@ -109,7 +109,7 @@ def get_route_table_associations(filters: Optional[Sequence[Union['GetRouteTable
     ```
 
 
-    :param Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict', 'outputs.GetRouteTableAssociationsFilterResult']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -131,7 +131,7 @@ def get_route_table_associations(filters: Optional[Sequence[Union['GetRouteTable
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
-def get_route_table_associations_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict']]]]] = None,
+def get_route_table_associations_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict', 'outputs.GetRouteTableAssociationsFilterResult']]]]] = None,
                                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableAssociationsResult]:
@@ -150,7 +150,7 @@ def get_route_table_associations_output(filters: pulumi.Input[Optional[Optional[
     ```
 
 
-    :param Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetRouteTableAssociationsFilterArgs', 'GetRouteTableAssociationsFilterArgsDict', 'outputs.GetRouteTableAssociationsFilterResult']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

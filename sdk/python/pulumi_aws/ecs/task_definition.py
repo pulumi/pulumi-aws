@@ -771,23 +771,23 @@ class TaskDefinition(pulumi.CustomResource):
                  container_definitions: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_fault_injection: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ephemeral_storage: pulumi.Input[Optional[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
+                 ephemeral_storage: pulumi.Input[Optional[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict', 'outputs.TaskDefinitionEphemeralStorage']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  family: pulumi.Input[Optional[_builtins.str]] = None,
                  ipc_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  memory: pulumi.Input[Optional[_builtins.str]] = None,
                  network_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  pid_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
-                 proxy_configuration: pulumi.Input[Optional[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
+                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict', 'outputs.TaskDefinitionPlacementConstraint']]]]] = None,
+                 proxy_configuration: pulumi.Input[Optional[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict', 'outputs.TaskDefinitionProxyConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  requires_compatibilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 runtime_platform: pulumi.Input[Optional[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
+                 runtime_platform: pulumi.Input[Optional[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict', 'outputs.TaskDefinitionRuntimePlatform']]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  track_latest: pulumi.Input[Optional[_builtins.bool]] = None,
-                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict', 'outputs.TaskDefinitionVolume']]]]] = None,
                  __props__=None):
         """
         Manages a revision of an ECS task definition to be used in `ecs.Service`.
@@ -1025,7 +1025,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_definitions: List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[_builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-        :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']] ephemeral_storage: Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict', 'outputs.TaskDefinitionEphemeralStorage']] ephemeral_storage: Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[_builtins.str] family: Unique name for your task definition.
                
@@ -1034,16 +1034,16 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
         :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
-        :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict', 'outputs.TaskDefinitionPlacementConstraint']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict', 'outputs.TaskDefinitionProxyConfiguration']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
-        :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
+        :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict', 'outputs.TaskDefinitionRuntimePlatform']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[_builtins.bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]] volumes: Repeatable configuration block for volumes that containers in your task may use. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict', 'outputs.TaskDefinitionVolume']]]] volumes: Repeatable configuration block for volumes that containers in your task may use. Detailed below.
                
                > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
                
@@ -1304,23 +1304,23 @@ class TaskDefinition(pulumi.CustomResource):
                  container_definitions: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_fault_injection: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ephemeral_storage: pulumi.Input[Optional[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
+                 ephemeral_storage: pulumi.Input[Optional[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict', 'outputs.TaskDefinitionEphemeralStorage']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  family: pulumi.Input[Optional[_builtins.str]] = None,
                  ipc_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  memory: pulumi.Input[Optional[_builtins.str]] = None,
                  network_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  pid_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
-                 proxy_configuration: pulumi.Input[Optional[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
+                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict', 'outputs.TaskDefinitionPlacementConstraint']]]]] = None,
+                 proxy_configuration: pulumi.Input[Optional[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict', 'outputs.TaskDefinitionProxyConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  requires_compatibilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 runtime_platform: pulumi.Input[Optional[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
+                 runtime_platform: pulumi.Input[Optional[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict', 'outputs.TaskDefinitionRuntimePlatform']]] = None,
                  skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  track_latest: pulumi.Input[Optional[_builtins.bool]] = None,
-                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict', 'outputs.TaskDefinitionVolume']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1373,25 +1373,25 @@ class TaskDefinition(pulumi.CustomResource):
             container_definitions: pulumi.Input[Optional[_builtins.str]] = None,
             cpu: pulumi.Input[Optional[_builtins.str]] = None,
             enable_fault_injection: pulumi.Input[Optional[_builtins.bool]] = None,
-            ephemeral_storage: pulumi.Input[Optional[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
+            ephemeral_storage: pulumi.Input[Optional[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict', 'outputs.TaskDefinitionEphemeralStorage']]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             family: pulumi.Input[Optional[_builtins.str]] = None,
             ipc_mode: pulumi.Input[Optional[_builtins.str]] = None,
             memory: pulumi.Input[Optional[_builtins.str]] = None,
             network_mode: pulumi.Input[Optional[_builtins.str]] = None,
             pid_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
-            proxy_configuration: pulumi.Input[Optional[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
+            placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict', 'outputs.TaskDefinitionPlacementConstraint']]]]] = None,
+            proxy_configuration: pulumi.Input[Optional[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict', 'outputs.TaskDefinitionProxyConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             requires_compatibilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             revision: pulumi.Input[Optional[_builtins.int]] = None,
-            runtime_platform: pulumi.Input[Optional[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
+            runtime_platform: pulumi.Input[Optional[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict', 'outputs.TaskDefinitionRuntimePlatform']]] = None,
             skip_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             track_latest: pulumi.Input[Optional[_builtins.bool]] = None,
-            volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]]] = None) -> 'TaskDefinition':
+            volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict', 'outputs.TaskDefinitionVolume']]]]] = None) -> 'TaskDefinition':
         """
         Get an existing TaskDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1404,7 +1404,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_definitions: List of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[_builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-        :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']] ephemeral_storage: Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict', 'outputs.TaskDefinitionEphemeralStorage']] ephemeral_storage: Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[_builtins.str] family: Unique name for your task definition.
                
@@ -1413,18 +1413,18 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
         :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
-        :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict', 'outputs.TaskDefinitionPlacementConstraint']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
+        :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict', 'outputs.TaskDefinitionProxyConfiguration']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: Set of launch types required by the task. Valid values: `EC2`, `EXTERNAL`, `FARGATE`, `MANAGED_INSTANCES`.
         :param pulumi.Input[_builtins.int] revision: Revision of the task in a particular family.
-        :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
+        :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict', 'outputs.TaskDefinitionRuntimePlatform']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[_builtins.bool] track_latest: Whether should track latest `ACTIVE` task definition on AWS or the one created with the resource stored in state. Default is `false`. Useful in the event the task definition is modified outside of this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]] volumes: Repeatable configuration block for volumes that containers in your task may use. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict', 'outputs.TaskDefinitionVolume']]]] volumes: Repeatable configuration block for volumes that containers in your task may use. Detailed below.
                
                > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
                

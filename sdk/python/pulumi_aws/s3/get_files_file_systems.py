@@ -60,7 +60,7 @@ class AwaitableGetFilesFileSystemsResult(GetFilesFileSystemsResult):
             region=self.region)
 
 
-def get_files_file_systems(file_systems: Optional[Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict']]] = None,
+def get_files_file_systems(file_systems: Optional[Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict', 'outputs.GetFilesFileSystemsFileSystemResult']]] = None,
                            region: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFilesFileSystemsResult:
     """
@@ -76,7 +76,7 @@ def get_files_file_systems(file_systems: Optional[Sequence[Union['GetFilesFileSy
     ```
 
 
-    :param Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict']] file_systems: List of file systems. See `file_systems` below.
+    :param Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict', 'outputs.GetFilesFileSystemsFileSystemResult']] file_systems: List of file systems. See `file_systems` below.
     :param _builtins.str region: Region where this data source will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -88,7 +88,7 @@ def get_files_file_systems(file_systems: Optional[Sequence[Union['GetFilesFileSy
     return AwaitableGetFilesFileSystemsResult(
         file_systems=pulumi.get(__ret__, 'file_systems'),
         region=pulumi.get(__ret__, 'region'))
-def get_files_file_systems_output(file_systems: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict']]]]] = None,
+def get_files_file_systems_output(file_systems: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict', 'outputs.GetFilesFileSystemsFileSystemResult']]]]] = None,
                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFilesFileSystemsResult]:
     """
@@ -104,7 +104,7 @@ def get_files_file_systems_output(file_systems: pulumi.Input[Optional[Optional[S
     ```
 
 
-    :param Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict']] file_systems: List of file systems. See `file_systems` below.
+    :param Sequence[Union['GetFilesFileSystemsFileSystemArgs', 'GetFilesFileSystemsFileSystemArgsDict', 'outputs.GetFilesFileSystemsFileSystemResult']] file_systems: List of file systems. See `file_systems` below.
     :param _builtins.str region: Region where this data source will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

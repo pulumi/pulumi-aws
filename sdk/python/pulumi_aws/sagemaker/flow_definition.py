@@ -327,10 +327,10 @@ class FlowDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  flow_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
-                 human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
-                 human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
-                 output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
+                 human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict', 'outputs.FlowDefinitionHumanLoopActivationConfig']]] = None,
+                 human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict', 'outputs.FlowDefinitionHumanLoopConfig']]] = None,
+                 human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict', 'outputs.FlowDefinitionHumanLoopRequestSource']]] = None,
+                 output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict', 'outputs.FlowDefinitionOutputConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -442,10 +442,10 @@ class FlowDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] flow_definition_name: The name of your flow definition.
-        :param pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
-        :param pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-        :param pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-        :param pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict', 'outputs.FlowDefinitionHumanLoopActivationConfig']] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict', 'outputs.FlowDefinitionHumanLoopConfig']] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict', 'outputs.FlowDefinitionHumanLoopRequestSource']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
+        :param pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict', 'outputs.FlowDefinitionOutputConfig']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the role needed to call other services on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -576,10 +576,10 @@ class FlowDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  flow_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
-                 human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
-                 human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
-                 output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
+                 human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict', 'outputs.FlowDefinitionHumanLoopActivationConfig']]] = None,
+                 human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict', 'outputs.FlowDefinitionHumanLoopConfig']]] = None,
+                 human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict', 'outputs.FlowDefinitionHumanLoopRequestSource']]] = None,
+                 output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict', 'outputs.FlowDefinitionOutputConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -622,10 +622,10 @@ class FlowDefinition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             flow_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-            human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
-            human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
-            human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
-            output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
+            human_loop_activation_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict', 'outputs.FlowDefinitionHumanLoopActivationConfig']]] = None,
+            human_loop_config: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict', 'outputs.FlowDefinitionHumanLoopConfig']]] = None,
+            human_loop_request_source: pulumi.Input[Optional[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict', 'outputs.FlowDefinitionHumanLoopRequestSource']]] = None,
+            output_config: pulumi.Input[Optional[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict', 'outputs.FlowDefinitionOutputConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -639,10 +639,10 @@ class FlowDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Flow Definition.
         :param pulumi.Input[_builtins.str] flow_definition_name: The name of your flow definition.
-        :param pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
-        :param pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-        :param pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-        :param pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict', 'outputs.FlowDefinitionHumanLoopActivationConfig']] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict', 'outputs.FlowDefinitionHumanLoopConfig']] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict', 'outputs.FlowDefinitionHumanLoopRequestSource']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
+        :param pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict', 'outputs.FlowDefinitionOutputConfig']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the role needed to call other services on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

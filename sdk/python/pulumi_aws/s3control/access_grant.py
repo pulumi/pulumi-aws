@@ -359,10 +359,10 @@ class AccessGrant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']]] = None,
+                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict', 'outputs.AccessGrantAccessGrantsLocationConfiguration']]] = None,
                  access_grants_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']]] = None,
+                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict', 'outputs.AccessGrantGrantee']]] = None,
                  permission: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_prefix_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -407,10 +407,10 @@ class AccessGrant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See `access_grants_location_configuration` Block below for more details.
+        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict', 'outputs.AccessGrantAccessGrantsLocationConfiguration']] access_grants_location_configuration: See `access_grants_location_configuration` Block below for more details.
         :param pulumi.Input[_builtins.str] access_grants_location_id: ID of the S3 Access Grants location to with the access grant is giving access.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See `grantee` Block below for more details.
+        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict', 'outputs.AccessGrantGrantee']] grantee: See `grantee` Block below for more details.
         :param pulumi.Input[_builtins.str] permission: Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
@@ -474,10 +474,10 @@ class AccessGrant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']]] = None,
+                 access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict', 'outputs.AccessGrantAccessGrantsLocationConfiguration']]] = None,
                  access_grants_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']]] = None,
+                 grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict', 'outputs.AccessGrantGrantee']]] = None,
                  permission: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_prefix_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -521,11 +521,11 @@ class AccessGrant(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_grant_arn: pulumi.Input[Optional[_builtins.str]] = None,
             access_grant_id: pulumi.Input[Optional[_builtins.str]] = None,
-            access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']]] = None,
+            access_grants_location_configuration: pulumi.Input[Optional[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict', 'outputs.AccessGrantAccessGrantsLocationConfiguration']]] = None,
             access_grants_location_id: pulumi.Input[Optional[_builtins.str]] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
             grant_scope: pulumi.Input[Optional[_builtins.str]] = None,
-            grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']]] = None,
+            grantee: pulumi.Input[Optional[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict', 'outputs.AccessGrantGrantee']]] = None,
             permission: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             s3_prefix_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -540,11 +540,11 @@ class AccessGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_grant_arn: ARN of the S3 Access Grant.
         :param pulumi.Input[_builtins.str] access_grant_id: Unique ID of the S3 Access Grant.
-        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See `access_grants_location_configuration` Block below for more details.
+        :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict', 'outputs.AccessGrantAccessGrantsLocationConfiguration']] access_grants_location_configuration: See `access_grants_location_configuration` Block below for more details.
         :param pulumi.Input[_builtins.str] access_grants_location_id: ID of the S3 Access Grants location to with the access grant is giving access.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] grant_scope: Access grant's scope.
-        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See `grantee` Block below for more details.
+        :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict', 'outputs.AccessGrantGrantee']] grantee: See `grantee` Block below for more details.
         :param pulumi.Input[_builtins.str] permission: Access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.

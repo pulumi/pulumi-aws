@@ -360,15 +360,15 @@ class CapacityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_scaling_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict']]]]] = None,
-                 instance_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict']]]]] = None,
+                 capacity_provider_scaling_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict', 'outputs.CapacityProviderCapacityProviderScalingConfig']]]]] = None,
+                 instance_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict', 'outputs.CapacityProviderInstanceRequirement']]]]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
+                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict', 'outputs.CapacityProviderPermissionsConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapacityProviderTimeoutsArgs', 'CapacityProviderTimeoutsArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityProviderTimeoutsArgs', 'CapacityProviderTimeoutsArgsDict', 'outputs.CapacityProviderTimeouts']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict', 'outputs.CapacityProviderVpcConfig']]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda Capacity Provider.
@@ -445,14 +445,14 @@ class CapacityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict']]]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict']]]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict', 'outputs.CapacityProviderCapacityProviderScalingConfig']]]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict', 'outputs.CapacityProviderInstanceRequirement']]]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the Capacity Provider.
         :param pulumi.Input[_builtins.str] name: Name of the Capacity Provider.
-        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: Configuration block for permissions settings. See Permissions Config below.
+        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict', 'outputs.CapacityProviderPermissionsConfig']] permissions_config: Configuration block for permissions settings. See Permissions Config below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']] vpc_config: Configuration block for VPC settings. See VPC Config below.
+        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict', 'outputs.CapacityProviderVpcConfig']] vpc_config: Configuration block for VPC settings. See VPC Config below.
                
                The following arguments are optional:
         """
@@ -550,15 +550,15 @@ class CapacityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_scaling_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict']]]]] = None,
-                 instance_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict']]]]] = None,
+                 capacity_provider_scaling_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict', 'outputs.CapacityProviderCapacityProviderScalingConfig']]]]] = None,
+                 instance_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict', 'outputs.CapacityProviderInstanceRequirement']]]]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
+                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict', 'outputs.CapacityProviderPermissionsConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CapacityProviderTimeoutsArgs', 'CapacityProviderTimeoutsArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CapacityProviderTimeoutsArgs', 'CapacityProviderTimeoutsArgsDict', 'outputs.CapacityProviderTimeouts']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict', 'outputs.CapacityProviderVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -594,16 +594,16 @@ class CapacityProvider(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            capacity_provider_scaling_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict']]]]] = None,
-            instance_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict']]]]] = None,
+            capacity_provider_scaling_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict', 'outputs.CapacityProviderCapacityProviderScalingConfig']]]]] = None,
+            instance_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict', 'outputs.CapacityProviderInstanceRequirement']]]]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
+            permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict', 'outputs.CapacityProviderPermissionsConfig']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['CapacityProviderTimeoutsArgs', 'CapacityProviderTimeoutsArgsDict']]] = None,
-            vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None) -> 'CapacityProvider':
+            timeouts: pulumi.Input[Optional[Union['CapacityProviderTimeoutsArgs', 'CapacityProviderTimeoutsArgsDict', 'outputs.CapacityProviderTimeouts']]] = None,
+            vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict', 'outputs.CapacityProviderVpcConfig']]] = None) -> 'CapacityProvider':
         """
         Get an existing CapacityProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -612,15 +612,15 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Capacity Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict']]]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict']]]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderCapacityProviderScalingConfigArgs', 'CapacityProviderCapacityProviderScalingConfigArgsDict', 'outputs.CapacityProviderCapacityProviderScalingConfig']]]] capacity_provider_scaling_configs: Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityProviderInstanceRequirementArgs', 'CapacityProviderInstanceRequirementArgsDict', 'outputs.CapacityProviderInstanceRequirement']]]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the Capacity Provider.
         :param pulumi.Input[_builtins.str] name: Name of the Capacity Provider.
-        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: Configuration block for permissions settings. See Permissions Config below.
+        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict', 'outputs.CapacityProviderPermissionsConfig']] permissions_config: Configuration block for permissions settings. See Permissions Config below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']] vpc_config: Configuration block for VPC settings. See VPC Config below.
+        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict', 'outputs.CapacityProviderVpcConfig']] vpc_config: Configuration block for VPC settings. See VPC Config below.
                
                The following arguments are optional:
         """

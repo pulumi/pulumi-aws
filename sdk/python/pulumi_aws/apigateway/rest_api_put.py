@@ -269,7 +269,7 @@ class RestApiPut(pulumi.CustomResource):
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RestApiPutTimeoutsArgs', 'RestApiPutTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RestApiPutTimeoutsArgs', 'RestApiPutTimeoutsArgsDict', 'outputs.RestApiPutTimeouts']]] = None,
                  triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -423,7 +423,7 @@ class RestApiPut(pulumi.CustomResource):
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RestApiPutTimeoutsArgs', 'RestApiPutTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RestApiPutTimeoutsArgs', 'RestApiPutTimeoutsArgsDict', 'outputs.RestApiPutTimeouts']]] = None,
                  triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -460,7 +460,7 @@ class RestApiPut(pulumi.CustomResource):
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['RestApiPutTimeoutsArgs', 'RestApiPutTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['RestApiPutTimeoutsArgs', 'RestApiPutTimeoutsArgsDict', 'outputs.RestApiPutTimeouts']]] = None,
             triggers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RestApiPut':
         """
         Get an existing RestApiPut resource's state with the given name, id, and optional extra

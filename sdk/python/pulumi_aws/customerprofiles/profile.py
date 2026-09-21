@@ -787,9 +787,9 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_number: pulumi.Input[Optional[_builtins.str]] = None,
                  additional_information: pulumi.Input[Optional[_builtins.str]] = None,
-                 address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']]] = None,
+                 address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict', 'outputs.ProfileAddress']]] = None,
                  attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']]] = None,
+                 billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict', 'outputs.ProfileBillingAddress']]] = None,
                  birth_date: pulumi.Input[Optional[_builtins.str]] = None,
                  business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
                  business_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -800,14 +800,14 @@ class Profile(pulumi.CustomResource):
                  gender_string: pulumi.Input[Optional[_builtins.str]] = None,
                  home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
                  last_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']]] = None,
+                 mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict', 'outputs.ProfileMailingAddress']]] = None,
                  middle_name: pulumi.Input[Optional[_builtins.str]] = None,
                  mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
                  party_type_string: pulumi.Input[Optional[_builtins.str]] = None,
                  personal_email_address: pulumi.Input[Optional[_builtins.str]] = None,
                  phone_number: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict', 'outputs.ProfileShippingAddress']]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Customer Profiles Profile.
@@ -836,9 +836,9 @@ class Profile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_number: A unique account number that you have given to the customer.
         :param pulumi.Input[_builtins.str] additional_information: Any additional information relevant to the customer’s profile.
-        :param pulumi.Input[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']] address: A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
+        :param pulumi.Input[Union['ProfileAddressArgs', 'ProfileAddressArgsDict', 'outputs.ProfileAddress']] address: A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A key value pair of attributes of a customer profile.
-        :param pulumi.Input[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']] billing_address: A block that specifies the customer’s billing address. Documented below.
+        :param pulumi.Input[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict', 'outputs.ProfileBillingAddress']] billing_address: A block that specifies the customer’s billing address. Documented below.
         :param pulumi.Input[_builtins.str] birth_date: The customer’s birth date.
         :param pulumi.Input[_builtins.str] business_email_address: The customer’s business email address.
         :param pulumi.Input[_builtins.str] business_name: The name of the customer’s business.
@@ -851,14 +851,14 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gender_string: The gender with which the customer identifies.
         :param pulumi.Input[_builtins.str] home_phone_number: The customer’s home phone number.
         :param pulumi.Input[_builtins.str] last_name: The customer’s last name.
-        :param pulumi.Input[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']] mailing_address: A block that specifies the customer’s mailing address. Documented below.
+        :param pulumi.Input[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict', 'outputs.ProfileMailingAddress']] mailing_address: A block that specifies the customer’s mailing address. Documented below.
         :param pulumi.Input[_builtins.str] middle_name: The customer’s middle name.
         :param pulumi.Input[_builtins.str] mobile_phone_number: The customer’s mobile phone number.
         :param pulumi.Input[_builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[_builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[_builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
+        :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict', 'outputs.ProfileShippingAddress']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         ...
     @overload
@@ -906,9 +906,9 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_number: pulumi.Input[Optional[_builtins.str]] = None,
                  additional_information: pulumi.Input[Optional[_builtins.str]] = None,
-                 address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']]] = None,
+                 address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict', 'outputs.ProfileAddress']]] = None,
                  attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']]] = None,
+                 billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict', 'outputs.ProfileBillingAddress']]] = None,
                  birth_date: pulumi.Input[Optional[_builtins.str]] = None,
                  business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
                  business_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -919,14 +919,14 @@ class Profile(pulumi.CustomResource):
                  gender_string: pulumi.Input[Optional[_builtins.str]] = None,
                  home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
                  last_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']]] = None,
+                 mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict', 'outputs.ProfileMailingAddress']]] = None,
                  middle_name: pulumi.Input[Optional[_builtins.str]] = None,
                  mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
                  party_type_string: pulumi.Input[Optional[_builtins.str]] = None,
                  personal_email_address: pulumi.Input[Optional[_builtins.str]] = None,
                  phone_number: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict', 'outputs.ProfileShippingAddress']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -973,9 +973,9 @@ class Profile(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_number: pulumi.Input[Optional[_builtins.str]] = None,
             additional_information: pulumi.Input[Optional[_builtins.str]] = None,
-            address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']]] = None,
+            address: pulumi.Input[Optional[Union['ProfileAddressArgs', 'ProfileAddressArgsDict', 'outputs.ProfileAddress']]] = None,
             attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']]] = None,
+            billing_address: pulumi.Input[Optional[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict', 'outputs.ProfileBillingAddress']]] = None,
             birth_date: pulumi.Input[Optional[_builtins.str]] = None,
             business_email_address: pulumi.Input[Optional[_builtins.str]] = None,
             business_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -986,14 +986,14 @@ class Profile(pulumi.CustomResource):
             gender_string: pulumi.Input[Optional[_builtins.str]] = None,
             home_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
             last_name: pulumi.Input[Optional[_builtins.str]] = None,
-            mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']]] = None,
+            mailing_address: pulumi.Input[Optional[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict', 'outputs.ProfileMailingAddress']]] = None,
             middle_name: pulumi.Input[Optional[_builtins.str]] = None,
             mobile_phone_number: pulumi.Input[Optional[_builtins.str]] = None,
             party_type_string: pulumi.Input[Optional[_builtins.str]] = None,
             personal_email_address: pulumi.Input[Optional[_builtins.str]] = None,
             phone_number: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None) -> 'Profile':
+            shipping_address: pulumi.Input[Optional[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict', 'outputs.ProfileShippingAddress']]] = None) -> 'Profile':
         """
         Get an existing Profile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1003,9 +1003,9 @@ class Profile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_number: A unique account number that you have given to the customer.
         :param pulumi.Input[_builtins.str] additional_information: Any additional information relevant to the customer’s profile.
-        :param pulumi.Input[Union['ProfileAddressArgs', 'ProfileAddressArgsDict']] address: A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
+        :param pulumi.Input[Union['ProfileAddressArgs', 'ProfileAddressArgsDict', 'outputs.ProfileAddress']] address: A block that specifies a generic address associated with the customer that is not mailing, shipping, or billing. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] attributes: A key value pair of attributes of a customer profile.
-        :param pulumi.Input[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict']] billing_address: A block that specifies the customer’s billing address. Documented below.
+        :param pulumi.Input[Union['ProfileBillingAddressArgs', 'ProfileBillingAddressArgsDict', 'outputs.ProfileBillingAddress']] billing_address: A block that specifies the customer’s billing address. Documented below.
         :param pulumi.Input[_builtins.str] birth_date: The customer’s birth date.
         :param pulumi.Input[_builtins.str] business_email_address: The customer’s business email address.
         :param pulumi.Input[_builtins.str] business_name: The name of the customer’s business.
@@ -1018,14 +1018,14 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gender_string: The gender with which the customer identifies.
         :param pulumi.Input[_builtins.str] home_phone_number: The customer’s home phone number.
         :param pulumi.Input[_builtins.str] last_name: The customer’s last name.
-        :param pulumi.Input[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict']] mailing_address: A block that specifies the customer’s mailing address. Documented below.
+        :param pulumi.Input[Union['ProfileMailingAddressArgs', 'ProfileMailingAddressArgsDict', 'outputs.ProfileMailingAddress']] mailing_address: A block that specifies the customer’s mailing address. Documented below.
         :param pulumi.Input[_builtins.str] middle_name: The customer’s middle name.
         :param pulumi.Input[_builtins.str] mobile_phone_number: The customer’s mobile phone number.
         :param pulumi.Input[_builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[_builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[_builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
+        :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict', 'outputs.ProfileShippingAddress']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

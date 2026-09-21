@@ -186,7 +186,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_config: pulumi.Input[Optional[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict']]] = None,
+                 storage_config: pulumi.Input[Optional[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict', 'outputs.InstanceStorageConfigStorageConfig']]] = None,
                  __props__=None):
         """
         Provides an Amazon Connect Instance Storage Config resource. For more information see
@@ -304,7 +304,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-        :param pulumi.Input[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict']] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
+        :param pulumi.Input[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict', 'outputs.InstanceStorageConfigStorageConfig']] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
         """
         ...
     @overload
@@ -441,7 +441,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_config: pulumi.Input[Optional[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict']]] = None,
+                 storage_config: pulumi.Input[Optional[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict', 'outputs.InstanceStorageConfigStorageConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -476,7 +476,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             instance_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_config: pulumi.Input[Optional[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict']]] = None) -> 'InstanceStorageConfig':
+            storage_config: pulumi.Input[Optional[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict', 'outputs.InstanceStorageConfigStorageConfig']]] = None) -> 'InstanceStorageConfig':
         """
         Get an existing InstanceStorageConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -488,7 +488,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `EMAIL_MESSAGES` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-        :param pulumi.Input[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict']] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
+        :param pulumi.Input[Union['InstanceStorageConfigStorageConfigArgs', 'InstanceStorageConfigStorageConfigArgsDict', 'outputs.InstanceStorageConfigStorageConfig']] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -271,7 +271,7 @@ class Project(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict', 'outputs.ProjectTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Rekognition Project.
@@ -405,7 +405,7 @@ class Project(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict', 'outputs.ProjectTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -440,7 +440,7 @@ class Project(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None) -> 'Project':
+            timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict', 'outputs.ProjectTimeouts']]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

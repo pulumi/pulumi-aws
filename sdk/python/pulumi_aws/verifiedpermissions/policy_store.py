@@ -253,7 +253,7 @@ class PolicyStore(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_settings: pulumi.Input[Optional[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
+                 validation_settings: pulumi.Input[Optional[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict', 'outputs.PolicyStoreValidationSettings']]] = None,
                  __props__=None):
         """
         This is a Terraform resource for managing an AWS Verified Permissions Policy Store.
@@ -286,7 +286,7 @@ class PolicyStore(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']] validation_settings: Validation settings for the policy store.
+        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict', 'outputs.PolicyStoreValidationSettings']] validation_settings: Validation settings for the policy store.
         """
         ...
     @overload
@@ -338,7 +338,7 @@ class PolicyStore(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_settings: pulumi.Input[Optional[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
+                 validation_settings: pulumi.Input[Optional[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict', 'outputs.PolicyStoreValidationSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,7 +375,7 @@ class PolicyStore(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            validation_settings: pulumi.Input[Optional[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None) -> 'PolicyStore':
+            validation_settings: pulumi.Input[Optional[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict', 'outputs.PolicyStoreValidationSettings']]] = None) -> 'PolicyStore':
         """
         Get an existing PolicyStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -390,7 +390,7 @@ class PolicyStore(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']] validation_settings: Validation settings for the policy store.
+        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict', 'outputs.PolicyStoreValidationSettings']] validation_settings: Validation settings for the policy store.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

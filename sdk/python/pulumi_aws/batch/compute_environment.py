@@ -441,8 +441,8 @@ class ComputeEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_resources: pulumi.Input[Optional[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
-                 eks_configuration: pulumi.Input[Optional[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
+                 compute_resources: pulumi.Input[Optional[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict', 'outputs.ComputeEnvironmentComputeResources']]] = None,
+                 eks_configuration: pulumi.Input[Optional[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict', 'outputs.ComputeEnvironmentEksConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -450,7 +450,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']]] = None,
+                 update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']]] = None,
                  __props__=None):
         """
         Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
@@ -593,8 +593,8 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict', 'outputs.ComputeEnvironmentComputeResources']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict', 'outputs.ComputeEnvironmentEksConfiguration']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
         :param pulumi.Input[_builtins.str] name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -602,7 +602,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
-        :param pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
         """
         ...
     @overload
@@ -764,8 +764,8 @@ class ComputeEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_resources: pulumi.Input[Optional[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
-                 eks_configuration: pulumi.Input[Optional[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
+                 compute_resources: pulumi.Input[Optional[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict', 'outputs.ComputeEnvironmentComputeResources']]] = None,
+                 eks_configuration: pulumi.Input[Optional[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict', 'outputs.ComputeEnvironmentEksConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -773,7 +773,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']]] = None,
+                 update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -811,9 +811,9 @@ class ComputeEnvironment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            compute_resources: pulumi.Input[Optional[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
+            compute_resources: pulumi.Input[Optional[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict', 'outputs.ComputeEnvironmentComputeResources']]] = None,
             ecs_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            eks_configuration: pulumi.Input[Optional[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
+            eks_configuration: pulumi.Input[Optional[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict', 'outputs.ComputeEnvironmentEksConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -824,7 +824,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
-            update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']]] = None) -> 'ComputeEnvironment':
+            update_policy: pulumi.Input[Optional[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']]] = None) -> 'ComputeEnvironment':
         """
         Get an existing ComputeEnvironment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -833,9 +833,9 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the compute environment.
-        :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict', 'outputs.ComputeEnvironmentComputeResources']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[_builtins.str] ecs_cluster_arn: ARN of the underlying Amazon ECS cluster used by the compute environment.
-        :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict', 'outputs.ComputeEnvironmentEksConfiguration']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
         :param pulumi.Input[_builtins.str] name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -846,7 +846,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
-        :param pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict', 'outputs.ComputeEnvironmentUpdatePolicy']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

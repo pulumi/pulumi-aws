@@ -484,7 +484,7 @@ class Stream(pulumi.CustomResource):
                  retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 stream_mode_details: pulumi.Input[Optional[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict']]] = None,
+                 stream_mode_details: pulumi.Input[Optional[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  warm_throughput_mib_ps: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -548,7 +548,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] warm_throughput_mib_ps: Target warm throughput in MB/s that the stream should be scaled to handle.
         """
@@ -631,7 +631,7 @@ class Stream(pulumi.CustomResource):
                  retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 stream_mode_details: pulumi.Input[Optional[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict']]] = None,
+                 stream_mode_details: pulumi.Input[Optional[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  warm_throughput_mib_ps: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -677,7 +677,7 @@ class Stream(pulumi.CustomResource):
             retention_period: pulumi.Input[Optional[_builtins.int]] = None,
             shard_count: pulumi.Input[Optional[_builtins.int]] = None,
             shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            stream_mode_details: pulumi.Input[Optional[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict']]] = None,
+            stream_mode_details: pulumi.Input[Optional[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             warm_throughput_mib_ps: pulumi.Input[Optional[_builtins.int]] = None) -> 'Stream':
@@ -698,7 +698,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input[Union['StreamStreamModeDetailsArgs', 'StreamStreamModeDetailsArgsDict', 'outputs.StreamStreamModeDetails']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] warm_throughput_mib_ps: Target warm throughput in MB/s that the stream should be scaled to handle.

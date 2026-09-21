@@ -298,7 +298,7 @@ class BotAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  bot_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 conversation_logs: pulumi.Input[Optional[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict']]] = None,
+                 conversation_logs: pulumi.Input[Optional[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict', 'outputs.BotAliasConversationLogs']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -333,7 +333,7 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the bot.
         :param pulumi.Input[_builtins.str] bot_version: The version of the bot.
-        :param pulumi.Input[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+        :param pulumi.Input[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict', 'outputs.BotAliasConversationLogs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[_builtins.str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[_builtins.str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -387,7 +387,7 @@ class BotAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  bot_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 conversation_logs: pulumi.Input[Optional[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict']]] = None,
+                 conversation_logs: pulumi.Input[Optional[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict', 'outputs.BotAliasConversationLogs']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -428,7 +428,7 @@ class BotAlias(pulumi.CustomResource):
             bot_name: pulumi.Input[Optional[_builtins.str]] = None,
             bot_version: pulumi.Input[Optional[_builtins.str]] = None,
             checksum: pulumi.Input[Optional[_builtins.str]] = None,
-            conversation_logs: pulumi.Input[Optional[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict']]] = None,
+            conversation_logs: pulumi.Input[Optional[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict', 'outputs.BotAliasConversationLogs']]] = None,
             created_date: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             last_updated_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -445,7 +445,7 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bot_name: The name of the bot.
         :param pulumi.Input[_builtins.str] bot_version: The version of the bot.
         :param pulumi.Input[_builtins.str] checksum: Checksum of the bot alias.
-        :param pulumi.Input[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+        :param pulumi.Input[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict', 'outputs.BotAliasConversationLogs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[_builtins.str] created_date: The date that the bot alias was created.
         :param pulumi.Input[_builtins.str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[_builtins.str] last_updated_date: The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.

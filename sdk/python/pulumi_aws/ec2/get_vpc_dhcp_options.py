@@ -190,7 +190,7 @@ class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
 
 
 def get_vpc_dhcp_options(dhcp_options_id: Optional[_builtins.str] = None,
-                         filters: Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']]] = None,
+                         filters: Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict', 'outputs.GetVpcDhcpOptionsFilterResult']]] = None,
                          region: Optional[_builtins.str] = None,
                          tags: Optional[Mapping[str, _builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcDhcpOptionsResult:
@@ -228,7 +228,7 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[_builtins.str] = None,
 
 
     :param _builtins.str dhcp_options_id: EC2 DHCP Options ID.
-    :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']] filters: List of custom filters as described below.
+    :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict', 'outputs.GetVpcDhcpOptionsFilterResult']] filters: List of custom filters as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
@@ -255,7 +255,7 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[_builtins.str] = None,
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_dhcp_options_output(dhcp_options_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']]]]] = None,
+                                filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict', 'outputs.GetVpcDhcpOptionsFilterResult']]]]] = None,
                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcDhcpOptionsResult]:
@@ -293,7 +293,7 @@ def get_vpc_dhcp_options_output(dhcp_options_id: pulumi.Input[Optional[Optional[
 
 
     :param _builtins.str dhcp_options_id: EC2 DHCP Options ID.
-    :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']] filters: List of custom filters as described below.
+    :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict', 'outputs.GetVpcDhcpOptionsFilterResult']] filters: List of custom filters as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """

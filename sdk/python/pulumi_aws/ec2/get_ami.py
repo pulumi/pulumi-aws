@@ -530,7 +530,7 @@ class AwaitableGetAmiResult(GetAmiResult):
 
 def get_ami(allow_unsafe_filter: Optional[_builtins.bool] = None,
             executable_users: Optional[Sequence[_builtins.str]] = None,
-            filters: Optional[Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']]] = None,
+            filters: Optional[Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict', 'outputs.GetAmiFilterResult']]] = None,
             include_deprecated: Optional[_builtins.bool] = None,
             most_recent: Optional[_builtins.bool] = None,
             name_regex: Optional[_builtins.str] = None,
@@ -572,7 +572,7 @@ def get_ami(allow_unsafe_filter: Optional[_builtins.bool] = None,
 
     :param _builtins.bool allow_unsafe_filter: If true, allow unsafe filter values. With unsafe filters and `most_recent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
     :param Sequence[_builtins.str] executable_users: Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
+    :param Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict', 'outputs.GetAmiFilterResult']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
     :param _builtins.bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent AMI.
     :param _builtins.str name_regex: Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
@@ -643,7 +643,7 @@ def get_ami(allow_unsafe_filter: Optional[_builtins.bool] = None,
         virtualization_type=pulumi.get(__ret__, 'virtualization_type'))
 def get_ami_output(allow_unsafe_filter: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                    executable_users: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
-                   filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']]]]] = None,
+                   filters: pulumi.Input[Optional[Optional[Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict', 'outputs.GetAmiFilterResult']]]]] = None,
                    include_deprecated: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                    most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                    name_regex: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -685,7 +685,7 @@ def get_ami_output(allow_unsafe_filter: pulumi.Input[Optional[Optional[_builtins
 
     :param _builtins.bool allow_unsafe_filter: If true, allow unsafe filter values. With unsafe filters and `most_recent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
     :param Sequence[_builtins.str] executable_users: Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
+    :param Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict', 'outputs.GetAmiFilterResult']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
     :param _builtins.bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
     :param _builtins.bool most_recent: If more than one result is returned, use the most recent AMI.
     :param _builtins.str name_regex: Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.

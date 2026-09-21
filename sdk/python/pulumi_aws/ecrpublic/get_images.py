@@ -93,7 +93,7 @@ class AwaitableGetImagesResult(GetImagesResult):
             repository_name=self.repository_name)
 
 
-def get_images(image_ids: Optional[Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']]] = None,
+def get_images(image_ids: Optional[Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict', 'outputs.GetImagesImageIdResult']]] = None,
                region: Optional[_builtins.str] = None,
                registry_id: Optional[_builtins.str] = None,
                repository_name: Optional[_builtins.str] = None,
@@ -114,7 +114,7 @@ def get_images(image_ids: Optional[Sequence[Union['GetImagesImageIdArgs', 'GetIm
     ```
 
 
-    :param Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']] image_ids: One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
+    :param Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict', 'outputs.GetImagesImageIdResult']] image_ids: One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str registry_id: AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
     :param _builtins.str repository_name: Name of the public repository.
@@ -133,7 +133,7 @@ def get_images(image_ids: Optional[Sequence[Union['GetImagesImageIdArgs', 'GetIm
         region=pulumi.get(__ret__, 'region'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
-def get_images_output(image_ids: pulumi.Input[Optional[Optional[Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']]]]] = None,
+def get_images_output(image_ids: pulumi.Input[Optional[Optional[Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict', 'outputs.GetImagesImageIdResult']]]]] = None,
                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       registry_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       repository_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -154,7 +154,7 @@ def get_images_output(image_ids: pulumi.Input[Optional[Optional[Sequence[Union['
     ```
 
 
-    :param Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict']] image_ids: One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
+    :param Sequence[Union['GetImagesImageIdArgs', 'GetImagesImageIdArgsDict', 'outputs.GetImagesImageIdResult']] image_ids: One or more image ID filters. Each image ID can use either a tag or digest (or both). Each object has the following attributes:
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str registry_id: AWS account ID associated with the public registry that contains the repository. If not specified, the default public registry is assumed.
     :param _builtins.str repository_name: Name of the public repository.

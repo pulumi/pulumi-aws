@@ -210,7 +210,7 @@ class ServiceAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_language: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition: pulumi.Input[Optional[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict', 'outputs.ServiceActionDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -246,7 +246,7 @@ class ServiceAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-        :param pulumi.Input[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict']] definition: Self-service action definition configuration block. Detailed below.
+        :param pulumi.Input[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict', 'outputs.ServiceActionDefinition']] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] description: Self-service action description.
         :param pulumi.Input[_builtins.str] name: Self-service action name.
                
@@ -303,7 +303,7 @@ class ServiceAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_language: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition: pulumi.Input[Optional[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict', 'outputs.ServiceActionDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -334,7 +334,7 @@ class ServiceAction(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accept_language: pulumi.Input[Optional[_builtins.str]] = None,
-            definition: pulumi.Input[Optional[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict']]] = None,
+            definition: pulumi.Input[Optional[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict', 'outputs.ServiceActionDefinition']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceAction':
@@ -346,7 +346,7 @@ class ServiceAction(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-        :param pulumi.Input[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict']] definition: Self-service action definition configuration block. Detailed below.
+        :param pulumi.Input[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict', 'outputs.ServiceActionDefinition']] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] description: Self-service action description.
         :param pulumi.Input[_builtins.str] name: Self-service action name.
                

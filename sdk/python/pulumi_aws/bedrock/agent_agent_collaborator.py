@@ -326,7 +326,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict']]] = None,
+                 agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict', 'outputs.AgentAgentCollaboratorAgentDescriptor']]] = None,
                  agent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  agent_version: pulumi.Input[Optional[_builtins.str]] = None,
                  collaboration_instruction: pulumi.Input[Optional[_builtins.str]] = None,
@@ -334,7 +334,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                  prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  relay_conversation_history: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict', 'outputs.AgentAgentCollaboratorTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Bedrock Agents Agent Collaborator.
@@ -552,7 +552,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict']]] = None,
+                 agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict', 'outputs.AgentAgentCollaboratorAgentDescriptor']]] = None,
                  agent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  agent_version: pulumi.Input[Optional[_builtins.str]] = None,
                  collaboration_instruction: pulumi.Input[Optional[_builtins.str]] = None,
@@ -560,7 +560,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                  prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  relay_conversation_history: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict', 'outputs.AgentAgentCollaboratorTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -598,7 +598,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict']]] = None,
+            agent_descriptor: pulumi.Input[Optional[Union['AgentAgentCollaboratorAgentDescriptorArgs', 'AgentAgentCollaboratorAgentDescriptorArgsDict', 'outputs.AgentAgentCollaboratorAgentDescriptor']]] = None,
             agent_id: pulumi.Input[Optional[_builtins.str]] = None,
             agent_version: pulumi.Input[Optional[_builtins.str]] = None,
             collaboration_instruction: pulumi.Input[Optional[_builtins.str]] = None,
@@ -607,7 +607,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
             prepare_agent: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             relay_conversation_history: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None) -> 'AgentAgentCollaborator':
+            timeouts: pulumi.Input[Optional[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict', 'outputs.AgentAgentCollaboratorTimeouts']]] = None) -> 'AgentAgentCollaborator':
         """
         Get an existing AgentAgentCollaborator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

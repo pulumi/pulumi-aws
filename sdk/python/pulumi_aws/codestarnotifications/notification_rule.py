@@ -338,7 +338,7 @@ class NotificationRule(pulumi.CustomResource):
                  resource: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict', 'outputs.NotificationRuleTarget']]]]] = None,
                  __props__=None):
         """
         Provides a CodeStar Notifications Rule.
@@ -397,7 +397,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[_builtins.str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict', 'outputs.NotificationRuleTarget']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         ...
     @overload
@@ -474,7 +474,7 @@ class NotificationRule(pulumi.CustomResource):
                  resource: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict', 'outputs.NotificationRuleTarget']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -519,7 +519,7 @@ class NotificationRule(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None) -> 'NotificationRule':
+            targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict', 'outputs.NotificationRuleTarget']]]]] = None) -> 'NotificationRule':
         """
         Get an existing NotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -537,7 +537,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict', 'outputs.NotificationRuleTarget']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

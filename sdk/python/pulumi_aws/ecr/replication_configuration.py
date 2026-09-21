@@ -123,7 +123,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']]] = None,
+                 replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict', 'outputs.ReplicationConfigurationReplicationConfiguration']]] = None,
                  __props__=None):
         """
         Provides an Elastic Container Registry Replication Configuration.
@@ -204,7 +204,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
+        :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict', 'outputs.ReplicationConfigurationReplicationConfiguration']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         ...
     @overload
@@ -304,7 +304,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']]] = None,
+                 replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict', 'outputs.ReplicationConfigurationReplicationConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -329,7 +329,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             registry_id: pulumi.Input[Optional[_builtins.str]] = None,
-            replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']]] = None) -> 'ReplicationConfiguration':
+            replication_configuration: pulumi.Input[Optional[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict', 'outputs.ReplicationConfigurationReplicationConfiguration']]] = None) -> 'ReplicationConfiguration':
         """
         Get an existing ReplicationConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -339,7 +339,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_id: The registry ID where the replication configuration was created.
-        :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
+        :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict', 'outputs.ReplicationConfigurationReplicationConfiguration']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -529,7 +529,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
                  source_db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ClusterSnapshotCopyTimeoutsArgs', 'ClusterSnapshotCopyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterSnapshotCopyTimeoutsArgs', 'ClusterSnapshotCopyTimeoutsArgsDict', 'outputs.ClusterSnapshotCopyTimeouts']]] = None,
                  __props__=None):
         """
         Manages an RDS database cluster snapshot copy. For managing RDS database instance snapshot copies, see the `rds.SnapshotCopy` resource.
@@ -641,7 +641,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
                  source_db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ClusterSnapshotCopyTimeoutsArgs', 'ClusterSnapshotCopyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterSnapshotCopyTimeoutsArgs', 'ClusterSnapshotCopyTimeoutsArgsDict', 'outputs.ClusterSnapshotCopyTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -703,7 +703,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_db_cluster_snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ClusterSnapshotCopyTimeoutsArgs', 'ClusterSnapshotCopyTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ClusterSnapshotCopyTimeoutsArgs', 'ClusterSnapshotCopyTimeoutsArgsDict', 'outputs.ClusterSnapshotCopyTimeouts']]] = None,
             vpc_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterSnapshotCopy':
         """
         Get an existing ClusterSnapshotCopy resource's state with the given name, id, and optional extra

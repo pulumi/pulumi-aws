@@ -290,7 +290,7 @@ class EmailIdentity(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
+                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict', 'outputs.EmailIdentityDkimSigningAttributes']]] = None,
                  email_identity: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -358,7 +358,7 @@ class EmailIdentity(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] configuration_set_name: Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
-        :param pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']] dkim_signing_attributes: Configuration block for the DKIM authentication settings for an email domain identity. See `dkim_signing_attributes` Block below.
+        :param pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict', 'outputs.EmailIdentityDkimSigningAttributes']] dkim_signing_attributes: Configuration block for the DKIM authentication settings for an email domain identity. See `dkim_signing_attributes` Block below.
         :param pulumi.Input[_builtins.str] email_identity: Email address or domain to verify.
                
                The following arguments are optional:
@@ -447,7 +447,7 @@ class EmailIdentity(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
+                 dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict', 'outputs.EmailIdentityDkimSigningAttributes']]] = None,
                  email_identity: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -484,7 +484,7 @@ class EmailIdentity(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-            dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']]] = None,
+            dkim_signing_attributes: pulumi.Input[Optional[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict', 'outputs.EmailIdentityDkimSigningAttributes']]] = None,
             email_identity: pulumi.Input[Optional[_builtins.str]] = None,
             identity_type: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -501,7 +501,7 @@ class EmailIdentity(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Email Identity.
         :param pulumi.Input[_builtins.str] configuration_set_name: Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
-        :param pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict']] dkim_signing_attributes: Configuration block for the DKIM authentication settings for an email domain identity. See `dkim_signing_attributes` Block below.
+        :param pulumi.Input[Union['EmailIdentityDkimSigningAttributesArgs', 'EmailIdentityDkimSigningAttributesArgsDict', 'outputs.EmailIdentityDkimSigningAttributes']] dkim_signing_attributes: Configuration block for the DKIM authentication settings for an email domain identity. See `dkim_signing_attributes` Block below.
         :param pulumi.Input[_builtins.str] email_identity: Email address or domain to verify.
                
                The following arguments are optional:

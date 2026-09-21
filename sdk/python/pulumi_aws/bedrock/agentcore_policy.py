@@ -296,12 +296,12 @@ class AgentcorePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict', 'outputs.AgentcorePolicyDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_engine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcorePolicyTimeoutsArgs', 'AgentcorePolicyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcorePolicyTimeoutsArgs', 'AgentcorePolicyTimeoutsArgsDict', 'outputs.AgentcorePolicyTimeouts']]] = None,
                  validation_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -349,7 +349,7 @@ class AgentcorePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict']] definition: Policy definition. See `definition` Block for details.
+        :param pulumi.Input[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict', 'outputs.AgentcorePolicyDefinition']] definition: Policy definition. See `definition` Block for details.
         :param pulumi.Input[_builtins.str] description: Description of the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy. Must be 1-48 characters and match the pattern `^[A-Za-z][A-Za-z0-9_]*$`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] policy_engine_id: Identifier of the Policy Engine that owns this policy. Changing this forces a new resource to be created.
@@ -422,12 +422,12 @@ class AgentcorePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict', 'outputs.AgentcorePolicyDefinition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_engine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcorePolicyTimeoutsArgs', 'AgentcorePolicyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcorePolicyTimeoutsArgs', 'AgentcorePolicyTimeoutsArgsDict', 'outputs.AgentcorePolicyTimeouts']]] = None,
                  validation_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -461,14 +461,14 @@ class AgentcorePolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            definition: pulumi.Input[Optional[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict']]] = None,
+            definition: pulumi.Input[Optional[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict', 'outputs.AgentcorePolicyDefinition']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
             policy_engine_id: pulumi.Input[Optional[_builtins.str]] = None,
             policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcorePolicyTimeoutsArgs', 'AgentcorePolicyTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['AgentcorePolicyTimeoutsArgs', 'AgentcorePolicyTimeoutsArgsDict', 'outputs.AgentcorePolicyTimeouts']]] = None,
             validation_mode: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentcorePolicy':
         """
         Get an existing AgentcorePolicy resource's state with the given name, id, and optional extra
@@ -477,7 +477,7 @@ class AgentcorePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict']] definition: Policy definition. See `definition` Block for details.
+        :param pulumi.Input[Union['AgentcorePolicyDefinitionArgs', 'AgentcorePolicyDefinitionArgsDict', 'outputs.AgentcorePolicyDefinition']] definition: Policy definition. See `definition` Block for details.
         :param pulumi.Input[_builtins.str] description: Description of the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy. Must be 1-48 characters and match the pattern `^[A-Za-z][A-Za-z0-9_]*$`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] policy_arn: ARN of the Policy.

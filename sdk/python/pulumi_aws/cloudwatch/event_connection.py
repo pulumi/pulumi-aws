@@ -296,10 +296,10 @@ class EventConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: pulumi.Input[Optional[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']]] = None,
+                 auth_parameters: pulumi.Input[Optional[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict', 'outputs.EventConnectionAuthParameters']]] = None,
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 invocation_connectivity_parameters: pulumi.Input[Optional[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']]] = None,
+                 invocation_connectivity_parameters: pulumi.Input[Optional[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict', 'outputs.EventConnectionInvocationConnectivityParameters']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -543,10 +543,10 @@ class EventConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+        :param pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict', 'outputs.EventConnectionAuthParameters']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[_builtins.str] authorization_type: Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         :param pulumi.Input[_builtins.str] description: Description for the connection. Maximum of 512 characters.
-        :param pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']] invocation_connectivity_parameters: Parameters to use for invoking a private API. Documented below.
+        :param pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict', 'outputs.EventConnectionInvocationConnectivityParameters']] invocation_connectivity_parameters: Parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input[_builtins.str] name: The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -809,10 +809,10 @@ class EventConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: pulumi.Input[Optional[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']]] = None,
+                 auth_parameters: pulumi.Input[Optional[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict', 'outputs.EventConnectionAuthParameters']]] = None,
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 invocation_connectivity_parameters: pulumi.Input[Optional[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']]] = None,
+                 invocation_connectivity_parameters: pulumi.Input[Optional[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict', 'outputs.EventConnectionInvocationConnectivityParameters']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -849,10 +849,10 @@ class EventConnection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            auth_parameters: pulumi.Input[Optional[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']]] = None,
+            auth_parameters: pulumi.Input[Optional[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict', 'outputs.EventConnectionAuthParameters']]] = None,
             authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            invocation_connectivity_parameters: pulumi.Input[Optional[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']]] = None,
+            invocation_connectivity_parameters: pulumi.Input[Optional[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict', 'outputs.EventConnectionInvocationConnectivityParameters']]] = None,
             kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -865,10 +865,10 @@ class EventConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the connection.
-        :param pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+        :param pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict', 'outputs.EventConnectionAuthParameters']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[_builtins.str] authorization_type: Type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         :param pulumi.Input[_builtins.str] description: Description for the connection. Maximum of 512 characters.
-        :param pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict']] invocation_connectivity_parameters: Parameters to use for invoking a private API. Documented below.
+        :param pulumi.Input[Union['EventConnectionInvocationConnectivityParametersArgs', 'EventConnectionInvocationConnectivityParametersArgsDict', 'outputs.EventConnectionInvocationConnectivityParameters']] invocation_connectivity_parameters: Parameters to use for invoking a private API. Documented below.
         :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input[_builtins.str] name: The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

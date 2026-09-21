@@ -309,11 +309,11 @@ class Baseline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  baseline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  baseline_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Union['BaselineParametersArgs', 'BaselineParametersArgsDict', 'outputs.BaselineParameters']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict', 'outputs.BaselineTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Control Tower Baseline.
@@ -349,7 +349,7 @@ class Baseline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] baseline_identifier: The ARN of the baseline to be enabled.
         :param pulumi.Input[_builtins.str] baseline_version: The version of the baseline to be enabled.
-        :param pulumi.Input[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']] parameters: A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
+        :param pulumi.Input[Union['BaselineParametersArgs', 'BaselineParametersArgsDict', 'outputs.BaselineParameters']] parameters: A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] target_identifier: The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.
@@ -409,11 +409,11 @@ class Baseline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  baseline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  baseline_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Union['BaselineParametersArgs', 'BaselineParametersArgsDict', 'outputs.BaselineParameters']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict', 'outputs.BaselineTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -453,12 +453,12 @@ class Baseline(pulumi.CustomResource):
             baseline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             baseline_version: pulumi.Input[Optional[_builtins.str]] = None,
             operation_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']]] = None,
+            parameters: pulumi.Input[Optional[Union['BaselineParametersArgs', 'BaselineParametersArgsDict', 'outputs.BaselineParameters']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict']]] = None) -> 'Baseline':
+            timeouts: pulumi.Input[Optional[Union['BaselineTimeoutsArgs', 'BaselineTimeoutsArgsDict', 'outputs.BaselineTimeouts']]] = None) -> 'Baseline':
         """
         Get an existing Baseline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -469,7 +469,7 @@ class Baseline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the Baseline.
         :param pulumi.Input[_builtins.str] baseline_identifier: The ARN of the baseline to be enabled.
         :param pulumi.Input[_builtins.str] baseline_version: The version of the baseline to be enabled.
-        :param pulumi.Input[Union['BaselineParametersArgs', 'BaselineParametersArgsDict']] parameters: A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
+        :param pulumi.Input[Union['BaselineParametersArgs', 'BaselineParametersArgsDict', 'outputs.BaselineParameters']] parameters: A list of key-value objects that specify enablement parameters, where key is a string and value is a document of any type. See Parameter below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.

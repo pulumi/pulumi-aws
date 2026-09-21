@@ -808,12 +808,12 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
+                 command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict', 'outputs.JobCommand']]] = None,
                  connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_class: pulumi.Input[Optional[_builtins.str]] = None,
-                 execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
+                 execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict', 'outputs.JobExecutionProperty']]] = None,
                  glue_version: pulumi.Input[Optional[_builtins.str]] = None,
                  job_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -822,12 +822,12 @@ class Job(pulumi.CustomResource):
                  max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  non_overridable_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
+                 notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict', 'outputs.JobNotificationProperty']]] = None,
                  number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
+                 source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict', 'outputs.JobSourceControlDetails']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  worker_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1039,12 +1039,12 @@ class Job(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']] command: The command of the job. Defined below.
+        :param pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict', 'outputs.JobCommand']] command: The command of the job. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connections: The list of connections used for this job.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[_builtins.str] description: Description of the job.
         :param pulumi.Input[_builtins.str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
-        :param pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict', 'outputs.JobExecutionProperty']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[_builtins.str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[_builtins.str] job_mode: Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
         :param pulumi.Input[_builtins.bool] job_run_queuing_enabled: Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
@@ -1053,12 +1053,12 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[_builtins.str] name: The name you assign to this job. It must be unique in your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
-        :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']] notification_property: Notification property of the job. Defined below.
+        :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict', 'outputs.JobNotificationProperty']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[_builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[_builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
-        :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+        :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict', 'outputs.JobSourceControlDetails']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argumnet unconfigured for `glueray` jobs.
         :param pulumi.Input[_builtins.str] worker_type: The type of predefined worker that is allocated when a job runs. Valid values: `Standard`, `G.1X`, `G.2X`, `G.025X`, `G.4X`, `G.8X`, `G.12X`, `G.16X`, `R.1X`, `R.2X`, `R.4X`, `R.8X`, `Z.2X` (Ray jobs). See the [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/worker-types.html) for details.
@@ -1289,12 +1289,12 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
+                 command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict', 'outputs.JobCommand']]] = None,
                  connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_class: pulumi.Input[Optional[_builtins.str]] = None,
-                 execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
+                 execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict', 'outputs.JobExecutionProperty']]] = None,
                  glue_version: pulumi.Input[Optional[_builtins.str]] = None,
                  job_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1303,12 +1303,12 @@ class Job(pulumi.CustomResource):
                  max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  non_overridable_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
+                 notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict', 'outputs.JobNotificationProperty']]] = None,
                  number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
+                 source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict', 'outputs.JobSourceControlDetails']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  worker_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1361,12 +1361,12 @@ class Job(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
+            command: pulumi.Input[Optional[Union['JobCommandArgs', 'JobCommandArgsDict', 'outputs.JobCommand']]] = None,
             connections: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             default_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             execution_class: pulumi.Input[Optional[_builtins.str]] = None,
-            execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
+            execution_property: pulumi.Input[Optional[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict', 'outputs.JobExecutionProperty']]] = None,
             glue_version: pulumi.Input[Optional[_builtins.str]] = None,
             job_mode: pulumi.Input[Optional[_builtins.str]] = None,
             job_run_queuing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1375,12 +1375,12 @@ class Job(pulumi.CustomResource):
             max_retries: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             non_overridable_arguments: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
+            notification_property: pulumi.Input[Optional[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict', 'outputs.JobNotificationProperty']]] = None,
             number_of_workers: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
-            source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
+            source_control_details: pulumi.Input[Optional[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict', 'outputs.JobSourceControlDetails']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeout: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1393,12 +1393,12 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of Glue Job
-        :param pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']] command: The command of the job. Defined below.
+        :param pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict', 'outputs.JobCommand']] command: The command of the job. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] connections: The list of connections used for this job.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[_builtins.str] description: Description of the job.
         :param pulumi.Input[_builtins.str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
-        :param pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict', 'outputs.JobExecutionProperty']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[_builtins.str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[_builtins.str] job_mode: Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
         :param pulumi.Input[_builtins.bool] job_run_queuing_enabled: Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
@@ -1407,12 +1407,12 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[_builtins.str] name: The name you assign to this job. It must be unique in your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
-        :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']] notification_property: Notification property of the job. Defined below.
+        :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict', 'outputs.JobNotificationProperty']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[_builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[_builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
-        :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
+        :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict', 'outputs.JobSourceControlDetails']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and 0 (unlimited) for `gluestreaming` jobs. Leave this attribute argumnet unconfigured for `glueray` jobs.

@@ -344,15 +344,15 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_provider_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']]] = None,
+                 credential_provider_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetCredentialProviderConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetMetadataConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']]] = None,
+                 private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict', 'outputs.AgentcoreGatewayTargetPrivateEndpoint']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict']]] = None,
+                 target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetTargetConfiguration']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict', 'outputs.AgentcoreGatewayTargetTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions, APIs, or AgentCore Runtime agents, allowing agents to interact with external services through the Model Context Protocol (MCP) or by routing HTTP traffic directly to a runtime.
@@ -769,14 +769,14 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` Block below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetCredentialProviderConfiguration']] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` Block below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetMetadataConfiguration']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']] private_endpoint: Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` Block below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict', 'outputs.AgentcoreGatewayTargetPrivateEndpoint']] private_endpoint: Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']] target_configuration: Configuration for the target endpoint. See `target_configuration` Block below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetTargetConfiguration']] target_configuration: Configuration for the target endpoint. See `target_configuration` Block below.
                
                The following arguments are optional:
         """
@@ -1214,15 +1214,15 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_provider_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']]] = None,
+                 credential_provider_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetCredentialProviderConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']]] = None,
+                 metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetMetadataConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']]] = None,
+                 private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict', 'outputs.AgentcoreGatewayTargetPrivateEndpoint']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict']]] = None,
+                 target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetTargetConfiguration']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict', 'outputs.AgentcoreGatewayTargetTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1256,16 +1256,16 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credential_provider_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']]] = None,
+            credential_provider_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetCredentialProviderConfiguration']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']]] = None,
+            metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetMetadataConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']]] = None,
+            private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict', 'outputs.AgentcoreGatewayTargetPrivateEndpoint']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']]] = None,
+            target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetTargetConfiguration']]] = None,
             target_id: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict']]] = None) -> 'AgentcoreGatewayTarget':
+            timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict', 'outputs.AgentcoreGatewayTargetTimeouts']]] = None) -> 'AgentcoreGatewayTarget':
         """
         Get an existing AgentcoreGatewayTarget resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1273,14 +1273,14 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict']] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` Block below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetCredentialProviderConfigurationArgs', 'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetCredentialProviderConfiguration']] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` Block below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` Block below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetMetadataConfiguration']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']] private_endpoint: Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` Block below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict', 'outputs.AgentcoreGatewayTargetPrivateEndpoint']] private_endpoint: Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']] target_configuration: Configuration for the target endpoint. See `target_configuration` Block below.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict', 'outputs.AgentcoreGatewayTargetTargetConfiguration']] target_configuration: Configuration for the target endpoint. See `target_configuration` Block below.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] target_id: Unique identifier of the gateway target.

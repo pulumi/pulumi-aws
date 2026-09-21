@@ -2598,7 +2598,7 @@ class Instance(pulumi.CustomResource):
                  backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  backup_target: pulumi.Input[Optional[_builtins.str]] = None,
                  backup_window: pulumi.Input[Optional[_builtins.str]] = None,
-                 blue_green_update: pulumi.Input[Optional[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict']]] = None,
+                 blue_green_update: pulumi.Input[Optional[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict', 'outputs.InstanceBlueGreenUpdate']]] = None,
                  ca_cert_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  character_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2650,8 +2650,8 @@ class Instance(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replica_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  replicate_source_db: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore_to_point_in_time: pulumi.Input[Optional[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']]] = None,
-                 s3_import: pulumi.Input[Optional[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict']]] = None,
+                 restore_to_point_in_time: pulumi.Input[Optional[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict', 'outputs.InstanceRestoreToPointInTime']]] = None,
+                 s3_import: pulumi.Input[Optional[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict', 'outputs.InstanceS3Import']]] = None,
                  skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2973,7 +2973,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] backup_retention_period: Days to retain backups for. Must be between `0` and `35`. Default is `0`. Must be greater than `0` if the database is used as a source for a [Read Replica](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html), uses low-downtime updates, or will use [RDS Blue/Green deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html).
         :param pulumi.Input[_builtins.str] backup_target: Where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         :param pulumi.Input[_builtins.str] backup_window: Daily time range (in UTC) during which automated backups are created if they are enabled. Example: "09:46-10:16". Must not overlap with `maintenance_window`.
-        :param pulumi.Input[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html). See `blue_green_update` Block below.
+        :param pulumi.Input[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict', 'outputs.InstanceBlueGreenUpdate']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html). See `blue_green_update` Block below.
         :param pulumi.Input[_builtins.str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
         :param pulumi.Input[_builtins.str] character_set_name: Character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information. Cannot be set with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
@@ -3026,8 +3026,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] replica_mode: Whether the replica is in either `mounted` or `open-read-only` mode. This attribute is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[_builtins.str] replicate_source_db: Set this to specify that this resource is a Replica database, and to use this value as the source database. If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`. If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB. If replicating an Instance in a different region, use the `arn` of the source DB. Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`. See [DB Instance Replication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html) and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
-        :param pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']] restore_to_point_in_time: Configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See `restore_to_point_in_time` Block below for details.
-        :param pulumi.Input[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict']] s3_import: Restore from a Percona XtraBackup in S3. See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html). See `s3_import` Block below.
+        :param pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict', 'outputs.InstanceRestoreToPointInTime']] restore_to_point_in_time: Configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See `restore_to_point_in_time` Block below for details.
+        :param pulumi.Input[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict', 'outputs.InstanceS3Import']] s3_import: Restore from a Percona XtraBackup in S3. See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html). See `s3_import` Block below.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Whether or not to create this database from a snapshot. This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB instance is encrypted. Note that if you are creating a cross-region read replica this field is ignored and you should instead declare `kms_key_id` with a valid ARN. The default is `false` if not specified.
@@ -3368,7 +3368,7 @@ class Instance(pulumi.CustomResource):
                  backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  backup_target: pulumi.Input[Optional[_builtins.str]] = None,
                  backup_window: pulumi.Input[Optional[_builtins.str]] = None,
-                 blue_green_update: pulumi.Input[Optional[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict']]] = None,
+                 blue_green_update: pulumi.Input[Optional[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict', 'outputs.InstanceBlueGreenUpdate']]] = None,
                  ca_cert_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  character_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -3420,8 +3420,8 @@ class Instance(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replica_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  replicate_source_db: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore_to_point_in_time: pulumi.Input[Optional[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']]] = None,
-                 s3_import: pulumi.Input[Optional[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict']]] = None,
+                 restore_to_point_in_time: pulumi.Input[Optional[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict', 'outputs.InstanceRestoreToPointInTime']]] = None,
+                 s3_import: pulumi.Input[Optional[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict', 'outputs.InstanceS3Import']]] = None,
                  skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -3552,7 +3552,7 @@ class Instance(pulumi.CustomResource):
             backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
             backup_target: pulumi.Input[Optional[_builtins.str]] = None,
             backup_window: pulumi.Input[Optional[_builtins.str]] = None,
-            blue_green_update: pulumi.Input[Optional[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict']]] = None,
+            blue_green_update: pulumi.Input[Optional[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict', 'outputs.InstanceBlueGreenUpdate']]] = None,
             ca_cert_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             character_set_name: pulumi.Input[Optional[_builtins.str]] = None,
             copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -3586,11 +3586,11 @@ class Instance(pulumi.CustomResource):
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             latest_restorable_time: pulumi.Input[Optional[_builtins.str]] = None,
             license_model: pulumi.Input[Optional[_builtins.str]] = None,
-            listener_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceListenerEndpointArgs', 'InstanceListenerEndpointArgsDict']]]]] = None,
+            listener_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceListenerEndpointArgs', 'InstanceListenerEndpointArgsDict', 'outputs.InstanceListenerEndpoint']]]]] = None,
             maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
             manage_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
             master_user_secret_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-            master_user_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceMasterUserSecretArgs', 'InstanceMasterUserSecretArgsDict']]]]] = None,
+            master_user_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceMasterUserSecretArgs', 'InstanceMasterUserSecretArgsDict', 'outputs.InstanceMasterUserSecret']]]]] = None,
             max_allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
             monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
             monitoring_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3612,8 +3612,8 @@ class Instance(pulumi.CustomResource):
             replicas: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             replicate_source_db: pulumi.Input[Optional[_builtins.str]] = None,
             resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-            restore_to_point_in_time: pulumi.Input[Optional[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']]] = None,
-            s3_import: pulumi.Input[Optional[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict']]] = None,
+            restore_to_point_in_time: pulumi.Input[Optional[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict', 'outputs.InstanceRestoreToPointInTime']]] = None,
+            s3_import: pulumi.Input[Optional[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict', 'outputs.InstanceS3Import']]] = None,
             skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
             snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3645,7 +3645,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] backup_retention_period: Days to retain backups for. Must be between `0` and `35`. Default is `0`. Must be greater than `0` if the database is used as a source for a [Read Replica](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html), uses low-downtime updates, or will use [RDS Blue/Green deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html).
         :param pulumi.Input[_builtins.str] backup_target: Where automated backups and manual snapshots are stored. Possible values are `region` (default) and `outposts`. See [Working with Amazon RDS on AWS Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) for more information.
         :param pulumi.Input[_builtins.str] backup_window: Daily time range (in UTC) during which automated backups are created if they are enabled. Example: "09:46-10:16". Must not overlap with `maintenance_window`.
-        :param pulumi.Input[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html). See `blue_green_update` Block below.
+        :param pulumi.Input[Union['InstanceBlueGreenUpdateArgs', 'InstanceBlueGreenUpdateArgsDict', 'outputs.InstanceBlueGreenUpdate']] blue_green_update: Enables low-downtime updates using [RDS Blue/Green deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html). See `blue_green_update` Block below.
         :param pulumi.Input[_builtins.str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
         :param pulumi.Input[_builtins.str] character_set_name: Character set name to use for DB encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html) or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information. Cannot be set with `replicate_source_db`, `restore_to_point_in_time`, `s3_import`, or `snapshot_identifier`.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
@@ -3679,11 +3679,11 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[_builtins.str] latest_restorable_time: Latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         :param pulumi.Input[_builtins.str] license_model: License model information for this DB instance. Valid values for this field are as follows: RDS for MariaDB: `general-public-license`; RDS for Microsoft SQL Server: `license-included`; RDS for MySQL: `general-public-license`; RDS for Oracle: `bring-your-own-license | license-included`; RDS for PostgreSQL: `postgresql-license`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceListenerEndpointArgs', 'InstanceListenerEndpointArgsDict']]]] listener_endpoints: Listener connection endpoint for SQL Server Always On. See Endpoint below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceListenerEndpointArgs', 'InstanceListenerEndpointArgsDict', 'outputs.InstanceListenerEndpoint']]]] listener_endpoints: Listener connection endpoint for SQL Server Always On. See Endpoint below.
         :param pulumi.Input[_builtins.str] maintenance_window: Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS Maintenance Window docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) for more information.
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
         :param pulumi.Input[_builtins.str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceMasterUserSecretArgs', 'InstanceMasterUserSecretArgsDict']]]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. See `master_user_secret` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceMasterUserSecretArgs', 'InstanceMasterUserSecretArgsDict', 'outputs.InstanceMasterUserSecret']]]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. See `master_user_secret` Block below.
         :param pulumi.Input[_builtins.int] max_allocated_storage: Maximum storage (in GiB) that Amazon RDS can automatically scale to for this DB instance. By default, Storage Autoscaling is disabled. To enable Storage Autoscaling, set `max_allocated_storage` to **greater than or equal to** `allocated_storage`. Setting `max_allocated_storage` to 0 explicitly disables Storage Autoscaling. When configured, changes to `allocated_storage` will be automatically ignored as the storage can dynamically scale.
         :param pulumi.Input[_builtins.int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[_builtins.str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
@@ -3706,8 +3706,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replicas: List of read replica identifiers associated with this instance.
         :param pulumi.Input[_builtins.str] replicate_source_db: Set this to specify that this resource is a Replica database, and to use this value as the source database. If replicating an Amazon RDS Database Instance in the same region, use the `identifier` of the source DB, unless also specifying the `db_subnet_group_name`. If specifying the `db_subnet_group_name` in the same region, use the `arn` of the source DB. If replicating an Instance in a different region, use the `arn` of the source DB. Note that if you are creating a cross-region replica of an encrypted database you will also need to specify a `kms_key_id`. See [DB Instance Replication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html) and [Working with PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html) for more information on using Replication.
         :param pulumi.Input[_builtins.str] resource_id: RDS Resource ID of this instance.
-        :param pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']] restore_to_point_in_time: Configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See `restore_to_point_in_time` Block below for details.
-        :param pulumi.Input[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict']] s3_import: Restore from a Percona XtraBackup in S3. See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html). See `s3_import` Block below.
+        :param pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict', 'outputs.InstanceRestoreToPointInTime']] restore_to_point_in_time: Configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See `restore_to_point_in_time` Block below for details.
+        :param pulumi.Input[Union['InstanceS3ImportArgs', 'InstanceS3ImportArgsDict', 'outputs.InstanceS3Import']] s3_import: Restore from a Percona XtraBackup in S3. See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html). See `s3_import` Block below.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Whether or not to create this database from a snapshot. This corresponds to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05.
         :param pulumi.Input[_builtins.str] status: RDS instance status.

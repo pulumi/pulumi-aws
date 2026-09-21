@@ -179,7 +179,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict', 'outputs.FastSnapshotRestoreTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
@@ -261,7 +261,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict', 'outputs.FastSnapshotRestoreTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -294,7 +294,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict']]] = None) -> 'FastSnapshotRestore':
+            timeouts: pulumi.Input[Optional[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict', 'outputs.FastSnapshotRestoreTimeouts']]] = None) -> 'FastSnapshotRestore':
         """
         Get an existing FastSnapshotRestore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -230,8 +230,8 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]]] = None,
-                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]]] = None,
+                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict', 'outputs.NetworkInsightsAccessScopeExcludePath']]]]] = None,
+                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict', 'outputs.NetworkInsightsAccessScopeMatchPath']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -311,9 +311,9 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]] exclude_paths: Set of access scope path statements to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict', 'outputs.NetworkInsightsAccessScopeExcludePath']]]] exclude_paths: Set of access scope path statements to exclude.
                See `exclude_paths` below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]] match_paths: Set of access scope path statements to match.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict', 'outputs.NetworkInsightsAccessScopeMatchPath']]]] match_paths: Set of access scope path statements to match.
                At least one must be specified.
                See `match_paths` below for details.
                
@@ -418,8 +418,8 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]]] = None,
-                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]]] = None,
+                 exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict', 'outputs.NetworkInsightsAccessScopeExcludePath']]]]] = None,
+                 match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict', 'outputs.NetworkInsightsAccessScopeMatchPath']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -448,8 +448,8 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]]] = None,
-            match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]]] = None,
+            exclude_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict', 'outputs.NetworkInsightsAccessScopeExcludePath']]]]] = None,
+            match_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict', 'outputs.NetworkInsightsAccessScopeMatchPath']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NetworkInsightsAccessScope':
@@ -461,9 +461,9 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Network Insights Access Scope.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict']]]] exclude_paths: Set of access scope path statements to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeExcludePathArgs', 'NetworkInsightsAccessScopeExcludePathArgsDict', 'outputs.NetworkInsightsAccessScopeExcludePath']]]] exclude_paths: Set of access scope path statements to exclude.
                See `exclude_paths` below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict']]]] match_paths: Set of access scope path statements to match.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAccessScopeMatchPathArgs', 'NetworkInsightsAccessScopeMatchPathArgsDict', 'outputs.NetworkInsightsAccessScopeMatchPath']]]] match_paths: Set of access scope path statements to match.
                At least one must be specified.
                See `match_paths` below for details.
                

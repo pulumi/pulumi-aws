@@ -292,8 +292,8 @@ class ReplicationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
-                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -377,8 +377,8 @@ class ReplicationSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] region: The replication set's Regions. Use `regions` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] regions: The replication set's Regions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]] region: The replication set's Regions. Use `regions` instead.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]] regions: The replication set's Regions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
@@ -493,8 +493,8 @@ class ReplicationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
-                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
+                 region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -528,8 +528,8 @@ class ReplicationSet(pulumi.CustomResource):
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
             deletion_protected: pulumi.Input[Optional[_builtins.bool]] = None,
             last_modified_by: pulumi.Input[Optional[_builtins.str]] = None,
-            region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
-            regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
+            region: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]]] = None,
+            regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ReplicationSet':
@@ -544,8 +544,8 @@ class ReplicationSet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_by: The ARN of the user who created the replication set.
         :param pulumi.Input[_builtins.bool] deletion_protected: If `true`, the last region in a replication set cannot be deleted.
         :param pulumi.Input[_builtins.str] last_modified_by: A timestamp showing when the replication set was last modified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] region: The replication set's Regions. Use `regions` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] regions: The replication set's Regions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]] region: The replication set's Regions. Use `regions` instead.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict', 'outputs.ReplicationSetRegion']]]] regions: The replication set's Regions.
         :param pulumi.Input[_builtins.str] status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

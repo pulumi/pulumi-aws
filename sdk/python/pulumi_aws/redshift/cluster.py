@@ -1897,7 +1897,7 @@ class Cluster(pulumi.CustomResource):
             availability_zone_relocation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             cluster_namespace_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            cluster_nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClusterNodeArgs', 'ClusterClusterNodeArgsDict']]]]] = None,
+            cluster_nodes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterClusterNodeArgs', 'ClusterClusterNodeArgsDict', 'outputs.ClusterClusterNode']]]]] = None,
             cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             cluster_public_key: pulumi.Input[Optional[_builtins.str]] = None,
             cluster_revision_number: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1956,7 +1956,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[_builtins.str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
         :param pulumi.Input[_builtins.str] cluster_namespace_arn: Namespace ARN of the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterNodeArgs', 'ClusterClusterNodeArgsDict']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterNodeArgs', 'ClusterClusterNodeArgsDict', 'outputs.ClusterClusterNode']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[_builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[_builtins.str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[_builtins.str] cluster_revision_number: The specific revision number of the database in the cluster

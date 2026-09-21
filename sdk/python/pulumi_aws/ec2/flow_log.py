@@ -627,7 +627,7 @@ class FlowLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_options: pulumi.Input[Optional[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']]] = None,
+                 destination_options: pulumi.Input[Optional[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict', 'outputs.FlowLogDestinationOptions']]] = None,
                  eni_id: pulumi.Input[Optional[_builtins.str]] = None,
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_destination: pulumi.Input[Optional[_builtins.str]] = None,
@@ -637,7 +637,7 @@ class FlowLog(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regional_nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
+                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict', 'outputs.FlowLogTagFieldSpecification']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_type: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -843,7 +843,7 @@ class FlowLog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Destination options for a flow log. More details below.
+        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict', 'outputs.FlowLogDestinationOptions']] destination_options: Destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
@@ -853,7 +853,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict', 'outputs.FlowLogTagFieldSpecification']]]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] traffic_type: Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Transit Gateway Attachment ID to attach to.
@@ -1080,7 +1080,7 @@ class FlowLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_options: pulumi.Input[Optional[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']]] = None,
+                 destination_options: pulumi.Input[Optional[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict', 'outputs.FlowLogDestinationOptions']]] = None,
                  eni_id: pulumi.Input[Optional[_builtins.str]] = None,
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_destination: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1090,7 +1090,7 @@ class FlowLog(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regional_nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
+                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict', 'outputs.FlowLogTagFieldSpecification']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  traffic_type: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1136,7 +1136,7 @@ class FlowLog(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             deliver_cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
-            destination_options: pulumi.Input[Optional[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']]] = None,
+            destination_options: pulumi.Input[Optional[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict', 'outputs.FlowLogDestinationOptions']]] = None,
             eni_id: pulumi.Input[Optional[_builtins.str]] = None,
             iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             log_destination: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1146,7 +1146,7 @@ class FlowLog(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             regional_nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-            tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
+            tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict', 'outputs.FlowLogTagFieldSpecification']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             traffic_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1162,7 +1162,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Flow Log.
         :param pulumi.Input[_builtins.str] deliver_cross_account_role: ARN of the IAM role in the destination account used for cross-account delivery of flow logs.
-        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict']] destination_options: Destination options for a flow log. More details below.
+        :param pulumi.Input[Union['FlowLogDestinationOptionsArgs', 'FlowLogDestinationOptionsArgsDict', 'outputs.FlowLogDestinationOptions']] destination_options: Destination options for a flow log. More details below.
         :param pulumi.Input[_builtins.str] eni_id: Elastic Network Interface ID to attach to.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to post flow logs. Corresponds to `DeliverLogsPermissionArn` in the [AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFlowLogs.html).
         :param pulumi.Input[_builtins.str] log_destination: ARN of the logging destination.
@@ -1172,7 +1172,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] regional_nat_gateway_id: Regional NAT Gateway ID to attach to.
         :param pulumi.Input[_builtins.str] subnet_id: Subnet ID to attach to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict', 'outputs.FlowLogTagFieldSpecification']]]] tag_field_specifications: Tag configuration for the Flow Logs Amazon EC2 Tags feature fields (e.g., `$${instance-tag}`) used in `log_format`. More details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] traffic_type: Type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`. Required if `eni_id`, `regional_nat_gateway_id`, `subnet_id`, or `vpc_id` is specified.

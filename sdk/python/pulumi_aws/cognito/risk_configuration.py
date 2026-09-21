@@ -233,11 +233,11 @@ class RiskConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_takeover_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']]] = None,
+                 account_takeover_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict', 'outputs.RiskConfigurationAccountTakeoverRiskConfiguration']]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 compromised_credentials_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']]] = None,
+                 compromised_credentials_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict', 'outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 risk_exception_configuration: pulumi.Input[Optional[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']]] = None,
+                 risk_exception_configuration: pulumi.Input[Optional[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict', 'outputs.RiskConfigurationRiskExceptionConfiguration']]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -277,11 +277,11 @@ class RiskConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
+        :param pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict', 'outputs.RiskConfigurationAccountTakeoverRiskConfiguration']] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
         :param pulumi.Input[_builtins.str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        :param pulumi.Input[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
+        :param pulumi.Input[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict', 'outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration']] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']] risk_exception_configuration: The configuration to override the risk decision. See details below.
+        :param pulumi.Input[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict', 'outputs.RiskConfigurationRiskExceptionConfiguration']] risk_exception_configuration: The configuration to override the risk decision. See details below.
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID.
         """
         ...
@@ -340,11 +340,11 @@ class RiskConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_takeover_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']]] = None,
+                 account_takeover_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict', 'outputs.RiskConfigurationAccountTakeoverRiskConfiguration']]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 compromised_credentials_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']]] = None,
+                 compromised_credentials_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict', 'outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 risk_exception_configuration: pulumi.Input[Optional[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']]] = None,
+                 risk_exception_configuration: pulumi.Input[Optional[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict', 'outputs.RiskConfigurationRiskExceptionConfiguration']]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -373,11 +373,11 @@ class RiskConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_takeover_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']]] = None,
+            account_takeover_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict', 'outputs.RiskConfigurationAccountTakeoverRiskConfiguration']]] = None,
             client_id: pulumi.Input[Optional[_builtins.str]] = None,
-            compromised_credentials_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']]] = None,
+            compromised_credentials_risk_configuration: pulumi.Input[Optional[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict', 'outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            risk_exception_configuration: pulumi.Input[Optional[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']]] = None,
+            risk_exception_configuration: pulumi.Input[Optional[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict', 'outputs.RiskConfigurationRiskExceptionConfiguration']]] = None,
             user_pool_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RiskConfiguration':
         """
         Get an existing RiskConfiguration resource's state with the given name, id, and optional extra
@@ -386,11 +386,11 @@ class RiskConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
+        :param pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict', 'outputs.RiskConfigurationAccountTakeoverRiskConfiguration']] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
         :param pulumi.Input[_builtins.str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        :param pulumi.Input[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
+        :param pulumi.Input[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict', 'outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration']] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']] risk_exception_configuration: The configuration to override the risk decision. See details below.
+        :param pulumi.Input[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict', 'outputs.RiskConfigurationRiskExceptionConfiguration']] risk_exception_configuration: The configuration to override the risk decision. See details below.
         :param pulumi.Input[_builtins.str] user_pool_id: The user pool ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

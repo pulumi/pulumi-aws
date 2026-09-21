@@ -392,13 +392,13 @@ class AgentcoreEvaluator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluator_config: pulumi.Input[Optional[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict']]] = None,
+                 evaluator_config: pulumi.Input[Optional[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict', 'outputs.AgentcoreEvaluatorEvaluatorConfig']]] = None,
                  evaluator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  level: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreEvaluatorTimeoutsArgs', 'AgentcoreEvaluatorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreEvaluatorTimeoutsArgs', 'AgentcoreEvaluatorTimeoutsArgsDict', 'outputs.AgentcoreEvaluatorTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Evaluator. An evaluator scores how an agent performs. You can configure it in one of two ways: an LLM-as-a-Judge evaluator that uses a model to score agent behavior against your instructions and a rating scale, or a code-based evaluator that runs a Lambda function you provide.
@@ -525,7 +525,7 @@ class AgentcoreEvaluator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the evaluator. Length 1–200.
-        :param pulumi.Input[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict']] evaluator_config: Configuration that defines how the evaluator assesses agent performance. See `evaluator_config` below.
+        :param pulumi.Input[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict', 'outputs.AgentcoreEvaluatorEvaluatorConfig']] evaluator_config: Configuration that defines how the evaluator assesses agent performance. See `evaluator_config` below.
         :param pulumi.Input[_builtins.str] evaluator_name: Name of the evaluator. Must match the pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a customer-managed KMS key used to encrypt the evaluator's sensitive data. Only symmetric encryption keys are supported.
         :param pulumi.Input[_builtins.str] level: Evaluation level that determines the scope of evaluation. Valid values: `TOOL_CALL`, `TRACE`, `SESSION`.
@@ -678,13 +678,13 @@ class AgentcoreEvaluator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 evaluator_config: pulumi.Input[Optional[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict']]] = None,
+                 evaluator_config: pulumi.Input[Optional[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict', 'outputs.AgentcoreEvaluatorEvaluatorConfig']]] = None,
                  evaluator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  level: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentcoreEvaluatorTimeoutsArgs', 'AgentcoreEvaluatorTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentcoreEvaluatorTimeoutsArgs', 'AgentcoreEvaluatorTimeoutsArgsDict', 'outputs.AgentcoreEvaluatorTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -727,7 +727,7 @@ class AgentcoreEvaluator(pulumi.CustomResource):
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             evaluator_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            evaluator_config: pulumi.Input[Optional[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict']]] = None,
+            evaluator_config: pulumi.Input[Optional[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict', 'outputs.AgentcoreEvaluatorEvaluatorConfig']]] = None,
             evaluator_id: pulumi.Input[Optional[_builtins.str]] = None,
             evaluator_name: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -737,7 +737,7 @@ class AgentcoreEvaluator(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentcoreEvaluatorTimeoutsArgs', 'AgentcoreEvaluatorTimeoutsArgsDict']]] = None) -> 'AgentcoreEvaluator':
+            timeouts: pulumi.Input[Optional[Union['AgentcoreEvaluatorTimeoutsArgs', 'AgentcoreEvaluatorTimeoutsArgsDict', 'outputs.AgentcoreEvaluatorTimeouts']]] = None) -> 'AgentcoreEvaluator':
         """
         Get an existing AgentcoreEvaluator resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -748,7 +748,7 @@ class AgentcoreEvaluator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the evaluator was created.
         :param pulumi.Input[_builtins.str] description: Description of the evaluator. Length 1–200.
         :param pulumi.Input[_builtins.str] evaluator_arn: ARN of the evaluator.
-        :param pulumi.Input[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict']] evaluator_config: Configuration that defines how the evaluator assesses agent performance. See `evaluator_config` below.
+        :param pulumi.Input[Union['AgentcoreEvaluatorEvaluatorConfigArgs', 'AgentcoreEvaluatorEvaluatorConfigArgsDict', 'outputs.AgentcoreEvaluatorEvaluatorConfig']] evaluator_config: Configuration that defines how the evaluator assesses agent performance. See `evaluator_config` below.
         :param pulumi.Input[_builtins.str] evaluator_id: Unique identifier of the evaluator.
         :param pulumi.Input[_builtins.str] evaluator_name: Name of the evaluator. Must match the pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of a customer-managed KMS key used to encrypt the evaluator's sensitive data. Only symmetric encryption keys are supported.

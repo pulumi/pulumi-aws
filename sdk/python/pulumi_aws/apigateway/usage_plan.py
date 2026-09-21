@@ -330,14 +330,14 @@ class UsagePlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict']]]]] = None,
+                 api_stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict', 'outputs.UsagePlanApiStage']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  product_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 quota_settings: pulumi.Input[Optional[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']]] = None,
+                 quota_settings: pulumi.Input[Optional[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict', 'outputs.UsagePlanQuotaSettings']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throttle_settings: pulumi.Input[Optional[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']]] = None,
+                 throttle_settings: pulumi.Input[Optional[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict', 'outputs.UsagePlanThrottleSettings']]] = None,
                  __props__=None):
         """
         Provides an API Gateway Usage Plan.
@@ -353,14 +353,14 @@ class UsagePlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict']]]] api_stages: Associated API stages of the usage plan. See `api_stages` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict', 'outputs.UsagePlanApiStage']]]] api_stages: Associated API stages of the usage plan. See `api_stages` Block below.
         :param pulumi.Input[_builtins.str] description: Description of a usage plan.
         :param pulumi.Input[_builtins.str] name: Name of the usage plan.
         :param pulumi.Input[_builtins.str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-        :param pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']] quota_settings: Quota settings of the usage plan. See `quota_settings` Block below.
+        :param pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict', 'outputs.UsagePlanQuotaSettings']] quota_settings: Quota settings of the usage plan. See `quota_settings` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']] throttle_settings: Throttling limits of the usage plan. See `throttle_settings` Block below.
+        :param pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict', 'outputs.UsagePlanThrottleSettings']] throttle_settings: Throttling limits of the usage plan. See `throttle_settings` Block below.
         """
         ...
     @overload
@@ -395,14 +395,14 @@ class UsagePlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict']]]]] = None,
+                 api_stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict', 'outputs.UsagePlanApiStage']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  product_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 quota_settings: pulumi.Input[Optional[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']]] = None,
+                 quota_settings: pulumi.Input[Optional[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict', 'outputs.UsagePlanQuotaSettings']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 throttle_settings: pulumi.Input[Optional[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']]] = None,
+                 throttle_settings: pulumi.Input[Optional[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict', 'outputs.UsagePlanThrottleSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -432,16 +432,16 @@ class UsagePlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict']]]]] = None,
+            api_stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict', 'outputs.UsagePlanApiStage']]]]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             product_code: pulumi.Input[Optional[_builtins.str]] = None,
-            quota_settings: pulumi.Input[Optional[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']]] = None,
+            quota_settings: pulumi.Input[Optional[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict', 'outputs.UsagePlanQuotaSettings']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            throttle_settings: pulumi.Input[Optional[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']]] = None) -> 'UsagePlan':
+            throttle_settings: pulumi.Input[Optional[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict', 'outputs.UsagePlanThrottleSettings']]] = None) -> 'UsagePlan':
         """
         Get an existing UsagePlan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -449,16 +449,16 @@ class UsagePlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict']]]] api_stages: Associated API stages of the usage plan. See `api_stages` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UsagePlanApiStageArgs', 'UsagePlanApiStageArgsDict', 'outputs.UsagePlanApiStage']]]] api_stages: Associated API stages of the usage plan. See `api_stages` Block below.
         :param pulumi.Input[_builtins.str] arn: ARN of the usage plan.
         :param pulumi.Input[_builtins.str] description: Description of a usage plan.
         :param pulumi.Input[_builtins.str] name: Name of the usage plan.
         :param pulumi.Input[_builtins.str] product_code: AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
-        :param pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict']] quota_settings: Quota settings of the usage plan. See `quota_settings` Block below.
+        :param pulumi.Input[Union['UsagePlanQuotaSettingsArgs', 'UsagePlanQuotaSettingsArgsDict', 'outputs.UsagePlanQuotaSettings']] quota_settings: Quota settings of the usage plan. See `quota_settings` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict']] throttle_settings: Throttling limits of the usage plan. See `throttle_settings` Block below.
+        :param pulumi.Input[Union['UsagePlanThrottleSettingsArgs', 'UsagePlanThrottleSettingsArgsDict', 'outputs.UsagePlanThrottleSettings']] throttle_settings: Throttling limits of the usage plan. See `throttle_settings` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

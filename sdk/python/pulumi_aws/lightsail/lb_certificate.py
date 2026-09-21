@@ -414,7 +414,7 @@ class LbCertificate(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            domain_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LbCertificateDomainValidationRecordArgs', 'LbCertificateDomainValidationRecordArgsDict']]]]] = None,
+            domain_validation_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LbCertificateDomainValidationRecordArgs', 'LbCertificateDomainValidationRecordArgsDict', 'outputs.LbCertificateDomainValidationRecord']]]]] = None,
             lb_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -430,7 +430,7 @@ class LbCertificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the lightsail certificate.
         :param pulumi.Input[_builtins.str] created_at: Timestamp when the instance was created.
         :param pulumi.Input[_builtins.str] domain_name: Domain name (e.g., example.com) for your SSL/TLS certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LbCertificateDomainValidationRecordArgs', 'LbCertificateDomainValidationRecordArgsDict']]]] domain_validation_records: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LbCertificateDomainValidationRecordArgs', 'LbCertificateDomainValidationRecordArgsDict', 'outputs.LbCertificateDomainValidationRecord']]]] domain_validation_records: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         :param pulumi.Input[_builtins.str] lb_name: Load balancer name where you want to create the SSL/TLS certificate.
         :param pulumi.Input[_builtins.str] name: SSL/TLS certificate name.
                

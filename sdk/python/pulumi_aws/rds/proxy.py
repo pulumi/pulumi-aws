@@ -535,7 +535,7 @@ class Proxy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict']]]]] = None,
+                 auths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict', 'outputs.ProxyAuth']]]]] = None,
                  debug_logging: pulumi.Input[Optional[_builtins.bool]] = None,
                  default_auth_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_network_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -639,7 +639,7 @@ class Proxy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. See the `auth` block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict', 'outputs.ProxyAuth']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. See the `auth` block below.
         :param pulumi.Input[_builtins.bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
         :param pulumi.Input[_builtins.str] default_auth_scheme: Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
         :param pulumi.Input[_builtins.str] endpoint_network_type: Network type of the DB proxy endpoint. Valid values are `IPV4`, `IPV6` and `DUAL`. Defaults to `IPV4`. If `IPV6` is specified, the subnets associated with the proxy must be IPv6-only, and `target_connection_network_type` must be `IPV6`.
@@ -762,7 +762,7 @@ class Proxy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict']]]]] = None,
+                 auths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict', 'outputs.ProxyAuth']]]]] = None,
                  debug_logging: pulumi.Input[Optional[_builtins.bool]] = None,
                  default_auth_scheme: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_network_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -819,7 +819,7 @@ class Proxy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            auths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict']]]]] = None,
+            auths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict', 'outputs.ProxyAuth']]]]] = None,
             debug_logging: pulumi.Input[Optional[_builtins.bool]] = None,
             default_auth_scheme: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -843,7 +843,7 @@ class Proxy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN for the proxy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. See the `auth` block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProxyAuthArgs', 'ProxyAuthArgsDict', 'outputs.ProxyAuth']]]] auths: Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Required when `default_auth_scheme` is `NONE` or unspecified. See the `auth` block below.
         :param pulumi.Input[_builtins.bool] debug_logging: Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
         :param pulumi.Input[_builtins.str] default_auth_scheme: Default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database. Valid values are `NONE` and `IAM_AUTH`. Defaults to `NONE`.
         :param pulumi.Input[_builtins.str] endpoint: Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.

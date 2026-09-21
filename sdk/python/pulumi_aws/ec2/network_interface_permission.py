@@ -211,7 +211,7 @@ class NetworkInterfacePermission(pulumi.CustomResource):
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  permission: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NetworkInterfacePermissionTimeoutsArgs', 'NetworkInterfacePermissionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NetworkInterfacePermissionTimeoutsArgs', 'NetworkInterfacePermissionTimeoutsArgsDict', 'outputs.NetworkInterfacePermissionTimeouts']]] = None,
                  __props__=None):
         """
         Grant cross-account access to an Elastic network interface (ENI).
@@ -309,7 +309,7 @@ class NetworkInterfacePermission(pulumi.CustomResource):
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  permission: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NetworkInterfacePermissionTimeoutsArgs', 'NetworkInterfacePermissionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NetworkInterfacePermissionTimeoutsArgs', 'NetworkInterfacePermissionTimeoutsArgsDict', 'outputs.NetworkInterfacePermissionTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -346,7 +346,7 @@ class NetworkInterfacePermission(pulumi.CustomResource):
             network_interface_permission_id: pulumi.Input[Optional[_builtins.str]] = None,
             permission: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['NetworkInterfacePermissionTimeoutsArgs', 'NetworkInterfacePermissionTimeoutsArgsDict']]] = None) -> 'NetworkInterfacePermission':
+            timeouts: pulumi.Input[Optional[Union['NetworkInterfacePermissionTimeoutsArgs', 'NetworkInterfacePermissionTimeoutsArgsDict', 'outputs.NetworkInterfacePermissionTimeouts']]] = None) -> 'NetworkInterfacePermission':
         """
         Get an existing NetworkInterfacePermission resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

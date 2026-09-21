@@ -267,7 +267,7 @@ class LanguageModel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_model_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']]] = None,
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  model_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -343,7 +343,7 @@ class LanguageModel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
-        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']] input_data_config: Input data configuration for the LanguageModel. See `input_data_config` Block for details.
+        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']] input_data_config: Input data configuration for the LanguageModel. See `input_data_config` Block for details.
         :param pulumi.Input[_builtins.str] language_code: Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[_builtins.str] model_name: Model name.
                
@@ -440,7 +440,7 @@ class LanguageModel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_model_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']]] = None,
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
                  model_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -482,7 +482,7 @@ class LanguageModel(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             base_model_name: pulumi.Input[Optional[_builtins.str]] = None,
-            input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']]] = None,
+            input_data_config: pulumi.Input[Optional[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']]] = None,
             language_code: pulumi.Input[Optional[_builtins.str]] = None,
             model_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -497,7 +497,7 @@ class LanguageModel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the LanguageModel.
         :param pulumi.Input[_builtins.str] base_model_name: Name of reference base model.
-        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict']] input_data_config: Input data configuration for the LanguageModel. See `input_data_config` Block for details.
+        :param pulumi.Input[Union['LanguageModelInputDataConfigArgs', 'LanguageModelInputDataConfigArgsDict', 'outputs.LanguageModelInputDataConfig']] input_data_config: Input data configuration for the LanguageModel. See `input_data_config` Block for details.
         :param pulumi.Input[_builtins.str] language_code: Language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[_builtins.str] model_name: Model name.
                

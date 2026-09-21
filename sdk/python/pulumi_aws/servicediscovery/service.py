@@ -391,10 +391,10 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']]] = None,
+                 dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict', 'outputs.ServiceDnsConfig']]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
-                 health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']]] = None,
-                 health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']]] = None,
+                 health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict', 'outputs.ServiceHealthCheckConfig']]] = None,
+                 health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict', 'outputs.ServiceHealthCheckCustomConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -468,10 +468,10 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the service.
-        :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+        :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict', 'outputs.ServiceDnsConfig']] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
-        :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
-        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']] health_check_custom_config: Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
+        :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict', 'outputs.ServiceHealthCheckConfig']] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict', 'outputs.ServiceHealthCheckCustomConfig']] health_check_custom_config: Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace that you want to use to create the service.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -564,10 +564,10 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']]] = None,
+                 dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict', 'outputs.ServiceDnsConfig']]] = None,
                  force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
-                 health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']]] = None,
-                 health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']]] = None,
+                 health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict', 'outputs.ServiceHealthCheckConfig']]] = None,
+                 health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict', 'outputs.ServiceHealthCheckCustomConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -606,10 +606,10 @@ class Service(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']]] = None,
+            dns_config: pulumi.Input[Optional[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict', 'outputs.ServiceDnsConfig']]] = None,
             force_destroy: pulumi.Input[Optional[_builtins.bool]] = None,
-            health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']]] = None,
-            health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']]] = None,
+            health_check_config: pulumi.Input[Optional[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict', 'outputs.ServiceHealthCheckConfig']]] = None,
+            health_check_custom_config: pulumi.Input[Optional[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict', 'outputs.ServiceHealthCheckCustomConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -625,10 +625,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The ARN of the service.
         :param pulumi.Input[_builtins.str] description: The description of the service.
-        :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict']] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
+        :param pulumi.Input[Union['ServiceDnsConfigArgs', 'ServiceDnsConfigArgsDict', 'outputs.ServiceDnsConfig']] dns_config: A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         :param pulumi.Input[_builtins.bool] force_destroy: A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
-        :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict']] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
-        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict']] health_check_custom_config: Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
+        :param pulumi.Input[Union['ServiceHealthCheckConfigArgs', 'ServiceHealthCheckConfigArgsDict', 'outputs.ServiceHealthCheckConfig']] health_check_config: A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
+        :param pulumi.Input[Union['ServiceHealthCheckCustomConfigArgs', 'ServiceHealthCheckCustomConfigArgsDict', 'outputs.ServiceHealthCheckCustomConfig']] health_check_custom_config: Please use `health_check_config` instead. See `health_check_custom_config` Block for details.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] namespace_id: The ID of the namespace that you want to use to create the service.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

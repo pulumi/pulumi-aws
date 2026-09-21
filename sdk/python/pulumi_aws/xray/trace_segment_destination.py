@@ -131,7 +131,7 @@ class TraceSegmentDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TraceSegmentDestinationTimeoutsArgs', 'TraceSegmentDestinationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TraceSegmentDestinationTimeoutsArgs', 'TraceSegmentDestinationTimeoutsArgsDict', 'outputs.TraceSegmentDestinationTimeouts']]] = None,
                  __props__=None):
         """
         Manages the destination of data sent to `PutTraceSegments` by AWS X-Ray.
@@ -221,7 +221,7 @@ class TraceSegmentDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TraceSegmentDestinationTimeoutsArgs', 'TraceSegmentDestinationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TraceSegmentDestinationTimeoutsArgs', 'TraceSegmentDestinationTimeoutsArgsDict', 'outputs.TraceSegmentDestinationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -248,7 +248,7 @@ class TraceSegmentDestination(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             destination: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['TraceSegmentDestinationTimeoutsArgs', 'TraceSegmentDestinationTimeoutsArgsDict']]] = None) -> 'TraceSegmentDestination':
+            timeouts: pulumi.Input[Optional[Union['TraceSegmentDestinationTimeoutsArgs', 'TraceSegmentDestinationTimeoutsArgsDict', 'outputs.TraceSegmentDestinationTimeouts']]] = None) -> 'TraceSegmentDestination':
         """
         Get an existing TraceSegmentDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

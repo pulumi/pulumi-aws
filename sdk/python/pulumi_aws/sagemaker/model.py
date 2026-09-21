@@ -361,15 +361,15 @@ class Model(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]]]] = None,
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict', 'outputs.ModelContainer']]]]] = None,
                  enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 inference_execution_config: pulumi.Input[Optional[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict']]] = None,
+                 inference_execution_config: pulumi.Input[Optional[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict', 'outputs.ModelInferenceExecutionConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_container: pulumi.Input[Optional[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']]] = None,
+                 primary_container: pulumi.Input[Optional[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict', 'outputs.ModelPrimaryContainer']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict', 'outputs.ModelVpcConfig']]] = None,
                  __props__=None):
         """
         Manages an Amazon SageMaker AI Model.
@@ -410,15 +410,15 @@ class Model(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict', 'outputs.ModelContainer']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[_builtins.str] execution_role_arn: A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
-        :param pulumi.Input[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict']] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
+        :param pulumi.Input[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict', 'outputs.ModelInferenceExecutionConfig']] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
         :param pulumi.Input[_builtins.str] name: Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']] primary_container: Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        :param pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict', 'outputs.ModelPrimaryContainer']] primary_container: Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']] vpc_config: Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
+        :param pulumi.Input[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict', 'outputs.ModelVpcConfig']] vpc_config: Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
         """
         ...
     @overload
@@ -478,15 +478,15 @@ class Model(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]]]] = None,
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict', 'outputs.ModelContainer']]]]] = None,
                  enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 inference_execution_config: pulumi.Input[Optional[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict']]] = None,
+                 inference_execution_config: pulumi.Input[Optional[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict', 'outputs.ModelInferenceExecutionConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_container: pulumi.Input[Optional[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']]] = None,
+                 primary_container: pulumi.Input[Optional[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict', 'outputs.ModelPrimaryContainer']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict', 'outputs.ModelVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -520,16 +520,16 @@ class Model(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]]]] = None,
+            containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict', 'outputs.ModelContainer']]]]] = None,
             enable_network_isolation: pulumi.Input[Optional[_builtins.bool]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            inference_execution_config: pulumi.Input[Optional[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict']]] = None,
+            inference_execution_config: pulumi.Input[Optional[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict', 'outputs.ModelInferenceExecutionConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            primary_container: pulumi.Input[Optional[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']]] = None,
+            primary_container: pulumi.Input[Optional[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict', 'outputs.ModelPrimaryContainer']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_config: pulumi.Input[Optional[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']]] = None) -> 'Model':
+            vpc_config: pulumi.Input[Optional[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict', 'outputs.ModelVpcConfig']]] = None) -> 'Model':
         """
         Get an existing Model resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -538,16 +538,16 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this model.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict', 'outputs.ModelContainer']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[_builtins.str] execution_role_arn: A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
-        :param pulumi.Input[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict']] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
+        :param pulumi.Input[Union['ModelInferenceExecutionConfigArgs', 'ModelInferenceExecutionConfigArgsDict', 'outputs.ModelInferenceExecutionConfig']] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. See Inference Execution Config.
         :param pulumi.Input[_builtins.str] name: Name of the model (must be unique). If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']] primary_container: Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
+        :param pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict', 'outputs.ModelPrimaryContainer']] primary_container: Primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']] vpc_config: Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
+        :param pulumi.Input[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict', 'outputs.ModelVpcConfig']] vpc_config: Specifies the VPC that you want your model to connect to. This configuration is used in hosting services and in batch transform. See VPC Config.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

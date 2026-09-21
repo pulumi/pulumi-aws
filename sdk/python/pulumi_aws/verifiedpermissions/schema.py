@@ -152,7 +152,7 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict', 'outputs.SchemaDefinition']]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -191,7 +191,7 @@ class Schema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']] definition: The definition of the schema.
+        :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict', 'outputs.SchemaDefinition']] definition: The definition of the schema.
         :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -249,7 +249,7 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict', 'outputs.SchemaDefinition']]] = None,
                  policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -279,7 +279,7 @@ class Schema(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
+            definition: pulumi.Input[Optional[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict', 'outputs.SchemaDefinition']]] = None,
             namespaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Schema':
@@ -290,7 +290,7 @@ class Schema(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']] definition: The definition of the schema.
+        :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict', 'outputs.SchemaDefinition']] definition: The definition of the schema.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] namespaces: (Optional) Identifies the namespaces of the entities referenced by this schema.
         :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

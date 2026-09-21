@@ -290,11 +290,11 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 iam_federation_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict']]] = None,
-                 iam_identity_center_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict']]] = None,
+                 iam_federation_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamFederationOptions']]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamIdentityCenterOptions']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 saml_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']]] = None,
+                 saml_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict', 'outputs.ServerlessSecurityConfigSamlOptions']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -317,11 +317,11 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the security configuration.
-        :param pulumi.Input[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict']] iam_federation_options: Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iam_federation_options` Block below for details.
-        :param pulumi.Input[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict']] iam_identity_center_options: Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iam_identity_center_options` Block below for details.
+        :param pulumi.Input[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamFederationOptions']] iam_federation_options: Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iam_federation_options` Block below for details.
+        :param pulumi.Input[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamIdentityCenterOptions']] iam_identity_center_options: Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iam_identity_center_options` Block below for details.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']] saml_options: Configuration block for SAML options. Required if `type` is set to `saml`. See `saml_options` Block below for details.
+        :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict', 'outputs.ServerlessSecurityConfigSamlOptions']] saml_options: Configuration block for SAML options. Required if `type` is set to `saml`. See `saml_options` Block below for details.
         :param pulumi.Input[_builtins.str] type: Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
                
                The following arguments are optional:
@@ -365,11 +365,11 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 iam_federation_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict']]] = None,
-                 iam_identity_center_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict']]] = None,
+                 iam_federation_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamFederationOptions']]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamIdentityCenterOptions']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 saml_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']]] = None,
+                 saml_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict', 'outputs.ServerlessSecurityConfigSamlOptions']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -402,11 +402,11 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             config_version: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            iam_federation_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict']]] = None,
-            iam_identity_center_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict']]] = None,
+            iam_federation_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamFederationOptions']]] = None,
+            iam_identity_center_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamIdentityCenterOptions']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            saml_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']]] = None,
+            saml_options: pulumi.Input[Optional[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict', 'outputs.ServerlessSecurityConfigSamlOptions']]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerlessSecurityConfig':
         """
         Get an existing ServerlessSecurityConfig resource's state with the given name, id, and optional extra
@@ -417,11 +417,11 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] config_version: Version of the configuration.
         :param pulumi.Input[_builtins.str] description: Description of the security configuration.
-        :param pulumi.Input[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict']] iam_federation_options: Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iam_federation_options` Block below for details.
-        :param pulumi.Input[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict']] iam_identity_center_options: Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iam_identity_center_options` Block below for details.
+        :param pulumi.Input[Union['ServerlessSecurityConfigIamFederationOptionsArgs', 'ServerlessSecurityConfigIamFederationOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamFederationOptions']] iam_federation_options: Configuration block for IAM Federation options. Required if `type` is set to `iamfederation`. See `iam_federation_options` Block below for details.
+        :param pulumi.Input[Union['ServerlessSecurityConfigIamIdentityCenterOptionsArgs', 'ServerlessSecurityConfigIamIdentityCenterOptionsArgsDict', 'outputs.ServerlessSecurityConfigIamIdentityCenterOptions']] iam_identity_center_options: Configuration block for IAM Identity Center options. Required if `type` is set to `iamidentitycenter`. See `iam_identity_center_options` Block below for details.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']] saml_options: Configuration block for SAML options. Required if `type` is set to `saml`. See `saml_options` Block below for details.
+        :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict', 'outputs.ServerlessSecurityConfigSamlOptions']] saml_options: Configuration block for SAML options. Required if `type` is set to `saml`. See `saml_options` Block below for details.
         :param pulumi.Input[_builtins.str] type: Type of configuration. Valid values are `saml`, `iamidentitycenter` and `iamfederation`.
                
                The following arguments are optional:

@@ -102,7 +102,7 @@ class AwaitableGetLocalGatewayVirtualInterfaceGroupsResult(GetLocalGatewayVirtua
             tags=self.tags)
 
 
-def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']]] = None,
+def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict', 'outputs.GetLocalGatewayVirtualInterfaceGroupsFilterResult']]] = None,
                                                region: Optional[_builtins.str] = None,
                                                tags: Optional[Mapping[str, _builtins.str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayVirtualInterfaceGroupsResult:
@@ -119,7 +119,7 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union[
     ```
 
 
-    :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict', 'outputs.GetLocalGatewayVirtualInterfaceGroupsFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """
@@ -137,7 +137,7 @@ def get_local_gateway_virtual_interface_groups(filters: Optional[Sequence[Union[
         local_gateway_virtual_interface_ids=pulumi.get(__ret__, 'local_gateway_virtual_interface_ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_virtual_interface_groups_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']]]]] = None,
+def get_local_gateway_virtual_interface_groups_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict', 'outputs.GetLocalGatewayVirtualInterfaceGroupsFilterResult']]]]] = None,
                                                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceGroupsResult]:
@@ -154,7 +154,7 @@ def get_local_gateway_virtual_interface_groups_output(filters: pulumi.Input[Opti
     ```
 
 
-    :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupsFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict', 'outputs.GetLocalGatewayVirtualInterfaceGroupsFilterResult']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """

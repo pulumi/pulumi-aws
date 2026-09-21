@@ -706,19 +706,19 @@ class Directory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_config: pulumi.Input[Optional[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']]] = None,
-                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
+                 active_directory_config: pulumi.Input[Optional[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict', 'outputs.DirectoryActiveDirectoryConfig']]] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict', 'outputs.DirectoryCertificateBasedAuthProperties']]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 saml_properties: pulumi.Input[Optional[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
-                 self_service_permissions: pulumi.Input[Optional[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
+                 saml_properties: pulumi.Input[Optional[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict', 'outputs.DirectorySamlProperties']]] = None,
+                 self_service_permissions: pulumi.Input[Optional[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict', 'outputs.DirectorySelfServicePermissions']]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tenancy: pulumi.Input[Optional[_builtins.str]] = None,
                  user_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_access_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
-                 workspace_creation_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
+                 workspace_access_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict', 'outputs.DirectoryWorkspaceAccessProperties']]] = None,
+                 workspace_creation_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict', 'outputs.DirectoryWorkspaceCreationProperties']]] = None,
                  workspace_directory_description: pulumi.Input[Optional[_builtins.str]] = None,
                  workspace_directory_name: pulumi.Input[Optional[_builtins.str]] = None,
                  workspace_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -947,21 +947,21 @@ class Directory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
-        :param pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        :param pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict', 'outputs.DirectoryActiveDirectoryConfig']] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+        :param pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict', 'outputs.DirectoryCertificateBasedAuthProperties']] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         :param pulumi.Input[_builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
-        :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
+        :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict', 'outputs.DirectorySamlProperties']] saml_properties: Configuration of SAML authentication integration. Defined below.
+        :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict', 'outputs.DirectorySelfServicePermissions']] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] tenancy: Tenancy of the WorkSpaces directory. Valid values are `DEDICATED` or `SHARED`.
         :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
                
                > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
-        :param pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
-        :param pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
+        :param pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict', 'outputs.DirectoryWorkspaceAccessProperties']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        :param pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict', 'outputs.DirectoryWorkspaceCreationProperties']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         :param pulumi.Input[_builtins.str] workspace_directory_description: The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
         :param pulumi.Input[_builtins.str] workspace_directory_name: The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
         :param pulumi.Input[_builtins.str] workspace_type: Specifies the type of WorkSpaces directory. Valid values are `PERSONAL` and `POOLS`. Default is `PERSONAL`.
@@ -1209,19 +1209,19 @@ class Directory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_config: pulumi.Input[Optional[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']]] = None,
-                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
+                 active_directory_config: pulumi.Input[Optional[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict', 'outputs.DirectoryActiveDirectoryConfig']]] = None,
+                 certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict', 'outputs.DirectoryCertificateBasedAuthProperties']]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 saml_properties: pulumi.Input[Optional[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
-                 self_service_permissions: pulumi.Input[Optional[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
+                 saml_properties: pulumi.Input[Optional[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict', 'outputs.DirectorySamlProperties']]] = None,
+                 self_service_permissions: pulumi.Input[Optional[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict', 'outputs.DirectorySelfServicePermissions']]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tenancy: pulumi.Input[Optional[_builtins.str]] = None,
                  user_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_access_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
-                 workspace_creation_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
+                 workspace_access_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict', 'outputs.DirectoryWorkspaceAccessProperties']]] = None,
+                 workspace_creation_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict', 'outputs.DirectoryWorkspaceCreationProperties']]] = None,
                  workspace_directory_description: pulumi.Input[Optional[_builtins.str]] = None,
                  workspace_directory_name: pulumi.Input[Optional[_builtins.str]] = None,
                  workspace_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1269,9 +1269,9 @@ class Directory(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active_directory_config: pulumi.Input[Optional[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']]] = None,
+            active_directory_config: pulumi.Input[Optional[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict', 'outputs.DirectoryActiveDirectoryConfig']]] = None,
             alias: pulumi.Input[Optional[_builtins.str]] = None,
-            certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
+            certificate_based_auth_properties: pulumi.Input[Optional[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict', 'outputs.DirectoryCertificateBasedAuthProperties']]] = None,
             customer_user_name: pulumi.Input[Optional[_builtins.str]] = None,
             directory_id: pulumi.Input[Optional[_builtins.str]] = None,
             directory_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1281,15 +1281,15 @@ class Directory(pulumi.CustomResource):
             ip_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             registration_code: pulumi.Input[Optional[_builtins.str]] = None,
-            saml_properties: pulumi.Input[Optional[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
-            self_service_permissions: pulumi.Input[Optional[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
+            saml_properties: pulumi.Input[Optional[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict', 'outputs.DirectorySamlProperties']]] = None,
+            self_service_permissions: pulumi.Input[Optional[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict', 'outputs.DirectorySelfServicePermissions']]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tenancy: pulumi.Input[Optional[_builtins.str]] = None,
             user_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
-            workspace_access_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']]] = None,
-            workspace_creation_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']]] = None,
+            workspace_access_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict', 'outputs.DirectoryWorkspaceAccessProperties']]] = None,
+            workspace_creation_properties: pulumi.Input[Optional[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict', 'outputs.DirectoryWorkspaceCreationProperties']]] = None,
             workspace_directory_description: pulumi.Input[Optional[_builtins.str]] = None,
             workspace_directory_name: pulumi.Input[Optional[_builtins.str]] = None,
             workspace_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1301,9 +1301,9 @@ class Directory(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict']] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
+        :param pulumi.Input[Union['DirectoryActiveDirectoryConfigArgs', 'DirectoryActiveDirectoryConfigArgsDict', 'outputs.DirectoryActiveDirectoryConfig']] active_directory_config: Configuration for Active Directory integration when `workspace_type` is set to `POOLS`. Defined below.
         :param pulumi.Input[_builtins.str] alias: The directory alias.
-        :param pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
+        :param pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict', 'outputs.DirectoryCertificateBasedAuthProperties']] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         :param pulumi.Input[_builtins.str] customer_user_name: The user name for the service account.
         :param pulumi.Input[_builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[_builtins.str] directory_name: The name of the directory.
@@ -1313,8 +1313,8 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
-        :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
-        :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
+        :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict', 'outputs.DirectorySamlProperties']] saml_properties: Configuration of SAML authentication integration. Defined below.
+        :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict', 'outputs.DirectorySelfServicePermissions']] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1322,8 +1322,8 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] user_identity_type: Specifies the user identity type for the WorkSpaces directory. Valid values are `CUSTOMER_MANAGED`, `AWS_DIRECTORY_SERVICE`, `AWS_IAM_IDENTITY_CENTER`.
                
                > **Note:** When `workspace_type` is set to `POOLS`, the `directory_id` is automatically generated and cannot be manually set.
-        :param pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
-        :param pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
+        :param pulumi.Input[Union['DirectoryWorkspaceAccessPropertiesArgs', 'DirectoryWorkspaceAccessPropertiesArgsDict', 'outputs.DirectoryWorkspaceAccessProperties']] workspace_access_properties: Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
+        :param pulumi.Input[Union['DirectoryWorkspaceCreationPropertiesArgs', 'DirectoryWorkspaceCreationPropertiesArgsDict', 'outputs.DirectoryWorkspaceCreationProperties']] workspace_creation_properties: Default properties that are used for creating WorkSpaces. Defined below.
         :param pulumi.Input[_builtins.str] workspace_directory_description: The description of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
         :param pulumi.Input[_builtins.str] workspace_directory_name: The name of the WorkSpaces directory when `workspace_type` is set to `POOLS`.
         :param pulumi.Input[_builtins.str] workspace_security_group_id: The identifier of the security group that is assigned to new WorkSpaces.

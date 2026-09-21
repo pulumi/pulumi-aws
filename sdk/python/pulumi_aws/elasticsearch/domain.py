@@ -678,21 +678,21 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: pulumi.Input[Optional[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  advanced_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
-                 auto_tune_options: pulumi.Input[Optional[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
-                 cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
-                 cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
-                 domain_endpoint_options: pulumi.Input[Optional[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
+                 advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict', 'outputs.DomainAdvancedSecurityOptions']]] = None,
+                 auto_tune_options: pulumi.Input[Optional[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict', 'outputs.DomainAutoTuneOptions']]] = None,
+                 cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']]] = None,
+                 cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']]] = None,
+                 domain_endpoint_options: pulumi.Input[Optional[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict', 'outputs.DomainDomainEndpointOptions']]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
+                 ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict', 'outputs.DomainEbsOptions']]] = None,
                  elasticsearch_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 encrypt_at_rest: pulumi.Input[Optional[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']]] = None,
-                 log_publishing_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
-                 node_to_node_encryption: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
+                 encrypt_at_rest: pulumi.Input[Optional[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict', 'outputs.DomainEncryptAtRest']]] = None,
+                 log_publishing_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]]] = None,
+                 node_to_node_encryption: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict', 'outputs.DomainNodeToNodeEncryption']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
+                 snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict', 'outputs.DomainSnapshotOptions']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict', 'outputs.DomainVpcOptions']]] = None,
                  __props__=None):
         """
         Manages an AWS Elasticsearch Domain.
@@ -860,23 +860,23 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
-        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
-        :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
-        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
-        :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
+        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict', 'outputs.DomainAdvancedSecurityOptions']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict', 'outputs.DomainAutoTuneOptions']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
+        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
+        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
+        :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict', 'outputs.DomainDomainEndpointOptions']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
+        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict', 'outputs.DomainEbsOptions']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[_builtins.str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
-        :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
+        :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict', 'outputs.DomainEncryptAtRest']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
+        :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict', 'outputs.DomainNodeToNodeEncryption']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
+        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict', 'outputs.DomainSnapshotOptions']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
+        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict', 'outputs.DomainVpcOptions']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
         ...
     @overload
@@ -1063,21 +1063,21 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: pulumi.Input[Optional[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  advanced_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
-                 auto_tune_options: pulumi.Input[Optional[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
-                 cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
-                 cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
-                 domain_endpoint_options: pulumi.Input[Optional[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
+                 advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict', 'outputs.DomainAdvancedSecurityOptions']]] = None,
+                 auto_tune_options: pulumi.Input[Optional[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict', 'outputs.DomainAutoTuneOptions']]] = None,
+                 cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']]] = None,
+                 cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']]] = None,
+                 domain_endpoint_options: pulumi.Input[Optional[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict', 'outputs.DomainDomainEndpointOptions']]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
+                 ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict', 'outputs.DomainEbsOptions']]] = None,
                  elasticsearch_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 encrypt_at_rest: pulumi.Input[Optional[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']]] = None,
-                 log_publishing_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
-                 node_to_node_encryption: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
+                 encrypt_at_rest: pulumi.Input[Optional[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict', 'outputs.DomainEncryptAtRest']]] = None,
+                 log_publishing_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]]] = None,
+                 node_to_node_encryption: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict', 'outputs.DomainNodeToNodeEncryption']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
+                 snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict', 'outputs.DomainSnapshotOptions']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict', 'outputs.DomainVpcOptions']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1121,26 +1121,26 @@ class Domain(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_policies: pulumi.Input[Optional[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
             advanced_options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
+            advanced_security_options: pulumi.Input[Optional[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict', 'outputs.DomainAdvancedSecurityOptions']]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            auto_tune_options: pulumi.Input[Optional[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
-            cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
-            cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
-            domain_endpoint_options: pulumi.Input[Optional[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
+            auto_tune_options: pulumi.Input[Optional[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict', 'outputs.DomainAutoTuneOptions']]] = None,
+            cluster_config: pulumi.Input[Optional[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']]] = None,
+            cognito_options: pulumi.Input[Optional[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']]] = None,
+            domain_endpoint_options: pulumi.Input[Optional[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict', 'outputs.DomainDomainEndpointOptions']]] = None,
             domain_id: pulumi.Input[Optional[_builtins.str]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
+            ebs_options: pulumi.Input[Optional[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict', 'outputs.DomainEbsOptions']]] = None,
             elasticsearch_version: pulumi.Input[Optional[_builtins.str]] = None,
-            encrypt_at_rest: pulumi.Input[Optional[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']]] = None,
+            encrypt_at_rest: pulumi.Input[Optional[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict', 'outputs.DomainEncryptAtRest']]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             kibana_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            log_publishing_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
-            node_to_node_encryption: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
+            log_publishing_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]]] = None,
+            node_to_node_encryption: pulumi.Input[Optional[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict', 'outputs.DomainNodeToNodeEncryption']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
+            snapshot_options: pulumi.Input[Optional[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict', 'outputs.DomainSnapshotOptions']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None) -> 'Domain':
+            vpc_options: pulumi.Input[Optional[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict', 'outputs.DomainVpcOptions']]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1150,28 +1150,28 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
-        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict', 'outputs.DomainAdvancedSecurityOptions']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[_builtins.str] arn: ARN of the domain.
-        :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
-        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
-        :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
+        :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict', 'outputs.DomainAutoTuneOptions']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
+        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict', 'outputs.DomainClusterConfig']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
+        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict', 'outputs.DomainCognitoOptions']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
+        :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict', 'outputs.DomainDomainEndpointOptions']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[_builtins.str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
+        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict', 'outputs.DomainEbsOptions']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/elasticsearch-service/pricing/). Detailed below.
         :param pulumi.Input[_builtins.str] elasticsearch_version: Version of Elasticsearch to deploy. Defaults to `1.5`.
-        :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
+        :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict', 'outputs.DomainEncryptAtRest']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         :param pulumi.Input[_builtins.str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
         :param pulumi.Input[_builtins.str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict', 'outputs.DomainLogPublishingOption']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
+        :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict', 'outputs.DomainNodeToNodeEncryption']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
+        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict', 'outputs.DomainSnapshotOptions']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
+        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict', 'outputs.DomainVpcOptions']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

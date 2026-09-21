@@ -90,7 +90,7 @@ class AwaitableGetCoipPoolsResult(GetCoipPoolsResult):
             tags=self.tags)
 
 
-def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']]] = None,
+def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict', 'outputs.GetCoipPoolsFilterResult']]] = None,
                    region: Optional[_builtins.str] = None,
                    tags: Optional[Mapping[str, _builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCoipPoolsResult:
@@ -110,7 +110,7 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
     ```
 
 
-    :param Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict', 'outputs.GetCoipPoolsFilterResult']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -131,7 +131,7 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
         pool_ids=pulumi.get(__ret__, 'pool_ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_coip_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']]]]] = None,
+def get_coip_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict', 'outputs.GetCoipPoolsFilterResult']]]]] = None,
                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolsResult]:
@@ -151,7 +151,7 @@ def get_coip_pools_output(filters: pulumi.Input[Optional[Optional[Sequence[Union
     ```
 
 
-    :param Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict', 'outputs.GetCoipPoolsFilterResult']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

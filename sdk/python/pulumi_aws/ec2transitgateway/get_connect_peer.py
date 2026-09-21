@@ -186,7 +186,7 @@ class AwaitableGetConnectPeerResult(GetConnectPeerResult):
             transit_gateway_connect_peer_id=self.transit_gateway_connect_peer_id)
 
 
-def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]] = None,
+def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict', 'outputs.GetConnectPeerFilterResult']]] = None,
                      region: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      transit_gateway_connect_peer_id: Optional[_builtins.str] = None,
@@ -218,7 +218,7 @@ def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs'
     ```
 
 
-    :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict', 'outputs.GetConnectPeerFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect Peer
     :param _builtins.str transit_gateway_connect_peer_id: Identifier of the EC2 Transit Gateway Connect Peer.
@@ -245,7 +245,7 @@ def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs'
         transit_gateway_address=pulumi.get(__ret__, 'transit_gateway_address'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_connect_peer_id=pulumi.get(__ret__, 'transit_gateway_connect_peer_id'))
-def get_connect_peer_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]]]] = None,
+def get_connect_peer_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict', 'outputs.GetConnectPeerFilterResult']]]]] = None,
                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                             transit_gateway_connect_peer_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -277,7 +277,7 @@ def get_connect_peer_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     ```
 
 
-    :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict', 'outputs.GetConnectPeerFilterResult']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect Peer
     :param _builtins.str transit_gateway_connect_peer_id: Identifier of the EC2 Transit Gateway Connect Peer.

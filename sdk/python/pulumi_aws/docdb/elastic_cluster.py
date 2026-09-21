@@ -619,7 +619,7 @@ class ElasticCluster(pulumi.CustomResource):
                  shard_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict', 'outputs.ElasticClusterTimeouts']]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -750,7 +750,7 @@ class ElasticCluster(pulumi.CustomResource):
                  shard_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict', 'outputs.ElasticClusterTimeouts']]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -819,7 +819,7 @@ class ElasticCluster(pulumi.CustomResource):
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict', 'outputs.ElasticClusterTimeouts']]] = None,
             vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'ElasticCluster':
         """
         Get an existing ElasticCluster resource's state with the given name, id, and optional extra

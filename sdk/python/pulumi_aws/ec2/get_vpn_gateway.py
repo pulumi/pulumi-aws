@@ -123,7 +123,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
 def get_vpn_gateway(amazon_side_asn: Optional[_builtins.str] = None,
                     attached_vpc_id: Optional[_builtins.str] = None,
                     availability_zone: Optional[_builtins.str] = None,
-                    filters: Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']]] = None,
+                    filters: Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict', 'outputs.GetVpnGatewayFilterResult']]] = None,
                     id: Optional[_builtins.str] = None,
                     region: Optional[_builtins.str] = None,
                     state: Optional[_builtins.str] = None,
@@ -153,7 +153,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[_builtins.str] = None,
            The given filters must match exactly one VPN gateway whose data will be exported as attributes.
     :param _builtins.str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param _builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict', 'outputs.GetVpnGatewayFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str id: ID of the specific VPN Gateway to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: State of the specific VPN Gateway to retrieve.
@@ -185,7 +185,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[_builtins.str] = None,
 def get_vpn_gateway_output(amazon_side_asn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            attached_vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            availability_zone: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                           filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']]]]] = None,
+                           filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict', 'outputs.GetVpnGatewayFilterResult']]]]] = None,
                            id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            state: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -215,7 +215,7 @@ def get_vpn_gateway_output(amazon_side_asn: pulumi.Input[Optional[Optional[_buil
            The given filters must match exactly one VPN gateway whose data will be exported as attributes.
     :param _builtins.str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param _builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict', 'outputs.GetVpnGatewayFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str id: ID of the specific VPN Gateway to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: State of the specific VPN Gateway to retrieve.

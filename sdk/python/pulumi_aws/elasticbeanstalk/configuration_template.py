@@ -282,7 +282,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                  environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict']]]]] = None,
+                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict', 'outputs.ConfigurationTemplateSetting']]]]] = None,
                  solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -313,7 +313,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[_builtins.str] name: A unique name for this Template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict', 'outputs.ConfigurationTemplateSetting']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[_builtins.str] solution_stack_name: A solution stack to base your Template
@@ -366,7 +366,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                  environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict']]]]] = None,
+                 settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict', 'outputs.ConfigurationTemplateSetting']]]]] = None,
                  solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -401,7 +401,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
             environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict']]]]] = None,
+            settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict', 'outputs.ConfigurationTemplateSetting']]]]] = None,
             solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConfigurationTemplate':
         """
         Get an existing ConfigurationTemplate resource's state with the given name, id, and optional extra
@@ -415,7 +415,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[_builtins.str] name: A unique name for this Template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationTemplateSettingArgs', 'ConfigurationTemplateSettingArgsDict', 'outputs.ConfigurationTemplateSetting']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[_builtins.str] solution_stack_name: A solution stack to base your Template

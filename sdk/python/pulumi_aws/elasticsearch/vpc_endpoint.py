@@ -154,7 +154,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_options: pulumi.Input[Optional[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict', 'outputs.VpcEndpointVpcOptions']]] = None,
                  __props__=None):
         """
         Manages an [AWS Elasticsearch VPC Endpoint](https://docs.aws.amazon.com/elasticsearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon elasticsearch Service-managed VPC endpoint.
@@ -194,7 +194,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_arn: ARN of the domain to create the endpoint for
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']] vpc_options: Options to specify the subnets and security groups for the endpoint.
+        :param pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict', 'outputs.VpcEndpointVpcOptions']] vpc_options: Options to specify the subnets and security groups for the endpoint.
         """
         ...
     @overload
@@ -253,7 +253,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_options: pulumi.Input[Optional[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']]] = None,
+                 vpc_options: pulumi.Input[Optional[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict', 'outputs.VpcEndpointVpcOptions']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -284,7 +284,7 @@ class VpcEndpoint(pulumi.CustomResource):
             domain_arn: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            vpc_options: pulumi.Input[Optional[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']]] = None) -> 'VpcEndpoint':
+            vpc_options: pulumi.Input[Optional[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict', 'outputs.VpcEndpointVpcOptions']]] = None) -> 'VpcEndpoint':
         """
         Get an existing VpcEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -295,7 +295,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_arn: ARN of the domain to create the endpoint for
         :param pulumi.Input[_builtins.str] endpoint: The connection endpoint ID for connecting to the domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']] vpc_options: Options to specify the subnets and security groups for the endpoint.
+        :param pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict', 'outputs.VpcEndpointVpcOptions']] vpc_options: Options to specify the subnets and security groups for the endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

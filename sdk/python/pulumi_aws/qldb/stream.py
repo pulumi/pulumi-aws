@@ -327,7 +327,7 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
                  inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict', 'outputs.StreamKinesisConfiguration']]] = None,
                  ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -362,7 +362,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         :param pulumi.Input[_builtins.str] inclusive_start_time: The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
-        :param pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        :param pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict', 'outputs.StreamKinesisConfiguration']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         :param pulumi.Input[_builtins.str] ledger_name: The name of the QLDB ledger.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
@@ -416,7 +416,7 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
                  inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict', 'outputs.StreamKinesisConfiguration']]] = None,
                  ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -464,7 +464,7 @@ class Stream(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
             inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
-            kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+            kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict', 'outputs.StreamKinesisConfiguration']]] = None,
             ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -481,7 +481,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the QLDB Stream.
         :param pulumi.Input[_builtins.str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         :param pulumi.Input[_builtins.str] inclusive_start_time: The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
-        :param pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        :param pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict', 'outputs.StreamKinesisConfiguration']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         :param pulumi.Input[_builtins.str] ledger_name: The name of the QLDB ledger.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.

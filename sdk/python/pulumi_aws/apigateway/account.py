@@ -311,7 +311,7 @@ class Account(pulumi.CustomResource):
             cloudwatch_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            throttle_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]]] = None) -> 'Account':
+            throttle_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict', 'outputs.AccountThrottleSetting']]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -323,7 +323,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] features: List of features supported for the account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]] throttle_settings: Account-Level throttle settings. See `throttle_settings` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict', 'outputs.AccountThrottleSetting']]]] throttle_settings: Account-Level throttle settings. See `throttle_settings` Block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

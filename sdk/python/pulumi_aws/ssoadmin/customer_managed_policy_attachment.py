@@ -167,7 +167,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_policy_reference: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict']]] = None,
+                 customer_managed_policy_reference: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -221,7 +221,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
+        :param pulumi.Input[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -294,7 +294,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_policy_reference: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict']]] = None,
+                 customer_managed_policy_reference: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -327,7 +327,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customer_managed_policy_reference: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict']]] = None,
+            customer_managed_policy_reference: pulumi.Input[Optional[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference']]] = None,
             instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
             permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomerManagedPolicyAttachment':
@@ -338,7 +338,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
+        :param pulumi.Input[Union['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs', 'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict', 'outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[_builtins.str] permission_set_arn: ARN of the Permission Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

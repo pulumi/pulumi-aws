@@ -405,13 +405,13 @@ class TrustProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
+                 device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']]] = None,
                  device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
-                 oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
+                 native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']]] = None,
+                 oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']]] = None,
                  policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict', 'outputs.TrustProviderSseSpecification']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -443,10 +443,10 @@ class TrustProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access trust provider.
-        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']] device_options: A block of options for device identity based trust providers.
+        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']] device_options: A block of options for device identity based trust providers.
         :param pulumi.Input[_builtins.str] device_trust_provider_type: The type of device-based trust provider.
-        :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
-        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
         :param pulumi.Input[_builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -501,13 +501,13 @@ class TrustProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
+                 device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']]] = None,
                  device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
-                 oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
+                 native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']]] = None,
+                 oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']]] = None,
                  policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict', 'outputs.TrustProviderSseSpecification']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
                  user_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -547,13 +547,13 @@ class TrustProvider(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
+            device_options: pulumi.Input[Optional[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']]] = None,
             device_trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
-            native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
-            oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
+            native_application_oidc_options: pulumi.Input[Optional[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']]] = None,
+            oidc_options: pulumi.Input[Optional[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']]] = None,
             policy_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict']]] = None,
+            sse_specification: pulumi.Input[Optional[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict', 'outputs.TrustProviderSseSpecification']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             trust_provider_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -566,10 +566,10 @@ class TrustProvider(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access trust provider.
-        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']] device_options: A block of options for device identity based trust providers.
+        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']] device_options: A block of options for device identity based trust providers.
         :param pulumi.Input[_builtins.str] device_trust_provider_type: The type of device-based trust provider.
-        :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict']] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
-        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
         :param pulumi.Input[_builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -439,8 +439,8 @@ class DataLakeSettings(pulumi.CustomResource):
                  allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  authorized_session_tag_value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
-                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateDatabaseDefaultPermission']]]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateTableDefaultPermission']]]]] = None,
                  external_data_filtering_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  read_only_admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -542,8 +542,8 @@ class DataLakeSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateDatabaseDefaultPermission']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateTableDefaultPermission']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
@@ -666,8 +666,8 @@ class DataLakeSettings(pulumi.CustomResource):
                  allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  authorized_session_tag_value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
-                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]]] = None,
+                 create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateDatabaseDefaultPermission']]]]] = None,
+                 create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateTableDefaultPermission']]]]] = None,
                  external_data_filtering_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  read_only_admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -709,8 +709,8 @@ class DataLakeSettings(pulumi.CustomResource):
             allow_full_table_external_data_access: pulumi.Input[Optional[_builtins.bool]] = None,
             authorized_session_tag_value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-            create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]]] = None,
-            create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]]] = None,
+            create_database_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateDatabaseDefaultPermission']]]]] = None,
+            create_table_default_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateTableDefaultPermission']]]]] = None,
             external_data_filtering_allow_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             read_only_admins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -728,8 +728,8 @@ class DataLakeSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] allow_full_table_external_data_access: Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_session_tag_value_lists: Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         :param pulumi.Input[_builtins.str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateDatabaseDefaultPermissionArgs', 'DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateDatabaseDefaultPermission']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeSettingsCreateTableDefaultPermissionArgs', 'DataLakeSettingsCreateTableDefaultPermissionArgsDict', 'outputs.DataLakeSettingsCreateTableDefaultPermission']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.

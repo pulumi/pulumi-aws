@@ -364,11 +364,11 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  data_location_constraint: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict', 'outputs.ResiliencyPolicyPolicy']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tier: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ResiliencyPolicyTimeoutsArgs', 'ResiliencyPolicyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ResiliencyPolicyTimeoutsArgs', 'ResiliencyPolicyTimeoutsArgsDict', 'outputs.ResiliencyPolicyTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Resilience Hub Resiliency Policy.
@@ -421,7 +421,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of Resiliency Policy.
                Must be between 2 and 60 characters long.
                Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
-        :param pulumi.Input[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict']] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
+        :param pulumi.Input[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict', 'outputs.ResiliencyPolicyPolicy']] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -496,11 +496,11 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  data_location_constraint: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict', 'outputs.ResiliencyPolicyPolicy']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tier: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ResiliencyPolicyTimeoutsArgs', 'ResiliencyPolicyTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ResiliencyPolicyTimeoutsArgs', 'ResiliencyPolicyTimeoutsArgsDict', 'outputs.ResiliencyPolicyTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -538,12 +538,12 @@ class ResiliencyPolicy(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             estimated_cost_tier: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict']]] = None,
+            policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict', 'outputs.ResiliencyPolicyPolicy']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tier: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ResiliencyPolicyTimeoutsArgs', 'ResiliencyPolicyTimeoutsArgsDict']]] = None) -> 'ResiliencyPolicy':
+            timeouts: pulumi.Input[Optional[Union['ResiliencyPolicyTimeoutsArgs', 'ResiliencyPolicyTimeoutsArgsDict', 'outputs.ResiliencyPolicyTimeouts']]] = None) -> 'ResiliencyPolicy':
         """
         Get an existing ResiliencyPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -559,7 +559,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of Resiliency Policy.
                Must be between 2 and 60 characters long.
                Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
-        :param pulumi.Input[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict']] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
+        :param pulumi.Input[Union['ResiliencyPolicyPolicyArgs', 'ResiliencyPolicyPolicyArgsDict', 'outputs.ResiliencyPolicyPolicy']] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

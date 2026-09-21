@@ -426,7 +426,7 @@ class EndpointAccess(pulumi.CustomResource):
             port: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            vpc_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]]] = None,
+            vpc_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict', 'outputs.EndpointAccessVpcEndpoint']]]]] = None,
             vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             workgroup_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'EndpointAccess':
         """
@@ -443,7 +443,7 @@ class EndpointAccess(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: The port that Amazon Redshift Serverless listens on.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict', 'outputs.EndpointAccessVpcEndpoint']]]] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[_builtins.str] workgroup_name: The name of the workgroup.
         """

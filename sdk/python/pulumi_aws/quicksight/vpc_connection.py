@@ -414,7 +414,7 @@ class VpcConnection(pulumi.CustomResource):
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict', 'outputs.VpcConnectionTimeouts']]] = None,
                  vpc_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -580,7 +580,7 @@ class VpcConnection(pulumi.CustomResource):
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict', 'outputs.VpcConnectionTimeouts']]] = None,
                  vpc_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -633,7 +633,7 @@ class VpcConnection(pulumi.CustomResource):
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict', 'outputs.VpcConnectionTimeouts']]] = None,
             vpc_connection_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcConnection':
         """
         Get an existing VpcConnection resource's state with the given name, id, and optional extra

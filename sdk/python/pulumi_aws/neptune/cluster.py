@@ -1170,7 +1170,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']]] = None,
                  skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1243,7 +1243,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
-        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.
@@ -1335,7 +1335,7 @@ class Cluster(pulumi.CustomResource):
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+                 serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']]] = None,
                  skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1429,7 +1429,7 @@ class Cluster(pulumi.CustomResource):
             reader_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             replication_source_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
+            serverless_v2_scaling_configuration: pulumi.Input[Optional[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']]] = None,
             skip_final_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
             snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1474,7 +1474,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] reader_endpoint: Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
-        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
+        :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict', 'outputs.ClusterServerlessV2ScalingConfiguration']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[_builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.

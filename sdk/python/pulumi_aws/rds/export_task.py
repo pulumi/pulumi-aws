@@ -461,7 +461,7 @@ class ExportTask(pulumi.CustomResource):
                  s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict', 'outputs.ExportTaskTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS RDS (Relational Database) Export Task.
@@ -717,7 +717,7 @@ class ExportTask(pulumi.CustomResource):
                  s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  source_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict', 'outputs.ExportTaskTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -779,7 +779,7 @@ class ExportTask(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             task_end_time: pulumi.Input[Optional[_builtins.str]] = None,
             task_start_time: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict', 'outputs.ExportTaskTimeouts']]] = None,
             warning_message: pulumi.Input[Optional[_builtins.str]] = None) -> 'ExportTask':
         """
         Get an existing ExportTask resource's state with the given name, id, and optional extra

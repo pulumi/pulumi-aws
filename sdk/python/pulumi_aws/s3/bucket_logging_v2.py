@@ -280,8 +280,8 @@ class BucketLoggingV2(pulumi.CustomResource):
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]]] = None,
-                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']]] = None,
+                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict', 'outputs.BucketLoggingV2TargetGrant']]]]] = None,
+                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingV2TargetObjectKeyFormat']]] = None,
                  target_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -389,8 +389,8 @@ class BucketLoggingV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
-        :param pulumi.Input[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict', 'outputs.BucketLoggingV2TargetGrant']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingV2TargetObjectKeyFormat']] target_object_key_format: Amazon S3 key format for log objects. See below.
         :param pulumi.Input[_builtins.str] target_prefix: Prefix for all log object keys.
         """
         ...
@@ -517,8 +517,8 @@ class BucketLoggingV2(pulumi.CustomResource):
                  expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]]] = None,
-                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']]] = None,
+                 target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict', 'outputs.BucketLoggingV2TargetGrant']]]]] = None,
+                 target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingV2TargetObjectKeyFormat']]] = None,
                  target_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         pulumi.log.warn("""BucketLoggingV2 is deprecated: aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging""")
@@ -559,8 +559,8 @@ class BucketLoggingV2(pulumi.CustomResource):
             expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             target_bucket: pulumi.Input[Optional[_builtins.str]] = None,
-            target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]]] = None,
-            target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']]] = None,
+            target_grants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict', 'outputs.BucketLoggingV2TargetGrant']]]]] = None,
+            target_object_key_format: pulumi.Input[Optional[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingV2TargetObjectKeyFormat']]] = None,
             target_prefix: pulumi.Input[Optional[_builtins.str]] = None) -> 'BucketLoggingV2':
         """
         Get an existing BucketLoggingV2 resource's state with the given name, id, and optional extra
@@ -573,8 +573,8 @@ class BucketLoggingV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] target_bucket: Name of the bucket where you want Amazon S3 to store server access logs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
-        :param pulumi.Input[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict']] target_object_key_format: Amazon S3 key format for log objects. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLoggingV2TargetGrantArgs', 'BucketLoggingV2TargetGrantArgsDict', 'outputs.BucketLoggingV2TargetGrant']]]] target_grants: Set of configuration blocks with information for granting permissions. See below.
+        :param pulumi.Input[Union['BucketLoggingV2TargetObjectKeyFormatArgs', 'BucketLoggingV2TargetObjectKeyFormatArgsDict', 'outputs.BucketLoggingV2TargetObjectKeyFormat']] target_object_key_format: Amazon S3 key format for log objects. See below.
         :param pulumi.Input[_builtins.str] target_prefix: Prefix for all log object keys.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -451,14 +451,14 @@ class Daemon(pulumi.CustomResource):
                  capacity_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']]] = None,
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  propagate_tags: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DaemonTimeoutsArgs', 'DaemonTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DaemonTimeoutsArgs', 'DaemonTimeoutsArgsDict', 'outputs.DaemonTimeouts']]] = None,
                  __props__=None):
         """
         Provides an ECS Daemon resource, which manages a daemon that runs exactly one task on each container instance in an ECS cluster.
@@ -536,7 +536,7 @@ class Daemon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_provider_arns: Set of capacity provider ARNs to use for the daemon.
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the ECS cluster where the daemon will run.
         :param pulumi.Input[_builtins.str] daemon_task_definition_arn: ARN of the daemon task definition to use for the daemon. Drift is not detected on this attribute because the API may report a stale revision while a deployment is in progress.
-        :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']] deployment_configuration: Configuration for daemon deployments. See Deployment Configuration below.
+        :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']] deployment_configuration: Configuration for daemon deployments. See Deployment Configuration below.
         :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Whether to enable Amazon ECS managed tags for the tasks within the daemon.
         :param pulumi.Input[_builtins.bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the daemon.
         :param pulumi.Input[_builtins.str] name: Name of the daemon.
@@ -639,14 +639,14 @@ class Daemon(pulumi.CustomResource):
                  capacity_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']]] = None,
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  propagate_tags: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DaemonTimeoutsArgs', 'DaemonTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DaemonTimeoutsArgs', 'DaemonTimeoutsArgsDict', 'outputs.DaemonTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -690,7 +690,7 @@ class Daemon(pulumi.CustomResource):
             cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
             daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
             deployment_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
+            deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']]] = None,
             enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -699,7 +699,7 @@ class Daemon(pulumi.CustomResource):
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['DaemonTimeoutsArgs', 'DaemonTimeoutsArgsDict']]] = None) -> 'Daemon':
+            timeouts: pulumi.Input[Optional[Union['DaemonTimeoutsArgs', 'DaemonTimeoutsArgsDict', 'outputs.DaemonTimeouts']]] = None) -> 'Daemon':
         """
         Get an existing Daemon resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -712,7 +712,7 @@ class Daemon(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_arn: ARN of the ECS cluster where the daemon will run.
         :param pulumi.Input[_builtins.str] daemon_task_definition_arn: ARN of the daemon task definition to use for the daemon. Drift is not detected on this attribute because the API may report a stale revision while a deployment is in progress.
         :param pulumi.Input[_builtins.str] deployment_arn: ARN of the most recent daemon deployment.
-        :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']] deployment_configuration: Configuration for daemon deployments. See Deployment Configuration below.
+        :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']] deployment_configuration: Configuration for daemon deployments. See Deployment Configuration below.
         :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Whether to enable Amazon ECS managed tags for the tasks within the daemon.
         :param pulumi.Input[_builtins.bool] enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the daemon.
         :param pulumi.Input[_builtins.str] name: Name of the daemon.

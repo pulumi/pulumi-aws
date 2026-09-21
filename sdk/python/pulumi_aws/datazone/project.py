@@ -351,7 +351,7 @@ class Project(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_deletion_check: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict', 'outputs.ProjectTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Project.
@@ -489,7 +489,7 @@ class Project(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  skip_deletion_check: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict', 'outputs.ProjectTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -527,14 +527,14 @@ class Project(pulumi.CustomResource):
             created_by: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            failure_reasons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFailureReasonArgs', 'ProjectFailureReasonArgsDict']]]]] = None,
+            failure_reasons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectFailureReasonArgs', 'ProjectFailureReasonArgsDict', 'outputs.ProjectFailureReason']]]]] = None,
             glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             project_status: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             skip_deletion_check: pulumi.Input[Optional[_builtins.bool]] = None,
-            timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None) -> 'Project':
+            timeouts: pulumi.Input[Optional[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict', 'outputs.ProjectTimeouts']]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -546,7 +546,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_by: Creator of the project.
         :param pulumi.Input[_builtins.str] description: Description of project.
         :param pulumi.Input[_builtins.str] domain_identifier: Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFailureReasonArgs', 'ProjectFailureReasonArgsDict']]]] failure_reasons: List of error messages if operation cannot be completed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFailureReasonArgs', 'ProjectFailureReasonArgsDict', 'outputs.ProjectFailureReason']]]] failure_reasons: List of error messages if operation cannot be completed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         :param pulumi.Input[_builtins.str] last_updated_at: Timestamp of when the project was last updated.
         :param pulumi.Input[_builtins.str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.

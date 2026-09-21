@@ -244,7 +244,7 @@ class RuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict', 'outputs.RuleSetRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -295,7 +295,7 @@ class RuleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the rule set.
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict']]]] rules: One or more rules that define filtering and action logic. Up to 40 rules are supported. See `rule` Block.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict', 'outputs.RuleSetRule']]]] rules: One or more rules that define filtering and action logic. Up to 40 rules are supported. See `rule` Block.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -367,7 +367,7 @@ class RuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict', 'outputs.RuleSetRule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -401,7 +401,7 @@ class RuleSet(pulumi.CustomResource):
             last_modification_date: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict', 'outputs.RuleSetRule']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RuleSet':
         """
@@ -416,7 +416,7 @@ class RuleSet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_modification_date: Date and time when the rule set was last modified.
         :param pulumi.Input[_builtins.str] name: Name of the rule set.
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict']]]] rules: One or more rules that define filtering and action logic. Up to 40 rules are supported. See `rule` Block.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleSetRuleArgs', 'RuleSetRuleArgsDict', 'outputs.RuleSetRule']]]] rules: One or more rules that define filtering and action logic. Up to 40 rules are supported. See `rule` Block.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

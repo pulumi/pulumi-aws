@@ -154,9 +154,9 @@ class AwaitableGetFilesAccessPointResult(GetFilesAccessPointResult):
 
 
 def get_files_access_point(id: Optional[_builtins.str] = None,
-                           posix_users: Optional[Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict']]] = None,
+                           posix_users: Optional[Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict', 'outputs.GetFilesAccessPointPosixUserResult']]] = None,
                            region: Optional[_builtins.str] = None,
-                           root_directories: Optional[Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict']]] = None,
+                           root_directories: Optional[Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict', 'outputs.GetFilesAccessPointRootDirectoryResult']]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFilesAccessPointResult:
     """
     Data source for managing an S3 Files Access Point.
@@ -174,9 +174,9 @@ def get_files_access_point(id: Optional[_builtins.str] = None,
     :param _builtins.str id: Access point ID.
            
            The following arguments are optional:
-    :param Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict']] posix_users: POSIX user configuration. See `posix_user` below.
+    :param Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict', 'outputs.GetFilesAccessPointPosixUserResult']] posix_users: POSIX user configuration. See `posix_user` below.
     :param _builtins.str region: Region where this resource is [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict']] root_directories: Root directory configuration. See `root_directory` below.
+    :param Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict', 'outputs.GetFilesAccessPointRootDirectoryResult']] root_directories: Root directory configuration. See `root_directory` below.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -198,9 +198,9 @@ def get_files_access_point(id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_files_access_point_output(id: pulumi.Input[Optional[_builtins.str]] = None,
-                                  posix_users: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict']]]]] = None,
+                                  posix_users: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict', 'outputs.GetFilesAccessPointPosixUserResult']]]]] = None,
                                   region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                  root_directories: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict']]]]] = None,
+                                  root_directories: pulumi.Input[Optional[Optional[Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict', 'outputs.GetFilesAccessPointRootDirectoryResult']]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFilesAccessPointResult]:
     """
     Data source for managing an S3 Files Access Point.
@@ -218,9 +218,9 @@ def get_files_access_point_output(id: pulumi.Input[Optional[_builtins.str]] = No
     :param _builtins.str id: Access point ID.
            
            The following arguments are optional:
-    :param Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict']] posix_users: POSIX user configuration. See `posix_user` below.
+    :param Sequence[Union['GetFilesAccessPointPosixUserArgs', 'GetFilesAccessPointPosixUserArgsDict', 'outputs.GetFilesAccessPointPosixUserResult']] posix_users: POSIX user configuration. See `posix_user` below.
     :param _builtins.str region: Region where this resource is [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict']] root_directories: Root directory configuration. See `root_directory` below.
+    :param Sequence[Union['GetFilesAccessPointRootDirectoryArgs', 'GetFilesAccessPointRootDirectoryArgsDict', 'outputs.GetFilesAccessPointRootDirectoryResult']] root_directories: Root directory configuration. See `root_directory` below.
     """
     __args__ = dict()
     __args__['id'] = id

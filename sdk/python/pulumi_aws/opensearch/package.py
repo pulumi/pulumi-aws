@@ -262,7 +262,7 @@ class Package(pulumi.CustomResource):
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  package_description: pulumi.Input[Optional[_builtins.str]] = None,
                  package_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
+                 package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict', 'outputs.PackagePackageSource']]] = None,
                  package_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -307,7 +307,7 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_version: Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
         :param pulumi.Input[_builtins.str] package_description: Description of the package.
         :param pulumi.Input[_builtins.str] package_name: Unique name for the package.
-        :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
+        :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict', 'outputs.PackagePackageSource']] package_source: Configuration block for the package source options.
         :param pulumi.Input[_builtins.str] package_type: The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -371,7 +371,7 @@ class Package(pulumi.CustomResource):
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  package_description: pulumi.Input[Optional[_builtins.str]] = None,
                  package_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
+                 package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict', 'outputs.PackagePackageSource']]] = None,
                  package_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -412,7 +412,7 @@ class Package(pulumi.CustomResource):
             package_description: pulumi.Input[Optional[_builtins.str]] = None,
             package_id: pulumi.Input[Optional[_builtins.str]] = None,
             package_name: pulumi.Input[Optional[_builtins.str]] = None,
-            package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
+            package_source: pulumi.Input[Optional[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict', 'outputs.PackagePackageSource']]] = None,
             package_type: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'Package':
         """
@@ -426,7 +426,7 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_version: Engine version that the package is compatible with. This argument is required and only valid when `package_type` is `ZIP-PLUGIN`. Format: `OpenSearch_X.Y` or `Elasticsearch_X.Y`, where `X` and `Y` are the major and minor version numbers, respectively.
         :param pulumi.Input[_builtins.str] package_description: Description of the package.
         :param pulumi.Input[_builtins.str] package_name: Unique name for the package.
-        :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
+        :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict', 'outputs.PackagePackageSource']] package_source: Configuration block for the package source options.
         :param pulumi.Input[_builtins.str] package_type: The type of package. Valid values are `TXT-DICTIONARY`, `ZIP-PLUGIN`, `PACKAGE-LICENSE` and `PACKAGE-CONFIG`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """

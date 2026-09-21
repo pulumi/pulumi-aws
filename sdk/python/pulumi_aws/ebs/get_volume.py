@@ -258,7 +258,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             volume_type=self.volume_type)
 
 
-def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']]] = None,
+def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict', 'outputs.GetVolumeFilterResult']]] = None,
                most_recent: Optional[_builtins.bool] = None,
                region: Optional[_builtins.str] = None,
                tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -287,7 +287,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
     ```
 
 
-    :param Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict', 'outputs.GetVolumeFilterResult']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
     :param _builtins.bool most_recent: If more than one result is returned, use the most
@@ -323,7 +323,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
         volume_id=pulumi.get(__ret__, 'volume_id'),
         volume_initialization_rate=pulumi.get(__ret__, 'volume_initialization_rate'),
         volume_type=pulumi.get(__ret__, 'volume_type'))
-def get_volume_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']]]]] = None,
+def get_volume_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict', 'outputs.GetVolumeFilterResult']]]]] = None,
                       most_recent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                       region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -352,7 +352,7 @@ def get_volume_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['Ge
     ```
 
 
-    :param Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict', 'outputs.GetVolumeFilterResult']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
     :param _builtins.bool most_recent: If more than one result is returned, use the most

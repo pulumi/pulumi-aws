@@ -265,7 +265,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             vpc_endpoint_policy_supported=self.vpc_endpoint_policy_supported)
 
 
-def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']]] = None,
+def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict', 'outputs.GetVpcEndpointServiceFilterResult']]] = None,
                              service: Optional[_builtins.str] = None,
                              service_name: Optional[_builtins.str] = None,
                              service_regions: Optional[Sequence[_builtins.str]] = None,
@@ -317,7 +317,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
     ```
 
 
-    :param Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict', 'outputs.GetVpcEndpointServiceFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str service: Common name of an AWS service (e.g., `s3`).
     :param _builtins.str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param Sequence[_builtins.str] service_regions: AWS regions in which to look for services.
@@ -357,7 +357,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
         supported_ip_address_types=pulumi.get(__ret__, 'supported_ip_address_types'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint_policy_supported=pulumi.get(__ret__, 'vpc_endpoint_policy_supported'))
-def get_vpc_endpoint_service_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']]]]] = None,
+def get_vpc_endpoint_service_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict', 'outputs.GetVpcEndpointServiceFilterResult']]]]] = None,
                                     service: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     service_regions: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
@@ -409,7 +409,7 @@ def get_vpc_endpoint_service_output(filters: pulumi.Input[Optional[Optional[Sequ
     ```
 
 
-    :param Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetVpcEndpointServiceFilterArgs', 'GetVpcEndpointServiceFilterArgsDict', 'outputs.GetVpcEndpointServiceFilterResult']] filters: Configuration block(s) for filtering. Detailed below.
     :param _builtins.str service: Common name of an AWS service (e.g., `s3`).
     :param _builtins.str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param Sequence[_builtins.str] service_regions: AWS regions in which to look for services.

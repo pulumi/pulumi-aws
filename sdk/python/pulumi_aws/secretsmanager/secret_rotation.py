@@ -297,13 +297,13 @@ class SecretRotation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_secret_rotation_metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict']]]]] = None,
+                 external_secret_rotation_metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict', 'outputs.SecretRotationExternalSecretRotationMetadata']]]]] = None,
                  external_secret_rotation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rotate_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
                  rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']]] = None,
+                 rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict', 'outputs.SecretRotationRotationRules']]] = None,
                  secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -421,13 +421,13 @@ class SecretRotation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict']]]] external_secret_rotation_metadatas: Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict', 'outputs.SecretRotationExternalSecretRotationMetadata']]]] external_secret_rotation_metadatas: Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
         :param pulumi.Input[_builtins.str] external_secret_rotation_role_arn: ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] rotate_immediately: Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] rotation_enabled: Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotation_rules` must be omitted. Defaults to enabled when `rotation_rules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
         :param pulumi.Input[_builtins.str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
-        :param pulumi.Input[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']] rotation_rules: Structure that defines the rotation configuration for this secret. Required unless `rotation_enabled` is `false`. Defined below.
+        :param pulumi.Input[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict', 'outputs.SecretRotationRotationRules']] rotation_rules: Structure that defines the rotation configuration for this secret. Required unless `rotation_enabled` is `false`. Defined below.
         :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         """
         ...
@@ -564,13 +564,13 @@ class SecretRotation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 external_secret_rotation_metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict']]]]] = None,
+                 external_secret_rotation_metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict', 'outputs.SecretRotationExternalSecretRotationMetadata']]]]] = None,
                  external_secret_rotation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rotate_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
                  rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']]] = None,
+                 rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict', 'outputs.SecretRotationRotationRules']]] = None,
                  secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -601,13 +601,13 @@ class SecretRotation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            external_secret_rotation_metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict']]]]] = None,
+            external_secret_rotation_metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict', 'outputs.SecretRotationExternalSecretRotationMetadata']]]]] = None,
             external_secret_rotation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rotate_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
             rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             rotation_lambda_arn: pulumi.Input[Optional[_builtins.str]] = None,
-            rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']]] = None,
+            rotation_rules: pulumi.Input[Optional[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict', 'outputs.SecretRotationRotationRules']]] = None,
             secret_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecretRotation':
         """
         Get an existing SecretRotation resource's state with the given name, id, and optional extra
@@ -616,13 +616,13 @@ class SecretRotation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict']]]] external_secret_rotation_metadatas: Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretRotationExternalSecretRotationMetadataArgs', 'SecretRotationExternalSecretRotationMetadataArgsDict', 'outputs.SecretRotationExternalSecretRotationMetadata']]]] external_secret_rotation_metadatas: Configuration block for metadata required by the external secret partner. Required for managed external secrets. See details below.
         :param pulumi.Input[_builtins.str] external_secret_rotation_role_arn: ARN of the IAM role that allows Secrets Manager to rotate the secret held by a third-party partner. Required for managed external secrets.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] rotate_immediately: Whether to rotate the secret immediately or wait until the next scheduled rotation window. The rotation schedule is defined in `rotation_rules`. For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the testSecret step (https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html) of the Lambda rotation function. The test creates an AWSPENDING version of the secret and then removes it. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] rotation_enabled: Whether automatic rotation is enabled for the secret. Set to `false` to disable rotation on a secret whose rotation is otherwise managed by AWS (for example, an RDS master user password secret). When `false`, `rotation_rules` must be omitted. Defaults to enabled when `rotation_rules` is configured. Destroying this resource does not re-enable the automatic rotation that AWS configured.
         :param pulumi.Input[_builtins.str] rotation_lambda_arn: ARN of the Lambda function that can rotate the secret. Must be supplied if the secret is not managed by AWS.
-        :param pulumi.Input[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict']] rotation_rules: Structure that defines the rotation configuration for this secret. Required unless `rotation_enabled` is `false`. Defined below.
+        :param pulumi.Input[Union['SecretRotationRotationRulesArgs', 'SecretRotationRotationRulesArgsDict', 'outputs.SecretRotationRotationRules']] rotation_rules: Structure that defines the rotation configuration for this secret. Required unless `rotation_enabled` is `false`. Defined below.
         :param pulumi.Input[_builtins.str] secret_id: Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

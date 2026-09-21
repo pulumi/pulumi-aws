@@ -90,7 +90,7 @@ class AwaitableGetVpcsResult(GetVpcsResult):
             tags=self.tags)
 
 
-def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']]] = None,
+def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict', 'outputs.GetVpcsFilterResult']]] = None,
              region: Optional[_builtins.str] = None,
              tags: Optional[Mapping[str, _builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcsResult:
@@ -132,7 +132,7 @@ def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilte
     ```
 
 
-    :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict', 'outputs.GetVpcsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired vpcs.
@@ -150,7 +150,7 @@ def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilte
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vpcs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']]]]] = None,
+def get_vpcs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict', 'outputs.GetVpcsFilterResult']]]]] = None,
                     region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcsResult]:
@@ -192,7 +192,7 @@ def get_vpcs_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetV
     ```
 
 
-    :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict', 'outputs.GetVpcsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired vpcs.

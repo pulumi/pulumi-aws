@@ -960,30 +960,30 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_config: pulumi.Input[Optional[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
+                 access_config: pulumi.Input[Optional[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict', 'outputs.ClusterAccessConfig']]] = None,
                  bootstrap_self_managed_addons: pulumi.Input[Optional[_builtins.bool]] = None,
-                 compute_config: pulumi.Input[Optional[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
-                 control_plane_scaling_config: pulumi.Input[Optional[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
+                 compute_config: pulumi.Input[Optional[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict', 'outputs.ClusterComputeConfig']]] = None,
+                 control_plane_scaling_config: pulumi.Input[Optional[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict', 'outputs.ClusterControlPlaneScalingConfig']]] = None,
                  default_addons_to_removes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled_cluster_log_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encryption_config: pulumi.Input[Optional[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict', 'outputs.ClusterEncryptionConfig']]] = None,
                  force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
-                 kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']]] = None,
-                 kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']]] = None,
-                 kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']]] = None,
-                 kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
+                 kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict', 'outputs.ClusterKubeApiServerConfig']]] = None,
+                 kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict', 'outputs.ClusterKubeControllerManagerConfig']]] = None,
+                 kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict', 'outputs.ClusterKubeSchedulerConfig']]] = None,
+                 kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict', 'outputs.ClusterKubernetesNetworkConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
+                 outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict', 'outputs.ClusterOutpostConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 remote_network_config: pulumi.Input[Optional[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
+                 remote_network_config: pulumi.Input[Optional[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict', 'outputs.ClusterRemoteNetworkConfig']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_config: pulumi.Input[Optional[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
+                 storage_config: pulumi.Input[Optional[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict', 'outputs.ClusterStorageConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_policy: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
+                 upgrade_policy: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict', 'outputs.ClusterUpgradePolicy']]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
-                 zonal_shift_config: pulumi.Input[Optional[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict', 'outputs.ClusterVpcConfig']]] = None,
+                 zonal_shift_config: pulumi.Input[Optional[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict', 'outputs.ClusterZonalShiftConfig']]] = None,
                  __props__=None):
         """
         Manages an EKS Cluster.
@@ -1258,31 +1258,31 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
+        :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict', 'outputs.ClusterAccessConfig']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
-        :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
-        :param pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']] control_plane_scaling_config: Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+        :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict', 'outputs.ClusterComputeConfig']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict', 'outputs.ClusterControlPlaneScalingConfig']] control_plane_scaling_config: Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
-        :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
+        :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict', 'outputs.ClusterEncryptionConfig']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[_builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
-        :param pulumi.Input[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']] kube_api_server_config: Configuration block for customizing the Kubernetes API server. Detailed below.
-        :param pulumi.Input[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']] kube_controller_manager_config: Configuration block for customizing the Kubernetes controller manager. Detailed below.
-        :param pulumi.Input[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']] kube_scheduler_config: Configuration block for customizing the Kubernetes scheduler. Detailed below.
-        :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict', 'outputs.ClusterKubeApiServerConfig']] kube_api_server_config: Configuration block for customizing the Kubernetes API server. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict', 'outputs.ClusterKubeControllerManagerConfig']] kube_controller_manager_config: Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict', 'outputs.ClusterKubeSchedulerConfig']] kube_scheduler_config: Configuration block for customizing the Kubernetes scheduler. Detailed below.
+        :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict', 'outputs.ClusterKubernetesNetworkConfig']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
-        :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict', 'outputs.ClusterOutpostConfig']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict', 'outputs.ClusterRemoteNetworkConfig']] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
-        :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict', 'outputs.ClusterStorageConfig']] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+        :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict', 'outputs.ClusterUpgradePolicy']] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         :param pulumi.Input[_builtins.str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
-        :param pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+        :param pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict', 'outputs.ClusterVpcConfig']] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']] zonal_shift_config: Configuration block with zonal shift configuration for the cluster. Detailed below.
+        :param pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict', 'outputs.ClusterZonalShiftConfig']] zonal_shift_config: Configuration block with zonal shift configuration for the cluster. Detailed below.
         """
         ...
     @overload
@@ -1576,30 +1576,30 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_config: pulumi.Input[Optional[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
+                 access_config: pulumi.Input[Optional[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict', 'outputs.ClusterAccessConfig']]] = None,
                  bootstrap_self_managed_addons: pulumi.Input[Optional[_builtins.bool]] = None,
-                 compute_config: pulumi.Input[Optional[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
-                 control_plane_scaling_config: pulumi.Input[Optional[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
+                 compute_config: pulumi.Input[Optional[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict', 'outputs.ClusterComputeConfig']]] = None,
+                 control_plane_scaling_config: pulumi.Input[Optional[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict', 'outputs.ClusterControlPlaneScalingConfig']]] = None,
                  default_addons_to_removes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled_cluster_log_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encryption_config: pulumi.Input[Optional[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict', 'outputs.ClusterEncryptionConfig']]] = None,
                  force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
-                 kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']]] = None,
-                 kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']]] = None,
-                 kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']]] = None,
-                 kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
+                 kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict', 'outputs.ClusterKubeApiServerConfig']]] = None,
+                 kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict', 'outputs.ClusterKubeControllerManagerConfig']]] = None,
+                 kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict', 'outputs.ClusterKubeSchedulerConfig']]] = None,
+                 kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict', 'outputs.ClusterKubernetesNetworkConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
+                 outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict', 'outputs.ClusterOutpostConfig']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 remote_network_config: pulumi.Input[Optional[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
+                 remote_network_config: pulumi.Input[Optional[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict', 'outputs.ClusterRemoteNetworkConfig']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_config: pulumi.Input[Optional[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
+                 storage_config: pulumi.Input[Optional[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict', 'outputs.ClusterStorageConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 upgrade_policy: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
+                 upgrade_policy: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict', 'outputs.ClusterUpgradePolicy']]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
-                 zonal_shift_config: pulumi.Input[Optional[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict', 'outputs.ClusterVpcConfig']]] = None,
+                 zonal_shift_config: pulumi.Input[Optional[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict', 'outputs.ClusterZonalShiftConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1656,39 +1656,39 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_config: pulumi.Input[Optional[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
+            access_config: pulumi.Input[Optional[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict', 'outputs.ClusterAccessConfig']]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             bootstrap_self_managed_addons: pulumi.Input[Optional[_builtins.bool]] = None,
-            certificate_authority: pulumi.Input[Optional[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]] = None,
+            certificate_authority: pulumi.Input[Optional[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict', 'outputs.ClusterCertificateAuthority']]] = None,
             cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-            compute_config: pulumi.Input[Optional[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
-            control_plane_scaling_config: pulumi.Input[Optional[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
+            compute_config: pulumi.Input[Optional[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict', 'outputs.ClusterComputeConfig']]] = None,
+            control_plane_scaling_config: pulumi.Input[Optional[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict', 'outputs.ClusterControlPlaneScalingConfig']]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             default_addons_to_removes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
             enabled_cluster_log_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            encryption_config: pulumi.Input[Optional[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
+            encryption_config: pulumi.Input[Optional[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict', 'outputs.ClusterEncryptionConfig']]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             force_update_version: pulumi.Input[Optional[_builtins.bool]] = None,
-            identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]]]] = None,
-            kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']]] = None,
-            kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']]] = None,
-            kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']]] = None,
-            kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
+            identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']]]]] = None,
+            kube_api_server_config: pulumi.Input[Optional[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict', 'outputs.ClusterKubeApiServerConfig']]] = None,
+            kube_controller_manager_config: pulumi.Input[Optional[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict', 'outputs.ClusterKubeControllerManagerConfig']]] = None,
+            kube_scheduler_config: pulumi.Input[Optional[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict', 'outputs.ClusterKubeSchedulerConfig']]] = None,
+            kubernetes_network_config: pulumi.Input[Optional[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict', 'outputs.ClusterKubernetesNetworkConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
+            outpost_config: pulumi.Input[Optional[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict', 'outputs.ClusterOutpostConfig']]] = None,
             platform_version: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            remote_network_config: pulumi.Input[Optional[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
+            remote_network_config: pulumi.Input[Optional[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict', 'outputs.ClusterRemoteNetworkConfig']]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_config: pulumi.Input[Optional[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
+            storage_config: pulumi.Input[Optional[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict', 'outputs.ClusterStorageConfig']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            upgrade_policy: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
+            upgrade_policy: pulumi.Input[Optional[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict', 'outputs.ClusterUpgradePolicy']]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None,
-            vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
-            zonal_shift_config: pulumi.Input[Optional[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']]] = None) -> 'Cluster':
+            vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict', 'outputs.ClusterVpcConfig']]] = None,
+            zonal_shift_config: pulumi.Input[Optional[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict', 'outputs.ClusterZonalShiftConfig']]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1696,40 +1696,40 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
+        :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict', 'outputs.ClusterAccessConfig']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html). Detailed below.
         :param pulumi.Input[_builtins.str] arn: ARN of the cluster.
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
-        :param pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
+        :param pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict', 'outputs.ClusterCertificateAuthority']] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[_builtins.str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
-        :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
-        :param pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']] control_plane_scaling_config: Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
+        :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict', 'outputs.ClusterComputeConfig']] compute_config: Configuration block with compute configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict', 'outputs.ClusterControlPlaneScalingConfig']] control_plane_scaling_config: Configuration block for the control plane scaling tier. See [EKS Provisioned Control Plane](https://docs.aws.amazon.com/eks/latest/userguide/eks-provisioned-control-plane-getting-started.html) for more information. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
         :param pulumi.Input[_builtins.bool] deletion_protection: Whether to enable deletion protection for the cluster. When enabled, the cluster cannot be deleted unless deletion protection is first disabled. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
-        :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
+        :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict', 'outputs.ClusterEncryptionConfig']] encryption_config: Configuration block with encryption configuration for the cluster. Detailed below.
         :param pulumi.Input[_builtins.str] endpoint: Endpoint for your Kubernetes API server.
         :param pulumi.Input[_builtins.bool] force_update_version: Force version update by overriding upgrade-blocking readiness checks when updating a cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
-        :param pulumi.Input[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict']] kube_api_server_config: Configuration block for customizing the Kubernetes API server. Detailed below.
-        :param pulumi.Input[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict']] kube_controller_manager_config: Configuration block for customizing the Kubernetes controller manager. Detailed below.
-        :param pulumi.Input[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict']] kube_scheduler_config: Configuration block for customizing the Kubernetes scheduler. Detailed below.
-        :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict', 'outputs.ClusterIdentity']]]] identities: Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeApiServerConfigArgs', 'ClusterKubeApiServerConfigArgsDict', 'outputs.ClusterKubeApiServerConfig']] kube_api_server_config: Configuration block for customizing the Kubernetes API server. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeControllerManagerConfigArgs', 'ClusterKubeControllerManagerConfigArgsDict', 'outputs.ClusterKubeControllerManagerConfig']] kube_controller_manager_config: Configuration block for customizing the Kubernetes controller manager. Detailed below.
+        :param pulumi.Input[Union['ClusterKubeSchedulerConfigArgs', 'ClusterKubeSchedulerConfigArgsDict', 'outputs.ClusterKubeSchedulerConfig']] kube_scheduler_config: Configuration block for customizing the Kubernetes scheduler. Detailed below.
+        :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict', 'outputs.ClusterKubernetesNetworkConfig']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
-        :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict', 'outputs.ClusterOutpostConfig']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[_builtins.str] platform_version: Platform version for the cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
+        :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict', 'outputs.ClusterRemoteNetworkConfig']] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         :param pulumi.Input[_builtins.str] status: Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
-        :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
+        :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict', 'outputs.ClusterStorageConfig']] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
+        :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict', 'outputs.ClusterUpgradePolicy']] upgrade_policy: Configuration block for the support policy to use for the cluster.  See upgrade_policy for details.
         :param pulumi.Input[_builtins.str] version: Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
-        :param pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+        :param pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict', 'outputs.ClusterVpcConfig']] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']] zonal_shift_config: Configuration block with zonal shift configuration for the cluster. Detailed below.
+        :param pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict', 'outputs.ClusterZonalShiftConfig']] zonal_shift_config: Configuration block with zonal shift configuration for the cluster. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

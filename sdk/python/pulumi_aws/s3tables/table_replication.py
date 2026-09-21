@@ -186,7 +186,7 @@ class TableReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict', 'outputs.TableReplicationRule']]] = None,
                  table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -229,7 +229,7 @@ class TableReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables.
-        :param pulumi.Input[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict']] rule: Replication rules. See Rule below for more details.
+        :param pulumi.Input[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict', 'outputs.TableReplicationRule']] rule: Replication rules. See Rule below for more details.
         :param pulumi.Input[_builtins.str] table_arn: ARN referencing the Table that owns this replication configuration.
         """
         ...
@@ -291,7 +291,7 @@ class TableReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict', 'outputs.TableReplicationRule']]] = None,
                  table_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -323,7 +323,7 @@ class TableReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict']]] = None,
+            rule: pulumi.Input[Optional[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict', 'outputs.TableReplicationRule']]] = None,
             table_arn: pulumi.Input[Optional[_builtins.str]] = None,
             version_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'TableReplication':
         """
@@ -335,7 +335,7 @@ class TableReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role: ARN referencing the IAM role assumed by S3 when replicating tables.
-        :param pulumi.Input[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict']] rule: Replication rules. See Rule below for more details.
+        :param pulumi.Input[Union['TableReplicationRuleArgs', 'TableReplicationRuleArgsDict', 'outputs.TableReplicationRule']] rule: Replication rules. See Rule below for more details.
         :param pulumi.Input[_builtins.str] table_arn: ARN referencing the Table that owns this replication configuration.
         :param pulumi.Input[_builtins.str] version_token: Identifier for the current version of the replication configuration.
         """

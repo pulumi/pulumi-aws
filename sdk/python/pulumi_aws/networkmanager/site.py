@@ -211,7 +211,7 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict', 'outputs.SiteLocation']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -242,7 +242,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] global_network_id: ID of the Global Network to create the site in.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']] location: Site location. See below.
+        :param pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict', 'outputs.SiteLocation']] location: Site location. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -290,7 +290,7 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict', 'outputs.SiteLocation']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -322,7 +322,7 @@ class Site(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-            location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
+            location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict', 'outputs.SiteLocation']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Site':
         """
@@ -337,7 +337,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] global_network_id: ID of the Global Network to create the site in.
                
                The following arguments are optional:
-        :param pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']] location: Site location. See below.
+        :param pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict', 'outputs.SiteLocation']] location: Site location. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

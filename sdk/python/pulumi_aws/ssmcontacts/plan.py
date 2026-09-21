@@ -138,7 +138,7 @@ class Plan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict', 'outputs.PlanStage']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SSM Contact Plan.
@@ -229,7 +229,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_id: The ARN of the contact or escalation plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict', 'outputs.PlanStage']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         ...
     @overload
@@ -339,7 +339,7 @@ class Plan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict', 'outputs.PlanStage']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -368,7 +368,7 @@ class Plan(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             contact_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None) -> 'Plan':
+            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict', 'outputs.PlanStage']]]]] = None) -> 'Plan':
         """
         Get an existing Plan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -378,7 +378,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_id: The ARN of the contact or escalation plan.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict', 'outputs.PlanStage']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

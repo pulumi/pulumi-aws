@@ -264,7 +264,7 @@ class Deployment(pulumi.CustomResource):
                  force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict', 'outputs.DeploymentTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an [AWS Mainframe Modernization Deployment.](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-deploy.html)
@@ -355,7 +355,7 @@ class Deployment(pulumi.CustomResource):
                  force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  start: pulumi.Input[Optional[_builtins.bool]] = None,
-                 timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict', 'outputs.DeploymentTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -398,7 +398,7 @@ class Deployment(pulumi.CustomResource):
             force_stop: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             start: pulumi.Input[Optional[_builtins.bool]] = None,
-            timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None) -> 'Deployment':
+            timeouts: pulumi.Input[Optional[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict', 'outputs.DeploymentTimeouts']]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

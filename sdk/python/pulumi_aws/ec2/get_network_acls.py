@@ -99,7 +99,7 @@ class AwaitableGetNetworkAclsResult(GetNetworkAclsResult):
             vpc_id=self.vpc_id)
 
 
-def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict']]] = None,
+def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict', 'outputs.GetNetworkAclsFilterResult']]] = None,
                      region: Optional[_builtins.str] = None,
                      tags: Optional[Mapping[str, _builtins.str]] = None,
                      vpc_id: Optional[_builtins.str] = None,
@@ -145,7 +145,7 @@ def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs'
     ```
 
 
-    :param Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict', 'outputs.GetNetworkAclsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network ACLs.
@@ -166,7 +166,7 @@ def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs'
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_network_acls_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict']]]]] = None,
+def get_network_acls_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict', 'outputs.GetNetworkAclsFilterResult']]]]] = None,
                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                             vpc_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -212,7 +212,7 @@ def get_network_acls_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     ```
 
 
-    :param Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNetworkAclsFilterArgs', 'GetNetworkAclsFilterArgsDict', 'outputs.GetNetworkAclsFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network ACLs.

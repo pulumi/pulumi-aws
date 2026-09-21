@@ -302,7 +302,7 @@ class Namespace(pulumi.CustomResource):
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict', 'outputs.NamespaceTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS QuickSight Namespace.
@@ -386,7 +386,7 @@ class Namespace(pulumi.CustomResource):
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict', 'outputs.NamespaceTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -427,7 +427,7 @@ class Namespace(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict']]] = None) -> 'Namespace':
+            timeouts: pulumi.Input[Optional[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict', 'outputs.NamespaceTimeouts']]] = None) -> 'Namespace':
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

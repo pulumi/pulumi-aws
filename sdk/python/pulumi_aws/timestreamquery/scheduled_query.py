@@ -548,19 +548,19 @@ class ScheduledQuery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 error_report_configuration: pulumi.Input[Optional[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']]] = None,
+                 error_report_configuration: pulumi.Input[Optional[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict', 'outputs.ScheduledQueryErrorReportConfiguration']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_run_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict']]]]] = None,
+                 last_run_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict', 'outputs.ScheduledQueryLastRunSummary']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_configuration: pulumi.Input[Optional[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict', 'outputs.ScheduledQueryNotificationConfiguration']]] = None,
                  query_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 recently_failed_runs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]]] = None,
+                 recently_failed_runs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict', 'outputs.ScheduledQueryRecentlyFailedRun']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule_configuration: pulumi.Input[Optional[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
+                 schedule_configuration: pulumi.Input[Optional[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict', 'outputs.ScheduledQueryScheduleConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_configuration: pulumi.Input[Optional[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ScheduledQueryTimeoutsArgs', 'ScheduledQueryTimeoutsArgsDict']]] = None,
+                 target_configuration: pulumi.Input[Optional[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict', 'outputs.ScheduledQueryTargetConfiguration']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScheduledQueryTimeoutsArgs', 'ScheduledQueryTimeoutsArgsDict', 'outputs.ScheduledQueryTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Timestream Query Scheduled Query.
@@ -842,18 +842,18 @@ class ScheduledQuery(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']] error_report_configuration: Configuration block for error reporting configuration. See below.
+        :param pulumi.Input[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict', 'outputs.ScheduledQueryErrorReportConfiguration']] error_report_configuration: Configuration block for error reporting configuration. See below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN for the IAM role that Timestream will assume when running the scheduled query.
         :param pulumi.Input[_builtins.str] kms_key_id: Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict']]]] last_run_summaries: Runtime summary for the last scheduled query run.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict', 'outputs.ScheduledQueryLastRunSummary']]]] last_run_summaries: Runtime summary for the last scheduled query run.
         :param pulumi.Input[_builtins.str] name: Name of the scheduled query.
-        :param pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
+        :param pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict', 'outputs.ScheduledQueryNotificationConfiguration']] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
         :param pulumi.Input[_builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict', 'outputs.ScheduledQueryRecentlyFailedRun']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
+        :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict', 'outputs.ScheduledQueryScheduleConfiguration']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']] target_configuration: Configuration block for writing the result of a query. See below.
+        :param pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict', 'outputs.ScheduledQueryTargetConfiguration']] target_configuration: Configuration block for writing the result of a query. See below.
                
                The following arguments are optional:
         """
@@ -1156,19 +1156,19 @@ class ScheduledQuery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 error_report_configuration: pulumi.Input[Optional[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']]] = None,
+                 error_report_configuration: pulumi.Input[Optional[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict', 'outputs.ScheduledQueryErrorReportConfiguration']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_run_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict']]]]] = None,
+                 last_run_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict', 'outputs.ScheduledQueryLastRunSummary']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_configuration: pulumi.Input[Optional[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict', 'outputs.ScheduledQueryNotificationConfiguration']]] = None,
                  query_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 recently_failed_runs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]]] = None,
+                 recently_failed_runs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict', 'outputs.ScheduledQueryRecentlyFailedRun']]]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule_configuration: pulumi.Input[Optional[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
+                 schedule_configuration: pulumi.Input[Optional[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict', 'outputs.ScheduledQueryScheduleConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_configuration: pulumi.Input[Optional[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ScheduledQueryTimeoutsArgs', 'ScheduledQueryTimeoutsArgsDict']]] = None,
+                 target_configuration: pulumi.Input[Optional[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict', 'outputs.ScheduledQueryTargetConfiguration']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ScheduledQueryTimeoutsArgs', 'ScheduledQueryTimeoutsArgsDict', 'outputs.ScheduledQueryTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1221,23 +1221,23 @@ class ScheduledQuery(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             creation_time: pulumi.Input[Optional[_builtins.str]] = None,
-            error_report_configuration: pulumi.Input[Optional[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']]] = None,
+            error_report_configuration: pulumi.Input[Optional[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict', 'outputs.ScheduledQueryErrorReportConfiguration']]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-            last_run_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict']]]]] = None,
+            last_run_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict', 'outputs.ScheduledQueryLastRunSummary']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             next_invocation_time: pulumi.Input[Optional[_builtins.str]] = None,
-            notification_configuration: pulumi.Input[Optional[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']]] = None,
+            notification_configuration: pulumi.Input[Optional[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict', 'outputs.ScheduledQueryNotificationConfiguration']]] = None,
             previous_invocation_time: pulumi.Input[Optional[_builtins.str]] = None,
             query_string: pulumi.Input[Optional[_builtins.str]] = None,
-            recently_failed_runs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]]] = None,
+            recently_failed_runs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict', 'outputs.ScheduledQueryRecentlyFailedRun']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            schedule_configuration: pulumi.Input[Optional[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
+            schedule_configuration: pulumi.Input[Optional[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict', 'outputs.ScheduledQueryScheduleConfiguration']]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_configuration: pulumi.Input[Optional[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']]] = None,
-            timeouts: pulumi.Input[Optional[Union['ScheduledQueryTimeoutsArgs', 'ScheduledQueryTimeoutsArgsDict']]] = None) -> 'ScheduledQuery':
+            target_configuration: pulumi.Input[Optional[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict', 'outputs.ScheduledQueryTargetConfiguration']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ScheduledQueryTimeoutsArgs', 'ScheduledQueryTimeoutsArgsDict', 'outputs.ScheduledQueryTimeouts']]] = None) -> 'ScheduledQuery':
         """
         Get an existing ScheduledQuery resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1247,22 +1247,22 @@ class ScheduledQuery(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Scheduled Query.
         :param pulumi.Input[_builtins.str] creation_time: Creation time for the scheduled query.
-        :param pulumi.Input[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']] error_report_configuration: Configuration block for error reporting configuration. See below.
+        :param pulumi.Input[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict', 'outputs.ScheduledQueryErrorReportConfiguration']] error_report_configuration: Configuration block for error reporting configuration. See below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN for the IAM role that Timestream will assume when running the scheduled query.
         :param pulumi.Input[_builtins.str] kms_key_id: Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `error_report_configuration` uses `SSE_KMS` as the encryption type, the same `kms_key_id` is used to encrypt the error report at rest.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict']]]] last_run_summaries: Runtime summary for the last scheduled query run.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryLastRunSummaryArgs', 'ScheduledQueryLastRunSummaryArgsDict', 'outputs.ScheduledQueryLastRunSummary']]]] last_run_summaries: Runtime summary for the last scheduled query run.
         :param pulumi.Input[_builtins.str] name: Name of the scheduled query.
         :param pulumi.Input[_builtins.str] next_invocation_time: Next time the scheduled query is scheduled to run.
-        :param pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
+        :param pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict', 'outputs.ScheduledQueryNotificationConfiguration']] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
         :param pulumi.Input[_builtins.str] previous_invocation_time: Last time the scheduled query was run.
         :param pulumi.Input[_builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict', 'outputs.ScheduledQueryRecentlyFailedRun']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
+        :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict', 'outputs.ScheduledQueryScheduleConfiguration']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
         :param pulumi.Input[_builtins.str] state: State of the scheduled query, either `ENABLED` or `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']] target_configuration: Configuration block for writing the result of a query. See below.
+        :param pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict', 'outputs.ScheduledQueryTargetConfiguration']] target_configuration: Configuration block for writing the result of a query. See below.
                
                The following arguments are optional:
         """

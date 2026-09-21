@@ -316,9 +316,9 @@ class AgentAgentAlias(pulumi.CustomResource):
                  agent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
+                 routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict', 'outputs.AgentAgentAliasRoutingConfiguration']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict', 'outputs.AgentAgentAliasTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
@@ -391,7 +391,7 @@ class AgentAgentAlias(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict', 'outputs.AgentAgentAliasRoutingConfiguration']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -482,9 +482,9 @@ class AgentAgentAlias(pulumi.CustomResource):
                  agent_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
+                 routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict', 'outputs.AgentAgentAliasRoutingConfiguration']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict', 'outputs.AgentAgentAliasTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -524,10 +524,10 @@ class AgentAgentAlias(pulumi.CustomResource):
             agent_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
+            routing_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict', 'outputs.AgentAgentAliasRoutingConfiguration']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None) -> 'AgentAgentAlias':
+            timeouts: pulumi.Input[Optional[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict', 'outputs.AgentAgentAliasTimeouts']]] = None) -> 'AgentAgentAlias':
         """
         Get an existing AgentAgentAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -543,7 +543,7 @@ class AgentAgentAlias(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict', 'outputs.AgentAgentAliasRoutingConfiguration']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

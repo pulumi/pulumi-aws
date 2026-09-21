@@ -562,18 +562,18 @@ class Pipe(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  desired_state: pulumi.Input[Optional[_builtins.str]] = None,
                  enrichment: pulumi.Input[Optional[_builtins.str]] = None,
-                 enrichment_parameters: pulumi.Input[Optional[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']]] = None,
+                 enrichment_parameters: pulumi.Input[Optional[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict', 'outputs.PipeEnrichmentParameters']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict', 'outputs.PipeLogConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_parameters: pulumi.Input[Optional[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']]] = None,
+                 source_parameters: pulumi.Input[Optional[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict', 'outputs.PipeSourceParameters']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_parameters: pulumi.Input[Optional[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']]] = None,
+                 target_parameters: pulumi.Input[Optional[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict', 'outputs.PipeTargetParameters']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS EventBridge Pipes Pipe.
@@ -760,20 +760,20 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[_builtins.str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[_builtins.str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
-        :param pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
+        :param pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict', 'outputs.PipeEnrichmentParameters']] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
         :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
-        :param pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']] log_configuration: Logging configuration settings for the pipe. Detailed below.
+        :param pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict', 'outputs.PipeLogConfiguration']] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the role that allows the pipe to send data to the target.
         :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
-        :param pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']] source_parameters: Parameters to configure a source for the pipe. Detailed below.
+        :param pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict', 'outputs.PipeSourceParameters']] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] target: Target resource of the pipe (typically an ARN).
                
                The following arguments are optional:
-        :param pulumi.Input[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']] target_parameters: Parameters to configure a target for your pipe. Detailed below.
+        :param pulumi.Input[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict', 'outputs.PipeTargetParameters']] target_parameters: Parameters to configure a target for your pipe. Detailed below.
         """
         ...
     @overload
@@ -979,18 +979,18 @@ class Pipe(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  desired_state: pulumi.Input[Optional[_builtins.str]] = None,
                  enrichment: pulumi.Input[Optional[_builtins.str]] = None,
-                 enrichment_parameters: pulumi.Input[Optional[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']]] = None,
+                 enrichment_parameters: pulumi.Input[Optional[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict', 'outputs.PipeEnrichmentParameters']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict', 'outputs.PipeLogConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_parameters: pulumi.Input[Optional[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']]] = None,
+                 source_parameters: pulumi.Input[Optional[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict', 'outputs.PipeSourceParameters']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_parameters: pulumi.Input[Optional[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']]] = None,
+                 target_parameters: pulumi.Input[Optional[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict', 'outputs.PipeTargetParameters']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1037,19 +1037,19 @@ class Pipe(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             desired_state: pulumi.Input[Optional[_builtins.str]] = None,
             enrichment: pulumi.Input[Optional[_builtins.str]] = None,
-            enrichment_parameters: pulumi.Input[Optional[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']]] = None,
+            enrichment_parameters: pulumi.Input[Optional[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict', 'outputs.PipeEnrichmentParameters']]] = None,
             kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-            log_configuration: pulumi.Input[Optional[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']]] = None,
+            log_configuration: pulumi.Input[Optional[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict', 'outputs.PipeLogConfiguration']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             source: pulumi.Input[Optional[_builtins.str]] = None,
-            source_parameters: pulumi.Input[Optional[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']]] = None,
+            source_parameters: pulumi.Input[Optional[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict', 'outputs.PipeSourceParameters']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target: pulumi.Input[Optional[_builtins.str]] = None,
-            target_parameters: pulumi.Input[Optional[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']]] = None) -> 'Pipe':
+            target_parameters: pulumi.Input[Optional[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict', 'outputs.PipeTargetParameters']]] = None) -> 'Pipe':
         """
         Get an existing Pipe resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1061,21 +1061,21 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the pipe. At most 512 characters.
         :param pulumi.Input[_builtins.str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[_builtins.str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
-        :param pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
+        :param pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict', 'outputs.PipeEnrichmentParameters']] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
         :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
-        :param pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']] log_configuration: Logging configuration settings for the pipe. Detailed below.
+        :param pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict', 'outputs.PipeLogConfiguration']] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the role that allows the pipe to send data to the target.
         :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
-        :param pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']] source_parameters: Parameters to configure a source for the pipe. Detailed below.
+        :param pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict', 'outputs.PipeSourceParameters']] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] target: Target resource of the pipe (typically an ARN).
                
                The following arguments are optional:
-        :param pulumi.Input[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']] target_parameters: Parameters to configure a target for your pipe. Detailed below.
+        :param pulumi.Input[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict', 'outputs.PipeTargetParameters']] target_parameters: Parameters to configure a target for your pipe. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

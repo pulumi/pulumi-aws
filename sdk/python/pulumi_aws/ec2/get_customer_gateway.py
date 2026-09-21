@@ -162,7 +162,7 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
             type=self.type)
 
 
-def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']]] = None,
+def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict', 'outputs.GetCustomerGatewayFilterResult']]] = None,
                          id: Optional[_builtins.str] = None,
                          region: Optional[_builtins.str] = None,
                          tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -191,7 +191,7 @@ def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFil
     ```
 
 
-    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']] filters: One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
+    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict', 'outputs.GetCustomerGatewayFilterResult']] filters: One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
     :param _builtins.str id: ID of the gateway.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of key-value pairs assigned to the gateway.
@@ -216,7 +216,7 @@ def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFil
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_customer_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']]]]] = None,
+def get_customer_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict', 'outputs.GetCustomerGatewayFilterResult']]]]] = None,
                                 id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -245,7 +245,7 @@ def get_customer_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence
     ```
 
 
-    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']] filters: One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
+    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict', 'outputs.GetCustomerGatewayFilterResult']] filters: One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
     :param _builtins.str id: ID of the gateway.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of key-value pairs assigned to the gateway.

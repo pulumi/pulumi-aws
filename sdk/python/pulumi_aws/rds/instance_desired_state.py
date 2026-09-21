@@ -163,7 +163,7 @@ class InstanceDesiredState(pulumi.CustomResource):
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict', 'outputs.InstanceDesiredStateTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS RDS (Relational Database) RDS Instance State.
@@ -249,7 +249,7 @@ class InstanceDesiredState(pulumi.CustomResource):
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict', 'outputs.InstanceDesiredStateTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -280,7 +280,7 @@ class InstanceDesiredState(pulumi.CustomResource):
             identifier: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             state: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict']]] = None) -> 'InstanceDesiredState':
+            timeouts: pulumi.Input[Optional[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict', 'outputs.InstanceDesiredStateTimeouts']]] = None) -> 'InstanceDesiredState':
         """
         Get an existing InstanceDesiredState resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

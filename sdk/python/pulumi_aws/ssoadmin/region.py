@@ -187,7 +187,7 @@ class Region(pulumi.CustomResource):
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RegionTimeoutsArgs', 'RegionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RegionTimeoutsArgs', 'RegionTimeoutsArgsDict', 'outputs.RegionTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SSO Admin Region.
@@ -309,7 +309,7 @@ class Region(pulumi.CustomResource):
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['RegionTimeoutsArgs', 'RegionTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['RegionTimeoutsArgs', 'RegionTimeoutsArgsDict', 'outputs.RegionTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -342,7 +342,7 @@ class Region(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             region_name: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['RegionTimeoutsArgs', 'RegionTimeoutsArgsDict']]] = None) -> 'Region':
+            timeouts: pulumi.Input[Optional[Union['RegionTimeoutsArgs', 'RegionTimeoutsArgsDict', 'outputs.RegionTimeouts']]] = None) -> 'Region':
         """
         Get an existing Region resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

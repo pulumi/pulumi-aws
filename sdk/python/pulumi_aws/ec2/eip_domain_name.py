@@ -179,7 +179,7 @@ class EipDomainName(pulumi.CustomResource):
                  allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict', 'outputs.EipDomainNameTimeouts']]] = None,
                  __props__=None):
         """
         Assigns a static reverse DNS record to an Elastic IP addresses. See [Using reverse DNS for email applications](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS).
@@ -269,7 +269,7 @@ class EipDomainName(pulumi.CustomResource):
                  allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict', 'outputs.EipDomainNameTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,7 +302,7 @@ class EipDomainName(pulumi.CustomResource):
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             ptr_record: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None) -> 'EipDomainName':
+            timeouts: pulumi.Input[Optional[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict', 'outputs.EipDomainNameTimeouts']]] = None) -> 'EipDomainName':
         """
         Get an existing EipDomainName resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

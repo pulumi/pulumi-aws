@@ -130,7 +130,7 @@ class FirewallTransitGatewayAttachmentAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict', 'outputs.FirewallTransitGatewayAttachmentAccepterTimeouts']]] = None,
                  transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -220,7 +220,7 @@ class FirewallTransitGatewayAttachmentAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict', 'outputs.FirewallTransitGatewayAttachmentAccepterTimeouts']]] = None,
                  transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -247,7 +247,7 @@ class FirewallTransitGatewayAttachmentAccepter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['FirewallTransitGatewayAttachmentAccepterTimeoutsArgs', 'FirewallTransitGatewayAttachmentAccepterTimeoutsArgsDict', 'outputs.FirewallTransitGatewayAttachmentAccepterTimeouts']]] = None,
             transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'FirewallTransitGatewayAttachmentAccepter':
         """
         Get an existing FirewallTransitGatewayAttachmentAccepter resource's state with the given name, id, and optional extra

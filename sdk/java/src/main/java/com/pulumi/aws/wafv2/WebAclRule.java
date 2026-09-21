@@ -705,15 +705,13 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .notStatement(WebAclRuleStatementNotStatementArgs.builder()
- *                     .statement(WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes(                            
- *                                 "US",
- *                                 "CA")
- *                             .build())
+ *                 .notStatement(Map.of("statement", WebAclRuleStatementArgs.builder()
+ *                     .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                         .countryCodes(                        
+ *                             "US",
+ *                             "CA")
  *                         .build())
- *                     .build())
+ *                     .build()))
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)

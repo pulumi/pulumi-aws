@@ -90,7 +90,7 @@ class AwaitableGetTransitGatewayRouteTablesResult(GetTransitGatewayRouteTablesRe
             tags=self.tags)
 
 
-def get_transit_gateway_route_tables(filters: Optional[Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict']]] = None,
+def get_transit_gateway_route_tables(filters: Optional[Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict', 'outputs.GetTransitGatewayRouteTablesFilterResult']]] = None,
                                      region: Optional[_builtins.str] = None,
                                      tags: Optional[Mapping[str, _builtins.str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayRouteTablesResult:
@@ -110,7 +110,7 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[Union['GetTransi
     ```
 
 
-    :param Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict', 'outputs.GetTransitGatewayRouteTablesFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired transit gateway route table.
@@ -131,7 +131,7 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[Union['GetTransi
         ids=pulumi.get(__ret__, 'ids'),
         region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_transit_gateway_route_tables_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict']]]]] = None,
+def get_transit_gateway_route_tables_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict', 'outputs.GetTransitGatewayRouteTablesFilterResult']]]]] = None,
                                             region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                             tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayRouteTablesResult]:
@@ -151,7 +151,7 @@ def get_transit_gateway_route_tables_output(filters: pulumi.Input[Optional[Optio
     ```
 
 
-    :param Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict', 'outputs.GetTransitGatewayRouteTablesFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired transit gateway route table.

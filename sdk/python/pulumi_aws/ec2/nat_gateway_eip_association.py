@@ -183,7 +183,7 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
                  allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict', 'outputs.NatGatewayEipAssociationTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC NAT Gateway EIP Association.
@@ -271,7 +271,7 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
                  allocation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict', 'outputs.NatGatewayEipAssociationTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,7 +304,7 @@ class NatGatewayEipAssociation(pulumi.CustomResource):
             association_id: pulumi.Input[Optional[_builtins.str]] = None,
             nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict']]] = None) -> 'NatGatewayEipAssociation':
+            timeouts: pulumi.Input[Optional[Union['NatGatewayEipAssociationTimeoutsArgs', 'NatGatewayEipAssociationTimeoutsArgsDict', 'outputs.NatGatewayEipAssociationTimeouts']]] = None) -> 'NatGatewayEipAssociation':
         """
         Get an existing NatGatewayEipAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -448,7 +448,7 @@ class Feature(pulumi.CustomResource):
                  project: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]]] = None,
+                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict', 'outputs.FeatureVariation']]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Evidently Feature resource.
@@ -572,7 +572,7 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] project: The name or ARN of the project that is to contain the new feature.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict', 'outputs.FeatureVariation']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
         ...
     @overload
@@ -715,7 +715,7 @@ class Feature(pulumi.CustomResource):
                  project: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]]] = None,
+                 variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict', 'outputs.FeatureVariation']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -760,7 +760,7 @@ class Feature(pulumi.CustomResource):
             default_variation: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             entity_overrides: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            evaluation_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureEvaluationRuleArgs', 'FeatureEvaluationRuleArgsDict']]]]] = None,
+            evaluation_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureEvaluationRuleArgs', 'FeatureEvaluationRuleArgsDict', 'outputs.FeatureEvaluationRule']]]]] = None,
             evaluation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
             last_updated_time: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -770,7 +770,7 @@ class Feature(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             value_type: pulumi.Input[Optional[_builtins.str]] = None,
-            variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]]] = None) -> 'Feature':
+            variations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict', 'outputs.FeatureVariation']]]]] = None) -> 'Feature':
         """
         Get an existing Feature resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -783,7 +783,7 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureEvaluationRuleArgs', 'FeatureEvaluationRuleArgsDict']]]] evaluation_rules: One or more blocks that define the evaluation rules for the feature. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureEvaluationRuleArgs', 'FeatureEvaluationRuleArgsDict', 'outputs.FeatureEvaluationRule']]]] evaluation_rules: One or more blocks that define the evaluation rules for the feature. Detailed below
         :param pulumi.Input[_builtins.str] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         :param pulumi.Input[_builtins.str] last_updated_time: The date and time that the feature was most recently updated.
         :param pulumi.Input[_builtins.str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
@@ -793,7 +793,7 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] value_type: Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict', 'outputs.FeatureVariation']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -155,7 +155,7 @@ class GlobalTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict', 'outputs.GlobalTableReplica']]]]] = None,
                  __props__=None):
         """
         Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
@@ -221,7 +221,7 @@ class GlobalTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict', 'outputs.GlobalTableReplica']]]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
         ...
     @overload
@@ -306,7 +306,7 @@ class GlobalTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict', 'outputs.GlobalTableReplica']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -335,7 +335,7 @@ class GlobalTable(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]]] = None) -> 'GlobalTable':
+            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict', 'outputs.GlobalTableReplica']]]]] = None) -> 'GlobalTable':
         """
         Get an existing GlobalTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -346,7 +346,7 @@ class GlobalTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the DynamoDB Global Table
         :param pulumi.Input[_builtins.str] name: The name of the global table. Must match underlying DynamoDB Table names in all regions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict']]]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaArgs', 'GlobalTableReplicaArgsDict', 'outputs.GlobalTableReplica']]]] replicas: Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -400,7 +400,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  transport_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -470,7 +470,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network where you want to create the attachment.
         :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
-        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']] options: Options block. See options for more information.
+        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']] options: Options block. See options for more information.
         :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] transport_attachment_id: ID of the attachment between the two connections.
@@ -561,7 +561,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
+                 options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  transport_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -615,7 +615,7 @@ class ConnectAttachment(pulumi.CustomResource):
             core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
             core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
             edge_location: pulumi.Input[Optional[_builtins.str]] = None,
-            options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
+            options: pulumi.Input[Optional[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']]] = None,
             owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
             routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
@@ -638,7 +638,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] core_network_arn: ARN of a core network.
         :param pulumi.Input[_builtins.str] core_network_id: ID of a core network where you want to create the attachment.
         :param pulumi.Input[_builtins.str] edge_location: Region where the edge is located.
-        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']] options: Options block. See options for more information.
+        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict', 'outputs.ConnectAttachmentOptions']] options: Options block. See options for more information.
         :param pulumi.Input[_builtins.str] owner_account_id: ID of the attachment account owner.
         :param pulumi.Input[_builtins.str] resource_arn: Attachment resource ARN.
         :param pulumi.Input[_builtins.str] routing_policy_label: The routing policy label to apply to the Connect attachment for traffic routing decisions. Maximum length of 256 characters. Changing this value will force recreation of the resource.

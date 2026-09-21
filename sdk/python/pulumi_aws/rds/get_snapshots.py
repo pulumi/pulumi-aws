@@ -125,7 +125,7 @@ class AwaitableGetSnapshotsResult(GetSnapshotsResult):
 
 def get_snapshots(db_instance_identifier: Optional[_builtins.str] = None,
                   db_snapshot_identifier: Optional[_builtins.str] = None,
-                  filters: Optional[Sequence[Union['GetSnapshotsFilterArgs', 'GetSnapshotsFilterArgsDict']]] = None,
+                  filters: Optional[Sequence[Union['GetSnapshotsFilterArgs', 'GetSnapshotsFilterArgsDict', 'outputs.GetSnapshotsFilterResult']]] = None,
                   include_public: Optional[_builtins.bool] = None,
                   include_shared: Optional[_builtins.bool] = None,
                   region: Optional[_builtins.str] = None,
@@ -160,7 +160,7 @@ def get_snapshots(db_instance_identifier: Optional[_builtins.str] = None,
 
     :param _builtins.str db_instance_identifier: Returns the list of snapshots created by the specific db_instance.
     :param _builtins.str db_snapshot_identifier: Returns information on a specific snapshot_id.
-    :param Sequence[Union['GetSnapshotsFilterArgs', 'GetSnapshotsFilterArgsDict']] filters: Configuration block(s) used to filter snapshots with AWS supported attributes. Detailed below.
+    :param Sequence[Union['GetSnapshotsFilterArgs', 'GetSnapshotsFilterArgsDict', 'outputs.GetSnapshotsFilterResult']] filters: Configuration block(s) used to filter snapshots with AWS supported attributes. Detailed below.
     :param _builtins.bool include_public: Set this value to `true` to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to `false`. The default is `false`.
     :param _builtins.bool include_shared: Set this value to `true` to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to `false`. The default is `false`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -188,7 +188,7 @@ def get_snapshots(db_instance_identifier: Optional[_builtins.str] = None,
         snapshots=pulumi.get(__ret__, 'snapshots'))
 def get_snapshots_output(db_instance_identifier: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          db_snapshot_identifier: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                         filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSnapshotsFilterArgs', 'GetSnapshotsFilterArgsDict']]]]] = None,
+                         filters: pulumi.Input[Optional[Optional[Sequence[Union['GetSnapshotsFilterArgs', 'GetSnapshotsFilterArgsDict', 'outputs.GetSnapshotsFilterResult']]]]] = None,
                          include_public: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                          include_shared: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                          region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -223,7 +223,7 @@ def get_snapshots_output(db_instance_identifier: pulumi.Input[Optional[Optional[
 
     :param _builtins.str db_instance_identifier: Returns the list of snapshots created by the specific db_instance.
     :param _builtins.str db_snapshot_identifier: Returns information on a specific snapshot_id.
-    :param Sequence[Union['GetSnapshotsFilterArgs', 'GetSnapshotsFilterArgsDict']] filters: Configuration block(s) used to filter snapshots with AWS supported attributes. Detailed below.
+    :param Sequence[Union['GetSnapshotsFilterArgs', 'GetSnapshotsFilterArgsDict', 'outputs.GetSnapshotsFilterResult']] filters: Configuration block(s) used to filter snapshots with AWS supported attributes. Detailed below.
     :param _builtins.bool include_public: Set this value to `true` to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to `false`. The default is `false`.
     :param _builtins.bool include_shared: Set this value to `true` to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to `false`. The default is `false`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

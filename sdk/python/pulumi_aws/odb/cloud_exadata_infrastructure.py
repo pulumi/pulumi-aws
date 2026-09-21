@@ -901,16 +901,16 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  compute_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 customer_contacts_to_send_to_ocis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]]] = None,
+                 customer_contacts_to_send_to_ocis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict', 'outputs.CloudExadataInfrastructureCustomerContactsToSendToOci']]]]] = None,
                  database_server_type: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.CloudExadataInfrastructureMaintenanceWindow']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  shape: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_count: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_server_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CloudExadataInfrastructureTimeoutsArgs', 'CloudExadataInfrastructureTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CloudExadataInfrastructureTimeoutsArgs', 'CloudExadataInfrastructureTimeoutsArgsDict', 'outputs.CloudExadataInfrastructureTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing exadata infrastructure resource in AWS for Oracle Database@AWS.
@@ -931,10 +931,10 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] availability_zone_id: AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] compute_count: Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict', 'outputs.CloudExadataInfrastructureCustomerContactsToSendToOci']]]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         :param pulumi.Input[_builtins.str] database_server_type: Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] display_name: User-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
-        :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
+        :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.CloudExadataInfrastructureMaintenanceWindow']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] shape: Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] storage_count: Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
@@ -981,16 +981,16 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  compute_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 customer_contacts_to_send_to_ocis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]]] = None,
+                 customer_contacts_to_send_to_ocis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict', 'outputs.CloudExadataInfrastructureCustomerContactsToSendToOci']]]]] = None,
                  database_server_type: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.CloudExadataInfrastructureMaintenanceWindow']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  shape: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_count: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_server_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['CloudExadataInfrastructureTimeoutsArgs', 'CloudExadataInfrastructureTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['CloudExadataInfrastructureTimeoutsArgs', 'CloudExadataInfrastructureTimeoutsArgsDict', 'outputs.CloudExadataInfrastructureTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1069,14 +1069,14 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
             compute_model: pulumi.Input[Optional[_builtins.str]] = None,
             cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
-            customer_contacts_to_send_to_ocis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]]] = None,
+            customer_contacts_to_send_to_ocis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict', 'outputs.CloudExadataInfrastructureCustomerContactsToSendToOci']]]]] = None,
             data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
             database_server_type: pulumi.Input[Optional[_builtins.str]] = None,
             db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
             db_server_version: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             last_maintenance_run_id: pulumi.Input[Optional[_builtins.str]] = None,
-            maintenance_window: pulumi.Input[Optional[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.CloudExadataInfrastructureMaintenanceWindow']]] = None,
             max_cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
             max_data_storage_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
             max_db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1098,7 +1098,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
             storage_server_version: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['CloudExadataInfrastructureTimeoutsArgs', 'CloudExadataInfrastructureTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['CloudExadataInfrastructureTimeoutsArgs', 'CloudExadataInfrastructureTimeoutsArgsDict', 'outputs.CloudExadataInfrastructureTimeouts']]] = None,
             total_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None) -> 'CloudExadataInfrastructure':
         """
         Get an existing CloudExadataInfrastructure resource's state with the given name, id, and optional extra
@@ -1117,14 +1117,14 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compute_model: OCI model compute model used when you create or clone an instance: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_count: Total number of CPU cores that are allocated to the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] created_at: Time when the Exadata infrastructure was created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict', 'outputs.CloudExadataInfrastructureCustomerContactsToSendToOci']]]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: Size of the Exadata infrastructure's data disk group, in terabytes (TB).
         :param pulumi.Input[_builtins.str] database_server_type: Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: Size of the Exadata infrastructure's local node storage, in gigabytes (GB).
         :param pulumi.Input[_builtins.str] db_server_version: Software version of the database servers (dom0) in the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] display_name: User-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         :param pulumi.Input[_builtins.str] last_maintenance_run_id: Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
-        :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
+        :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.CloudExadataInfrastructureMaintenanceWindow']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
         :param pulumi.Input[_builtins.int] max_cpu_count: Total number of CPU cores available on the Exadata infrastructure.
         :param pulumi.Input[_builtins.float] max_data_storage_in_tbs: Total amount of data disk group storage, in terabytes (TB), that's available on the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] max_db_node_storage_size_in_gbs: Total amount of local node storage, in gigabytes (GB), that's available on the Exadata infrastructure.

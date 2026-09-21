@@ -211,7 +211,7 @@ class LfTagExpression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 expressions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict']]]]] = None,
+                 expressions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict', 'outputs.LfTagExpressionExpression']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -250,7 +250,7 @@ class LfTagExpression(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog. Defaults to the account ID if not specified.
         :param pulumi.Input[_builtins.str] description: Description of the LF-Tag Expression.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict']]]] expressions: A list of LF-Tag conditions (key-value pairs). See expression for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict', 'outputs.LfTagExpressionExpression']]]] expressions: A list of LF-Tag conditions (key-value pairs). See expression for more details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the LF-Tag Expression.
@@ -310,7 +310,7 @@ class LfTagExpression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 expressions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict']]]]] = None,
+                 expressions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict', 'outputs.LfTagExpressionExpression']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -341,7 +341,7 @@ class LfTagExpression(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            expressions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict']]]]] = None,
+            expressions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict', 'outputs.LfTagExpressionExpression']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None) -> 'LfTagExpression':
         """
@@ -353,7 +353,7 @@ class LfTagExpression(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: ID of the Data Catalog. Defaults to the account ID if not specified.
         :param pulumi.Input[_builtins.str] description: Description of the LF-Tag Expression.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict']]]] expressions: A list of LF-Tag conditions (key-value pairs). See expression for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LfTagExpressionExpressionArgs', 'LfTagExpressionExpressionArgsDict', 'outputs.LfTagExpressionExpression']]]] expressions: A list of LF-Tag conditions (key-value pairs). See expression for more details.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the LF-Tag Expression.

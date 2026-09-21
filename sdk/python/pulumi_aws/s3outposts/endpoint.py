@@ -426,7 +426,7 @@ class Endpoint(pulumi.CustomResource):
             cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
             creation_time: pulumi.Input[Optional[_builtins.str]] = None,
             customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
-            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict', 'outputs.EndpointNetworkInterface']]]]] = None,
             outpost_id: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -443,7 +443,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[_builtins.str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] customer_owned_ipv4_pool: ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict', 'outputs.EndpointNetworkInterface']]]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[_builtins.str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] security_group_id: Identifier of the EC2 Security Group.

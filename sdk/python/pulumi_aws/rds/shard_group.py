@@ -391,7 +391,7 @@ class ShardGroup(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict', 'outputs.ShardGroupTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Aurora Limitless Database DB shard group
@@ -513,7 +513,7 @@ class ShardGroup(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict', 'outputs.ShardGroupTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -564,7 +564,7 @@ class ShardGroup(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            timeouts: pulumi.Input[Optional[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict']]] = None) -> 'ShardGroup':
+            timeouts: pulumi.Input[Optional[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict', 'outputs.ShardGroupTimeouts']]] = None) -> 'ShardGroup':
         """
         Get an existing ShardGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -395,7 +395,7 @@ class Certificate(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             created_at: pulumi.Input[Optional[_builtins.str]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]]] = None,
+            domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict', 'outputs.CertificateDomainValidationOption']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -411,7 +411,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the certificate.
         :param pulumi.Input[_builtins.str] created_at: Date and time when the certificate was created.
         :param pulumi.Input[_builtins.str] domain_name: Domain name for which the certificate should be issued.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict', 'outputs.CertificateDomainValidationOption']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Each element contains the following attributes:
         :param pulumi.Input[_builtins.str] name: Name of the certificate.
                
                The following arguments are optional:

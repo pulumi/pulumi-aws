@@ -203,7 +203,7 @@ class ManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
                  managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict', 'outputs.ManagedPolicyAttachmentsExclusiveTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing exclusive AWS SSO Admin Managed Policy Attachments.
@@ -367,7 +367,7 @@ class ManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
                  managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict', 'outputs.ManagedPolicyAttachmentsExclusiveTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -402,7 +402,7 @@ class ManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
             managed_policy_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict']]] = None) -> 'ManagedPolicyAttachmentsExclusive':
+            timeouts: pulumi.Input[Optional[Union['ManagedPolicyAttachmentsExclusiveTimeoutsArgs', 'ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict', 'outputs.ManagedPolicyAttachmentsExclusiveTimeouts']]] = None) -> 'ManagedPolicyAttachmentsExclusive':
         """
         Get an existing ManagedPolicyAttachmentsExclusive resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

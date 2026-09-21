@@ -201,7 +201,7 @@ class AwaitableGetOntapStorageVirtualMachineResult(GetOntapStorageVirtualMachine
             uuid=self.uuid)
 
 
-def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']]] = None,
+def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict', 'outputs.GetOntapStorageVirtualMachineFilterResult']]] = None,
                                       id: Optional[_builtins.str] = None,
                                       region: Optional[_builtins.str] = None,
                                       tags: Optional[Mapping[str, _builtins.str]] = None,
@@ -235,7 +235,7 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntap
     ```
 
 
-    :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict', 'outputs.GetOntapStorageVirtualMachineFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
@@ -263,7 +263,7 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntap
         subtype=pulumi.get(__ret__, 'subtype'),
         tags=pulumi.get(__ret__, 'tags'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_ontap_storage_virtual_machine_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']]]]] = None,
+def get_ontap_storage_virtual_machine_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict', 'outputs.GetOntapStorageVirtualMachineFilterResult']]]]] = None,
                                              id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                              region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                              tags: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -297,7 +297,7 @@ def get_ontap_storage_virtual_machine_output(filters: pulumi.Input[Optional[Opti
     ```
 
 
-    :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict', 'outputs.GetOntapStorageVirtualMachineFilterResult']] filters: Configuration block. Detailed below.
     :param _builtins.str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.

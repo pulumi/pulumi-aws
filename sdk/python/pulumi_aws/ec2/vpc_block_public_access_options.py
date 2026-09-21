@@ -163,7 +163,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_block_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict', 'outputs.VpcBlockPublicAccessOptionsTimeouts']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC Block Public Access Options.
@@ -239,7 +239,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_block_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict', 'outputs.VpcBlockPublicAccessOptionsTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -270,7 +270,7 @@ class VpcBlockPublicAccessOptions(pulumi.CustomResource):
             aws_region: pulumi.Input[Optional[_builtins.str]] = None,
             internet_gateway_block_mode: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict']]] = None) -> 'VpcBlockPublicAccessOptions':
+            timeouts: pulumi.Input[Optional[Union['VpcBlockPublicAccessOptionsTimeoutsArgs', 'VpcBlockPublicAccessOptionsTimeoutsArgsDict', 'outputs.VpcBlockPublicAccessOptionsTimeouts']]] = None) -> 'VpcBlockPublicAccessOptions':
         """
         Get an existing VpcBlockPublicAccessOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -366,11 +366,11 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict', 'outputs.RepositoryEncryptionConfiguration']]]]] = None,
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
-                 image_scanning_configuration: pulumi.Input[Optional[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
+                 image_scanning_configuration: pulumi.Input[Optional[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict', 'outputs.RepositoryImageScanningConfiguration']]] = None,
                  image_tag_mutability: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryImageTagMutabilityExclusionFilter']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -435,12 +435,12 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict', 'outputs.RepositoryEncryptionConfiguration']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
         :param pulumi.Input[_builtins.bool] force_delete: If `true`, will delete the repository even if it contains images.
                Defaults to `false`.
-        :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+        :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict', 'outputs.RepositoryImageScanningConfiguration']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryImageTagMutabilityExclusionFilter']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
         :param pulumi.Input[_builtins.str] name: Name of the repository.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -524,11 +524,11 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]]] = None,
+                 encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict', 'outputs.RepositoryEncryptionConfiguration']]]]] = None,
                  force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
-                 image_scanning_configuration: pulumi.Input[Optional[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
+                 image_scanning_configuration: pulumi.Input[Optional[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict', 'outputs.RepositoryImageScanningConfiguration']]] = None,
                  image_tag_mutability: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+                 image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryImageTagMutabilityExclusionFilter']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -564,11 +564,11 @@ class Repository(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]]] = None,
+            encryption_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict', 'outputs.RepositoryEncryptionConfiguration']]]]] = None,
             force_delete: pulumi.Input[Optional[_builtins.bool]] = None,
-            image_scanning_configuration: pulumi.Input[Optional[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
+            image_scanning_configuration: pulumi.Input[Optional[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict', 'outputs.RepositoryImageScanningConfiguration']]] = None,
             image_tag_mutability: pulumi.Input[Optional[_builtins.str]] = None,
-            image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]]] = None,
+            image_tag_mutability_exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryImageTagMutabilityExclusionFilter']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             registry_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -583,12 +583,12 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Full ARN of the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict', 'outputs.RepositoryEncryptionConfiguration']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
         :param pulumi.Input[_builtins.bool] force_delete: If `true`, will delete the repository even if it contains images.
                Defaults to `false`.
-        :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+        :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict', 'outputs.RepositoryImageScanningConfiguration']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[_builtins.str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryImageTagMutabilityExclusionFilterArgs', 'RepositoryImageTagMutabilityExclusionFilterArgsDict', 'outputs.RepositoryImageTagMutabilityExclusionFilter']]]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
         :param pulumi.Input[_builtins.str] name: Name of the repository.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_id: The registry ID where the repository was created.

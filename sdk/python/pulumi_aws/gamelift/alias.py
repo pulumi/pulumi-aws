@@ -236,7 +236,7 @@ class Alias(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
+                 routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict', 'outputs.AliasRoutingStrategy']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -271,7 +271,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] name: Name of the alias.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
+        :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict', 'outputs.AliasRoutingStrategy']] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -325,7 +325,7 @@ class Alias(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
+                 routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict', 'outputs.AliasRoutingStrategy']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -359,7 +359,7 @@ class Alias(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
+            routing_strategy: pulumi.Input[Optional[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict', 'outputs.AliasRoutingStrategy']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Alias':
         """
@@ -373,7 +373,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] name: Name of the alias.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
+        :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict', 'outputs.AliasRoutingStrategy']] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

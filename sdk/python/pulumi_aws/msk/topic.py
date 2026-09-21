@@ -301,7 +301,7 @@ class Topic(pulumi.CustomResource):
                  partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TopicTimeoutsArgs', 'TopicTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TopicTimeoutsArgs', 'TopicTimeoutsArgsDict', 'outputs.TopicTimeouts']]] = None,
                  __props__=None):
         """
         Manages an AWS Managed Streaming for Kafka Topic.
@@ -433,7 +433,7 @@ class Topic(pulumi.CustomResource):
                  partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
-                 timeouts: pulumi.Input[Optional[Union['TopicTimeoutsArgs', 'TopicTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['TopicTimeoutsArgs', 'TopicTimeoutsArgsDict', 'outputs.TopicTimeouts']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -476,7 +476,7 @@ class Topic(pulumi.CustomResource):
             partition_count: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             replication_factor: pulumi.Input[Optional[_builtins.int]] = None,
-            timeouts: pulumi.Input[Optional[Union['TopicTimeoutsArgs', 'TopicTimeoutsArgsDict']]] = None) -> 'Topic':
+            timeouts: pulumi.Input[Optional[Union['TopicTimeoutsArgs', 'TopicTimeoutsArgsDict', 'outputs.TopicTimeouts']]] = None) -> 'Topic':
         """
         Get an existing Topic resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

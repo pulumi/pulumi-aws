@@ -194,7 +194,7 @@ class ClusterPeering(pulumi.CustomResource):
                  clusters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict', 'outputs.ClusterPeeringTimeouts']]] = None,
                  witness_region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -300,7 +300,7 @@ class ClusterPeering(pulumi.CustomResource):
                  clusters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeouts: pulumi.Input[Optional[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
+                 timeouts: pulumi.Input[Optional[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict', 'outputs.ClusterPeeringTimeouts']]] = None,
                  witness_region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -335,7 +335,7 @@ class ClusterPeering(pulumi.CustomResource):
             clusters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             identifier: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
-            timeouts: pulumi.Input[Optional[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
+            timeouts: pulumi.Input[Optional[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict', 'outputs.ClusterPeeringTimeouts']]] = None,
             witness_region: pulumi.Input[Optional[_builtins.str]] = None) -> 'ClusterPeering':
         """
         Get an existing ClusterPeering resource's state with the given name, id, and optional extra
